@@ -38,6 +38,8 @@
     (.start node)
     node))
 
+(defn v [volts] (/ volts 10))
+
 (defn const [v]
   (let [node (.createConstantSource (:ctx @state))]
     (set! (.-value (.-offset node)) v)
