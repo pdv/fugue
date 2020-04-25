@@ -1,6 +1,10 @@
 (ns webcv.audio
   (:require [webcv.engine :as engine]))
 
+(def in engine/in)
+(def out engine/out)
+(def reset-ctx! engine/reset-ctx!)
+
 (defn oscillator
   ([type freq] (oscillator type freq 0))
   ([type freq detune]

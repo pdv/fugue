@@ -1,7 +1,7 @@
 (ns webcv.core
   (:require [reagent.core :as r]
             [reagent.dom :as rdom]
-            [webcv.engine :as engine]))
+            [webcv.audio :as audio]))
 
 (defn v [volts] (/ volts 10))
 
@@ -10,7 +10,7 @@
 
 (defn main []
   (enable-console-print!)
-  (engine/reset!)
+  (audio/reset-ctx!)
   (rdom/render [greeting "howdy"] (js/document.getElementById "app")))
 
 (main)

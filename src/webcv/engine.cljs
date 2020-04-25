@@ -1,8 +1,9 @@
-(ns webcv.engine)
+(ns webcv.engine
+  (:require [goog.object :as o]))
 
 (defonce state (atom {:ctx nil :outs nil :ins nil}))
 
-(defn reset!
+(defn reset-ctx!
   ([]
    (when-let [old-ctx (:ctx @state)]
      (.close old-ctx))
