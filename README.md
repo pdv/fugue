@@ -1,10 +1,33 @@
 # webcv
 
-FIXME: Write a one-line description of your library/project.
+Cljs wrapper for Web Audio, focused on CV utilities for modular synthesis
 
 ## Overview
 
-FIXME: Write a paragraph about the library/project and highlight its goals.
+```
+(require '[webcv.core :as cv])
+(cv/out 5 (cv/sin-osc 440))
+```
+
+#### IO
+
+```
+(out channel node)
+(in channel)
+```
+
+#### CV
+
+```
+(v volts)     ;; maps [-10, 10] to [-1, 1]
+(const value) ;; holds value
+```
+
+#### Audio
+
+```
+(sin-osc freq)
+```
 
 ## Setup
 
@@ -34,6 +57,6 @@ get live reloading, nor a REPL.
 
 ## License
 
-Copyright © 2014 FIXME
+Copyright © 2020 pdv
 
 Distributed under the Eclipse Public License either version 1.0 or (at your option) any later version.
