@@ -2,16 +2,25 @@
   (:require [reagent.core :as r]
             [reagent.dom :as rdom]))
 
-(defonce ctx (js/AudioContext.))
-(defonce dest (.-destination ctx))
-(defonce out-channel-count (.-maxChannelCount dest))
-(defonce mixer (.createChannelMerger ctx out-channel-count))
+(defonce state (atom {:ctx nil :mixer nil}))
+
+(defn reset-ctx! []
+  (when-let [old-ctx (:ctx @state)]
+    (.close old-ctx))
+  (let [ctx (js/AudioContext.)
+        dest (.-destination ctx)
+        chans (.-maxChannelCount dest)
+        mixer (.createChannelMerger ctx chans)]
+    (set! (.-channelCount dest) chans)
+    (.connect mixer dest)
+    (reset! state {:ctx ctx :mixer mixer})))
 
 (defn out [n v]
-  (.connect v mixer 0 n))
+  (.connect v (:mixer @state) 0 (dec n)))
 
 (defn sin-osc [freq]
-  (let [node (.createOscillator ctx)]
+  (let [ctx (:ctx @state)
+        node (.createOscillator ctx)]
     (set! (.-value (.-frequency node)) freq)
     (.start node)
     node))
@@ -21,8 +30,7 @@
 
 (defn main []
   (enable-console-print!)
-  (set! (.-channelCount dest) out-channel-count)
-  (.connect mixer dest)
+  (reset-ctx!)
   (rdom/render [greeting "howdy"] (js/document.getElementById "app")))
 
 (main)
