@@ -10,7 +10,6 @@
 
 (defn main []
   (enable-console-print!)
-  (audio/reset-ctx!)
   (rdom/render [greeting "howdy"] (js/document.getElementById "app")))
 
 (main)

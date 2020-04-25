@@ -1,4 +1,5 @@
-(ns webcv.audio)
+(ns webcv.audio
+  (:require [goog.object :as o]))
 
 (defonce state (atom {:ctx nil :outs nil :ins nil}))
 
@@ -61,10 +62,10 @@
 (defn- oscillator
   ([type freq] (oscillator type freq 0))
   ([type freq detune]
-   (engine/source {:constructor "createOscillator"
-                   :static-params {"type" type}
-                   :audio-params {"frequency" [0 freq] 
-                                  "detune" [0 detune]}})))
+   (source {:constructor "createOscillator"
+            :static-params {"type" type}
+            :audio-params {"frequency" [0 freq] 
+                           "detune" [0 detune]}})))
 
 (def sin-osc (partial oscillator "sine"))
 (def saw (partial oscillator "sawtooth"))
@@ -74,24 +75,24 @@
 (defn- biquad-filter
   ([type in freq] (biquad-filter type in freq 1))
   ([type in freq q]
-   (engine/effect in {:constructor "createBiquadFilter"
-                      :static-params {"type" type}
-                      :audio-params {"frequency" [0 freq] 
-                                     "Q" [1 q]}})))
+   (effect in {:constructor "createBiquadFilter"
+               :static-params {"type" type}
+               :audio-params {"frequency" [0 freq] 
+                              "Q" [1 q]}})))
 
 (def lpf (partial biquad-filter "lowpass"))
 (def hpf (partial biquad-filter "highpass"))
 (def bpf (partial biquad-filter "bandpass"))
 
 (defn gain [in amp]
-  (engine/effect in {:constructor "createGain"
-                     :audio-params {"gain" [0 amp]}}))
+  (effect in {:constructor "createGain"
+              :audio-params {"gain" [0 amp]}}))
 
 (defn delay-node [in time]
-  (engine/effect in {:constructor "createDelay"
-                     :audio-params {"delayTime" [0 time]}}))
+  (effect in {:constructor "createDelay"
+              :audio-params {"delayTime" [0 time]}}))
 
 (defn const [& modulators]
-  (engine/source {:constructor "createConstantSource"
-                  :audio-params {"offset" (cons 0.0001 modulators)}}))
+  (source {:constructor "createConstantSource"
+           :audio-params {"offset" (cons 0.0001 modulators)}}))
 
