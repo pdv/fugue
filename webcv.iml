@@ -19,6 +19,7 @@
     <orderEntry type="library" name="Leiningen: aysylu/loom:1.0.2" level="project" />
     <orderEntry type="library" name="Leiningen: binaryage/devtools:0.9.10" level="project" />
     <orderEntry type="library" name="Leiningen: binaryage/env-config:0.2.2" level="project" />
+    <orderEntry type="library" name="Leiningen: binaryage/oops:0.7.0" level="project" />
     <orderEntry type="library" name="Leiningen: clj-stacktrace:0.2.8" level="project" />
     <orderEntry type="library" name="Leiningen: clj-time:0.11.0" level="project" />
     <orderEntry type="library" name="Leiningen: cljsjs/react-dom-server:16.13.0-0" level="project" />

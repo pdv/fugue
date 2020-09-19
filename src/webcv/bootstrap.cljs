@@ -2,6 +2,7 @@
   (:require [cljs.js]
             [webcv.io]
             [webcv.osc]
+            [webcv.gain]
             [webcv.biquad-filter]))
 
 ;; https://stackoverflow.com/questions/51573858/
@@ -14,6 +15,7 @@
    "(def saw webcv.osc/saw)"
    "(def square webcv.osc/square)"
    "(def tri webcv.osc/tri)"
+   "(def gain webcv.gain/gain)"
    "(def lpf webcv.biquad-filter/lpf)"
    "(def hpf webcv.biquad-filter/hpf)"
    "(def bpf webcv.biquad-filter/bpf)"])

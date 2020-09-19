@@ -2,6 +2,7 @@
   (:require [reagent.core :as r]
             [reagent.dom :as rdom]
             [cljs.pprint :refer [pprint]]
+            [oops.core :refer [oget+]]
             [webcv.web-audio :as web-audio]
             [webcv.synthdef :as synthdef]
             [webcv.bootstrap :refer [read-eval]]))
@@ -10,8 +11,12 @@
   (let [graph (:value (read-eval text))]
     (synthdef/render graph
                      (partial web-audio/make-node (web-audio/make-ctx))
-                     #(.connect %1 %2))
-    (cb graph)))
+                     (fn [src dest param-name]
+                       (.log js/console src dest)
+                       (if param-name
+                         (.connect src (oget+ dest (name param-name)))
+                         (.connect src dest))))
+    (cb (with-out-str (pprint graph)))))
 
 (defn editor-did-mount [input]
   (fn [this]
@@ -24,12 +29,15 @@
 (defn editor [input]
   (r/create-class
    {:render (fn [] [:textarea
-                            {:default-value ""
+                            {:default-value @input
                              :auto-complete "off"}])
     :component-did-mount (editor-did-mount input)}))
 
+(def init-text
+  "(-> (sin-osc 0.1) (gain 50) (saw) (out))")
+
 (defn repl []
-  (let [input (r/atom nil)
+  (let [input (r/atom init-text)
         output (r/atom nil)]
     (fn []
       [:div
@@ -38,7 +46,7 @@
         [:button
          {:on-click #(render @input (partial reset! output))}
          "run"]]
-       [:p (with-out-str (pprint @output))]])))
+       [:p @output]])))
 
 (defn -main []
   (enable-console-print!)

@@ -1,40 +1,34 @@
 (ns webcv.osc
   (:require [clojure.spec.alpha :as s]
-            [goog.object :as o]
+            [oops.core :refer [oset!]]
             [webcv.web-audio :as web-audio]
             [webcv.synthdef :refer [source]]))
 
-(s/def ::freq number?)
+(s/def ::frequency number?)
 (s/def ::detune number?)
-(s/def ::type #{::sine ::saw ::square ::tri})
+(s/def ::type #{::sine ::sawtooth ::square ::triangle})
 (defmethod web-audio/node-spec ::osc [_]
-  (s/keys :req [::type ::freq ::detune]))
+  (s/keys :req [::type ::frequency ::detune]))
 
 (defn oscillator
-  ([type freq] (oscillator type freq -1))
-  ([type freq detune]
+  ([type frequency] (oscillator type frequency -42))
+  ([type frequency detune]
    (source {::web-audio/node-type ::osc
             ::type type
-            ::freq -1
-            ::detune -1}
-           {::freq freq
+            ::frequency 440
+            ::detune 42}
+           {::frequency frequency
             ::detune detune})))
 
 (def sin-osc (partial oscillator ::sine))
-(def saw (partial oscillator ::saw))
+(def saw (partial oscillator ::sawtooth))
 (def square (partial oscillator ::square))
-(def tri-osc (partial oscillator ::tri))
-
-(def type-name
-  {::sine "sine"
-   ::saw "sawtooth"
-   ::square "square"
-   ::tri "triange"})
+(def tri-osc (partial oscillator ::triangle))
 
 (defmethod web-audio/make-node ::osc
-  [{::web-audio/keys [actx]} {::keys [type freq detune]}]
+  [{::web-audio/keys [actx]} {::keys [type frequency detune]}]
   (doto (.createOscillator actx)
-    (o/set "type" (type-name type))
-    (o/set "frequency.value" freq)
-    (o/set "detune.value" detune)
+    (oset! "type" (name type))
+    (oset! "frequency.value" frequency)
+    (oset! "detune.value" detune)
     (.start)))

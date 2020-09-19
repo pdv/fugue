@@ -76,8 +76,9 @@
 (defn render [synthdef node-fn edge-fn]
   (let [nodes-by-id (rendered-nodes-by-id synthdef node-fn)]
     (doseq [edge (edges synthdef)
-            :let [source (nodes-by-id (first edge))
+            :let [param-name (attr synthdef edge ::param-name)
+                  source (nodes-by-id (first edge))
                   dest (nodes-by-id (second edge))]]
-      (edge-fn source dest))))
+      (edge-fn source dest param-name))))
 
 
