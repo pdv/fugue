@@ -31,7 +31,7 @@
                            ;; Comment this out once it no longer serves you.
                            :open-urls ["http://localhost:3449/index.html"]}
 
-                :compiler {:main webcv.core
+                :compiler {:main webcv.web
                            :asset-path "js/compiled/out"
                            :output-to "resources/public/js/compiled/webcv.js"
                            :output-dir "resources/public/js/compiled/out"

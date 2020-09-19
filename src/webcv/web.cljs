@@ -1,13 +1,11 @@
-(ns webcv.repl 
+(ns webcv.web
   (:require [reagent.core :as r]
             [reagent.dom :as rdom]
             [cljs.pprint :refer [pprint]]
-            [webcv.bootstrap :refer [read-eval]]
-            [webcv.audio]))
+            [webcv.bootstrap :refer [read-eval]]))
 
 (defn eval-audio [s cb]
-  (.then (webcv.audio/reset-ctx!) 
-         (fn [] (cb (read-eval s)))))
+  (cb (read-eval s)))
 
 (defn editor-did-mount [input]
   (fn [this]
@@ -36,3 +34,6 @@
          "run"]]
        [:p (with-out-str (pprint @output))]])))
 
+(defn -main []
+  (enable-console-print!)
+  (rdom/render [repl] (js/document.getElementById "app")))

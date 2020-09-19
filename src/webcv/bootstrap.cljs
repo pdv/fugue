@@ -1,22 +1,20 @@
 (ns webcv.bootstrap
   (:require [cljs.js]
-            [webcv.audio]))
+            [webcv.osc]
+            [webcv.biquad-filter]))
 
 ;; https://stackoverflow.com/questions/51573858/
 
 (def compiler-state (cljs.js/empty-state))
 
 (def init-forms
-  ["(def out webcv.audio/out)"
-   "(def sin-osc webcv.audio/sin-osc"
-   "(def saw webcv.audio/saw)"
-   "(def square webcv.audio/square)"
-   "(def tri-osc webcv.audio/tri-osc)"
-   "(def lpf webcv.audio/lpf)"
-   "(def hpf webcv.audio/hpf)"
-   "(def bpf webcv.audio/bpf)"
-   "(def gain webcv.audio/gain)"
-   "(def const webcv.audio/const)"])
+  ["(def sin-osc webcv.osc/sin-osc)"
+   "(def saw webcv.osc/saw)"
+   "(def square webcv.osc/square)"
+   "(def tri webcv.osc/tri)"
+   "(def lpf webcv.biquad-filter/lpf)"
+   "(def hpf webcv.biquad-filter/hpf)"
+   "(def bpf webcv.biquad-filter/bpf)"])
 
 (let [init (atom false)]
   (defn read-eval
