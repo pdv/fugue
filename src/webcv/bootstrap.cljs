@@ -1,5 +1,6 @@
 (ns webcv.bootstrap
   (:require [cljs.js]
+            [webcv.io]
             [webcv.osc]
             [webcv.biquad-filter]))
 
@@ -8,7 +9,8 @@
 (def compiler-state (cljs.js/empty-state))
 
 (def init-forms
-  ["(def sin-osc webcv.osc/sin-osc)"
+  ["(def out webcv.io/out)"
+   "(def sin-osc webcv.osc/sin-osc)"
    "(def saw webcv.osc/saw)"
    "(def square webcv.osc/square)"
    "(def tri webcv.osc/tri)"

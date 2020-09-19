@@ -1,8 +1,7 @@
 (ns webcv.synthdef
   (:require [clojure.spec.alpha :as s]
             [loom.graph :refer [graph? digraph add-nodes add-edges nodes edges successors]]
-            [loom.attr :refer [attr add-attr add-attr-to-edges remove-attr]]
-            [webcv.nodedef :as nodedef]))
+            [loom.attr :refer [attr attrs add-attr add-attr-to-edges remove-attr]]))
 
 (defn make-uuid []
   #?(:clj (.toString (java.util.UUID/randomUUID))
@@ -52,8 +51,7 @@
 
 (defn source
   [sparams aparams]
-  {:pre [(s/valid? ::nodedef/node sparams)]
-   :post [(s/valid? ::synthdef %)]}
+  {:post [(s/valid? ::synthdef %)]}
   (let [id (make-uuid)]
     (-> (digraph)
         (add-nodes id)
@@ -69,4 +67,17 @@
         (add-attrs-kv id sparams)
         (add-attr id :source? false)
         (add-params id aparams))))
+
+(defn rendered-nodes-by-id [synthdef node-fn]
+  (->> (nodes synthdef)
+       (map #(vector % (node-fn (attrs synthdef %))))
+       (into {})))
+
+(defn render [synthdef node-fn edge-fn]
+  (let [nodes-by-id (rendered-nodes-by-id synthdef node-fn)]
+    (doseq [edge (edges synthdef)
+            :let [source (nodes-by-id (first edge))
+                  dest (nodes-by-id (second edge))]]
+      (edge-fn source dest))))
+
 

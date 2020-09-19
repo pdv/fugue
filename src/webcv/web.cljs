@@ -2,10 +2,16 @@
   (:require [reagent.core :as r]
             [reagent.dom :as rdom]
             [cljs.pprint :refer [pprint]]
+            [webcv.web-audio :as web-audio]
+            [webcv.synthdef :as synthdef]
             [webcv.bootstrap :refer [read-eval]]))
 
-(defn eval-audio [s cb]
-  (cb (read-eval s)))
+(defn render [text cb]
+  (let [graph (:value (read-eval text))]
+    (synthdef/render graph
+                     (partial web-audio/make-node (web-audio/make-ctx))
+                     #(.connect %1 %2))
+    (cb graph)))
 
 (defn editor-did-mount [input]
   (fn [this]
@@ -30,10 +36,12 @@
        [editor input]
        [:div
         [:button
-         {:on-click #(eval-audio @input (partial reset! output))}
+         {:on-click #(render @input (partial reset! output))}
          "run"]]
        [:p (with-out-str (pprint @output))]])))
 
 (defn -main []
   (enable-console-print!)
   (rdom/render [repl] (js/document.getElementById "app")))
+
+(-main)
