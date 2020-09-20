@@ -69,8 +69,9 @@
     (.connect , outs 0 channel-idx)))
 
 (defmethod make-node :default
-  [{::keys [actx]} {::keys [node-type constructor props static-params]}]
+  [{::keys [actx]} {::keys [node-type constructor props]} static-params]
   (let [node (js-invoke actx constructor)]
+    (.log js/console static-params)
     (doseq [[k v] props]
       (oset! node k v))
     (doseq [[k v] static-params]
@@ -84,15 +85,19 @@
   {:pre [(s/valid? ::ctx ctx)
          (s/valid? ::synthdef synthdef)]}
   (let [nodes-by-id (->> (nodes synthdef)
-                         (map #(vector % (make-node ctx (attr synthdef % ::nodedef))))
+                         (map (fn [id]
+                                (vector id (make-node ctx
+                                                      (attr synthdef id ::nodedef)
+                                                      (attr synthdef id ::static-params)))))
                          (into {}))]
-    (.log js/console nodes-by-id)
+    (.log js/console "nodes" nodes-by-id)
     (doseq [edge (edges synthdef)
             :let [param-name (attr synthdef edge ::param-name)
                   src-node (nodes-by-id (first edge))
                   dest-node (nodes-by-id (second edge))
                   dest (if (= ::input param-name) dest-node
                          (oget+ dest-node param-name))]]
+      (.log js/console "connect" src-node dest)
       (.connect src-node dest))))
 
 (defn make-ctx
@@ -124,6 +129,11 @@
              ::constructor "createGain"}
             {::input ins}))
 
+(defn const [& offsets]
+  (synthdef {::node-type ::source
+             ::constructor "createConstantSource"}
+            {"offset" offsets}))
+
 (defn oscillator
   ([type frequency] (oscillator type frequency 0))
   ([type frequency detune]
@@ -147,3 +157,7 @@
              {::input [in]
               "frequency" [0 freq]
               "Q" [0 q]})))
+
+(def lpf (partial biquad-filter "lowpass"))
+(def hpf (partial biquad-filter "highpass"))
+(def bpf (partial biquad-filter "bandpass"))

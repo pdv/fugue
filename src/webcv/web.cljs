@@ -4,25 +4,14 @@
             [cljs.pprint :refer [pprint]]
             [oops.core :refer [oget+]]
             [webcv.audio :as audio]
-            [webcv.web-audio :as web-audio]
-            [webcv.synthdef :as synthdef]
             [webcv.bootstrap :refer [read-eval]]))
 
 (defn render [text cb]
-  (let [graph (:value (read-eval text))]
-    (synthdef/render graph
-                     (partial web-audio/make-node (web-audio/make-ctx))
-                     (fn [src dest param-name]
-                       (.log js/console src dest)
-                       (if (= ::synthdef/input param-name)
-                         (.connect src dest)
-                         (.connect src (oget+ dest (name param-name))))))
-    (cb (with-out-str (pprint graph)))))
-
-(defn render2 [text cb]
-  (let [graph (read-eval text)]
-    (audio/make-synth (audio/make-ctx) (:value graph))
-    (cb (with-out-str (pprint graph)))))
+  (let [ctx (audio/make-ctx)
+        graph (read-eval text)]
+    (audio/make-synth ctx (:value graph))
+    (cb {::ctx ctx
+         ::graph graph})))
 
 (defn editor-did-mount [input]
   (fn [this]
@@ -40,7 +29,7 @@
     :component-did-mount (editor-did-mount input)}))
 
 (def init-text
-  "(-> (sin-osc 0.1) (gain 50) (saw) (out))")
+  "(out (sin-osc (mix (const 440) (gain (sin-osc 0.1) 50))))")
 
 (defn repl []
   (let [input (r/atom init-text)
@@ -50,9 +39,9 @@
        [editor input]
        [:div
         [:button
-         {:on-click #(render2 @input (partial reset! output))}
+         {:on-click #(render @input (partial reset! output))}
          "run"]]
-       [:p @output]])))
+       [:p (with-out-str (pprint (::graph @output)))]])))
 
 (defn -main []
   (enable-console-print!)

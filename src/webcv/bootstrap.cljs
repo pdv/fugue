@@ -1,21 +1,27 @@
 (ns webcv.bootstrap
-  (:require [cljs.js]
-            [webcv.io]
-            [webcv.osc]
-            [webcv.gain]
-            [webcv.constant-source]
-            [webcv.biquad-filter]))
+  (:require [clojure.string :as string]
+            [cljs.js]
+            [webcv.audio]))
 
 ;; https://stackoverflow.com/questions/51573858/
 
 (def compiler-state (cljs.js/empty-state))
 
+(def ops
+  ["out"
+   "gain"
+   "mix"
+   "const"
+   "sin-osc"
+   "saw"
+   "square"
+   "tri-osc"
+   "lpf"
+   "hpf"
+   "bpf"])
+
 (def init-forms
-  ["(def out webcv.audio/out)"
-   "(def sin-osc webcv.audio/sin-osc)"
-   "(def saw webcv.audio/saw)"
-   "(def square webcv.audio/square)"
-   "(def tri webcv.audio/tri)"])
+  [(str "(require '[webcv.audio :refer [" (string/join " " ops) "]])")])
 
 (let [init (atom false)]
   (defn read-eval
