@@ -3,6 +3,7 @@
             [reagent.dom :as rdom]
             [cljs.pprint :refer [pprint]]
             [oops.core :refer [oget+]]
+            [webcv.audio :as audio]
             [webcv.web-audio :as web-audio]
             [webcv.synthdef :as synthdef]
             [webcv.bootstrap :refer [read-eval]]))
@@ -16,6 +17,11 @@
                        (if (= ::synthdef/input param-name)
                          (.connect src dest)
                          (.connect src (oget+ dest (name param-name))))))
+    (cb (with-out-str (pprint graph)))))
+
+(defn render2 [text cb]
+  (let [graph (read-eval text)]
+    (audio/make-synth (audio/make-ctx) (:value graph))
     (cb (with-out-str (pprint graph)))))
 
 (defn editor-did-mount [input]
@@ -44,7 +50,7 @@
        [editor input]
        [:div
         [:button
-         {:on-click #(render @input (partial reset! output))}
+         {:on-click #(render2 @input (partial reset! output))}
          "run"]]
        [:p @output]])))
 

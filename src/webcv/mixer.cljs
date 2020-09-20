@@ -4,3 +4,5 @@
             [webcv.web-audio :as web-audio]
             [webcv.synthdef :as synthdef]))
 
+(defn mix [& ins]
+  ())

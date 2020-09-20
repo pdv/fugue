@@ -11,16 +11,11 @@
 (def compiler-state (cljs.js/empty-state))
 
 (def init-forms
-  ["(def out webcv.io/out)"
-   "(def sin-osc webcv.osc/sin-osc)"
-   "(def saw webcv.osc/saw)"
-   "(def square webcv.osc/square)"
-   "(def tri webcv.osc/tri)"
-   "(def gain webcv.gain/gain)"
-   "(def const webcv.constant-source/const)"
-   "(def lpf webcv.biquad-filter/lpf)"
-   "(def hpf webcv.biquad-filter/hpf)"
-   "(def bpf webcv.biquad-filter/bpf)"])
+  ["(def out webcv.audio/out)"
+   "(def sin-osc webcv.audio/sin-osc)"
+   "(def saw webcv.audio/saw)"
+   "(def square webcv.audio/square)"
+   "(def tri webcv.audio/tri)"])
 
 (let [init (atom false)]
   (defn read-eval
