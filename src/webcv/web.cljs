@@ -13,9 +13,9 @@
                      (partial web-audio/make-node (web-audio/make-ctx))
                      (fn [src dest param-name]
                        (.log js/console src dest)
-                       (if param-name
-                         (.connect src (oget+ dest (name param-name)))
-                         (.connect src dest))))
+                       (if (= ::synthdef/input param-name)
+                         (.connect src dest)
+                         (.connect src (oget+ dest (name param-name))))))
     (cb (with-out-str (pprint graph)))))
 
 (defn editor-did-mount [input]

@@ -7,10 +7,10 @@
 (s/def ::gain number?)
 
 (defn gain [in amt]
-  (synthdef/effect in
-                   {::web-audio/node-type ::gain
-                    ::gain 1}
-                   {::gain amt}))
+  (synthdef/synthdef
+    {::web-audio/node-type ::gain}
+    {::synthdef/input in
+     ::gain amt}))
 
 (defmethod web-audio/node-spec ::gain [_]
   (s/keys :req [::gain]))

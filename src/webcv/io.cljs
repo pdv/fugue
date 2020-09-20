@@ -22,7 +22,7 @@
     (.connect , outs 0 (::channel-idx nodedef))))
 
 (defn out [in]
-  (synthdef/effect in
-                   {::web-audio/node-type ::output
-                    ::channel-idx 0}
-                   {}))
+  (synthdef/synthdef
+    {::web-audio/node-type ::output
+     ::channel-idx 0}
+    {::synthdef/input in}))

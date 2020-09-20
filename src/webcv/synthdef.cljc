@@ -13,6 +13,7 @@
 (s/def ::wires (s/* ::wire))
 (s/def ::synthdef (s/and graph?
                          #(s/valid? (s/coll-of ::node-id) (nodes %))))
+(s/def ::input ::synthdef)
 
 (defn outputs
   [synthdef]
@@ -29,52 +30,36 @@
 (defmulti add-param (fn [_ _ _ param-val]
                       (first (s/conform ::param-val param-val))))
 
-(defmethod add-param ::number [graph node-id param-name param-val]
-  (add-attr graph node-id param-name param-val))
+(defmethod add-param ::number [graph node param-name param-val]
+  (add-attr graph node param-name param-val))
 
-(defmethod add-param ::synthdef [graph node-id param-name param-val]
-  (let [new-edges (map #(vector % node-id) (outputs param-val))]
+(defmethod add-param ::synthdef [graph node param-name param-val]
+  (let [new-edges (map #(vector % node) (outputs param-val))]
     (-> (apply (partial digraph graph param-val) new-edges)
         (add-attr-to-edges ::param-name param-name new-edges))))
 
-(defn add-params [graph node-id params]
+(defn add-params [graph node params]
   (reduce-kv (fn [g param-name param-val]
-               (add-param g node-id param-name param-val))
+               (add-param g node param-name param-val))
              graph
              params))
 
-(defn add-attrs-kv [g node-id coll]
-  (reduce-kv (fn [g k v]
-               (add-attr g node-id k v))
-             g
-             coll))
+(defn add-attrs-kv [g node-or-edge coll]
+  (reduce-kv (fn [g k v] (add-attr g node-or-edge k v)) g coll))
 
-(defn source
+(defn synthdef
   [sparams aparams]
   {:post [(s/valid? ::synthdef %)]}
   (let [id (make-uuid)]
     (-> (digraph)
         (add-nodes id)
         (add-attrs-kv id sparams)
-        (add-attr id ::source? true)
         (add-params id aparams))))
-
-(defn effect
-  [in sparams aparams]
-  (let [id (make-uuid)
-        new-edges (map #(vector % id) (outputs in))]
-    (-> (apply (partial digraph in id) new-edges)
-        (add-attrs-kv id sparams)
-        (add-attr id :source? false)
-        (add-params id aparams))))
-
-(defn rendered-nodes-by-id [synthdef node-fn]
-  (->> (nodes synthdef)
-       (map #(vector % (node-fn (attrs synthdef %))))
-       (into {})))
 
 (defn render [synthdef node-fn edge-fn]
-  (let [nodes-by-id (rendered-nodes-by-id synthdef node-fn)]
+  (let [nodes-by-id (->> (nodes synthdef)
+                         (map #(vector % (node-fn (attrs synthdef %))))
+                         (into {}))]
     (doseq [edge (edges synthdef)
             :let [param-name (attr synthdef edge ::param-name)
                   source (nodes-by-id (first edge))
