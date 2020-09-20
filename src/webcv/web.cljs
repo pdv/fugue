@@ -6,9 +6,8 @@
             [webcv.audio :as audio]
             [webcv.bootstrap :refer [read-eval]]))
 
-(defn render [text cb]
-  (let [ctx (audio/make-ctx)
-        graph (read-eval text)]
+(defn render [ctx text cb]
+  (let [graph (read-eval text)]
     (audio/make-synth ctx (:value graph))
     (cb {::ctx ctx
          ::graph graph})))
@@ -32,15 +31,22 @@
   "(out (sin-osc (lfo 440 100 0.2)))")
 
 (defn repl []
-  (let [input (r/atom init-text)
+  (let [ctx (r/atom nil)
+        input (r/atom init-text)
         output (r/atom nil)]
     (fn []
       [:div
        [editor input]
        [:div
         [:button
-         {:on-click #(render @input (partial reset! output))}
+         {:on-click #(do
+                       (if-let [old-ctx @ctx] (.close (::audio/actx old-ctx)))
+                       (reset! ctx (audio/make-ctx)))}
+         "reset context"]
+        [:button
+         {:on-click #(render @ctx @input (partial reset! output))}
          "run"]]
+       [:p (if @ctx "ctx loaded" "ctx not loaded")]
        [:p (with-out-str (pprint (::graph @output)))]])))
 
 (defn -main []
