@@ -56,6 +56,13 @@
         (add-attrs-kv id sparams)
         (add-params id aparams))))
 
+(defn fb [synthdef f]
+  (let [id (make-uuid)]
+    (-> synthdef
+        (add-nodes id)
+        (add-attrs-kv id {:type :gain})
+        (add-edges [id id]))))
+
 (defn render [synthdef node-fn edge-fn]
   (let [nodes-by-id (->> (nodes synthdef)
                          (map #(vector % (node-fn (attrs synthdef %))))
