@@ -29,7 +29,7 @@
     :component-did-mount (editor-did-mount input)}))
 
 (def init-text
-  "(out (sin-osc (mix (const 440) (gain (sin-osc 0.1) 50))))")
+  "(out (sin-osc (lfo 440 100 0.2)))")
 
 (defn repl []
   (let [input (r/atom init-text)

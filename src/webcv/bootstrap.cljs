@@ -16,6 +16,7 @@
    "saw"
    "square"
    "tri-osc"
+   "lfo"
    "lpf"
    "hpf"
    "bpf"])

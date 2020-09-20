@@ -16,8 +16,11 @@
 (s/def ::outs #(== js/ChannelMergerNode (type %)))
 (s/def ::node #(== js/AudioNode (type %)))
 (s/def ::ctx (s/keys :req [::actx ::outs]))
+(s/def ::param-name string?)
+(s/def ::param-val (s/or ::number number?
+                         ::synthdef ::synthdef))
 
-;; Synthdef
+;; Util
 
 (defn outputs [synthdef]
   {:pre [(s/valid? ::synthdef synthdef)]
@@ -27,9 +30,8 @@
                  (not= ::output (::node-type (attr synthdef node ::nodedef)))))
           (nodes synthdef)))
 
-(s/def ::param-name string?)
-(s/def ::param-val (s/or ::number number?
-                         ::synthdef ::synthdef))
+;; Params
+
 (defmulti add-param (fn [_ _ _ param-val]
                       (first (s/conform ::param-val param-val))))
 
@@ -50,6 +52,8 @@
                        param-vals))
              graph
              params))
+
+;; Synthdef
 
 (defn synthdef [nodedef params]
   {:pre [(s/valid? ::nodedef nodedef)]
@@ -111,7 +115,7 @@
      (.connect outs dest)
      {::actx ctx ::outs outs})))
 
-;; DSL
+;; Nodes
 
 (defn out [& ins]
   (synthdef {::node-type ::output
@@ -147,6 +151,10 @@
 (def saw (partial oscillator "sawtooth"))
 (def square (partial oscillator "square"))
 (def tri-osc (partial oscillator "triangle"))
+
+(defn lfo [bias scale freq]
+  (mix (const bias)
+       (gain (sin-osc freq) scale)))
 
 (defn biquad-filter
   ([type in freq] (biquad-filter type in freq -1))
