@@ -27,7 +27,7 @@
   [_ src dest {::synthdef/keys [param-name]}]
   (async/go-loop []
     (let [msg (async/<! src)]
-      (oset!+ dest param-name (:note msg))
+      (oset!+ dest (str param-name ".value") msg)
       (recur))))
 
 ;;
@@ -42,10 +42,10 @@
         ([] (rf))
         ([result] (rf result))
         ([result midi]
-         (let [{:keys [type note]} midi
-               op (if (= :note-on type) conj #(remove #{%2} %1))
+         (let [{:keys [type note velocity]} midi
+               note-on (> velocity 0)
+               op (if note-on conj #(remove #{%2} %1))
                down (op @v-down note)]
-           (print down)
            (vreset! v-down (into [] down))
            (if-let [output (priority-fn down)]
              (rf result output)
@@ -69,14 +69,14 @@
         ([] (rf))
         ([result] (rf result))
         ([result midi]
-         (let [{:keys [type velo]} midi
-               note-on (= :note-on type)
+         (let [{:keys [type velocity]} midi
+               note-on (and (= :note type) (> 0 velocity))
                prev-down-count @v-down-count]
            (vswap! v-down-count (if note-on inc dec))
            (if (or (and note-on retrigger (> 1 prev-down-count))
                    (and note-on (= 0 prev-down-count))
                    (and (not note-on) (= 1 prev-down-count)))
-             (rf result velo)
+             (rf result velocity)
              result)))))))
 
 (def midi-x-gate
