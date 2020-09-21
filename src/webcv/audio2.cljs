@@ -38,9 +38,9 @@
     (.connect , outs 0 channel-idx)))
 
 (defmethod make-audio-node :default
-  [{::keys [actx]} {::keys [audio-node-type constructor props]} static-params]
+  [{::keys [actx]} {::keys [audio-node-type constructor props]
+                    ::synthdef/keys [static-params]}]
   (let [node (js-invoke actx constructor)]
-    (.log js/console static-params)
     (doseq [[k v] props]
       (oset! node k v))
     (doseq [[k v] static-params]
@@ -48,6 +48,12 @@
     (when (= ::source audio-node-type)
       (.start node))
     node))
+
+(defmethod synthdef/make-edge [::audio-node ::audio-node]
+  [_ src dest {::synthdef/keys [param-name]}]
+  (.connect src (if (not= ::input param-name)
+                  (oget+ dest param-name)
+                  dest)))
 
 ;;
 

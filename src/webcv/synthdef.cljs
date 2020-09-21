@@ -16,7 +16,7 @@
 (s/def ::edge-type keyword?)
 (defmulti edge-spec ::edge-type)
 (s/def ::edgedef (s/multi-spec edge-spec ::edge-type))
-(defmulti make-edge (fn [_ _ edge-attrs] (::edge-type edge-attrs)))
+(defmulti make-edge (fn [edge-type _ _ _] edge-type))
 
 (s/def ::synthdef graph?)
 
@@ -41,11 +41,9 @@
 
 (defmethod add-param ::number
   [graph node param-name param-val]
-  (let [old-nodedef (attr graph node ::nodedef)
-        old-sparams (or (::static-params old-nodedef) {})
-        new-sparams (assoc old-sparams param-name param-val)
-        new-nodedef (assoc old-nodedef ::static-params new-sparams)]
-    (add-attr graph node ::nodedef new-nodedef)))
+  (let [old-sparams (attr graph node ::static-params)
+        new-sparams (assoc old-sparams param-name param-val)]
+    (add-attr graph node ::static-params new-sparams)))
 
 (defmethod add-param ::synthdef
   [graph node param-key param-val]
@@ -62,6 +60,9 @@
              graph
              params))
 
+(defn add-attrs-kv [graph node-or-edge attrs-map]
+  (reduce-kv (fn [g k v] (add-attr g node-or-edge k v)) graph attrs-map))
+
 ;; Public
 
 (defn synthdef
@@ -73,12 +74,12 @@
    :post [(s/valid? ::synthdef %)]}
   (let [id (make-id)]
     (-> (digraph id)
-        (add-attr id ::nodedef nodedef)
+        (add-attrs-kv id nodedef)
         (add-params id params))))
 
 (defn- node-builder [ctx synthdef]
   (fn [id]
-    (make-node ctx (attr synthdef id ::nodedef))))
+    (make-node ctx (attrs synthdef id))))
 
 (defn- mapped-to [f coll]
   (into {} (map (juxt identity f)) coll))
@@ -89,8 +90,9 @@
   [ctx synthdef]
   {:pre [(s/valid? ::synthdef synthdef)]}
   (let [nodes-by-id (mapped-to (node-builder ctx synthdef) (nodes synthdef))]
-    (doseq [edge (edges synthdef)]
-      (make-edge (nodes-by-id (first edge))
-                 (nodes-by-id (second edge))
-                 (attr synthdef edge ::edgedef)))))
+    (doseq [edge (edges synthdef)
+            :let [edge-type (map #(attr synthdef % ::node-type) edge)
+                  [src dest] (map nodes-by-id edge)
+                  edge-attrs (attrs synthdef edge)]]
+      (make-edge edge-type src dest edge-attrs))))
 
