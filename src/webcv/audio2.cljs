@@ -37,7 +37,6 @@
   (doto (.createGain actx)
     (.connect , outs 0 channel-idx)))
 
-
 (defmethod make-audio-node :default
   [{::keys [actx]} {::keys [audio-node-type constructor props]} static-params]
   (let [node (js-invoke actx constructor)]

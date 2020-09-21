@@ -3,6 +3,7 @@
             [loom.graph :refer [graph? digraph add-nodes add-edges nodes edges successors]]
             [loom.attr :refer [attr attrs add-attr add-attr-to-edges remove-attr]]))
 
+(s/def ::node-id int?)
 (let [next-id (atom 0)]
   (defn make-id []
     (swap! next-id inc)))
@@ -33,15 +34,21 @@
                  (not= ::output (::node-type (attr synthdef node ::nodedef)))))
           (nodes synthdef)))
 
-;;
+;; Params
 
 (defmulti add-param (fn [_ _ _ param-val]
                       (first (s/conform ::param-val param-val))))
-(defmethod add-param ::number [graph node param-name param-val]
-  (let [old-params (or (attr graph node ::static-params) {})]
-    (add-attr graph node ::static-params (assoc old-params param-name param-val))))
 
-(defmethod add-param ::synthdef [graph node param-key param-val]
+(defmethod add-param ::number
+  [graph node param-name param-val]
+  (let [old-nodedef (attr graph node ::nodedef)
+        old-sparams (or (::static-params old-nodedef) {})
+        new-sparams (assoc old-sparams param-name param-val)
+        new-nodedef (assoc old-nodedef ::static-params new-sparams)]
+    (add-attr graph node ::nodedef new-nodedef)))
+
+(defmethod add-param ::synthdef
+  [graph node param-key param-val]
   (let [new-edges (map #(vector % node) (outputs param-val))]
     (-> (apply (partial digraph graph param-val) new-edges)
         (add-attr-to-edges ::param-name param-key new-edges))))
@@ -55,7 +62,7 @@
              graph
              params))
 
-;;
+;; Public
 
 (defn synthdef
   "Produces a synthdef from a single nodedef and a map of params, whose values

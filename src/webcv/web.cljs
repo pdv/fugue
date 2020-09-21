@@ -3,13 +3,14 @@
             [reagent.dom :as rdom]
             [cljs.pprint :refer [pprint]]
             [oops.core :refer [oget+]]
-            [webcv.audio :as audio]
+            [webcv.synthdef :as synthdef]
+            [webcv.audio2 :as audio]
             [webcv.midi :as midi]
             [webcv.bootstrap :refer [read-eval]]))
 
 (defn render [ctx text cb]
   (let [graph (read-eval text)]
-    (audio/make-synth ctx (:value graph))
+    (synthdef/make-synth ctx (:value graph))
     (cb {::ctx ctx
          ::graph graph})))
 
