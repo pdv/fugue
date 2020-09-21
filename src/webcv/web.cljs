@@ -78,3 +78,5 @@
 
 (defn on-js-reload []
   (-main))
+
+(-main)
