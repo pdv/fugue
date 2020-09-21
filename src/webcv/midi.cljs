@@ -85,7 +85,7 @@
         ([result] (rf result))
         ([result midi]
          (let [{:keys [type velocity]} midi
-               note-on (and (= :note type) (> 0 velocity))
+               note-on (and (= :note type) (> velocity 0))
                prev-down-count @v-down-count]
            (vswap! v-down-count (if note-on inc dec))
            (if (or (and note-on retrigger (> 1 prev-down-count))
@@ -101,6 +101,7 @@
     (map #(/ % 128))))
 
 (defmethod make-xform ::midi-x-hz [_] midi-x-hz)
+(defmethod make-xform ::midi-x-gate [_] midi-x-gate)
 
 ;;
 
@@ -181,6 +182,13 @@
     {::synthdef/node-type ::midi-node
      ::midi-node-type ::effect
      ::xforms [{::xform-name ::midi-x-hz}]}
+    {::input [in]}))
+
+(defn gate [in]
+  (synthdef/synthdef
+    {::synthdef/node-type ::midi-node
+     ::midi-node-type ::effect
+     ::xforms [{::xform-name ::midi-x-gate}]}
     {::input [in]}))
 
 

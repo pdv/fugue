@@ -22,7 +22,7 @@
    "bpf"])
 
 (def midi-ops
-  ["midi-in" "hz"])
+  ["midi-in" "hz" "gate"])
 
 (def init-forms
   [(str "(require '[webcv.audio :refer [" (string/join " " audio-ops) "]])")
