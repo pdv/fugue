@@ -7,7 +7,7 @@
 
 (def compiler-state (cljs.js/empty-state))
 
-(def ops
+(def audio-ops
   ["out"
    "gain"
    "mix"
@@ -21,8 +21,12 @@
    "hpf"
    "bpf"])
 
+(def midi-ops
+  ["midi-in"])
+
 (def init-forms
-  [(str "(require '[webcv.audio :refer [" (string/join " " ops) "]])")])
+  [(str "(require '[webcv.audio :refer [" (string/join " " audio-ops) "]])")
+   (str "(require '[webcv.midi :refer [" (string/join " " midi-ops) "]])")])
 
 (let [init (atom false)]
   (defn read-eval

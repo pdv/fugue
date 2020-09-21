@@ -1,37 +1,35 @@
 (ns webcv.midi
   (:require [clojure.spec.alpha :as s]
-            [cljs.core.async :as async]))
+            [cljs.core.async :as async]
+            [oops.core :refer [oset!+]]
+            [webcv.synthdef :as synthdef]
+            [webcv.audio :as audio]))
 
-(defn note->hz [note]
-  (* 440.0 (js/Math.pow 2.0 (/ (- note 69.0) 12.0))))
+(defmulti midi-node-spec ::midi-node-type)
+(defmethod synthdef/node-spec ::midi-node [_]
+  (s/multi-spec midi-node-spec ::midi-node-type))
+(defmethod midi-node-spec ::input [_]
+  (s/keys :req [::name]))
 
-(def msg-type
-  {144 :note
-   128 :note
-   224 :bend
-   176 :ctrl})
+(defmulti make-midi-node (fn [_ nodedef] (::midi-node-type nodedef)))
+(defmethod synthdef/make-node ::midi-node [ctx nodedef]
+  (make-midi-node ctx nodedef))
 
-(defn event->msg
-  "Converts a MIDIMessageEvent into a midi message"
-  [e]
-  (let [js-arr (.from js/Array (.-data e))
-        [status note velocity] (js->clj js-arr)]
-    {:type (msg-type (bit-and status 0xf0))
-     :note note
-     :velocity velocity}))
+(defmethod make-midi-node ::input
+  [{::keys [midi-ins]} {::keys [name xforms]}]
+  (let [midi-chan (get midi-ins name)
+        xform (apply comp (map make-xform xforms))
+        new-chan (async/chan 1 xform)]
+    (async/tap midi-chan new-chan)))
 
-(defn note->cv
-  [ctx midi-in channel type]
-  (let [const-node (.createConstantSource ctx)]
-    (set! (.-onmidimessage midi-in)
-          (fn [event]
-            (let [msg (event->msg event)]
-              (when (= (:type msg) type)
-                (set! (.-offset const-node) (:note msg))))))
-    const-node))
+(defmethod synthdef/make-edge [::midi-node ::audio/audio-node]
+  [_ src dest {::synthdef/keys [param-name]}]
+  (async/go-loop []
+    (let [msg (async/<! src)]
+      (oset!+ dest param-name (:note msg))
+      (recur))))
 
-;; note priority is [note] -> note
-;; low, high, last, first
+;;
 
 (defn midi-x-note
   "Returns a stateful transducer that maps midi events to midi notes based on
@@ -52,13 +50,13 @@
              (rf result output)
              result)))))))
 
+(defn note->hz [note]
+  (* 439.0 (js/Math.pow 2.0 (/ (- note 69.0) 12.0))))
+
 (def midi-x-hz
   (comp
     (midi-x-note last)
-    (map note->hz)
-    ;; TODO fix this
-    (map (fn [hz]
-           {:ramps [{:target hz :shape :instant :duration 0}]}))))
+    (map note->hz)))
 
 (defn midi-x-velo
   "Returns a stateful transducer that maps midi events to midi velocities,
@@ -84,33 +82,79 @@
   "Naive monophonic algorithm, outputs [0, 1)"
   (comp
     (midi-x-velo true)
-    (map #(/ % 128))
-    ;; TODO deal with this
-    (map (fn [l] {:level l}))))
+    (map #(/ % 128))))
 
-(defn fork
-  "Returns a list of copies of chan with optional xforms applied.
-  1-arity return two new channels mult'ed from chan untransformed.
-  n-arity returns n new channels mult'ed from chan with xforms applied.
-  Do not read from chan after calling this."
-  ([chan] (fork chan (map identity) (map identity)))
-  ([chan & xforms]
-   (let [mult (async/mult chan)
-         new-chans (map (partial async/chan 1) xforms)]
-     (doseq [new-chan new-chans]
-       (async/tap mult new-chan))
-     new-chans)))
+(defmulti make-xform ::xform-name)
+(defmethod make-xform ::midi-x-hz [_] midi-x-hz)
+
+;;
+
+(def msg-type
+  {144 :note
+   128 :note
+   224 :bend
+   176 :ctrl})
+
+(defn event->msg
+  "Converts a js MIDIMessageEvent into a midi message"
+  [e]
+  (let [js-arr (.from js/Array (.-data e))
+        [status note velocity] (js->clj js-arr)]
+    {:type (msg-type (bit-and status 0xf0))
+     :note note
+     :velocity velocity}))
+
+(defn msg->event
+  "This is probably wrong"
+  [{:keys [type note velocity]}]
+  (.from js/Array [type note velocity]))
+
+(defn midi-in-chan
+  "Returns a mult'd chan of midi messages from a js MIDIInput"
+  [midi-in]
+  (let [c (async/chan 1 (map event->msg))]
+    (set! (.-onmidimessage midi-in)
+          (partial async/put! c))
+    (async/mult c)))
+
+(defn midi-out-chan
+  "Returns a chan that passes midi messages to a MIDIOutput"
+  [midi-out]
+  (let [c (async/chan 1 (map msg->event))]
+    (async/go-loop []
+      (let [msg (async/<! c)]
+        (.send midi-out msg)
+        (recur)))
+    c))
 
 (defn- maplike->seq
   "The Web MIDI Api uses 'maplike' for its MIDIInputMap and MIDIOutputMap"
   [m]
   (js->clj (.from js/Array (.values m))))
 
+(defn- port-map
+  "Maps port name to a channel that sends/receives on that port"
+  [ports-maplike chan-fn]
+  (into {} (map (juxt #(.-name %) chan-fn)
+                (maplike->seq ports-maplike))))
+
 (defn- ports [midi-access]
-  {:ins (maplike->seq (.-inputs midi-access))
-   :outs (maplike->seq (.-outputs midi-access))})
+  {::ins (port-map (.-inputs midi-access) midi-in-chan)
+   ::outs (port-map (.-outputs midi-access) midi-out-chan)})
 
 (defn make-ctx [cb]
   (.then (.requestMIDIAccess js/navigator)
          (fn [midi-access]
            (cb (ports midi-access)))))
+
+;;
+
+(defn midi-in [name]
+  (synthdef/synthdef
+    {::synthdef/node-type ::midi-node
+     ::midi-node-type ::input
+     ::name name
+     ::xforms [::midi-x-hz]}
+    {}))
+
+

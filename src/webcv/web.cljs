@@ -58,11 +58,11 @@
        (if-let [mctx @midi-ctx]
          [:div
           [:p "midi ins"]
-          [:ul (for [in (:ins mctx)]
-                 [:li (.-name in)])]
+          [:ul (for [[name _] (::midi/ins mctx)]
+                 [:li name])]
           [:p "midi outs"]
-          [:ul (for [out (:outs mctx)]
-                 [:li (.-name out)])]]
+          [:ul (for [[name _] (::midi/outs mctx)]
+                 [:li name])]]
          [:p "midi ctx not loaded"])
        [:p (with-out-str (pprint (::graph @output)))]])))
 
