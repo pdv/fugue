@@ -76,4 +76,5 @@
   (enable-console-print!)
   (rdom/render [repl] (js/document.getElementById "app")))
 
-(-main)
+(defn on-js-reload []
+  (-main))
