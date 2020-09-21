@@ -22,7 +22,7 @@
    "bpf"])
 
 (def init-forms
-  [(str "(require '[webcv.audio2 :refer [" (string/join " " ops) "]])")])
+  [(str "(require '[webcv.audio :refer [" (string/join " " ops) "]])")])
 
 (let [init (atom false)]
   (defn read-eval

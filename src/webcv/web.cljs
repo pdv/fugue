@@ -4,7 +4,7 @@
             [cljs.pprint :refer [pprint]]
             [oops.core :refer [oget+]]
             [webcv.synthdef :as synthdef]
-            [webcv.audio2 :as audio]
+            [webcv.audio :as audio]
             [webcv.midi :as midi]
             [webcv.bootstrap :refer [read-eval]]))
 
