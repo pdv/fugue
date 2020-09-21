@@ -4,6 +4,7 @@
             [cljs.pprint :refer [pprint]]
             [oops.core :refer [oget+]]
             [webcv.audio :as audio]
+            [webcv.midi :as midi]
             [webcv.bootstrap :refer [read-eval]]))
 
 (defn render [ctx text cb]
@@ -31,7 +32,8 @@
   "(out (sin-osc (lfo 440 100 0.2)))")
 
 (defn repl []
-  (let [ctx (r/atom nil)
+  (let [audio-ctx (r/atom nil)
+        midi-ctx (r/atom nil)
         input (r/atom init-text)
         output (r/atom nil)]
     (fn []
@@ -40,15 +42,27 @@
        [:div
         [:button
          {:on-click #(do
-                       (if-let [old-ctx @ctx] (.close (::audio/actx old-ctx)))
-                       (reset! ctx (audio/make-ctx)))}
-         "reset context"]
+                       (if-let [old-ctx @audio-ctx] (.close (::audio/actx old-ctx)))
+                       (reset! audio-ctx (audio/make-ctx)))}
+         "reset audio context"]
         [:button
-         {:on-click #(render @ctx @input (partial reset! output))}
-         "run"]]
-       [:p (if-let [{::audio/keys [actx]} @ctx]
-             (str "ctx loaded, " (.-maxChannelCount (.-destination actx)) " outs")
-             "ctx not loaded")]
+         {:on-click #(render @audio-ctx @input (partial reset! output))}
+         "run"]
+        [:button
+         {:on-click #(midi/make-ctx (partial reset! midi-ctx))}
+         "reset midi context"]]
+       [:p (if-let [{::audio/keys [actx]} @audio-ctx]
+             (str "audio ctx loaded, " (.-maxChannelCount (.-destination actx)) " outs")
+             "audio ctx not loaded")]
+       (if-let [mctx @midi-ctx]
+         [:div
+          [:p "midi ins"]
+          [:ul (for [in (:ins mctx)]
+                 [:li (.-name in)])]
+          [:p "midi outs"]
+          [:ul (for [out (:outs mctx)]
+                 [:li (.-name out)])]]
+         [:p "midi ctx not loaded"])
        [:p (with-out-str (pprint (::graph @output)))]])))
 
 (defn -main []

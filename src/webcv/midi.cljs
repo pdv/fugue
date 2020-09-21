@@ -1,5 +1,6 @@
 (ns webcv.midi
-  (:require [cljs.core.async :as async]))
+  (:require [clojure.spec.alpha :as s]
+            [cljs.core.async :as async]))
 
 (defn note->hz [note]
   (* 440.0 (js/Math.pow 2.0 (/ (- note 69.0) 12.0))))
@@ -100,26 +101,16 @@
        (async/tap mult new-chan))
      new-chans)))
 
-(defonce ins (atom []))
-(defonce outs (atom []))
-
-(defn in [name]
-  (some #(= name (.-name %)) ins))
-
-(defn out [name]
-  (some #(= name (.-name %)) outs))
-
 (defn- maplike->seq
   "The Web MIDI Api uses 'maplike' for its MIDIInputMap and MIDIOutputMap"
   [m]
   (js->clj (.from js/Array (.values m))))
 
-(defn- open-ports! [midi-access]
-  (reset! ins (maplike->seq (.-inputs midi-access)))
-  (reset! outs (maplike->seq (.-outputs midi-access))))
+(defn- ports [midi-access]
+  {:ins (maplike->seq (.-inputs midi-access))
+   :outs (maplike->seq (.-outputs midi-access))})
 
-(defn init!
-  "Initializes midi I/O"
-  []
-  (.. (.requestMIDIAccess js/navigator)
-      (then open-ports!)))
+(defn make-ctx [cb]
+  (.then (.requestMIDIAccess js/navigator)
+         (fn [midi-access]
+           (cb (ports midi-access)))))
