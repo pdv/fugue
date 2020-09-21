@@ -46,7 +46,9 @@
         [:button
          {:on-click #(render @ctx @input (partial reset! output))}
          "run"]]
-       [:p (if @ctx "ctx loaded" "ctx not loaded")]
+       [:p (if-let [{::audio/keys [actx]} @ctx]
+             (str "ctx loaded, " (.-maxChannelCount (.-destination actx)) " outs")
+             "ctx not loaded")]
        [:p (with-out-str (pprint (::graph @output)))]])))
 
 (defn -main []
