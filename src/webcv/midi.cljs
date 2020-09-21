@@ -9,26 +9,41 @@
 (defmethod synthdef/node-spec ::midi-node [_]
   (s/multi-spec midi-node-spec ::midi-node-type))
 (defmethod midi-node-spec ::input [_]
-  (s/keys :req [::name]))
+  (s/keys :req [::input-name]))
+(defmethod midi-node-spec ::effect [_]
+  (s/keys :req [::xforms]))
 
 (defmulti make-midi-node (fn [_ nodedef] (::midi-node-type nodedef)))
 (defmethod synthdef/make-node ::midi-node [ctx nodedef]
   (make-midi-node ctx nodedef))
 
 (defmulti make-xform ::xform-name)
+
 (defmethod make-midi-node ::input
-  [{::keys [ins]} {::keys [name xforms]}]
-  (let [midi-chan (get ins name)
-        xform (apply comp (map make-xform xforms))
-        new-chan (async/chan 1 xform)]
-    (async/tap midi-chan new-chan)))
+  [{::keys [ins]} {::keys [input-name]}]
+  (let [midi-chan (get ins input-name)
+        out-chan (async/chan 1)]
+    (async/tap midi-chan out-chan)
+    {::out-mult (async/mult out-chan)}))
+
+(defmethod make-midi-node ::effect
+  [_ {::keys [xforms]}]
+  (let [xform (apply comp (map make-xform xforms))
+        in-chan (async/chan 1 xform)]
+    {::in-chan in-chan ::out-mult (async/mult in-chan)}))
+
+(defmethod synthdef/make-edge [::midi-node ::midi-node]
+  [_ src dest _]
+  (async/tap (::out-mult src) (::in-chan dest)))
 
 (defmethod synthdef/make-edge [::midi-node ::audio/audio-node]
   [_ src dest {::synthdef/keys [param-name]}]
-  (async/go-loop []
-    (let [msg (async/<! src)]
-      (oset!+ dest (str param-name ".value") msg)
-      (recur))))
+  (let [c (async/chan 1)]
+    (async/go-loop []
+      (let [msg (async/<! c)]
+        (oset!+ dest (str param-name ".value") msg)
+        (recur)))
+    (async/tap (::out-mult src) c)))
 
 ;;
 
@@ -158,8 +173,14 @@
   (synthdef/synthdef
     {::synthdef/node-type ::midi-node
      ::midi-node-type ::input
-     ::name name
-     ::xforms [{::xform-name ::midi-x-hz}]}
+     ::input-name name}
     {}))
+
+(defn hz [in]
+  (synthdef/synthdef
+    {::synthdef/node-type ::midi-node
+     ::midi-node-type ::effect
+     ::xforms [{::xform-name ::midi-x-hz}]}
+    {::input [in]}))
 
 

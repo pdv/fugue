@@ -33,7 +33,7 @@
   "(out (sin-osc (lfo 440 100 0.2)))")
 
 (def init-text
-  "(out (sin-osc (midi-in \"Portable Grand-1\")))")
+  "(out (sin-osc (hz (midi-in \"Portable Grand-1\"))))")
 
 (defn repl []
   (let [audio-ctx (r/atom nil)
