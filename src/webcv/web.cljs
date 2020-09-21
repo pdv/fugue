@@ -29,8 +29,11 @@
                              :auto-complete "off"}])
     :component-did-mount (editor-did-mount input)}))
 
-(def init-text
+(def init-text-old
   "(out (sin-osc (lfo 440 100 0.2)))")
+
+(def init-text
+  "(out (sin-osc (midi-in \"Portable Grand-1\")))")
 
 (defn repl []
   (let [audio-ctx (r/atom nil)
@@ -47,7 +50,7 @@
                        (reset! audio-ctx (audio/make-ctx)))}
          "reset audio context"]
         [:button
-         {:on-click #(render @audio-ctx @input (partial reset! output))}
+         {:on-click #(render (merge @audio-ctx @midi-ctx) @input (partial reset! output))}
          "run"]
         [:button
          {:on-click #(midi/make-ctx (partial reset! midi-ctx))}

@@ -15,9 +15,10 @@
 (defmethod synthdef/make-node ::midi-node [ctx nodedef]
   (make-midi-node ctx nodedef))
 
+(defmulti make-xform ::xform-name)
 (defmethod make-midi-node ::input
-  [{::keys [midi-ins]} {::keys [name xforms]}]
-  (let [midi-chan (get midi-ins name)
+  [{::keys [ins]} {::keys [name xforms]}]
+  (let [midi-chan (get ins name)
         xform (apply comp (map make-xform xforms))
         new-chan (async/chan 1 xform)]
     (async/tap midi-chan new-chan)))
@@ -84,7 +85,6 @@
     (midi-x-velo true)
     (map #(/ % 128))))
 
-(defmulti make-xform ::xform-name)
 (defmethod make-xform ::midi-x-hz [_] midi-x-hz)
 
 ;;
@@ -104,6 +104,11 @@
      :note note
      :velocity velocity}))
 
+(def event-x-msg
+  (comp
+    (filter #(= 3 (.-length (.-data %))))
+    (map event->msg)))
+
 (defn msg->event
   "This is probably wrong"
   [{:keys [type note velocity]}]
@@ -112,7 +117,7 @@
 (defn midi-in-chan
   "Returns a mult'd chan of midi messages from a js MIDIInput"
   [midi-in]
-  (let [c (async/chan 1 (map event->msg))]
+  (let [c (async/chan 1 event-x-msg)]
     (set! (.-onmidimessage midi-in)
           (partial async/put! c))
     (async/mult c)))
@@ -154,7 +159,7 @@
     {::synthdef/node-type ::midi-node
      ::midi-node-type ::input
      ::name name
-     ::xforms [::midi-x-hz]}
+     ::xforms [{::xform-name ::midi-x-hz}]}
     {}))
 
 
