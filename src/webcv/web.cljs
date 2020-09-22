@@ -33,13 +33,13 @@
 (def init-text-old
   "(out (sin-osc (lfo 440 100 0.2)))")
 
-(def init-text
+(def init-text-2
   "(let [midi (midi-in \"Portable Grand-1\")]
      (-> (sin-osc (hz midi))
          (gain (gate midi))
          (out)))")
 
-(def init-text-2
+(def init-text
   "(let [midi (midi-in \"Portable Grand-1\")\n      env (env-gen (gate midi) (adsr 0.5 0.5 0.4 4))]\n     (-> (sin-osc (hz midi))\n         (gain env)\n         (out)))")
 
 (defn repl []

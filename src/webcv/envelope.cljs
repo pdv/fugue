@@ -7,8 +7,7 @@
             [webcv.chan :as chan]))
 
 (s/def ::stage (s/keys :req [::duration ::target] :opt [::ramp/shape]))
-(s/def ::stages (s/+ ::stage))
-(s/def ::envelope (s/* ::stages))
+(s/def ::stages (s/* ::stage))
 
 (defn- start-event
   [start-time last-scheduled]
@@ -24,7 +23,7 @@
 (defn- ramps
   [start-time stages]
   {:pre [(s/valid? ::stages stages)]
-   :post [(s/valid? (s/* ::ramp) %)]}
+   :post [(s/valid? (s/* ::ramp/ramp) %)]}
   (let [durations (map ::duration stages)
         times (reductions + start-time durations)
         levels (map ::target stages)
@@ -39,7 +38,9 @@
   "Returns a stateful transducer that maps envelope stage packets to ramps using now-fn"
   [now-fn]
   (fn [rf]
-    (let [v-last-scheduled (volatile! {::time (now-fn)})]
+    (let [v-last-scheduled (volatile! {::ramp/shape ::ramp/cancel-and-hold
+                                       ::ramp/value 0
+                                       ::ramp/time (now-fn)})]
       (fn
         ([] (rf))
         ([result] (rf result))
@@ -75,5 +76,6 @@
     {::synthdef/node-type ::chan/chan-node
      ::chan/chan-node-type ::chan/transducer
      ::chan/xforms [{::chan/xform-name ::envelope
-                     ::envelope env}]}
+                     ::open (::open env)
+                     ::close (::closed env)}]}
     {"fmwfwef" [gate]}))
