@@ -3,49 +3,17 @@
             [cljs.core.async :as async]
             [oops.core :refer [oset!+]]
             [webcv.synthdef :as synthdef]
-            [webcv.audio :as audio]))
+            [webcv.chan :as chan]))
 
-(defmulti midi-node-spec ::midi-node-type)
-(defmethod synthdef/node-spec ::midi-node [_]
-  (s/multi-spec midi-node-spec ::midi-node-type))
-(defmethod midi-node-spec ::input [_]
+(defmethod chan/chan-node-spec ::midi-in [_]
   (s/keys :req [::input-name]))
-(defmethod midi-node-spec ::effect [_]
-  (s/keys :req [::xforms]))
 
-(defmulti make-midi-node (fn [_ nodedef] (::midi-node-type nodedef)))
-(defmethod synthdef/make-node ::midi-node [ctx nodedef]
-  (make-midi-node ctx nodedef))
-
-(defmulti make-xform ::xform-name)
-
-(defmethod make-midi-node ::input
+(defmethod chan/make-chan-node ::midi-in
   [{::keys [ins]} {::keys [input-name]}]
   (let [midi-chan (get ins input-name)
         out-chan (async/chan 1)]
     (async/tap midi-chan out-chan)
-    {::out-mult (async/mult out-chan)}))
-
-(defmethod make-midi-node ::effect
-  [_ {::keys [xforms]}]
-  (let [xform (apply comp (map make-xform xforms))
-        in-chan (async/chan 1 xform)]
-    {::in-chan in-chan ::out-mult (async/mult in-chan)}))
-
-(defmethod synthdef/make-edge [::midi-node ::midi-node]
-  [_ src dest _]
-  (async/tap (::out-mult src) (::in-chan dest)))
-
-(defmethod synthdef/make-edge [::midi-node ::audio/audio-node]
-  [_ src dest {::synthdef/keys [param-name]}]
-  (let [c (async/chan 1)]
-    (async/go-loop []
-      (let [msg (async/<! c)]
-        (oset!+ dest (str param-name ".value") msg)
-        (recur)))
-    (async/tap (::out-mult src) c)))
-
-;;
+    {::chan/out-mult (async/mult out-chan)}))
 
 (defn midi-x-note
   "Returns a stateful transducer that maps midi events to midi notes based on
@@ -100,8 +68,8 @@
     (midi-x-velo true)
     (map #(/ % 128))))
 
-(defmethod make-xform ::midi-x-hz [_] midi-x-hz)
-(defmethod make-xform ::midi-x-gate [_] midi-x-gate)
+(defmethod chan/make-transducer ::midi-x-hz [_] midi-x-hz)
+(defmethod chan/make-transducer ::midi-x-gate [_] midi-x-gate)
 
 ;;
 
@@ -172,23 +140,23 @@
 
 (defn midi-in [name]
   (synthdef/synthdef
-    {::synthdef/node-type ::midi-node
-     ::midi-node-type ::input
+    {::synthdef/node-type ::chan/chan-node
+     ::chan/chan-node-type ::midi-in
      ::input-name name}
     {}))
 
 (defn hz [in]
   (synthdef/synthdef
-    {::synthdef/node-type ::midi-node
-     ::midi-node-type ::effect
-     ::xforms [{::xform-name ::midi-x-hz}]}
-    {::input [in]}))
+    {::synthdef/node-type ::chan/chan-node
+     ::chan/chan-node-type ::chan/transducer
+     ::chan/xforms [{::chan/xform-name ::midi-x-hz}]}
+    {"this is unused I think" [in]}))
 
 (defn gate [in]
   (synthdef/synthdef
-    {::synthdef/node-type ::midi-node
-     ::midi-node-type ::effect
-     ::xforms [{::xform-name ::midi-x-gate}]}
-    {::input [in]}))
+    {::synthdef/node-type ::chan/chan-node
+     ::chan/chan-node-type ::chan/transducer
+     ::chan/xforms [{::chan/xform-name ::midi-x-gate}]}
+    {"foo bar biz baz" [in]}))
 
 
