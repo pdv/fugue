@@ -121,3 +121,11 @@
 (def lpf (partial biquad-filter "lowpass"))
 (def hpf (partial biquad-filter "highpass"))
 (def bpf (partial biquad-filter "bandpass"))
+
+(defn delay-node [in time]
+  (synthdef/synthdef
+    {::synthdef/node-type ::audio-node
+     ::audio-node-type ::effect
+     ::constructor "createDelay"}
+    {::input [in]
+     "delayTime" [0 time]}))
