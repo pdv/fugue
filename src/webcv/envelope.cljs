@@ -21,12 +21,12 @@
              ::ramp/value (::ramp/value last-scheduled)}))))
 
 (defn- ramps
-  [start-time stages]
+  [start-time stages scale bias]
   {:pre [(s/valid? ::stages stages)]
    :post [(s/valid? (s/* ::ramp/ramp) %)]}
   (let [durations (map ::duration stages)
         times (reductions + start-time durations)
-        levels (map ::target stages)
+        levels (map #(+ bias (* scale (::target %))) stages)
         shapes (map #(get % ::ramp/shape ::ramp/exponential) stages)]
     (map (fn [time level shape]
            {::ramp/time time ::ramp/value level ::ramp/shape shape})
@@ -36,7 +36,7 @@
 
 (defn- stages-x-ramp
   "Returns a stateful transducer that maps envelope stage packets to ramps using now-fn"
-  [now-fn]
+  [now-fn scale bias]
   (fn [rf]
     (let [v-last-scheduled (volatile! {::ramp/shape ::ramp/cancel-and-hold
                                        ::ramp/value 0
@@ -48,7 +48,7 @@
          (let [last-scheduled @v-last-scheduled
                start-time (now-fn)
                start-event (start-event start-time last-scheduled)
-               ramp-events (ramps start-time stages)]
+               ramp-events (ramps start-time stages scale bias)]
            (if-not (empty? ramp-events)
              (let [all-events (cons start-event ramp-events)]
                (vreset! v-last-scheduled (last all-events))
@@ -56,10 +56,10 @@
              result)))))))
 
 (defmethod chan/make-transducer ::envelope
-  [{::audio/keys [actx]} {::keys [open closed]}]
+  [{::audio/keys [actx]} {::keys [open closed scale bias]}]
   (comp
     (map #(if (> % 0) open closed))
-    (stages-x-ramp #(oget actx "currentTime"))))
+    (stages-x-ramp #(oget actx "currentTime") scale bias)))
 
 (defn adsr [a d s r]
   {::open [{::duration a ::target 1}
@@ -71,11 +71,16 @@
            {::duration d ::target 0}]
    ::closed []})
 
-(defn env-gen [gate env]
-  (synthdef/synthdef
-    {::synthdef/node-type ::chan/chan-node
-     ::chan/chan-node-type ::chan/transducer
-     ::chan/xforms [{::chan/xform-name ::envelope
-                     ::open (::open env)
-                     ::closed (::closed env)}]}
-    {"fmwfwef" [gate]}))
+(defn env-gen
+  ([env gate] (env-gen env gate 1))
+  ([env gate scale] (env-gen env gate scale 0))
+  ([env gate scale bias]
+   (synthdef/synthdef
+     {::synthdef/node-type ::chan/chan-node
+      ::chan/chan-node-type ::chan/transducer
+      ::chan/xforms [{::chan/xform-name ::envelope
+                      ::scale scale
+                      ::bias bias
+                      ::open (::open env)
+                      ::closed (::closed env)}]}
+     {"fmwfwef" [gate]})))
