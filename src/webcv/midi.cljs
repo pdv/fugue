@@ -25,7 +25,7 @@
         ([] (rf))
         ([result] (rf result))
         ([result midi]
-         (let [{:keys [type note velocity]} midi
+         (let [{::keys [type note velocity]} midi
                note-on (> velocity 0)
                op (if note-on conj #(remove #{%2} %1))
                down (op @v-down note)]
@@ -52,8 +52,8 @@
         ([] (rf))
         ([result] (rf result))
         ([result midi]
-         (let [{:keys [type velocity]} midi
-               note-on (and (= :note type) (> velocity 0))
+         (let [{::keys [type velocity]} midi
+               note-on (and (= ::note-on type) (> velocity 0))
                prev-down-count @v-down-count]
            (vswap! v-down-count (if note-on inc dec))
            (if (or (and note-on retrigger (> 1 prev-down-count))
@@ -74,19 +74,19 @@
 ;;
 
 (def msg-type
-  {144 :note
-   128 :note
-   224 :bend
-   176 :ctrl})
+  {144 ::note-on
+   128 ::note-off
+   224 ::bend
+   176 ::ctrl})
 
 (defn event->msg
   "Converts a js MIDIMessageEvent into a midi message"
   [e]
   (let [js-arr (.from js/Array (.-data e))
         [status note velocity] (js->clj js-arr)]
-    {:type (msg-type (bit-and status 0xf0))
-     :note note
-     :velocity velocity}))
+    {::type (msg-type (bit-and status 0xf0))
+     ::note note
+     ::velocity velocity}))
 
 (def event-x-msg
   (comp
@@ -95,7 +95,7 @@
 
 (defn msg->event
   "This is probably wrong"
-  [{:keys [type note velocity]}]
+  [{::keys [type note velocity]}]
   (.from js/Array [type note velocity]))
 
 (defn midi-in-chan

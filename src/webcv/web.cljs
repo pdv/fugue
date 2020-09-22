@@ -8,6 +8,7 @@
             [webcv.midi :as midi]
             [webcv.envelope :as env]
             [webcv.feedback :as fb]
+            [webcv.keyboard :as kb]
             [webcv.bootstrap :refer [read-eval]]))
 
 (defn render [ctx text cb]
@@ -41,7 +42,7 @@
          (out)))")
 
 (def init-text
-  "(let [midi (midi-in \"Portable Grand-1\")\n      env (env-gen (adsr 0.1 0.3 0.4 0.4) (gate midi) 1400 50)]\n     (-> (saw (hz midi))\n         (lpf env)\n         (gain 0.5)\n         (dub-delay 0.3 0.5)\n         (out)))")
+  "(let [midi (kb)\n      env (env-gen (adsr 0.1 0.3 0.4 0.4) (gate midi) 1400 50)]\n     (-> (saw (hz midi))\n         (lpf env)\n         (gain 0.5)\n         (dub-delay 0.3 0.5)\n         (out)))")
 
 (defn repl []
   (let [audio-ctx (r/atom nil)

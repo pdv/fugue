@@ -25,6 +25,7 @@
   [(str "(require '[webcv.audio :refer [" (string/join " " audio-ops) "]])")
    (str "(require '[webcv.midi :refer [midi-in hz gate]])")
    (str "(require '[webcv.feedback :refer [dub-delay]])")
+   (str "(require '[webcv.keyboard :refer [kb]])")
    (str "(require '[webcv.envelope :refer [adsr perc env-gen]])")])
 
 (let [init (atom false)]
