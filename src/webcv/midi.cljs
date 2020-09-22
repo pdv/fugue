@@ -35,7 +35,7 @@
              result)))))))
 
 (defn note->hz [note]
-  (* 439.0 (js/Math.pow 2.0 (/ (- note 69.0) 12.0))))
+  (* 440.0 (js/Math.pow 2.0 (/ (- note 69.0) 12.0))))
 
 (def midi-x-hz
   (comp

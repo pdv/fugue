@@ -24,7 +24,6 @@
 (defn schedule!
   [audio-param {::keys [value time shape]}]
   (let [value (max 0.0001 value)]
-    (print time ":" value shape)
     (case shape
       ::cancel-and-hold
       (.cancelAndHoldAtTime audio-param time)

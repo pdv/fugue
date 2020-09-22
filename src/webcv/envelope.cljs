@@ -77,5 +77,5 @@
      ::chan/chan-node-type ::chan/transducer
      ::chan/xforms [{::chan/xform-name ::envelope
                      ::open (::open env)
-                     ::close (::closed env)}]}
+                     ::closed (::closed env)}]}
     {"fmwfwef" [gate]}))
