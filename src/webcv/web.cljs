@@ -6,6 +6,7 @@
             [webcv.synthdef :as synthdef]
             [webcv.audio :as audio]
             [webcv.midi :as midi]
+            [webcv.envelope :as env]
             [webcv.bootstrap :refer [read-eval]]))
 
 (defn render [ctx text cb]
@@ -37,6 +38,9 @@
      (-> (sin-osc (hz midi))
          (gain (gate midi))
          (out)))")
+
+(def init-text-2
+  "(let [midi (midi-in \"Portable Grand-1\")\n      env (env-gen (gate midi) (adsr 0.5 0.5 0.4 4))]\n     (-> (sin-osc (hz midi))\n         (gain env)\n         (out)))")
 
 (defn repl []
   (let [audio-ctx (r/atom nil)

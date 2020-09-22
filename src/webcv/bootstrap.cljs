@@ -21,12 +21,10 @@
    "hpf"
    "bpf"])
 
-(def midi-ops
-  ["midi-in" "hz" "gate"])
-
 (def init-forms
   [(str "(require '[webcv.audio :refer [" (string/join " " audio-ops) "]])")
-   (str "(require '[webcv.midi :refer [" (string/join " " midi-ops) "]])")])
+   (str "(require '[webcv.midi :refer [midi-in hz gate]])")
+   (str "(require '[webcv.midi :refer [adsr perc env-gen]])")])
 
 (let [init (atom false)]
   (defn read-eval

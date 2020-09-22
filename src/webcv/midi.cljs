@@ -68,8 +68,8 @@
     (midi-x-velo true)
     (map #(/ % 128))))
 
-(defmethod chan/make-transducer ::midi-x-hz [_] midi-x-hz)
-(defmethod chan/make-transducer ::midi-x-gate [_] midi-x-gate)
+(defmethod chan/make-transducer ::midi-x-hz [_ _] midi-x-hz)
+(defmethod chan/make-transducer ::midi-x-gate [_ _] midi-x-gate)
 
 ;;
 
