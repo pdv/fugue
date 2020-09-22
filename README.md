@@ -29,9 +29,9 @@ To build a synthdef, call `synthdef/make-synth` with a context (audio, midi, or 
 (saw freq detune)
 (sqare freq detune)
 (tri-osc freq detune)
-(lpf frequency q)
-(bpf frequency q)
-(hpf frequency q)
+(lpf in frequency q)
+(bpf in frequency q)
+(hpf in frequency q)
 ```
 
 #### MIDI
@@ -53,29 +53,13 @@ Envelopes are defined by an envdef and triggered by a gate channel.
 
 ## Setup
 
-To get an interactive development environment run:
-
     lein figwheel
 
-and open your browser at [localhost:3449](http://localhost:3449/).
-This will auto compile and send all changes to the browser without the
-need to reload. After the compilation process is complete, you will
-get a Browser Connected REPL. An easy way to try it is:
+starts a development server at [localhost:3449](http://localhost:3449/).
 
-    (js/alert "Am I connected?")
+    lein do clean, cljsbuild once
 
-and you should see an alert in the browser window.
-
-To clean all compiled files:
-
-    lein clean
-
-To create a production build run:
-
-    lein do clean, cljsbuild once min
-
-And open your browser in `resources/public/index.html`. You will not
-get live reloading, nor a REPL. 
+to make a production build. github pages expects index.html in /docs
 
 ## License
 

@@ -18,6 +18,7 @@
                 :source-paths ["src"]
                 :figwheel {:on-jsload "webcv.web/on-js-reload"
                            :open-urls ["http://localhost:3449/index.html"]}
+                ;; lein cljsbuild once
                 :compiler {:main webcv.web
                            :asset-path "js/compiled/out"
                            :output-to "resources/public/js/compiled/webcv.js"
@@ -25,16 +26,7 @@
                            :source-map-timestamp true
                            ;; To console.log CLJS data-structures make sure you enable devtools in Chrome
                            ;; https://github.com/binaryage/cljs-devtools
-                           :preloads [devtools.preload]}}
-               ;; This next build is a compressed minified build for
-               ;; production. You can build this with:
-               ;; lein cljsbuild once min
-               {:id "min"
-                :source-paths ["src"]
-                :compiler {:output-to "resources/public/js/compiled/webcv.js"
-                           :main webcv.web
-                           :optimizations :advanced
-                           :pretty-print false}}]}
+                           :preloads [devtools.preload]}}]}
   :figwheel {;; :http-server-root "public" ;; default and assumes "resources"
              ;; :server-port 3449 ;; default
              ;; :server-ip "127.0.0.1"
