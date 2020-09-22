@@ -1,13 +1,15 @@
 # webcv
 
-Cljs wrapper for Web Audio, focused on CV utilities for modular synthesis
+ClojureScript music programming environment
 
 ## Overview
 
+Webcv is build on operators, which produce synthdefs. Rather than directly calling the Web MIDI and Web Audio APIs, these synthdefs are loom graph representations of an audio/midi setup.
 ```
-(require '[webcv.core :as cv])
-(cv/out 5 (cv/sin-osc 440))
+(require '[webcv.audio :as a])
+(a/sin-osc 440)
 ```
+To build a synthdef, call `synthdef/make-synth` with a context (audio, midi, or both) and a synthdef.
 
 #### IO
 
@@ -16,17 +18,37 @@ Cljs wrapper for Web Audio, focused on CV utilities for modular synthesis
 (in channel)
 ```
 
-#### CV
+#### Aduio
 
 ```
-(v volts)     ;; maps [-10, 10] to [-1, 1]
-(const value) ;; holds value
+(out & ins)
+(gain in & gains)
+(mix & ins)
+(const & offsets)
+(sin-osc freq detune)
+(saw freq detune)
+(sqare freq detune)
+(tri-osc freq detune)
+(lpf frequency q)
+(bpf frequency q)
+(hpf frequency q)
 ```
 
-#### Audio
+#### MIDI
 
 ```
-(sin-osc freq)
+(midi-in name)  ; Acquires a midi channel
+(hz midi)       ; Produces a frequency channel from a midi channel
+(gate midi)     ; Produces a gate channel from a midi channel
+```
+
+#### Envelopes
+
+Envelopes are defined by an envdef and triggered by a gate channel.
+```
+(adsr a d s r)
+(perc a d)
+(env-gen env gate scale bias)
 ```
 
 ## Setup
