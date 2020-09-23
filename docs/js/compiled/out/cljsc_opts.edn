@@ -1,1 +1,0 @@
-{:output-dir "resources/public/js/compiled/out", :externs ["closure-js/externs"], :preloads [devtools.preload], :output-to "resources/public/js/compiled/webcv.js", :source-map-timestamp true, :asset-path "js/compiled/out", :output-wrapper false, :libs ["closure-js/libs"], :main webcv.web}
