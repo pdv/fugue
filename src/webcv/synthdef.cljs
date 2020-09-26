@@ -63,7 +63,6 @@
 (defmethod add-param ::synthdef
   [graph node param-key param-val]
   (let [new-edges (map #(vector % node) (outputs param-val))]
-    (print (str "new edges - " param-key " :: " new-edges))
     (-> (apply add-edges (merge-graphs graph param-val) new-edges)
         (add-attr-to-edges ::param-name param-key new-edges))))
 
@@ -92,9 +91,7 @@
 
 (defn- node-builder [ctx synthdef]
   (fn [id]
-    (print (str "building node " id))
-    (doto (make-node ctx (attrs synthdef id))
-      (pprint))))
+    (make-node ctx (attrs synthdef id))))
 
 (defn- mapped-to [f coll]
   (into {} (map (juxt identity f)) coll))
@@ -109,6 +106,5 @@
             :let [edge-type (map #(attr synthdef % ::node-type) edge)
                   [src dest] (map nodes-by-id edge)
                   edge-attrs (attrs synthdef edge)]]
-      (print (str "building edge " edge edge-attrs))
       (make-edge edge-type src dest edge-attrs))))
 
