@@ -38,6 +38,8 @@
   [ctx {::keys [xform] ::synthdef/keys [static-params]}]
   (let [out (async/chan 1 (comp (merge-xform static-params)
                                 (make-transducer ctx xform)))]
+    (when static-params
+      (async/put! out static-params))
     {::mult-out (async/mult out)
      ::mix-out (async/mix out)}))
 

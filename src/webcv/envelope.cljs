@@ -95,7 +95,7 @@
      {::synthdef/node-type ::chan/chan-node
       ::chan/chan-node-type ::chan/transducer
       ::chan/xform ::env-gen}
-     {::env [{} env]
-      ::gate [0 gate]
-      ::scale [0 scale]
-      ::bias [0 bias]})))
+     {::env [env]
+      ::gate [gate]
+      ::scale [scale]
+      ::bias [bias]})))

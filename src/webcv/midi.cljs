@@ -152,11 +152,11 @@
     {::synthdef/node-type ::chan/chan-node
      ::chan/chan-node-type ::chan/transducer
      ::chan/xform ::midi-x-hz}
-    {::chan/input [-1 in]}))
+    {::chan/input [in]}))
 
 (defn gate [in]
   (synthdef/synthdef
     {::synthdef/node-type ::chan/chan-node
      ::chan/chan-node-type ::chan/transducer
      ::chan/xform ::midi-x-gate}
-    {::chan/input [0 in]}))
+    {::chan/input [in]}))
