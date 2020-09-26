@@ -12,7 +12,7 @@
         fb-id (first (synthdef/outputs fb))
         output (audio/gain gain 1)
         fb-edge [fb-id gain-id]]
-    (-> (digraph fb output)
+    (-> (synthdef/merge-graphs fb output)
         (add-edges fb-edge)
         (add-attr-to-edges ::synthdef/param-name ::audio/input [fb-edge]))))
 
