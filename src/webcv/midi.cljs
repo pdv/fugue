@@ -73,6 +73,17 @@
 (defmethod chan/make-transducer ::midi-x-gate [_ _]
   (comp (map ::chan/input) midi-x-gate))
 
+(defn map-to-range [x in-min in-max out-min out-max]
+  (+ out-min (* (- out-max out-min)
+                (/ (- x in-min) in-max))))
+
+(defmethod chan/make-transducer ::midi-x-ctrl [_ _]
+  (comp
+    (filter #(= (::note %) (::note (::chan/input %))))
+    (map #(map-to-range (::velocity (::chan/input %))
+                        0 127
+                        (::min %) (::max %)))))
+
 ;;
 
 (def msg-type
@@ -160,3 +171,15 @@
      ::chan/chan-node-type ::chan/transducer
      ::chan/xform ::midi-x-gate}
     {::chan/input [in]}))
+
+(defn ctrl
+  ([in note] (ctrl in note 0 1))
+  ([in note min max]
+   (synthdef/synthdef
+     {::synthdef/node-type ::chan/chan-node
+      ::chan/chan-node-type ::chan/transducer
+      ::chan/xform ::midi-x-ctrl}
+     {::chan/input [in]
+      ::note [note]
+      ::min [min]
+      ::max [max]})))
