@@ -36,7 +36,7 @@
 
 (defn- stages-x-ramp
   "Returns a stateful transducer that maps envelope stage packets to ramps using now-fn"
-  [now-fn scale bias]
+  [now-fn]
   (fn [rf]
     (let [v-last-scheduled (volatile! {::ramp/shape ::ramp/cancel-and-hold
                                        ::ramp/value 0
@@ -44,9 +44,10 @@
       (fn
         ([] (rf))
         ([result] (rf result))
-        ([result stages]
+        ([result {::keys [env gate scale bias]}]
          (let [last-scheduled @v-last-scheduled
                start-time (now-fn)
+               stages ((if (> gate 0) ::open ::closed) env)
                start-event (start-event start-time last-scheduled)
                ramp-events (ramps start-time stages scale bias)]
            (if-not (empty? ramp-events)
@@ -55,21 +56,36 @@
                (reduce rf result all-events))
              result)))))))
 
-(defmethod chan/make-transducer ::envelope
-  [{::audio/keys [actx]} {::keys [open closed scale bias]}]
-  (comp
-    (map #(if (> % 0) open closed))
-    (stages-x-ramp #(oget actx "currentTime") scale bias)))
+(defmethod chan/make-transducer ::adsr [_ _]
+  (map (fn [{::keys [a d s r]}]
+         {::open [{::duration a ::target 1}
+                   {::duration d ::target s}]
+          ::closed [{::duration r ::target 0}]})))
 
 (defn adsr [a d s r]
-  {::open [{::duration a ::target 1}
-           {::duration d ::target s}]
-   ::closed [{::duration r ::target 0}]})
+  (synthdef/synthdef
+    {::synthdef/node-type ::chan/chan-node
+     ::chan/chan-node-type ::chan/transducer
+     ::chan/xform ::adsr}
+    {::a [a] ::d [d] ::s [s] ::r [r]}))
+
+(defmethod chan/make-transducer ::perc [_ _]
+  (map (fn [{::keys [a d]}]
+         {::open [{::duration a ::target 1}
+                  {::duration d ::target 0}]
+          ::closed []})))
 
 (defn perc [a d]
-  {::open [{::duration a ::target 1}
-           {::duration d ::target 0}]
-   ::closed []})
+  (synthdef/synthdef
+    {::synthdef/node-type ::chan/chan-node
+     ::chan/chan-node-type ::chan/transducer
+     ::chan/xform ::perc}
+    {::a [0 a]
+     ::d [0 d]}))
+
+(defmethod chan/make-transducer ::env-gen
+  [{::audio/keys [actx]} _]
+  (stages-x-ramp #(oget actx "currentTime")))
 
 (defn env-gen
   ([env gate] (env-gen env gate 1))
@@ -78,9 +94,8 @@
    (synthdef/synthdef
      {::synthdef/node-type ::chan/chan-node
       ::chan/chan-node-type ::chan/transducer
-      ::chan/xforms [{::chan/xform-name ::envelope
-                      ::scale scale
-                      ::bias bias
-                      ::open (::open env)
-                      ::closed (::closed env)}]}
-     {"fmwfwef" [gate]})))
+      ::chan/xform ::env-gen}
+     {::env [{} env]
+      ::gate [0 gate]
+      ::scale [0 scale]
+      ::bias [0 bias]})))

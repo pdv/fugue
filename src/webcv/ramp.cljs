@@ -44,4 +44,4 @@
           (oset!+ audio-param "value" msg)
           (schedule! audio-param msg))
         (recur)))
-    (async/tap (::chan/out-mult src) c)))
+    (async/tap (::chan/mult-out src) c)))

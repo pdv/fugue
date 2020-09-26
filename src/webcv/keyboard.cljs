@@ -46,7 +46,7 @@
   (s/keys :req []))
 
 (defmethod chan/make-chan-node ::keyboard [_ _]
-  {::chan/out-mult (async/mult (kb-midi-chan))})
+  {::chan/mult-out (async/mult (kb-midi-chan))})
 
 (defn kb []
   (synthdef/synthdef

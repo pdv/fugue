@@ -13,7 +13,7 @@
   (let [midi-chan (get ins input-name)
         out-chan (async/chan 1)]
     (async/tap midi-chan out-chan)
-    {::chan/out-mult (async/mult out-chan)}))
+    {::chan/mult-out (async/mult out-chan)}))
 
 (defn midi-x-note
   "Returns a stateful transducer that maps midi events to midi notes based on
@@ -25,7 +25,7 @@
         ([] (rf))
         ([result] (rf result))
         ([result midi]
-         (let [{::keys [type note velocity]} midi
+         (let [{::keys [note velocity]} midi
                note-on (> velocity 0)
                op (if note-on conj #(remove #{%2} %1))
                down (op @v-down note)]
@@ -68,8 +68,10 @@
     (midi-x-velo true)
     (map #(/ % 128))))
 
-(defmethod chan/make-transducer ::midi-x-hz [_ _] midi-x-hz)
-(defmethod chan/make-transducer ::midi-x-gate [_ _] midi-x-gate)
+(defmethod chan/make-transducer ::midi-x-hz [_ _]
+  (comp (map ::chan/input) midi-x-hz))
+(defmethod chan/make-transducer ::midi-x-gate [_ _]
+  (comp (map ::chan/input) midi-x-gate))
 
 ;;
 
@@ -149,14 +151,12 @@
   (synthdef/synthdef
     {::synthdef/node-type ::chan/chan-node
      ::chan/chan-node-type ::chan/transducer
-     ::chan/xforms [{::chan/xform-name ::midi-x-hz}]}
-    {"this is unused I think" [in]}))
+     ::chan/xform ::midi-x-hz}
+    {::chan/input [-1 in]}))
 
 (defn gate [in]
   (synthdef/synthdef
     {::synthdef/node-type ::chan/chan-node
      ::chan/chan-node-type ::chan/transducer
-     ::chan/xforms [{::chan/xform-name ::midi-x-gate}]}
-    {"foo bar biz baz" [in]}))
-
-
+     ::chan/xform ::midi-x-gate}
+    {::chan/input [0 in]}))

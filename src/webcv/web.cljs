@@ -13,6 +13,7 @@
 
 (defn render [ctx text cb]
   (let [graph (read-eval text)]
+    (pprint graph)
     (synthdef/make-synth ctx (:value graph))
     (cb {::ctx ctx
          ::graph graph})))

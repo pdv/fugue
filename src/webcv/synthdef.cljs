@@ -1,5 +1,6 @@
 (ns webcv.synthdef
   (:require [clojure.spec.alpha :as s]
+            [cljs.pprint :refer [pprint]]
             [loom.graph :refer [graph? digraph add-nodes add-edges nodes edges successors]]
             [loom.attr :refer [attr attrs add-attr add-attr-to-edges remove-attr]]))
 
@@ -21,10 +22,15 @@
 (s/def ::synthdef graph?)
 
 (s/def ::param-key (constantly true))
-(s/def ::param-val (s/or ::number number?
-                         ::synthdef ::synthdef))
+(s/def ::param-val (s/or ::synthdef ::synthdef
+                         ::value (constantly true)))
 (s/def ::param-vals (s/* ::param-val))
 (s/def ::param-map (s/map-of ::param-key ::param-vals))
+
+;; Graph utils
+
+(defn add-attrs-kv [graph node-or-edge attrs-map]
+  (reduce-kv (fn [g k v] (add-attr g node-or-edge k v)) graph attrs-map))
 
 (defn outputs [synthdef]
   {:pre [(s/valid? ::synthdef synthdef)]
@@ -34,12 +40,21 @@
                  (not= ::output (::node-type (attr synthdef node ::nodedef)))))
           (nodes synthdef)))
 
+(defn merge-graphs
+  "The default digraph constructor overrides edge attrs"
+  [g1 g2]
+  (reduce (fn [g edge]
+            (add-attrs-kv g edge (merge (attrs g1 edge)
+                                        (attrs g2 edge))))
+          (digraph g1 g2)
+          (concat (edges g1) (edges g2))))
+
 ;; Params
 
 (defmulti add-param (fn [_ _ _ param-val]
                       (first (s/conform ::param-val param-val))))
 
-(defmethod add-param ::number
+(defmethod add-param ::value
   [graph node param-name param-val]
   (let [old-sparams (attr graph node ::static-params)
         new-sparams (assoc old-sparams param-name param-val)]
@@ -48,7 +63,8 @@
 (defmethod add-param ::synthdef
   [graph node param-key param-val]
   (let [new-edges (map #(vector % node) (outputs param-val))]
-    (-> (apply (partial digraph graph param-val) new-edges)
+    (print (str "new edges - " param-key " :: " new-edges))
+    (-> (apply add-edges (merge-graphs graph param-val) new-edges)
         (add-attr-to-edges ::param-name param-key new-edges))))
 
 (defn add-params [graph node params]
@@ -59,9 +75,6 @@
                        param-vals))
              graph
              params))
-
-(defn add-attrs-kv [graph node-or-edge attrs-map]
-  (reduce-kv (fn [g k v] (add-attr g node-or-edge k v)) graph attrs-map))
 
 ;; Public
 
@@ -79,7 +92,9 @@
 
 (defn- node-builder [ctx synthdef]
   (fn [id]
-    (make-node ctx (attrs synthdef id))))
+    (print (str "building node " id))
+    (doto (make-node ctx (attrs synthdef id))
+      (pprint))))
 
 (defn- mapped-to [f coll]
   (into {} (map (juxt identity f)) coll))
@@ -94,5 +109,6 @@
             :let [edge-type (map #(attr synthdef % ::node-type) edge)
                   [src dest] (map nodes-by-id edge)
                   edge-attrs (attrs synthdef edge)]]
+      (print (str "building edge " edge edge-attrs))
       (make-edge edge-type src dest edge-attrs))))
 
