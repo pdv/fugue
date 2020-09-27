@@ -9,7 +9,8 @@
             [webcv.envelope :as env]
             [webcv.feedback :as fb]
             [webcv.keyboard :as kb]
-            [webcv.bootstrap :refer [read-eval]]))
+            [webcv.bootstrap :refer [read-eval]]
+            [cljs.core.async :as async]))
 
 (defn render [ctx text cb]
   (let [graph (read-eval text)]
@@ -45,6 +46,20 @@
 (def init-text
   "(let [midi (kb)\n      env (env-gen (adsr 0.1 0.3 0.4 0.4) (gate midi) 1400 50)]\n     (-> (saw (hz midi))\n         (lpf env)\n         (gain 0.5)\n         (dub-delay 0.3 0.5)\n         (out)))")
 
+(defn midi-monitor [midi-ctx]
+  (let [inputs (r/atom {})]
+    (doseq [[in-name in-mult] (::midi/ins midi-ctx)
+           :let [in-chan (async/chan)]]
+      (async/go-loop []
+        (let [msg (async/<! in-chan)]
+          (swap! inputs assoc in-name msg)
+          (recur)))
+      (async/tap in-mult in-chan))
+    (fn []
+      [:ul
+       (for [[in-name last-msg] @inputs]
+         [:li (str in-name last-msg)])])))
+
 (defn repl []
   (let [audio-ctx (r/atom nil)
         midi-ctx (r/atom nil)
@@ -69,13 +84,7 @@
              (str "audio ctx loaded, " (.-maxChannelCount (.-destination actx)) " outs")
              "audio ctx not loaded")]
        (if-let [mctx @midi-ctx]
-         [:div
-          [:p "midi ins"]
-          [:ul (for [[name _] (::midi/ins mctx)]
-                 [:li name])]
-          [:p "midi outs"]
-          [:ul (for [[name _] (::midi/outs mctx)]
-                 [:li name])]]
+         [midi-monitor mctx]
          [:p "midi ctx not loaded"])
        [:p (with-out-str (pprint (::graph @output)))]])))
 
