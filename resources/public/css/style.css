@@ -17,6 +17,11 @@ html, body, #app {
   justify-content: center;
 }
 
+.box {
+  border: 1px solid black;
+  margin: 4px;
+}
+
 #controls {
   width: 200px;
 }
