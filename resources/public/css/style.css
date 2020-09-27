@@ -5,3 +5,26 @@ html, body, #app {
   margin: 0;
 }
 
+#app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#container {
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+}
+
+#controls {
+  width: 200px;
+}
+
+#editor {
+  width: 500px;
+}
+
+#output {
+  width: 200px;
+}

@@ -29,9 +29,9 @@
 
 (defn editor [input]
   (r/create-class
-   {:render (fn [] [:textarea
-                            {:default-value @input
-                             :auto-complete "off"}])
+   {:render (fn []
+              [:textarea
+               {:default-value @input}])
     :component-did-mount (editor-did-mount input)}))
 
 (def init-text-old
@@ -60,33 +60,41 @@
        (for [[in-name last-msg] @inputs]
          [:li (str in-name last-msg)])])))
 
-(defn repl []
+(defn controls
+  [render-fn]
   (let [audio-ctx (r/atom nil)
-        midi-ctx (r/atom nil)
-        input (r/atom init-text)
-        output (r/atom nil)]
+        midi-ctx (r/atom nil)]
     (fn []
-      [:div
-       [editor input]
-       [:div
-        [:button
-         {:on-click #(do
-                       (if-let [old-ctx @audio-ctx] (.close (::audio/actx old-ctx)))
-                       (reset! audio-ctx (audio/make-ctx)))}
-         "reset audio context"]
-        [:button
-         {:on-click #(render (merge @audio-ctx @midi-ctx) @input (partial reset! output))}
-         "run"]
-        [:button
-         {:on-click #(midi/make-ctx (partial reset! midi-ctx))}
-         "reset midi context"]]
-       [:p (if-let [{::audio/keys [actx]} @audio-ctx]
-             (str "audio ctx loaded, " (.-maxChannelCount (.-destination actx)) " outs")
-             "audio ctx not loaded")]
+      [:div#controls
+       [:button
+        {:on-click #(do
+                      (if-let [old-ctx @audio-ctx]
+                        (.close (::audio/actx old-ctx)))
+                      (reset! audio-ctx (audio/make-ctx)))}
+        "reset audio context"]
+       [:p
+        (if-let [{::audio/keys [actx]} @audio-ctx]
+          (str "audio ctx loaded, " (.-maxChannelCount (.-destination actx)) " outs")
+          "audio ctx not loaded")]
+       [:button
+        {:on-click #(midi/make-ctx (partial reset! midi-ctx))}
+        "reset midi context"]
        (if-let [mctx @midi-ctx]
          [midi-monitor mctx]
          [:p "midi ctx not loaded"])
-       [:p (with-out-str (pprint (::graph @output)))]])))
+       [:button
+        {:on-click #(render-fn (merge @audio-ctx @midi-ctx))}
+        "run"]])))
+
+(defn repl []
+  (let [input (r/atom init-text)
+        output (r/atom nil)]
+    (fn []
+      [:div#container
+       [controls #(render % @input (partial reset! output))]
+       [:div#editor
+        [editor input]]
+       [:textarea#output {:value (with-out-str (pprint (::graph @output)))}]])))
 
 (defn -main []
   (enable-console-print!)
