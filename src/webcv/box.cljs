@@ -25,12 +25,13 @@
   {:eval cljs.js/js-eval
    :context :statement
    :load (fn [{:keys [path]} cb]
-           (-> (.fetch js/window (str "js/compiled/out/" path ".js"))
+           (-> (.fetch js/window (str "js/compiled/out/" path ".cljs"))
                (.then #(.text %))
-               (.then #(cb {:lang :js :source %}))))})
+               (.then #(cb {:lang :clj :source %}))))})
 
 (defn evaluate [source cb]
-  (cljs.js/eval-str state source nil eval-settings cb))
+  (let [source (str "(ns webcv.user)\n" source)]
+    (cljs.js/eval-str state source nil eval-settings cb)))
 
 (defn top-text [text]
   [:textarea.repl-out {:read-only true :value text}])
