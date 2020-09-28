@@ -6,11 +6,11 @@ goog.require('cljs.pprint');
 goog.require('loom.graph');
 goog.require('loom.attr');
 cljs.spec.alpha.def_impl.call(null,new cljs.core.Keyword("webcv.synthdef","node-id","webcv.synthdef/node-id",2008707844),new cljs.core.Symbol("cljs.core","int?","cljs.core/int?",50730120,null),cljs.core.int_QMARK_);
-var next_id_34582 = cljs.core.atom.call(null,(0));
-webcv.synthdef.make_id = ((function (next_id_34582){
+var next_id_31091 = cljs.core.atom.call(null,(0));
+webcv.synthdef.make_id = ((function (next_id_31091){
 return (function webcv$synthdef$make_id(){
-return cljs.core.swap_BANG_.call(null,next_id_34582,cljs.core.inc);
-});})(next_id_34582))
+return cljs.core.swap_BANG_.call(null,next_id_31091,cljs.core.inc);
+});})(next_id_31091))
 ;
 cljs.spec.alpha.def_impl.call(null,new cljs.core.Keyword("webcv.synthdef","node-type","webcv.synthdef/node-type",-1036809122),new cljs.core.Symbol("cljs.core","keyword?","cljs.core/keyword?",713156450,null),cljs.core.keyword_QMARK_);
 if((typeof webcv !== 'undefined') && (typeof webcv.synthdef !== 'undefined') && (typeof webcv.synthdef.node_spec !== 'undefined')){
@@ -68,10 +68,10 @@ cljs.spec.alpha.def_impl.call(null,new cljs.core.Keyword("webcv.synthdef","synth
 cljs.spec.alpha.def_impl.call(null,new cljs.core.Keyword("webcv.synthdef","param-key","webcv.synthdef/param-key",173661182),cljs.core.list(new cljs.core.Symbol("cljs.core","constantly","cljs.core/constantly",119002258,null),true),cljs.core.constantly.call(null,true));
 cljs.spec.alpha.def_impl.call(null,new cljs.core.Keyword("webcv.synthdef","param-val","webcv.synthdef/param-val",1293959561),cljs.core.list(new cljs.core.Symbol("cljs.spec.alpha","or","cljs.spec.alpha/or",-831679639,null),new cljs.core.Keyword("webcv.synthdef","synthdef","webcv.synthdef/synthdef",1665199413),new cljs.core.Keyword("webcv.synthdef","synthdef","webcv.synthdef/synthdef",1665199413),new cljs.core.Keyword("webcv.synthdef","value","webcv.synthdef/value",1559263225),cljs.core.list(new cljs.core.Symbol("cljs.core","constantly","cljs.core/constantly",119002258,null),true)),cljs.spec.alpha.or_spec_impl.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("webcv.synthdef","synthdef","webcv.synthdef/synthdef",1665199413),new cljs.core.Keyword("webcv.synthdef","value","webcv.synthdef/value",1559263225)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("webcv.synthdef","synthdef","webcv.synthdef/synthdef",1665199413),cljs.core.list(new cljs.core.Symbol("cljs.core","constantly","cljs.core/constantly",119002258,null),true)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("webcv.synthdef","synthdef","webcv.synthdef/synthdef",1665199413),cljs.core.constantly.call(null,true)], null),null));
 cljs.spec.alpha.def_impl.call(null,new cljs.core.Keyword("webcv.synthdef","param-vals","webcv.synthdef/param-vals",560971097),cljs.core.list(new cljs.core.Symbol("cljs.spec.alpha","*","cljs.spec.alpha/*",-1238084288,null),new cljs.core.Keyword("webcv.synthdef","param-val","webcv.synthdef/param-val",1293959561)),cljs.spec.alpha.rep_impl.call(null,new cljs.core.Keyword("webcv.synthdef","param-val","webcv.synthdef/param-val",1293959561),new cljs.core.Keyword("webcv.synthdef","param-val","webcv.synthdef/param-val",1293959561)));
-cljs.spec.alpha.def_impl.call(null,new cljs.core.Keyword("webcv.synthdef","param-map","webcv.synthdef/param-map",-1816806607),cljs.core.list(new cljs.core.Symbol("cljs.spec.alpha","map-of","cljs.spec.alpha/map-of",153715093,null),new cljs.core.Keyword("webcv.synthdef","param-key","webcv.synthdef/param-key",173661182),new cljs.core.Keyword("webcv.synthdef","param-vals","webcv.synthdef/param-vals",560971097)),cljs.spec.alpha.every_impl.call(null,cljs.core.list(new cljs.core.Symbol("cljs.spec.alpha","tuple","cljs.spec.alpha/tuple",-415901908,null),new cljs.core.Keyword("webcv.synthdef","param-key","webcv.synthdef/param-key",173661182),new cljs.core.Keyword("webcv.synthdef","param-vals","webcv.synthdef/param-vals",560971097)),cljs.spec.alpha.tuple_impl.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("webcv.synthdef","param-key","webcv.synthdef/param-key",173661182),new cljs.core.Keyword("webcv.synthdef","param-vals","webcv.synthdef/param-vals",560971097)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("webcv.synthdef","param-key","webcv.synthdef/param-key",173661182),new cljs.core.Keyword("webcv.synthdef","param-vals","webcv.synthdef/param-vals",560971097)], null)),new cljs.core.PersistentArrayMap(null, 7, [new cljs.core.Keyword(null,"into","into",-150836029),cljs.core.PersistentArrayMap.EMPTY,new cljs.core.Keyword("cljs.spec.alpha","kind-form","cljs.spec.alpha/kind-form",-1047104697),new cljs.core.Symbol("cljs.core","map?","cljs.core/map?",-1390345523,null),new cljs.core.Keyword("cljs.spec.alpha","cpred","cljs.spec.alpha/cpred",-693471218),(function (G__34583){
-return cljs.core.map_QMARK_.call(null,G__34583);
-}),new cljs.core.Keyword(null,"kind","kind",-717265803),cljs.core.map_QMARK_,new cljs.core.Keyword("cljs.spec.alpha","kfn","cljs.spec.alpha/kfn",672643897),(function (i__21364__auto__,v__21365__auto__){
-return cljs.core.nth.call(null,v__21365__auto__,(0));
+cljs.spec.alpha.def_impl.call(null,new cljs.core.Keyword("webcv.synthdef","param-map","webcv.synthdef/param-map",-1816806607),cljs.core.list(new cljs.core.Symbol("cljs.spec.alpha","map-of","cljs.spec.alpha/map-of",153715093,null),new cljs.core.Keyword("webcv.synthdef","param-key","webcv.synthdef/param-key",173661182),new cljs.core.Keyword("webcv.synthdef","param-vals","webcv.synthdef/param-vals",560971097)),cljs.spec.alpha.every_impl.call(null,cljs.core.list(new cljs.core.Symbol("cljs.spec.alpha","tuple","cljs.spec.alpha/tuple",-415901908,null),new cljs.core.Keyword("webcv.synthdef","param-key","webcv.synthdef/param-key",173661182),new cljs.core.Keyword("webcv.synthdef","param-vals","webcv.synthdef/param-vals",560971097)),cljs.spec.alpha.tuple_impl.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("webcv.synthdef","param-key","webcv.synthdef/param-key",173661182),new cljs.core.Keyword("webcv.synthdef","param-vals","webcv.synthdef/param-vals",560971097)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("webcv.synthdef","param-key","webcv.synthdef/param-key",173661182),new cljs.core.Keyword("webcv.synthdef","param-vals","webcv.synthdef/param-vals",560971097)], null)),new cljs.core.PersistentArrayMap(null, 7, [new cljs.core.Keyword(null,"into","into",-150836029),cljs.core.PersistentArrayMap.EMPTY,new cljs.core.Keyword("cljs.spec.alpha","kind-form","cljs.spec.alpha/kind-form",-1047104697),new cljs.core.Symbol("cljs.core","map?","cljs.core/map?",-1390345523,null),new cljs.core.Keyword("cljs.spec.alpha","cpred","cljs.spec.alpha/cpred",-693471218),(function (G__31092){
+return cljs.core.map_QMARK_.call(null,G__31092);
+}),new cljs.core.Keyword(null,"kind","kind",-717265803),cljs.core.map_QMARK_,new cljs.core.Keyword("cljs.spec.alpha","kfn","cljs.spec.alpha/kfn",672643897),(function (i__21383__auto__,v__21384__auto__){
+return cljs.core.nth.call(null,v__21384__auto__,(0));
 }),new cljs.core.Keyword("cljs.spec.alpha","conform-all","cljs.spec.alpha/conform-all",45201917),true,new cljs.core.Keyword("cljs.spec.alpha","describe","cljs.spec.alpha/describe",1883026911),cljs.core.list(new cljs.core.Symbol("cljs.spec.alpha","map-of","cljs.spec.alpha/map-of",153715093,null),new cljs.core.Keyword("webcv.synthdef","param-key","webcv.synthdef/param-key",173661182),new cljs.core.Keyword("webcv.synthdef","param-vals","webcv.synthdef/param-vals",560971097))], null),null));
 webcv.synthdef.add_attrs_kv = (function webcv$synthdef$add_attrs_kv(graph,node_or_edge,attrs_map){
 return cljs.core.reduce_kv.call(null,(function (g,k,v){
@@ -88,8 +88,8 @@ var _PERCENT_ = cljs.core.filter.call(null,(function (node){
 return ((cljs.core.empty_QMARK_.call(null,loom.graph.successors.call(null,synthdef,node))) && (cljs.core.not_EQ_.call(null,new cljs.core.Keyword("webcv.synthdef","output","webcv.synthdef/output",1136213085),new cljs.core.Keyword("webcv.synthdef","node-type","webcv.synthdef/node-type",-1036809122).cljs$core$IFn$_invoke$arity$1(loom.attr.attr.call(null,synthdef,node,new cljs.core.Keyword("webcv.synthdef","nodedef","webcv.synthdef/nodedef",1251399852))))));
 }),loom.graph.nodes.call(null,synthdef));
 if(cljs.spec.alpha.valid_QMARK_.call(null,cljs.spec.alpha.every_impl.call(null,new cljs.core.Keyword("webcv.synthdef","node-id","webcv.synthdef/node-id",2008707844),new cljs.core.Keyword("webcv.synthdef","node-id","webcv.synthdef/node-id",2008707844),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword("cljs.spec.alpha","kind-form","cljs.spec.alpha/kind-form",-1047104697),null,new cljs.core.Keyword("cljs.spec.alpha","cpred","cljs.spec.alpha/cpred",-693471218),((function (_PERCENT_){
-return (function (G__34584){
-return cljs.core.coll_QMARK_.call(null,G__34584);
+return (function (G__31093){
+return cljs.core.coll_QMARK_.call(null,G__31093);
 });})(_PERCENT_))
 ,new cljs.core.Keyword("cljs.spec.alpha","conform-all","cljs.spec.alpha/conform-all",45201917),true,new cljs.core.Keyword("cljs.spec.alpha","describe","cljs.spec.alpha/describe",1883026911),cljs.core.list(new cljs.core.Symbol("cljs.spec.alpha","coll-of","cljs.spec.alpha/coll-of",1019430407,null),new cljs.core.Keyword("webcv.synthdef","node-id","webcv.synthdef/node-id",2008707844))], null),null),_PERCENT_)){
 } else {
@@ -126,8 +126,8 @@ var new_sparams = cljs.core.assoc.call(null,old_sparams,param_name,param_val);
 return loom.attr.add_attr.call(null,graph,node,new cljs.core.Keyword("webcv.synthdef","static-params","webcv.synthdef/static-params",-622811484),new_sparams);
 }));
 cljs.core._add_method.call(null,webcv.synthdef.add_param,new cljs.core.Keyword("webcv.synthdef","synthdef","webcv.synthdef/synthdef",1665199413),(function (graph,node,param_key,param_val){
-var new_edges = cljs.core.map.call(null,(function (p1__34585_SHARP_){
-return (new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[p1__34585_SHARP_,node],null));
+var new_edges = cljs.core.map.call(null,(function (p1__31094_SHARP_){
+return (new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[p1__31094_SHARP_,node],null));
 }),webcv.synthdef.outputs.call(null,param_val));
 return loom.attr.add_attr_to_edges.call(null,cljs.core.apply.call(null,loom.graph.add_edges,webcv.synthdef.merge_graphs.call(null,graph,param_val),new_edges),new cljs.core.Keyword("webcv.synthdef","param-name","webcv.synthdef/param-name",-328756077),param_key,new_edges);
 }));
@@ -181,71 +181,71 @@ throw (new Error("Assert failed: (s/valid? :webcv.synthdef/synthdef synthdef)"))
 }
 
 var nodes_by_id = webcv.synthdef.mapped_to.call(null,webcv.synthdef.node_builder.call(null,ctx,synthdef),loom.graph.nodes.call(null,synthdef));
-var seq__34587 = cljs.core.seq.call(null,loom.graph.edges.call(null,synthdef));
-var chunk__34589 = null;
-var count__34590 = (0);
-var i__34591 = (0);
+var seq__31096 = cljs.core.seq.call(null,loom.graph.edges.call(null,synthdef));
+var chunk__31098 = null;
+var count__31099 = (0);
+var i__31100 = (0);
 while(true){
-if((i__34591 < count__34590)){
-var edge = cljs.core._nth.call(null,chunk__34589,i__34591);
-var edge_type_34605 = cljs.core.map.call(null,((function (seq__34587,chunk__34589,count__34590,i__34591,edge,nodes_by_id){
-return (function (p1__34586_SHARP_){
-return loom.attr.attr.call(null,synthdef,p1__34586_SHARP_,new cljs.core.Keyword("webcv.synthdef","node-type","webcv.synthdef/node-type",-1036809122));
-});})(seq__34587,chunk__34589,count__34590,i__34591,edge,nodes_by_id))
+if((i__31100 < count__31099)){
+var edge = cljs.core._nth.call(null,chunk__31098,i__31100);
+var edge_type_31114 = cljs.core.map.call(null,((function (seq__31096,chunk__31098,count__31099,i__31100,edge,nodes_by_id){
+return (function (p1__31095_SHARP_){
+return loom.attr.attr.call(null,synthdef,p1__31095_SHARP_,new cljs.core.Keyword("webcv.synthdef","node-type","webcv.synthdef/node-type",-1036809122));
+});})(seq__31096,chunk__31098,count__31099,i__31100,edge,nodes_by_id))
 ,edge);
-var vec__34599_34606 = cljs.core.map.call(null,nodes_by_id,edge);
-var src_34607 = cljs.core.nth.call(null,vec__34599_34606,(0),null);
-var dest_34608 = cljs.core.nth.call(null,vec__34599_34606,(1),null);
-var edge_attrs_34609 = loom.attr.attrs.call(null,synthdef,edge);
-webcv.synthdef.make_edge.call(null,edge_type_34605,src_34607,dest_34608,edge_attrs_34609);
+var vec__31108_31115 = cljs.core.map.call(null,nodes_by_id,edge);
+var src_31116 = cljs.core.nth.call(null,vec__31108_31115,(0),null);
+var dest_31117 = cljs.core.nth.call(null,vec__31108_31115,(1),null);
+var edge_attrs_31118 = loom.attr.attrs.call(null,synthdef,edge);
+webcv.synthdef.make_edge.call(null,edge_type_31114,src_31116,dest_31117,edge_attrs_31118);
 
 
-var G__34610 = seq__34587;
-var G__34611 = chunk__34589;
-var G__34612 = count__34590;
-var G__34613 = (i__34591 + (1));
-seq__34587 = G__34610;
-chunk__34589 = G__34611;
-count__34590 = G__34612;
-i__34591 = G__34613;
+var G__31119 = seq__31096;
+var G__31120 = chunk__31098;
+var G__31121 = count__31099;
+var G__31122 = (i__31100 + (1));
+seq__31096 = G__31119;
+chunk__31098 = G__31120;
+count__31099 = G__31121;
+i__31100 = G__31122;
 continue;
 } else {
-var temp__5720__auto__ = cljs.core.seq.call(null,seq__34587);
+var temp__5720__auto__ = cljs.core.seq.call(null,seq__31096);
 if(temp__5720__auto__){
-var seq__34587__$1 = temp__5720__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,seq__34587__$1)){
-var c__4550__auto__ = cljs.core.chunk_first.call(null,seq__34587__$1);
-var G__34614 = cljs.core.chunk_rest.call(null,seq__34587__$1);
-var G__34615 = c__4550__auto__;
-var G__34616 = cljs.core.count.call(null,c__4550__auto__);
-var G__34617 = (0);
-seq__34587 = G__34614;
-chunk__34589 = G__34615;
-count__34590 = G__34616;
-i__34591 = G__34617;
+var seq__31096__$1 = temp__5720__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,seq__31096__$1)){
+var c__4550__auto__ = cljs.core.chunk_first.call(null,seq__31096__$1);
+var G__31123 = cljs.core.chunk_rest.call(null,seq__31096__$1);
+var G__31124 = c__4550__auto__;
+var G__31125 = cljs.core.count.call(null,c__4550__auto__);
+var G__31126 = (0);
+seq__31096 = G__31123;
+chunk__31098 = G__31124;
+count__31099 = G__31125;
+i__31100 = G__31126;
 continue;
 } else {
-var edge = cljs.core.first.call(null,seq__34587__$1);
-var edge_type_34618 = cljs.core.map.call(null,((function (seq__34587,chunk__34589,count__34590,i__34591,edge,seq__34587__$1,temp__5720__auto__,nodes_by_id){
-return (function (p1__34586_SHARP_){
-return loom.attr.attr.call(null,synthdef,p1__34586_SHARP_,new cljs.core.Keyword("webcv.synthdef","node-type","webcv.synthdef/node-type",-1036809122));
-});})(seq__34587,chunk__34589,count__34590,i__34591,edge,seq__34587__$1,temp__5720__auto__,nodes_by_id))
+var edge = cljs.core.first.call(null,seq__31096__$1);
+var edge_type_31127 = cljs.core.map.call(null,((function (seq__31096,chunk__31098,count__31099,i__31100,edge,seq__31096__$1,temp__5720__auto__,nodes_by_id){
+return (function (p1__31095_SHARP_){
+return loom.attr.attr.call(null,synthdef,p1__31095_SHARP_,new cljs.core.Keyword("webcv.synthdef","node-type","webcv.synthdef/node-type",-1036809122));
+});})(seq__31096,chunk__31098,count__31099,i__31100,edge,seq__31096__$1,temp__5720__auto__,nodes_by_id))
 ,edge);
-var vec__34602_34619 = cljs.core.map.call(null,nodes_by_id,edge);
-var src_34620 = cljs.core.nth.call(null,vec__34602_34619,(0),null);
-var dest_34621 = cljs.core.nth.call(null,vec__34602_34619,(1),null);
-var edge_attrs_34622 = loom.attr.attrs.call(null,synthdef,edge);
-webcv.synthdef.make_edge.call(null,edge_type_34618,src_34620,dest_34621,edge_attrs_34622);
+var vec__31111_31128 = cljs.core.map.call(null,nodes_by_id,edge);
+var src_31129 = cljs.core.nth.call(null,vec__31111_31128,(0),null);
+var dest_31130 = cljs.core.nth.call(null,vec__31111_31128,(1),null);
+var edge_attrs_31131 = loom.attr.attrs.call(null,synthdef,edge);
+webcv.synthdef.make_edge.call(null,edge_type_31127,src_31129,dest_31130,edge_attrs_31131);
 
 
-var G__34623 = cljs.core.next.call(null,seq__34587__$1);
-var G__34624 = null;
-var G__34625 = (0);
-var G__34626 = (0);
-seq__34587 = G__34623;
-chunk__34589 = G__34624;
-count__34590 = G__34625;
-i__34591 = G__34626;
+var G__31132 = cljs.core.next.call(null,seq__31096__$1);
+var G__31133 = null;
+var G__31134 = (0);
+var G__31135 = (0);
+seq__31096 = G__31132;
+chunk__31098 = G__31133;
+count__31099 = G__31134;
+i__31100 = G__31135;
 continue;
 }
 } else {
@@ -256,4 +256,4 @@ break;
 }
 });
 
-//# sourceMappingURL=synthdef.js.map?rel=1601267806694
+//# sourceMappingURL=synthdef.js.map?rel=1601274367241

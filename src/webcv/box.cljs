@@ -24,7 +24,7 @@
 ;; https://stackoverflow.com/questions/51573858/
 
 (defn init-state [state]
-  (assoc-in state [:cljs.analyzer/namespaces 'webcv.audio]
+  (assoc-in state [:cljs.analyzer/namespaces 'cljs.user]
             (analyzer-state 'webcv.audio)))
 
 (def state (cljs.js/empty-state init-state))
