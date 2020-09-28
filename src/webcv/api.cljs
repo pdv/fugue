@@ -7,6 +7,7 @@
             [webcv.keyboard :as keyboard]
             [webcv.feedback :as feedback]
             [webcv.envelope :as envelope]
+            [webcv.metronome :as metronome]
             [webcv.ctx-ctrls :as ctrls]
             [webcv.components :as components]))
 
@@ -39,6 +40,8 @@
 (def perc envelope/perc)
 (def env-gen envelope/env-gen)
 
+(def metro metronome/metro)
+
 (def audio-ctx-ctrl ctrls/audio-controls)
 (def midi-ctx-ctrl ctrls/midi-controls)
 
@@ -56,16 +59,19 @@
 (def init-text
   (string/join "\n" init-forms))
 
+(defn demo-synth []
+  (-> (saw 110)
+      (gain (env-gen (adsr 0.1 0.3 0.3 0.4) (metro 100)))
+      (out)))
+
 (def demo-forms
-  ["(defn demo [freq]"
-   "  (out (sin-osc freq)))"
-   "(def freq-atom (ratom 440))"
-   ""
+  [
+   "(defonce nodes (ratom nil))"
    "[:div"
-   "  [slider freq-atom 20 10000]"
    "  [:button"
-   "   {:on-click #(render (demo freq-atom))}"
-   "   \"run\"]]"])
+   "   {:on-click #(reset! nodes (render (demo-synth)))}"
+   "   \"run\"]]"
+   ])
 
 (def demo-text
   (string/join "\n" demo-forms))

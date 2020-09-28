@@ -105,5 +105,6 @@
             :let [edge-type (map #(attr synthdef % ::node-type) edge)
                   [src dest] (map nodes-by-id edge)
                   edge-attrs (attrs synthdef edge)]]
-      (make-edge edge-type src dest edge-attrs))))
+      (make-edge edge-type src dest edge-attrs))
+    nodes-by-id))
 
