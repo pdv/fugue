@@ -53,13 +53,17 @@ Envelopes are defined by an envdef and triggered by a gate channel.
 
 ## Setup
 
-    lein figwheel
+   make dev 
 
 starts a development server at [localhost:3449](http://localhost:3449/).
 
-    lein do clean, cljsbuild once
+   make build 
 
-to make a production build. github pages expects index.html in /docs
+to make a production build. github pages expects index.html in /docs, running
+
+   make full-deploy
+
+will do all the shenanigans for you.
 
 ## License
 
