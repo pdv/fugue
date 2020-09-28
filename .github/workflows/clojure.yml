@@ -1,0 +1,24 @@
+name: Clojure CI
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      run: lein deps
+    - name: Run tests
+      run: lein test
+    - name: Build
+      run: lein cljsbuild once
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@3.6.2
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages # The branch the action should deploy to.
+        FOLDER: resources/public
+        CLEAN: true
