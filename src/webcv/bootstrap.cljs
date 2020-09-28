@@ -3,12 +3,12 @@
             [webcv.ctx-ctrls]
             [webcv.keyboard]
             [webcv.envelope]
+            [reagent.core]
             [clojure.string :as string]))
 
-(def init-forms
-  ["(def ratom reagent.core/atom)"
-   "(def midi-ctrl webcv.ctx-ctrls/midi-controls)"
-   "(def audio-ctrl webcv.ctx-ctrls/audio-controls)"
+(def prefix-forms
+  [
+   "(def ratom reagent.core/atom)"
    ; audio
    "(def out webcv.audio/out)"
    "(def gain webcv.audio/gain)"
@@ -35,12 +35,22 @@
    "(def adsr webcv.envelope/adsr)"
    "(def perc webcv.envelope/perc)"
    "(def env-gen webcv.envelope/env-gen)"
+   "(def _ nil)"
+   ])
+
+(defn with-prefix [text]
+  (string/join "\n" (conj prefix-forms text)))
+
+(def context-forms
+  [
    ; ctx
    "(defonce audio-ctx (ratom nil))"
    "(defonce midi-ctx (ratom nil))"
+   "(def midi-ctrl webcv.ctx-ctrls/midi-controls)"
+   "(def audio-ctrl webcv.ctx-ctrls/audio-controls)"
    ; controls
    "[:div"
    "  [audio-ctrl audio-ctx]"
    "  [midi-ctrl midi-ctx]]"])
 
-(def init-str (string/join "\n" init-forms))
+(def context-str (string/join "\n" context-forms))

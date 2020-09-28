@@ -1,8 +1,12 @@
 (ns webcv.box
+  (:require-macros [webcv.env :refer [analyzer-state]])
   (:require [reagent.core :as r]
             [reagent.dom :as rdom]
+            [webcv.audio :refer [sin-osc]]
+            [webcv.bootstrap :as bootstrap]
             [cljs.pprint :refer [pprint]]
             [cljs.repl :refer [Error->map]]
+            [cljs.env :as env]
             [cljs.js]))
 
 (defn editor [init on-change]
@@ -19,19 +23,18 @@
 
 ;; https://stackoverflow.com/questions/51573858/
 
-(def state (cljs.js/empty-state))
+(defn init-state [state]
+  (assoc-in state [:cljs.analyzer/namespaces 'webcv.audio]
+            (analyzer-state 'webcv.audio)))
+
+(def state (cljs.js/empty-state init-state))
 
 (def eval-settings
   {:eval cljs.js/js-eval
-   :context :statement
-   :load (fn [{:keys [path]} cb]
-           (-> (.fetch js/window (str "js/compiled/out/" path ".cljs"))
-               (.then #(.text %))
-               (.then #(cb {:lang :clj :source %}))))})
+   :context :statement})
 
 (defn evaluate [source cb]
-  (let [source (str "(ns webcv.user)\n" source)]
-    (cljs.js/eval-str state source nil eval-settings cb)))
+  (cljs.js/eval-str state source nil eval-settings cb))
 
 (defn top-text [text]
   [:textarea.repl-out {:read-only true :value text}])
