@@ -18,9 +18,11 @@ html, body, #app {
 }
 
 .box {
+  display: flex;
+  flex-flow: column;
   border: 1px solid black;
   margin: 16px;
-  width: 400px;
+  max-width: 80vw;
 }
 
 .box-top {
@@ -30,10 +32,18 @@ html, body, #app {
 }
 
 .box-bottom {
-  height: 300px;
+  flex: 1 1 auto;
+  overflow: hidden;
 }
 
 .CodeMirror {
+  min-width: 432px;
+  min-height: 300px;
+  resize: both;
+  overflow: hidden;
+}
+
+.CodeMirror-gutters {
   height: 100% !important;
 }
 
