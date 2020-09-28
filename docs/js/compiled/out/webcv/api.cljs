@@ -10,6 +10,8 @@
 
 (def ratom r/atom)
 
+(def hmm (ratom "foo?"))
+
 (def out audio/out)
 (def gain audio/gain)
 (def mix audio/mix)
