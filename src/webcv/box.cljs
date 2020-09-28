@@ -21,8 +21,16 @@
 
 (def state (cljs.js/empty-state))
 
+(def eval-settings
+  {:eval cljs.js/js-eval
+   :context :statement
+   :load (fn [{:keys [path]} cb]
+           (-> (.fetch js/window (str "js/compiled/out/" path ".js"))
+               (.then #(.text %))
+               (.then #(cb {:lang :js :source %}))))})
+
 (defn evaluate [source cb]
-  (cljs.js/eval-str state source nil {:eval cljs.js/js-eval :context :statement} cb))
+  (cljs.js/eval-str state source nil eval-settings cb))
 
 (defn top-text [text]
   [:textarea.repl-out {:read-only true :value text}])

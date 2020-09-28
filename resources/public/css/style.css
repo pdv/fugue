@@ -40,11 +40,11 @@ html, body, #app {
 .repl-out {
   border: none;
   padding: 0px;
+  height: 150px;
   width: 100%;
   resize: none;
   background-color: transparent;
   outline: none;
-  height: auto;
   font-family: monospace;
 }
 

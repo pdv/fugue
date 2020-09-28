@@ -45,8 +45,11 @@
       "audio ctx not loaded")]])
 
 (def init-controls-txt
-  (str "(defonce audio-ctx (reagent.core/atom nil))\n"
-       "(defonce midi-ctx (reagent.core/atom nil))\n"
+  (str "(ns webcv.prelude\n"
+       "  (:require [reagent.core :as r]\n"
+       "            [webcv.ctx-ctrls :as ctrls]))\n"
+       "(defonce audio-ctx (r/atom nil))\n"
+       "(defonce midi-ctx (r/atom nil))\n"
        "[:div\n"
-       "  [webcv.ctx-ctrls/audio-controls audio-ctx]\n"
-       "  [webcv.ctx-ctrls/midi-controls midi-ctx]]\n"))
+       "  [ctrls/audio-controls audio-ctx]\n"
+       "  [ctrls/midi-controls midi-ctx]]\n"))
