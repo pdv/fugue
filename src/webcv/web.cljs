@@ -1,9 +1,9 @@
 (ns webcv.web
   (:require [reagent.core :as r]
             [reagent.dom :as rdom]
-            [oops.core :refer [oget+]]
-            [webcv.box :as box]
+            [webcv.bootstrap :as bootstrap]
             [webcv.api :as api]
+            [webcv.box :as box]
             [cljs.repl :refer [source-fn]]))
 
 (defn app []
@@ -13,7 +13,7 @@
     (fn []
       [:div#container
        (for [box-init @boxes]
-        [box/box box-init])
+        [box/box box-init bootstrap/eval-str])
        [:button#add {:on-click add-box} "+"]])))
 
 (defn -main []
