@@ -44,11 +44,3 @@
       (str (.-maxChannelCount (.-destination actx)) " outs")
       "audio ctx not loaded")]])
 
-(def init-controls-txt
-  (str "(require '[reagent.core :as r])\n"
-       "(require '[webcv.ctx-ctrls :as ctrls])\n"
-       "(defonce audio-ctx (r/atom nil))\n"
-       "(defonce midi-ctx (r/atom nil))\n"
-       "[:div\n"
-       "  [ctrls/audio-controls audio-ctx]\n"
-       "  [ctrls/midi-controls midi-ctx]]\n"))

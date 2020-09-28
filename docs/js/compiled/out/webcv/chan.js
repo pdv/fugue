@@ -19,12 +19,12 @@ cljs.core._add_method.call(null,webcv.synthdef.node_spec,new cljs.core.Keyword("
 return cljs.spec.alpha.multi_spec_impl.call(null,new cljs.core.Symbol("webcv.chan","chan-node-spec","webcv.chan/chan-node-spec",-851471243,null),new cljs.core.Var(function(){return webcv.chan.chan_node_spec;},new cljs.core.Symbol("webcv.chan","chan-node-spec","webcv.chan/chan-node-spec",-851471243,null),cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"ns","ns",441598760),new cljs.core.Keyword(null,"name","name",1843675177),new cljs.core.Keyword(null,"file","file",-1269645878),new cljs.core.Keyword(null,"end-column","end-column",1425389514),new cljs.core.Keyword(null,"column","column",2078222095),new cljs.core.Keyword(null,"line","line",212345235),new cljs.core.Keyword(null,"end-line","end-line",1837326455),new cljs.core.Keyword(null,"arglists","arglists",1661989754),new cljs.core.Keyword(null,"doc","doc",1913296891),new cljs.core.Keyword(null,"test","test",577538877)],[new cljs.core.Symbol(null,"webcv.chan","webcv.chan",-1244707259,null),new cljs.core.Symbol(null,"chan-node-spec","chan-node-spec",866775646,null),"src/webcv/chan.cljs",25,1,8,8,cljs.core.List.EMPTY,null,(cljs.core.truth_(webcv.chan.chan_node_spec)?webcv.chan.chan_node_spec.cljs$lang$test:null)])),new cljs.core.Keyword("webcv.chan","chan-node-type","webcv.chan/chan-node-type",-1398165608));
 }));
 cljs.core._add_method.call(null,webcv.chan.chan_node_spec,new cljs.core.Keyword("webcv.chan","transducer","webcv.chan/transducer",311721516),(function (_){
-return cljs.spec.alpha.map_spec_impl.call(null,cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"req-un","req-un",1074571008),new cljs.core.Keyword(null,"opt-un","opt-un",883442496),new cljs.core.Keyword(null,"gfn","gfn",791517474),new cljs.core.Keyword(null,"pred-exprs","pred-exprs",1792271395),new cljs.core.Keyword(null,"keys-pred","keys-pred",858984739),new cljs.core.Keyword(null,"opt-keys","opt-keys",1262688261),new cljs.core.Keyword(null,"req-specs","req-specs",553962313),new cljs.core.Keyword(null,"req","req",-326448303),new cljs.core.Keyword(null,"req-keys","req-keys",514319221),new cljs.core.Keyword(null,"opt-specs","opt-specs",-384905450),new cljs.core.Keyword(null,"pred-forms","pred-forms",172611832),new cljs.core.Keyword(null,"opt","opt",-794706369)],[null,null,null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(function (G__28660){
-return cljs.core.map_QMARK_.call(null,G__28660);
-}),(function (G__28660){
-return cljs.core.contains_QMARK_.call(null,G__28660,new cljs.core.Keyword("webcv.chan","xform","webcv.chan/xform",-2034901163));
-})], null),(function (G__28660){
-return ((cljs.core.map_QMARK_.call(null,G__28660)) && (cljs.core.contains_QMARK_.call(null,G__28660,new cljs.core.Keyword("webcv.chan","xform","webcv.chan/xform",-2034901163))));
+return cljs.spec.alpha.map_spec_impl.call(null,cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"req-un","req-un",1074571008),new cljs.core.Keyword(null,"opt-un","opt-un",883442496),new cljs.core.Keyword(null,"gfn","gfn",791517474),new cljs.core.Keyword(null,"pred-exprs","pred-exprs",1792271395),new cljs.core.Keyword(null,"keys-pred","keys-pred",858984739),new cljs.core.Keyword(null,"opt-keys","opt-keys",1262688261),new cljs.core.Keyword(null,"req-specs","req-specs",553962313),new cljs.core.Keyword(null,"req","req",-326448303),new cljs.core.Keyword(null,"req-keys","req-keys",514319221),new cljs.core.Keyword(null,"opt-specs","opt-specs",-384905450),new cljs.core.Keyword(null,"pred-forms","pred-forms",172611832),new cljs.core.Keyword(null,"opt","opt",-794706369)],[null,null,null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(function (G__34629){
+return cljs.core.map_QMARK_.call(null,G__34629);
+}),(function (G__34629){
+return cljs.core.contains_QMARK_.call(null,G__34629,new cljs.core.Keyword("webcv.chan","xform","webcv.chan/xform",-2034901163));
+})], null),(function (G__34629){
+return ((cljs.core.map_QMARK_.call(null,G__34629)) && (cljs.core.contains_QMARK_.call(null,G__34629,new cljs.core.Keyword("webcv.chan","xform","webcv.chan/xform",-2034901163))));
 }),cljs.core.PersistentVector.EMPTY,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("webcv.chan","xform","webcv.chan/xform",-2034901163)], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("webcv.chan","xform","webcv.chan/xform",-2034901163)], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("webcv.chan","xform","webcv.chan/xform",-2034901163)], null),cljs.core.PersistentVector.EMPTY,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.list(new cljs.core.Symbol("cljs.core","fn","cljs.core/fn",-1065745098,null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Symbol(null,"%","%",-950237169,null)], null),cljs.core.list(new cljs.core.Symbol("cljs.core","map?","cljs.core/map?",-1390345523,null),new cljs.core.Symbol(null,"%","%",-950237169,null))),cljs.core.list(new cljs.core.Symbol("cljs.core","fn","cljs.core/fn",-1065745098,null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Symbol(null,"%","%",-950237169,null)], null),cljs.core.list(new cljs.core.Symbol("cljs.core","contains?","cljs.core/contains?",-976526835,null),new cljs.core.Symbol(null,"%","%",-950237169,null),new cljs.core.Keyword("webcv.chan","xform","webcv.chan/xform",-2034901163)))], null),null]));
 }));
 if((typeof webcv !== 'undefined') && (typeof webcv.chan !== 'undefined') && (typeof webcv.chan.make_chan_node !== 'undefined')){
@@ -59,8 +59,8 @@ return xform_name;
 })();
 }
 webcv.chan.val_x_map = (function webcv$chan$val_x_map(name){
-return cljs.core.map.call(null,(function (p1__28661_SHARP_){
-return cljs.core.assoc.call(null,cljs.core.PersistentArrayMap.EMPTY,name,p1__28661_SHARP_);
+return cljs.core.map.call(null,(function (p1__34630_SHARP_){
+return cljs.core.assoc.call(null,cljs.core.PersistentArrayMap.EMPTY,name,p1__34630_SHARP_);
 }));
 });
 webcv.chan.merge_xform = (function webcv$chan$merge_xform(init){
@@ -68,43 +68,43 @@ return (function (rf){
 var prev = cljs.core.volatile_BANG_.call(null,init);
 return ((function (prev){
 return (function() {
-var G__28662 = null;
-var G__28662__0 = (function (){
+var G__34631 = null;
+var G__34631__0 = (function (){
 return rf.call(null);
 });
-var G__28662__1 = (function (result){
+var G__34631__1 = (function (result){
 return rf.call(null,result);
 });
-var G__28662__2 = (function (result,input){
+var G__34631__2 = (function (result,input){
 var next = cljs.core.merge.call(null,cljs.core.deref.call(null,prev),input);
 cljs.core.vreset_BANG_.call(null,prev,next);
 
 return rf.call(null,result,next);
 });
-G__28662 = function(result,input){
+G__34631 = function(result,input){
 switch(arguments.length){
 case 0:
-return G__28662__0.call(this);
+return G__34631__0.call(this);
 case 1:
-return G__28662__1.call(this,result);
+return G__34631__1.call(this,result);
 case 2:
-return G__28662__2.call(this,result,input);
+return G__34631__2.call(this,result,input);
 }
 throw(new Error('Invalid arity: ' + arguments.length));
 };
-G__28662.cljs$core$IFn$_invoke$arity$0 = G__28662__0;
-G__28662.cljs$core$IFn$_invoke$arity$1 = G__28662__1;
-G__28662.cljs$core$IFn$_invoke$arity$2 = G__28662__2;
-return G__28662;
+G__34631.cljs$core$IFn$_invoke$arity$0 = G__34631__0;
+G__34631.cljs$core$IFn$_invoke$arity$1 = G__34631__1;
+G__34631.cljs$core$IFn$_invoke$arity$2 = G__34631__2;
+return G__34631;
 })()
 ;})(prev))
 });
 });
-cljs.core._add_method.call(null,webcv.chan.make_chan_node,new cljs.core.Keyword("webcv.chan","transducer","webcv.chan/transducer",311721516),(function (ctx,p__28663){
-var map__28664 = p__28663;
-var map__28664__$1 = (((((!((map__28664 == null))))?(((((map__28664.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__28664.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__28664):map__28664);
-var xform = cljs.core.get.call(null,map__28664__$1,new cljs.core.Keyword("webcv.chan","xform","webcv.chan/xform",-2034901163));
-var static_params = cljs.core.get.call(null,map__28664__$1,new cljs.core.Keyword("webcv.synthdef","static-params","webcv.synthdef/static-params",-622811484));
+cljs.core._add_method.call(null,webcv.chan.make_chan_node,new cljs.core.Keyword("webcv.chan","transducer","webcv.chan/transducer",311721516),(function (ctx,p__34632){
+var map__34633 = p__34632;
+var map__34633__$1 = (((((!((map__34633 == null))))?(((((map__34633.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__34633.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__34633):map__34633);
+var xform = cljs.core.get.call(null,map__34633__$1,new cljs.core.Keyword("webcv.chan","xform","webcv.chan/xform",-2034901163));
+var static_params = cljs.core.get.call(null,map__34633__$1,new cljs.core.Keyword("webcv.synthdef","static-params","webcv.synthdef/static-params",-622811484));
 var out = cljs.core.async.chan.call(null,(1),cljs.core.comp.call(null,webcv.chan.merge_xform.call(null,static_params),webcv.chan.make_transducer.call(null,ctx,xform)));
 if(cljs.core.truth_(static_params)){
 cljs.core.async.put_BANG_.call(null,out,static_params);
@@ -113,14 +113,14 @@ cljs.core.async.put_BANG_.call(null,out,static_params);
 
 return new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("webcv.chan","mult-out","webcv.chan/mult-out",1070529409),cljs.core.async.mult.call(null,out),new cljs.core.Keyword("webcv.chan","mix-out","webcv.chan/mix-out",-1114633003),cljs.core.async.mix.call(null,out)], null);
 }));
-cljs.core._add_method.call(null,webcv.synthdef.make_edge,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("webcv.chan","chan-node","webcv.chan/chan-node",-367192494),new cljs.core.Keyword("webcv.chan","chan-node","webcv.chan/chan-node",-367192494)], null),(function (_,src,dest,p__28666){
-var map__28667 = p__28666;
-var map__28667__$1 = (((((!((map__28667 == null))))?(((((map__28667.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__28667.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__28667):map__28667);
-var param_name = cljs.core.get.call(null,map__28667__$1,new cljs.core.Keyword("webcv.synthdef","param-name","webcv.synthdef/param-name",-328756077));
+cljs.core._add_method.call(null,webcv.synthdef.make_edge,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("webcv.chan","chan-node","webcv.chan/chan-node",-367192494),new cljs.core.Keyword("webcv.chan","chan-node","webcv.chan/chan-node",-367192494)], null),(function (_,src,dest,p__34635){
+var map__34636 = p__34635;
+var map__34636__$1 = (((((!((map__34636 == null))))?(((((map__34636.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__34636.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__34636):map__34636);
+var param_name = cljs.core.get.call(null,map__34636__$1,new cljs.core.Keyword("webcv.synthdef","param-name","webcv.synthdef/param-name",-328756077));
 var in_chan = cljs.core.async.chan.call(null,(1),webcv.chan.val_x_map.call(null,param_name));
 cljs.core.async.admix.call(null,new cljs.core.Keyword("webcv.chan","mix-out","webcv.chan/mix-out",-1114633003).cljs$core$IFn$_invoke$arity$1(dest),in_chan);
 
 return cljs.core.async.tap.call(null,new cljs.core.Keyword("webcv.chan","mult-out","webcv.chan/mult-out",1070529409).cljs$core$IFn$_invoke$arity$1(src),in_chan);
 }));
 
-//# sourceMappingURL=chan.js.map?rel=1601261545544
+//# sourceMappingURL=chan.js.map?rel=1601267806738
