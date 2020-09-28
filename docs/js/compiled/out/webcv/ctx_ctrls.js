@@ -403,6 +403,6 @@ return "audio ctx not loaded";
 }
 })()], null)], null);
 });
-webcv.ctx_ctrls.init_controls_txt = ["(ns webcv.prelude\n","  (:require [reagent.core :as r]\n","            [webcv.ctx-ctrls :as ctrls]))\n","(defonce audio-ctx (r/atom nil))\n","(defonce midi-ctx (r/atom nil))\n","[:div\n","  [ctrls/audio-controls audio-ctx]\n","  [ctrls/midi-controls midi-ctx]]\n"].join('');
+webcv.ctx_ctrls.init_controls_txt = ["(require '[reagent.core :as r])\n","(require '[webcv.ctx-ctrls :as ctrls])\n","(defonce audio-ctx (r/atom nil))\n","(defonce midi-ctx (r/atom nil))\n","[:div\n","  [ctrls/audio-controls audio-ctx]\n","  [ctrls/midi-controls midi-ctx]]\n"].join('');
 
-//# sourceMappingURL=ctx_ctrls.js.map?rel=1601259676631
+//# sourceMappingURL=ctx_ctrls.js.map?rel=1601260776721
