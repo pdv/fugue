@@ -2,6 +2,7 @@
   (:require-macros [webcv.env :refer [analyzer-state]])
   (:require [reagent.core :as r]
             [reagent.dom :as rdom]
+            [oops.core :refer [oset!]]
             [webcv.api]
             [cljs.pprint :refer [pprint]]
             [cljs.repl :refer [Error->map]]
@@ -11,7 +12,7 @@
 (defn editor [init on-change]
   (r/create-class
     {:render
-     (fn [] [:textarea {:default-value init}])
+     (fn [] [:textarea.editor {:default-value init}])
      :component-did-mount
      (fn [this]
        (let [node (rdom/dom-node this)

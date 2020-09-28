@@ -3,6 +3,7 @@ goog.provide('webcv.box');
 goog.require('cljs.core');
 goog.require('reagent.core');
 goog.require('reagent.dom');
+goog.require('oops.core');
 goog.require('webcv.api');
 goog.require('cljs.pprint');
 goog.require('cljs.repl');
@@ -10,7 +11,7 @@ goog.require('cljs.env');
 goog.require('cljs.js');
 webcv.box.editor = (function webcv$box$editor(init,on_change){
 return reagent.core.create_class.call(null,new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"render","render",-1408033454),(function (){
-return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"textarea","textarea",-650375824),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"default-value","default-value",232220170),init], null)], null);
+return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"textarea.editor","textarea.editor",-170637094),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"default-value","default-value",232220170),init], null)], null);
 }),new cljs.core.Keyword(null,"component-did-mount","component-did-mount",-1126910518),(function (this$){
 var node = reagent.dom.dom_node.call(null,this$);
 var settings = ({"mode": "clojure", "lineNumbers": true});
@@ -88,4 +89,4 @@ return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMP
 ;})(output,cb))
 });
 
-//# sourceMappingURL=box.js.map?rel=1601322648774
+//# sourceMappingURL=box.js.map?rel=1601328142884
