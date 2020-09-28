@@ -1,6 +1,5 @@
 (ns webcv.synthdef
   (:require [clojure.spec.alpha :as s]
-            [cljs.pprint :refer [pprint]]
             [loom.graph :refer [graph? digraph add-nodes add-edges nodes edges successors]]
             [loom.attr :refer [attr attrs add-attr add-attr-to-edges remove-attr]]))
 
