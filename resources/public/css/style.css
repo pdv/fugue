@@ -12,13 +12,14 @@ html, body, #app {
 #container {
   display: flex;
   align-items: center;
-  padding: 24px;
+  flex-wrap: wrap;
+  padding: 16px;
   margin: auto;
 }
 
 .box {
   border: 1px solid black;
-  margin-right: 24px;
+  margin: 16px;
   width: 400px;
 }
 
@@ -50,4 +51,5 @@ html, body, #app {
 #add {
   width: 40px;
   height: 40px;
+  margin: 16px;
 }
