@@ -2,8 +2,7 @@
   (:require-macros [webcv.env :refer [analyzer-state]])
   (:require [reagent.core :as r]
             [reagent.dom :as rdom]
-            [webcv.audio :refer [sin-osc]]
-            [webcv.bootstrap :as bootstrap]
+            [webcv.api]
             [cljs.pprint :refer [pprint]]
             [cljs.repl :refer [Error->map]]
             [cljs.env :as env]
@@ -25,7 +24,7 @@
 
 (defn init-state [state]
   (assoc-in state [:cljs.analyzer/namespaces 'cljs.user]
-            (analyzer-state 'webcv.audio)))
+            (analyzer-state 'webcv.api)))
 
 (def state (cljs.js/empty-state init-state))
 
