@@ -1,19 +1,26 @@
 (ns webcv.metronome
   (:require [clojure.spec.alpha :as s]
             [cljs.core.async :as async]
+            [oops.core :refer [oget]]
             [webcv.synthdef :as synthdef]
+            [webcv.audio :as audio]
             [webcv.chan :as chan]))
 
 (defmethod chan/chan-node-spec ::metronome [_]
   (s/keys :req [::period-ms]))
 
+(defn now-ms [actx] (* 1000 (oget actx "currentTime")))
+
 (defmethod chan/make-chan-node ::metronome
-  [_ {::keys [period-ms]}]
+  [{::audio/keys [actx]} {::keys [period-ms]}]
   (let [out-chan (async/chan 1)]
-    (async/go-loop [gate 0]
-      (async/put! out-chan gate)
-      (async/<! (async/timeout period-ms))
-      (recur (not gate)))
+    (async/go-loop [last-time nil i 0]
+      (let [now (now-ms actx)
+            target (+ (or last-time now) period-ms)
+            delay (/ (- target now) 1000)]
+        (async/put! out-chan {:value (mod i 2) :delay delay})
+        (async/<! (async/timeout (* 0.7 period-ms)))
+        (recur now (inc i))))
     {::chan/mult-out (async/mult out-chan)}))
 
 (defn metro [period-ms]

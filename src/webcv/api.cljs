@@ -61,7 +61,7 @@
 
 (defn demo-synth []
   (-> (saw 110)
-      (gain (env-gen (adsr 0.1 0.3 0.3 0.4) (metro 100)))
+      (gain (env-gen (adsr 0.05 0.1 0.3 0.4) (metro 100)))
       (out)))
 
 (def demo-forms

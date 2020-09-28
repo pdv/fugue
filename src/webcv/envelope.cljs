@@ -38,8 +38,7 @@
   "Returns a stateful transducer that maps envelope stage packets to ramps using now-fn"
   [now-fn]
   (fn [rf]
-    (let [v-last-time (volatile! (now-fn))
-          v-prev-gate (volatile! 0)
+    (let [v-prev-gate (volatile! 0)
           v-last-scheduled (volatile! {::ramp/shape ::ramp/cancel-and-hold
                                        ::ramp/value 0
                                        ::ramp/time (now-fn)})]
@@ -49,13 +48,11 @@
         ([result {::keys [env gate scale bias]}]
          (let [prev-gate @v-prev-gate
                last-scheduled @v-last-scheduled
-               last-time @v-last-time
-               start-time (now-fn)
-               stages ((if (> gate 0) ::open ::closed) env)
+               start-time (+ (now-fn) (or (:delay gate) 0))
+               gate-val (or (:value gate) gate)
+               stages ((if (> gate-val 0) ::open ::closed) env)
                start-event (start-event start-time last-scheduled)
                ramp-events (ramps start-time stages scale bias)]
-           (vreset! v-last-time start-time)
-           (print (.abs js/Math (* 100 (- 0.1 (- start-time last-time)))))
            (if (and (not= prev-gate gate) (not-empty ramp-events))
              (let [all-events (cons start-event ramp-events)]
                (vreset! v-prev-gate gate)
