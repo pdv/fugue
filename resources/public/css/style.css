@@ -12,24 +12,43 @@ html, body, #app {
 }
 
 #container {
-  height: 60vh;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .box {
   border: 1px solid black;
-  margin: 4px;
+  margin-right: 24px;
+  width: 400px;
 }
 
-#controls {
-  width: 200px;
+.box-top {
+  border-bottom: 1px solid black;
+  padding: 16px;
+  min-height: 150px;
 }
 
-#editor {
-  width: 500px;
+.box-bottom {
+  height: 300px;
 }
 
-#output {
-  width: 200px;
+.CodeMirror {
+  height: 100% !important;
+}
+
+.repl-out {
+  border: none;
+  padding: 0px;
+  width: 100%;
+  resize: none;
+  background-color: transparent;
+  outline: none;
+  height: auto;
+  font-family: monospace;
+}
+
+#add {
+  width: 40px;
+  height: 40px;
 }
