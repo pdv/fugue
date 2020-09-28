@@ -7,7 +7,8 @@
             [webcv.keyboard :as keyboard]
             [webcv.feedback :as feedback]
             [webcv.envelope :as envelope]
-            [webcv.ctx-ctrls :as ctrls]))
+            [webcv.ctx-ctrls :as ctrls]
+            [webcv.components :as components]))
 
 (def ratom r/atom)
 
@@ -41,6 +42,8 @@
 (def audio-ctx-ctrl ctrls/audio-controls)
 (def midi-ctx-ctrl ctrls/midi-controls)
 
+(def slider components/slider)
+
 (def init-forms
   ["(defonce audio-ctx (ratom nil))"
    "(defonce midi-ctx (ratom nil))"
@@ -54,12 +57,14 @@
   (string/join "\n" init-forms))
 
 (def demo-forms
-  ["(defn demo [midi]"
-   "  (out (sin-osc (hz midi))))"
+  ["(defn demo [freq]"
+   "  (out (sin-osc freq)))"
+   "(def freq-atom (ratom 440))"
    ""
    "[:div"
+   "  [slider freq-atom 20 10000]"
    "  [:button"
-   "   {:on-click #(render (demo (kb)))}"
+   "   {:on-click #(render (demo freq-atom))}"
    "   \"run\"]]"])
 
 (def demo-text

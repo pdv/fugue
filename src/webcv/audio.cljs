@@ -1,6 +1,6 @@
 (ns webcv.audio
   (:require [clojure.spec.alpha :as s]
-            [oops.core :refer [oset! oget+]]
+            [oops.core :refer [oset!+ oget+]]
             [webcv.synthdef :as synthdef]))
 
 (s/def ::actx #(== js/AudioContext (type %)))
@@ -37,14 +37,21 @@
   (doto (.createGain actx)
     (.connect , outs 0 channel-idx)))
 
+(defn set-param [node param-name value]
+  (cond
+    (number? value)
+    (oset!+ node (str param-name ".value") value)
+    (satisfies? IWatchable value)
+    (add-watch value param-name #(set-param node param-name %4))))
+
 (defmethod make-audio-node :default
   [{::keys [actx]} {::keys [audio-node-type constructor props]
                     ::synthdef/keys [static-params]}]
   (let [node (js-invoke actx constructor)]
     (doseq [[k v] props]
-      (oset! node k v))
+      (oset!+ node k v))
     (doseq [[k v] static-params]
-      (oset! node (str k ".value") v))
+      (set-param node k v))
     (when (= ::source audio-node-type)
       (.start node))
     node))
