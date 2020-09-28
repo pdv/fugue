@@ -3,6 +3,7 @@ goog.provide('webcv.api');
 goog.require('cljs.core');
 goog.require('clojure.string');
 goog.require('reagent.core');
+goog.require('webcv.synthdef');
 goog.require('webcv.audio');
 goog.require('webcv.midi');
 goog.require('webcv.keyboard');
@@ -10,6 +11,7 @@ goog.require('webcv.feedback');
 goog.require('webcv.envelope');
 goog.require('webcv.ctx_ctrls');
 webcv.api.ratom = reagent.core.atom;
+webcv.api.make_synth = webcv.synthdef.make_synth;
 webcv.api.out = webcv.audio.out;
 webcv.api.gain = webcv.audio.gain;
 webcv.api.mix = webcv.audio.mix;
@@ -32,7 +34,9 @@ webcv.api.perc = webcv.envelope.perc;
 webcv.api.env_gen = webcv.envelope.env_gen;
 webcv.api.audio_ctx_ctrl = webcv.ctx_ctrls.audio_controls;
 webcv.api.midi_ctx_ctrl = webcv.ctx_ctrls.midi_controls;
-webcv.api.init_forms = new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, ["(defonce audio-ctx (ratom nil))","(defonce midi-ctx (ratom nil))","[:div","  [audio-ctx-ctrl audio-ctx]","  [midi-ctx-ctrl midi-ctx]]"], null);
+webcv.api.init_forms = new cljs.core.PersistentVector(null, 7, 5, cljs.core.PersistentVector.EMPTY_NODE, ["(defonce audio-ctx (ratom nil))","(defonce midi-ctx (ratom nil))","(defn render [synthdef]","  (make-synth (merge @audio-ctx @midi-ctx) synthdef))","[:div","  [audio-ctx-ctrl audio-ctx]","  [midi-ctx-ctrl midi-ctx]]"], null);
 webcv.api.init_text = clojure.string.join.call(null,"\n",webcv.api.init_forms);
+webcv.api.demo_forms = new cljs.core.PersistentVector(null, 7, 5, cljs.core.PersistentVector.EMPTY_NODE, ["(defn demo [midi]","  (out (sin-osc (hz midi))))","","[:div","  [:button","   {:on-click #(render (demo (kb)))}","   \"run\"]]"], null);
+webcv.api.demo_text = clojure.string.join.call(null,"\n",webcv.api.demo_forms);
 
-//# sourceMappingURL=api.js.map?rel=1601307463382
+//# sourceMappingURL=api.js.map?rel=1601311818403

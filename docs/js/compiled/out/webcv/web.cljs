@@ -8,7 +8,7 @@
 
 (defn app []
   (let [boxes (r/atom [api/init-text
-                       "(sin-osc 440)"])
+                       api/demo-text])
         add-box #(swap! boxes conj "")]
     (fn []
       [:div#container

@@ -8,7 +8,7 @@ goog.require('webcv.box');
 goog.require('webcv.api');
 goog.require('cljs.repl');
 webcv.web.app = (function webcv$web$app(){
-var boxes = reagent.core.atom.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [webcv.api.init_text,"(sin-osc 440)"], null));
+var boxes = reagent.core.atom.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [webcv.api.init_text,webcv.api.demo_text], null));
 var add_box = ((function (boxes){
 return (function (){
 return cljs.core.swap_BANG_.call(null,boxes,cljs.core.conj,"");
@@ -76,4 +76,4 @@ return webcv.web._main.call(null);
 });
 webcv.web._main.call(null);
 
-//# sourceMappingURL=web.js.map?rel=1601307463594
+//# sourceMappingURL=web.js.map?rel=1601311818653
