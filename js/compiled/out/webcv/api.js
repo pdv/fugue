@@ -41,4 +41,4 @@ webcv.api.init_text = clojure.string.join.call(null,"\n",webcv.api.init_forms);
 webcv.api.demo_forms = new cljs.core.PersistentVector(null, 9, 5, cljs.core.PersistentVector.EMPTY_NODE, ["(defn demo [freq]","  (out (sin-osc freq)))","(def freq-atom (ratom 440))","","[:div","  [slider freq-atom 20 10000]","  [:button","   {:on-click #(render (demo freq-atom))}","   \"run\"]]"], null);
 webcv.api.demo_text = clojure.string.join.call(null,"\n",webcv.api.demo_forms);
 
-//# sourceMappingURL=api.js.map?rel=1601320147939
+//# sourceMappingURL=api.js.map?rel=1601321438859
