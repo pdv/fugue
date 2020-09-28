@@ -48,6 +48,7 @@ goog.addDependency("../oops/state.js", ['oops.state'], ['oops.config', 'oops.hel
 goog.addDependency("../cljs/core/async/impl/buffers.js", ['cljs.core.async.impl.buffers'], ['cljs.core', 'cljs.core.async.impl.protocols']);
 goog.addDependency("../cljs/core/async/impl/dispatch.js", ['cljs.core.async.impl.dispatch'], ['cljs.core', 'cljs.core.async.impl.buffers', 'goog.async.nextTick']);
 goog.addDependency("../cljs/core/async/impl/channels.js", ['cljs.core.async.impl.channels'], ['cljs.core.async.impl.dispatch', 'cljs.core', 'cljs.core.async.impl.buffers', 'cljs.core.async.impl.protocols']);
+goog.addDependency("../webcv/components.js", ['webcv.components'], ['cljs.core']);
 goog.addDependency("../reagent/debug.js", ['reagent.debug'], ['cljs.core']);
 goog.addDependency("../cljs/core/async/impl/timers.js", ['cljs.core.async.impl.timers'], ['cljs.core.async.impl.channels', 'cljs.core.async.impl.dispatch', 'cljs.core', 'cljs.core.async.impl.protocols']);
 goog.addDependency("../cljs/core/async.js", ['cljs.core.async'], ['cljs.core.async.impl.channels', 'cljs.core.async.impl.dispatch', 'cljs.core', 'cljs.core.async.impl.buffers', 'cljs.core.async.impl.protocols', 'cljs.core.async.impl.ioc_helpers', 'goog.array', 'cljs.core.async.impl.timers']);
@@ -85,7 +86,7 @@ goog.addDependency("../webcv/midi.js", ['webcv.midi'], ['webcv.chan', 'cljs.core
 goog.addDependency("../webcv/ctx_ctrls.js", ['webcv.ctx_ctrls'], ['webcv.midi', 'reagent.core', 'cljs.core', 'cljs.core.async', 'webcv.audio']);
 goog.addDependency("../webcv/keyboard.js", ['webcv.keyboard'], ['webcv.chan', 'webcv.midi', 'cljs.core', 'cljs.core.async', 'webcv.synthdef', 'cljs.spec.alpha']);
 goog.addDependency("../webcv/feedback.js", ['webcv.feedback'], ['cljs.core', 'loom.graph', 'webcv.audio', 'loom.attr', 'webcv.synthdef', 'cljs.spec.alpha']);
-goog.addDependency("../webcv/api.js", ['webcv.api'], ['webcv.ctx_ctrls', 'webcv.midi', 'reagent.core', 'webcv.keyboard', 'cljs.core', 'webcv.audio', 'webcv.synthdef', 'webcv.envelope', 'clojure.string', 'webcv.feedback']);
+goog.addDependency("../webcv/api.js", ['webcv.api'], ['webcv.ctx_ctrls', 'webcv.midi', 'reagent.core', 'webcv.keyboard', 'cljs.core', 'webcv.audio', 'webcv.synthdef', 'webcv.components', 'webcv.envelope', 'clojure.string', 'webcv.feedback']);
 goog.addDependency("../cljs/repl.js", ['cljs.repl'], ['goog.string', 'cljs.core', 'goog.string.format', 'cljs.spec.alpha']);
 goog.addDependency("../webcv/box.js", ['webcv.box'], ['reagent.core', 'cljs.js', 'cljs.core', 'cljs.env', 'cljs.pprint', 'webcv.api', 'cljs.repl', 'reagent.dom']);
 goog.addDependency("../webcv/web.js", ['webcv.web'], ['reagent.core', 'cljs.core', 'oops.core', 'webcv.box', 'webcv.api', 'cljs.repl', 'reagent.dom']);
