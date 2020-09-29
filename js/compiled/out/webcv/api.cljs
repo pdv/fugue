@@ -10,6 +10,7 @@
             [webcv.envelope :as envelope]
             [webcv.metronome :as metronome]
             [webcv.sequencer :as sequencer]
+            [webcv.sampler :as sampler]
             [webcv.ctx-ctrls :as ctrls]
             [webcv.components :as components]))
 
@@ -30,6 +31,7 @@
 (def hpf audio/hpf)
 (def bpf audio/bpf)
 (def panner audio/panner)
+(def compressor audio/compressor)
 
 (def hz midi/hz)
 (def gate midi/gate)
@@ -49,22 +51,35 @@
 (def metro metronome/metro)
 (def sequencer sequencer/sequencer)
 
-(def audio-ctx-ctrl ctrls/audio-controls)
-(def midi-ctx-ctrl ctrls/midi-controls)
+(def sampler sampler/sampler)
+
+(def audio-ctx-ctrls ctrls/audio-ctx-ctrls)
+(def midi-ctx-ctrls ctrls/midi-ctx-ctrls)
+(def buffer-ctrl ctrls/buffer-ctrl)
 
 (def slider components/slider)
+
+(defn make-renderer [actx-atom mctx-atom buffer-cache-atom]
+  (fn [synthdef]
+    (let [ctx (merge @actx-atom @mctx-atom {::sampler/buffer-cache @buffer-cache-atom})]
+      (make-synth ctx synthdef))))
 
 (def init-forms
   ["(defonce audio-ctx (ratom nil))"
    "(defonce midi-ctx (ratom nil))"
-   "(defn render [synthdef]"
-   "  (make-synth (merge @audio-ctx @midi-ctx) synthdef))"
+   "(defonce buffer-cache (ratom {}))"
+   "(def render (make-renderer audio-ctx midi-ctx buffer-cache))"
+   ""
    "[:div"
-   "  [audio-ctx-ctrl audio-ctx]"
-   "  [midi-ctx-ctrl midi-ctx]]"])
+   "  [audio-ctx-ctrls audio-ctx]"
+   "  [midi-ctx-ctrls midi-ctx]"
+   "  [buffer-ctrl audio-ctx buffer-cache]]"])
 
 (def init-text
   (string/join "\n" init-forms))
+
+(defn pump-that []
+  (out (sampler "pumpthat.wav" (metro 10000) 0)))
 
 (defn mary-had-a-little-synth []
   (let [m (metro (bpm 160))
@@ -79,13 +94,12 @@
 
 (def demo-forms
   [
-   (with-out-str (repl/source mary-had-a-little-synth))
+   (with-out-str (repl/source pump-that))
    "[:div"
    "  [:button"
-   "   {:on-click #(render (mary-had-a-little-synth))}"
+   "   {:on-click #(render (pump-that))}"
    "   \"run\"]]"
    ])
 
-(def demo-text
-  (string/join "\n" demo-forms))
+(def demo-text "")
 
