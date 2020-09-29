@@ -18,10 +18,11 @@
   (let [out-chan (async/chan 1)]
     (async/go-loop [last-time nil i 0]
       (let [now (now-ms actx)
-            target (+ (or last-time now) period-ms)
+            period (if (implements? IDeref period-ms) @period-ms period-ms)
+            target (+ (or last-time now) period)
             delay (/ (- target now) 1000)]
         (async/put! out-chan {:value (mod i 2) :delay delay})
-        (async/<! (async/timeout (* 0.7 period-ms)))
+        (async/<! (async/timeout (* 0.7 period)))
         (recur now (inc i))))
     {::chan/mult-out (async/mult out-chan)}))
 

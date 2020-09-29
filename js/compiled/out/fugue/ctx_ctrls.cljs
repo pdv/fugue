@@ -40,9 +40,19 @@
                   (reset! audio-ctx (audio/make-ctx)))}
     "reset audio context"]
    [:p
-    (if-let [{::audio/keys [actx]} @audio-ctx]
-      (str (.-maxChannelCount (.-destination actx)) " outs")
-      "audio ctx not loaded")]])
+    (if-let [{::audio/keys [outs]} @audio-ctx]
+      (str (.-numberOfInputs outs) " outs")
+      "audio ctx not loaded")]
+   [:button
+    {:on-click (fn []
+                 (-> (audio/inputs-promise)
+                     (.then (partial swap! audio-ctx audio/with-inputs))
+                     (.catch #(.log js/console %))))}
+    "load inputs"]
+   [:p
+    (if-let [ins (::audio/ins @audio-ctx)]
+      (str (.-numberOfOutputs ins) " ins")
+      "inputs not loaded")]])
 
 (defn read-file-upload
   [e actx buffer-cb]

@@ -4,15 +4,18 @@
             [fugue.synthdef :as synthdef]))
 
 (s/def ::actx #(== js/AudioContext (type %)))
+(s/def ::ins #(== js/ChannelSplitterNode (type %)))
 (s/def ::outs #(== js/ChannelMergerNode (type %)))
 (s/def ::node #(== js/AudioNode (type %)))
-(s/def ::ctx (s/keys :req [::actx ::outs]))
+(s/def ::ctx (s/keys :req [::actx] :opt [::ins ::outs]))
 (s/def ::constructor string?)
 
 (defmulti audio-node-spec ::audio-node-type)
 (defmethod synthdef/node-spec ::audio-node [_]
   (s/multi-spec audio-node-spec ::audio-node-type))
 (defmethod audio-node-spec ::output [_]
+  (s/keys :req [::channel-idx]))
+(defmethod audio-node-spec ::input [_]
   (s/keys :req [::channel-idx]))
 (defmethod audio-node-spec :default [_]
   (s/keys :req [::constructor]))
@@ -21,16 +24,33 @@
 (defmethod synthdef/make-node ::audio-node [ctx nodedef]
   (make-audio-node ctx nodedef))
 
-(defn make-ctx
-  ([]
-   {:post [(s/valid? ::ctx %)]}
-   (let [ctx (js/AudioContext.)
-         dest (.-destination ctx)
-         out-chans (.-maxChannelCount dest)
-         outs (.createChannelMerger ctx out-chans)]
-     (set! (.-channelCount dest) out-chans)
-     (.connect outs dest)
-     {::actx ctx ::outs outs})))
+(defn inputs-promise []
+  (.getUserMedia (.-mediaDevices js/navigator)
+                 (clj->js {:audio true})))
+
+(defn with-inputs [ctx in-stream]
+  {:pre [(s/valid? ::ctx ctx)]
+   :post [(s/valid? ::ctx %)]}
+  (.log js/console "with-inputs")
+  (let [actx (::actx ctx)
+        source (.createMediaStreamSource actx in-stream)
+        splitter (.createChannelSplitter actx (.-channelCount source))]
+    (.log js/console source splitter)
+    (.connect source splitter)
+    (assoc ctx ::ins splitter)))
+
+(defn with-outputs [ctx]
+  {:pre [(s/valid? ::ctx ctx)]
+   :post [(s/valid? ::ctx %)]}
+  (let [actx (::actx ctx)
+        dest (.-destination actx)
+        merger (.createChannelMerger actx (.-maxChannelCount dest))]
+    (.connect merger dest)
+    (assoc ctx ::outs merger)))
+
+(defn make-ctx []
+  {:post [(s/valid? ::ctx %)]}
+  (with-outputs {::actx (js/AudioContext.)}))
 
 (defmethod make-audio-node ::output
   [{::keys [actx outs]} {::keys [channel-idx]}]
@@ -38,6 +58,12 @@
     (if channel-idx
       (.connect node outs 0 channel-idx)
       (.connect node (.-destination actx)))
+    node))
+
+(defmethod make-audio-node ::input
+  [{::keys [actx ins]} {::keys [channel-idx]}]
+  (let [node (.createGain actx)]
+    (.connect ins node channel-idx)
     node))
 
 (defn set-param [node param-name value]
@@ -75,6 +101,13 @@
       ::audio-node-type ::output
       ::channel-idx channel-idx}
      {::input [in]})))
+
+(defn in [channel-idx]
+  (synthdef/synthdef
+    {::synthdef/node-type ::audio-node
+     ::audio-node-type ::input
+     ::channel-idx channel-idx}
+    {}))
 
 (defn gain [in & gains]
   (synthdef/synthdef
