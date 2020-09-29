@@ -36,12 +36,11 @@
 
 (defmethod make-chan-node ::transducer
   [ctx {::keys [xform] ::synthdef/keys [static-params]}]
-  (let [out (async/chan 1 (comp (merge-xform static-params)
+  (let [out (async/chan 1 (comp (merge-xform {})
                                 (make-transducer ctx xform)))]
     (doseq [[k v] static-params]
-      (.log js/console k v)
       (if (satisfies? IWatchable v)
-        (add-watch v k #(async/put! out {k v}))
+        (add-watch v k #(async/put! out {k %4}))
         (async/put! out {k v})))
     {::mult-out (async/mult out)
      ::mix-out (async/mix out)}))
