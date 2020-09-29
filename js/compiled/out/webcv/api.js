@@ -57,37 +57,34 @@ return webcv.api.make_synth.call(null,ctx,synthdef);
 });
 webcv.api.init_forms = new cljs.core.PersistentVector(null, 9, 5, cljs.core.PersistentVector.EMPTY_NODE, ["(defonce audio-ctx (ratom nil))","(defonce midi-ctx (ratom nil))","(defonce buffer-cache (ratom {}))","(def render (make-renderer audio-ctx midi-ctx buffer-cache))","","[:div","  [audio-ctx-ctrls audio-ctx]","  [midi-ctx-ctrls midi-ctx]","  [buffer-ctrl audio-ctx buffer-cache]]"], null);
 webcv.api.init_text = clojure.string.join.call(null,"\n",webcv.api.init_forms);
-webcv.api.pump_that = (function webcv$api$pump_that(){
-return webcv.api.out.call(null,webcv.api.sampler.call(null,"pumpthat.wav",webcv.api.metro.call(null,(10000)),(0)));
-});
-webcv.api.mary_had_a_little_synth = (function webcv$api$mary_had_a_little_synth(){
+webcv.api.mary_had_a_little_synth = (function webcv$api$mary_had_a_little_synth(decay,cutoff){
 var m = webcv.api.metro.call(null,webcv.api.bpm.call(null,(160)));
 var freq_gate = webcv.api.hz.call(null,webcv.api.sequencer.call(null,new cljs.core.PersistentVector(null, 8, 5, cljs.core.PersistentVector.EMPTY_NODE, [(64),(62),(60),(62),(64),(64),(64),(64)], null),m));
 var freq_env = webcv.api.env_gen.call(null,webcv.api.slide.call(null,0.01),freq_gate);
 var gain_gate = webcv.api.sequencer.call(null,new cljs.core.PersistentVector(null, 8, 5, cljs.core.PersistentVector.EMPTY_NODE, [(1),(1),(1),(1),(1),(1),(1),(0)], null),m);
-var gain_env = webcv.api.env_gen.call(null,webcv.api.perc.call(null,0.1,0.1),gain_gate,0.5);
-return webcv.api.out.call(null,webcv.api.panner.call(null,webcv.api.gain.call(null,webcv.api.saw.call(null,freq_env),gain_env),(0)));
+var gain_env = webcv.api.env_gen.call(null,webcv.api.perc.call(null,0.1,decay),gain_gate,0.5);
+return webcv.api.out.call(null,webcv.api.panner.call(null,webcv.api.lpf.call(null,webcv.api.gain.call(null,webcv.api.saw.call(null,freq_env),gain_env),cutoff,(2)),(0)));
 });
-webcv.api.demo_forms = new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [(function (){var sb__4661__auto__ = (new goog.string.StringBuffer());
-var _STAR_print_newline_STAR__orig_val__37038_37042 = cljs.core._STAR_print_newline_STAR_;
-var _STAR_print_fn_STAR__orig_val__37039_37043 = cljs.core._STAR_print_fn_STAR_;
-var _STAR_print_newline_STAR__temp_val__37040_37044 = true;
-var _STAR_print_fn_STAR__temp_val__37041_37045 = ((function (_STAR_print_newline_STAR__orig_val__37038_37042,_STAR_print_fn_STAR__orig_val__37039_37043,_STAR_print_newline_STAR__temp_val__37040_37044,sb__4661__auto__){
+webcv.api.demo_forms = new cljs.core.PersistentVector(null, 10, 5, cljs.core.PersistentVector.EMPTY_NODE, ["(defonce decay (ratom 0.1))","(defonce cutoff (ratom 440))","",(function (){var sb__4661__auto__ = (new goog.string.StringBuffer());
+var _STAR_print_newline_STAR__orig_val__37095_37099 = cljs.core._STAR_print_newline_STAR_;
+var _STAR_print_fn_STAR__orig_val__37096_37100 = cljs.core._STAR_print_fn_STAR_;
+var _STAR_print_newline_STAR__temp_val__37097_37101 = true;
+var _STAR_print_fn_STAR__temp_val__37098_37102 = ((function (_STAR_print_newline_STAR__orig_val__37095_37099,_STAR_print_fn_STAR__orig_val__37096_37100,_STAR_print_newline_STAR__temp_val__37097_37101,sb__4661__auto__){
 return (function (x__4662__auto__){
 return sb__4661__auto__.append(x__4662__auto__);
-});})(_STAR_print_newline_STAR__orig_val__37038_37042,_STAR_print_fn_STAR__orig_val__37039_37043,_STAR_print_newline_STAR__temp_val__37040_37044,sb__4661__auto__))
+});})(_STAR_print_newline_STAR__orig_val__37095_37099,_STAR_print_fn_STAR__orig_val__37096_37100,_STAR_print_newline_STAR__temp_val__37097_37101,sb__4661__auto__))
 ;
-cljs.core._STAR_print_newline_STAR_ = _STAR_print_newline_STAR__temp_val__37040_37044;
+cljs.core._STAR_print_newline_STAR_ = _STAR_print_newline_STAR__temp_val__37097_37101;
 
-cljs.core._STAR_print_fn_STAR_ = _STAR_print_fn_STAR__temp_val__37041_37045;
+cljs.core._STAR_print_fn_STAR_ = _STAR_print_fn_STAR__temp_val__37098_37102;
 
-try{cljs.core.println.call(null,"(defn pump-that []\n  (out (sampler \"pumpthat.wav\" (metro 10000) 0)))");
-}finally {cljs.core._STAR_print_fn_STAR_ = _STAR_print_fn_STAR__orig_val__37039_37043;
+try{cljs.core.println.call(null,"(defn mary-had-a-little-synth [decay cutoff]\n  (let [m (metro (bpm 160))\n        freq-gate (hz (sequencer [64 62 60 62 64 64 64 64] m))\n        freq-env (env-gen (slide 0.01) freq-gate)\n        gain-gate (sequencer [1 1 1 1 1 1 1 0] m)\n        gain-env (env-gen (perc 0.1 decay) gain-gate 0.5)]\n    (-> (saw freq-env)\n        (gain gain-env)\n        (lpf cutoff 2)\n        (panner 0)\n        (out))))");
+}finally {cljs.core._STAR_print_fn_STAR_ = _STAR_print_fn_STAR__orig_val__37096_37100;
 
-cljs.core._STAR_print_newline_STAR_ = _STAR_print_newline_STAR__orig_val__37038_37042;
+cljs.core._STAR_print_newline_STAR_ = _STAR_print_newline_STAR__orig_val__37095_37099;
 }
 return cljs.core.str.cljs$core$IFn$_invoke$arity$1(sb__4661__auto__);
-})(),"[:div","  [:button","   {:on-click #(render (pump-that))}","   \"run\"]]"], null);
-webcv.api.demo_text = "";
+})(),"[:div","  [slider decay 0.01 0.8]","  [slider cutoff 30 20000 :log]","  [:button","   {:on-click #(render (mary-had-a-little-synth decay cutoff))}","   \"run\"]]"], null);
+webcv.api.demo_text = clojure.string.join.call(null,"\n",webcv.api.demo_forms);
 
-//# sourceMappingURL=api.js.map?rel=1601399208239
+//# sourceMappingURL=api.js.map?rel=1601406066104
