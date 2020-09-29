@@ -149,3 +149,17 @@
      ::constructor "createStereoPanner"}
     {::input [in]
      "pan" [0 amt]}))
+
+(defn compressor
+  [in threshold knee ratio reduction attack release]
+  (synthdef/synthdef
+    {::synthdef/node-type ::audio-node
+     ::audio-node-type ::effect
+     ::constructor "createDynamicsCompressor"}
+    {::input [in]
+     "threshold" [-24 threshold]
+     "knee" [30 knee]
+     "ratio" [12 ratio]
+     "reduction" [0 reduction]
+     "attack" [0.003 attack]
+     "release" [0.25 release]}))

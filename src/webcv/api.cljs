@@ -30,6 +30,7 @@
 (def hpf audio/hpf)
 (def bpf audio/bpf)
 (def panner audio/panner)
+(def compressor audio/compressor)
 
 (def hz midi/hz)
 (def gate midi/gate)
