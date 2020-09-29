@@ -3,22 +3,23 @@
             [cljs.core.async :as async]
             [oops.core :refer [oget oget+ oset!]]
             [fugue.audio :as audio]
+            [fugue.buffer :as buffer]
             [fugue.chan :as chan]
             [fugue.ramp :as ramp]
             [fugue.synthdef :as synthdef]))
 
 (defmethod synthdef/node-spec ::sampler-node [_]
-  (s/keys :req [::filename]))
+  (s/keys :req [::buffer/buffer-name]))
 
 (defmethod synthdef/make-node ::sampler-node
-  [{::audio/keys [actx] ::keys [buffer-cache]} {::keys [filename]}]
+  [{::audio/keys [actx] ::buffer/keys [buffer-cache]} {::buffer/keys [buffer-name]}]
   {::detune-controller (doto (.createConstantSource actx) (.start))
-   ::buffer (get buffer-cache filename)
+   ::buffer/audio-buffer (get buffer-cache buffer-name)
    ::output (.createGain actx)})
 
 (defn trigger-sample! [sampler-node actx]
   (let [node (.createBufferSource actx)]
-    (oset! node "buffer" (::buffer sampler-node))
+    (oset! node "buffer" (::buffer/audio-buffer sampler-node))
     (.connect (::detune-controller sampler-node) (oget node "detune"))
     (.connect node (::output sampler-node))
     (.start node)))
@@ -50,9 +51,9 @@
 (defn note->detune [note]
   (* 100 (- note 60)))
 
-(defn sampler [filename trigger detune]
+(defn sampler [buffer-name trigger detune]
   (synthdef/synthdef
     {::synthdef/node-type ::sampler-node
-     ::filename filename}
+     ::buffer/buffer-name buffer-name}
     {::trigger [trigger]
      "detune" [detune]}))

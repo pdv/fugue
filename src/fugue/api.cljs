@@ -4,6 +4,7 @@
             [reagent.core :as r]
             [fugue.synthdef :as synthdef]
             [fugue.audio :as audio]
+            [fugue.buffer :as buffer]
             [fugue.midi :as midi]
             [fugue.keyboard :as keyboard]
             [fugue.feedback :as feedback]
@@ -11,13 +12,12 @@
             [fugue.metronome :as metronome]
             [fugue.sequencer :as sequencer]
             [fugue.sampler :as sampler]
+            [fugue.convolver :as convolver]
             [fugue.ctx-ctrls :as ctrls]
             [fugue.components :as components]))
 
 (def ratom r/atom)
-
 (def make-synth synthdef/make-synth)
-
 (def out audio/out)
 (def in audio/in)
 (def gain audio/gain)
@@ -33,36 +33,30 @@
 (def bpf audio/bpf)
 (def panner audio/panner)
 (def compressor audio/compressor)
-
 (def hz midi/hz)
 (def gate midi/gate)
 (def ctrl midi/ctrl)
-
 (def dub-delay feedback/dub-delay)
-
 (def kb keyboard/kb)
-
 (def adsr envelope/adsr)
 (def perc envelope/perc)
 (def pulse envelope/pulse)
 (def slide envelope/slide)
 (def env-gen envelope/env-gen)
-
 (def bpm metronome/bpm)
 (def metro metronome/metro)
 (def sequencer sequencer/sequencer)
-
 (def sampler sampler/sampler)
+(def conv convolver/convolver)
 
 (def audio-ctx-ctrls ctrls/audio-ctx-ctrls)
 (def midi-ctx-ctrls ctrls/midi-ctx-ctrls)
 (def buffer-ctrl ctrls/buffer-ctrl)
-
 (def slider components/slider)
 
 (defn make-renderer [actx-atom mctx-atom buffer-cache-atom]
   (fn [synthdef]
-    (let [ctx (merge @actx-atom @mctx-atom {::sampler/buffer-cache @buffer-cache-atom})]
+    (let [ctx (merge @actx-atom @mctx-atom {::buffer/buffer-cache @buffer-cache-atom})]
       (make-synth ctx synthdef))))
 
 (def init-forms
@@ -91,6 +85,9 @@
         (panner 0)
         (out))))
 
+(defn aww []
+  (out (sampler "pumpthat.wav" (metro 2000) 0)))
+
 (def demo-forms
   [
    "(defonce tempo (ratom 500))"
@@ -103,7 +100,7 @@
    "  [slider decay 0.01 0.8]"
    "  [slider cutoff 30 20000 :log]"
    "  [:button"
-   "   {:on-click #(render (mary-had-a-little-synth tempo decay cutoff))}"
+   "   {:on-click #(render (aww))}"
    "   \"run\"]]"
    ])
 
