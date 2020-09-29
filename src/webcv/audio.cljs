@@ -34,8 +34,11 @@
 
 (defmethod make-audio-node ::output
   [{::keys [actx outs]} {::keys [channel-idx]}]
-  (doto (.createGain actx)
-    (.connect , outs 0 channel-idx)))
+  (let [node (.createGain actx)]
+    (if channel-idx
+      (.connect node outs 0 channel-idx)
+      (.connect node (.-destination actx)))
+    node))
 
 (defn set-param [node param-name value]
   (cond
@@ -64,12 +67,14 @@
 
 ;;
 
-(defn out [& ins]
-  (synthdef/synthdef
-    {::synthdef/node-type ::audio-node
-     ::audio-node-type ::output
-     ::channel-idx 0}
-    {::input ins}))
+(defn out
+  ([in] (out in nil))
+  ([in channel-idx]
+   (synthdef/synthdef
+     {::synthdef/node-type ::audio-node
+      ::audio-node-type ::output
+      ::channel-idx channel-idx}
+     {::input [in]})))
 
 (defn gain [in & gains]
   (synthdef/synthdef
@@ -136,3 +141,11 @@
      ::constructor "createDelay"}
     {::input [in]
      "delayTime" [0 time]}))
+
+(defn panner [in amt]
+  (synthdef/synthdef
+    {::synthdef/node-type ::audio-node
+     ::audio-node-type ::effect
+     ::constructor "createStereoPanner"}
+    {::input [in]
+     "pan" [0 amt]}))

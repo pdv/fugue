@@ -29,6 +29,7 @@
 (def lpf audio/lpf)
 (def hpf audio/hpf)
 (def bpf audio/bpf)
+(def panner audio/panner)
 
 (def hz midi/hz)
 (def gate midi/gate)
@@ -70,9 +71,10 @@
         freq-gate (hz (sequencer [64 62 60 62 64 64 64 64] m))
         freq-env (env-gen (slide 0.01) freq-gate)
         gain-gate (sequencer [1 1 1 1 1 1 1 0] m)
-        gain-env (env-gen (perc 0.1 0.1) gain-gate)]
+        gain-env (env-gen (perc 0.1 0.1) gain-gate 0.5)]
     (-> (saw freq-env)
         (gain gain-env)
+        (panner 0)
         (out))))
 
 (def demo-forms
