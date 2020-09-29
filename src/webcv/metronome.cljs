@@ -6,6 +6,8 @@
             [webcv.audio :as audio]
             [webcv.chan :as chan]))
 
+(def bpm (partial / 60000))
+
 (defmethod chan/chan-node-spec ::metronome [_]
   (s/keys :req [::period-ms]))
 

@@ -15,6 +15,9 @@
     (async/tap midi-chan out-chan)
     {::chan/mult-out (async/mult out-chan)}))
 
+(defn note->hz [note]
+  (* 440.0 (js/Math.pow 2.0 (/ (- note 69.0) 12.0))))
+
 (defn midi-x-note
   "Returns a stateful transducer that maps midi events to midi notes based on
   priority-fn, which selects from a list of notes currently down."
@@ -33,14 +36,6 @@
            (if-let [output (priority-fn down)]
              (rf result output)
              result)))))))
-
-(defn note->hz [note]
-  (* 440.0 (js/Math.pow 2.0 (/ (- note 69.0) 12.0))))
-
-(def midi-x-hz
-  (comp
-    (midi-x-note last)
-    (map note->hz)))
 
 (defn midi-x-velo
   "Returns a stateful transducer that maps midi events to midi velocities,
@@ -68,8 +63,10 @@
     (midi-x-velo true)
     (map #(/ % 128))))
 
-(defmethod chan/make-transducer ::midi-x-hz [_ _]
-  (comp (map ::chan/input) midi-x-hz))
+(defmethod chan/make-transducer ::note-x-hz [_ _ ]
+  (comp (map ::chan/input) (map :value) (map note->hz)))
+(defmethod chan/make-transducer ::midi-x-note [_ _]
+  (comp (map ::chan/input) (midi-x-note last)))
 (defmethod chan/make-transducer ::midi-x-gate [_ _]
   (comp (map ::chan/input) midi-x-gate))
 
@@ -158,12 +155,19 @@
      ::input-name name}
     {}))
 
-(defn hz [in]
+(defn note [in]
   (synthdef/synthdef
     {::synthdef/node-type ::chan/chan-node
      ::chan/chan-node-type ::chan/transducer
-     ::chan/xform ::midi-x-hz}
+     ::chan/xform ::midi-x-note}
     {::chan/input [in]}))
+
+(defn hz [note-in]
+  (synthdef/synthdef
+    {::synthdef/node-type ::chan/chan-node
+     ::chan/chan-node-type ::chan/transducer
+     ::chan/xform ::note-x-hz}
+    {::chan/input [note-in]}))
 
 (defn gate [in]
   (synthdef/synthdef
