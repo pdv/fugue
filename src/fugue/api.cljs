@@ -19,6 +19,7 @@
 (def make-synth synthdef/make-synth)
 
 (def out audio/out)
+(def in audio/in)
 (def gain audio/gain)
 (def mix audio/mix)
 (def const audio/const)
