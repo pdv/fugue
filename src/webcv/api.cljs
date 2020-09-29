@@ -8,6 +8,7 @@
             [webcv.feedback :as feedback]
             [webcv.envelope :as envelope]
             [webcv.metronome :as metronome]
+            [webcv.sequencer :as sequencer]
             [webcv.ctx-ctrls :as ctrls]
             [webcv.components :as components]))
 
@@ -41,6 +42,7 @@
 (def env-gen envelope/env-gen)
 
 (def metro metronome/metro)
+(def sequencer sequencer/sequencer)
 
 (def audio-ctx-ctrl ctrls/audio-controls)
 (def midi-ctx-ctrl ctrls/midi-controls)
@@ -59,9 +61,14 @@
 (def init-text
   (string/join "\n" init-forms))
 
+(defn enve []
+  (->> (metro 100)
+       (sequencer [1 0 0 1 0 0 1 0])
+       (env-gen (adsr 0.05 0.1 0.3 0.4))))
+
 (defn demo-synth []
   (-> (saw 110)
-      (gain (env-gen (adsr 0.05 0.1 0.3 0.4) (metro 100)))
+      (gain (enve))
       (out)))
 
 (def demo-forms
