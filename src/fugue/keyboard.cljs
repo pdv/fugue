@@ -1,9 +1,9 @@
-(ns webcv.keyboard
+(ns fugue.keyboard
   (:require [clojure.spec.alpha :as s]
             [cljs.core.async :as async]
-            [webcv.synthdef :as synthdef]
-            [webcv.midi :as midi]
-            [webcv.chan :as chan]))
+            [fugue.synthdef :as synthdef]
+            [fugue.midi :as midi]
+            [fugue.chan :as chan]))
 
 (def key->offset ; from c
   (zipmap ["a" "w" "s" "e" "d" "f" "t" "g" "y" "h" "u" "j" "k" "l" "p"]

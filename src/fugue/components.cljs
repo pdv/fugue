@@ -1,4 +1,4 @@
-(ns webcv.components)
+(ns fugue.components)
 
 (defn to-midi-linear [x min max]
   (* 127 (/ (- x min)

@@ -1,4 +1,4 @@
-(ns webcv.box
+(ns fugue.box
   (:require [reagent.core :as r]
             [reagent.dom :as rdom]
             [cljs.pprint :refer [pprint]]

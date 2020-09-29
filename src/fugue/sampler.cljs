@@ -1,11 +1,11 @@
-(ns webcv.sampler
+(ns fugue.sampler
   (:require [clojure.spec.alpha :as s]
             [cljs.core.async :as async]
             [oops.core :refer [oget oget+ oset!]]
-            [webcv.audio :as audio]
-            [webcv.chan :as chan]
-            [webcv.ramp :as ramp]
-            [webcv.synthdef :as synthdef]))
+            [fugue.audio :as audio]
+            [fugue.chan :as chan]
+            [fugue.ramp :as ramp]
+            [fugue.synthdef :as synthdef]))
 
 (defmethod synthdef/node-spec ::sampler-node [_]
   (s/keys :req [::filename]))

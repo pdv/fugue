@@ -1,6 +1,6 @@
-(defproject webcv "0.1.0-SNAPSHOT"
+(defproject fugue "0.1.0-SNAPSHOT"
   :description "Control your modular from the web"
-  :url "http://github.com/pdv/webcv"
+  :url "http://github.com/pdv/fugue"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :min-lein-version "2.9.1"
@@ -16,12 +16,12 @@
   :cljsbuild {:builds
               [{:id "dev"
                 :source-paths ["src"]
-                :figwheel {:on-jsload "webcv.web/on-js-reload"
+                :figwheel {:on-jsload "fugue.web/on-js-reload"
                            :open-urls ["http://localhost:3449/index.html"]}
                 ;; lein cljsbuild once
-                :compiler {:main webcv.web
+                :compiler {:main fugue.web
                            :asset-path "js/compiled/out"
-                           :output-to "resources/public/js/compiled/webcv.js"
+                           :output-to "resources/public/js/compiled/fugue.js"
                            :output-dir "resources/public/js/compiled/out"
                            :source-map-timestamp true
                            ;; To console.log CLJS data-structures make sure you enable devtools in Chrome

@@ -1,13 +1,13 @@
-(ns webcv.bootstrap
-  (:require-macros [webcv.env :refer [analyzer-state]])
-  (:require [webcv.api]
+(ns fugue.bootstrap
+  (:require-macros [fugue.env :refer [analyzer-state]])
+  (:require [fugue.api]
             [cljs.js]))
 
 ;; https://stackoverflow.com/questions/51573858/
 
 (defn init-state [state]
   (assoc-in state [:cljs.analyzer/namespaces 'cljs.user]
-            (analyzer-state 'webcv.api)))
+            (analyzer-state 'fugue.api)))
 
 (def state (cljs.js/empty-state init-state))
 

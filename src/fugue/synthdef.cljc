@@ -1,4 +1,4 @@
-(ns webcv.synthdef
+(ns fugue.synthdef
   (:require [clojure.spec.alpha :as s]
             [loom.graph :refer [graph? digraph add-nodes add-edges nodes edges successors]]
             [loom.attr :refer [attr attrs add-attr add-attr-to-edges remove-attr]]))

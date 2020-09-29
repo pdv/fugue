@@ -1,7 +1,7 @@
-(ns webcv.chan
+(ns fugue.chan
   (:require [clojure.spec.alpha :as s]
             [cljs.core.async :as async]
-            [webcv.synthdef :as synthdef]))
+            [fugue.synthdef :as synthdef]))
 
 (s/def ::chan (partial instance? cljs.core.async.impl.channels/ManyToManyChannel))
 

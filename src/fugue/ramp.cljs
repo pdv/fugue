@@ -1,10 +1,10 @@
-(ns webcv.ramp
+(ns fugue.ramp
   (:require [clojure.spec.alpha :as s]
             [cljs.core.async :as async]
             [oops.core :refer [oget+ oset!+]]
-            [webcv.synthdef :as synthdef]
-            [webcv.audio :as audio]
-            [webcv.chan :as chan]))
+            [fugue.synthdef :as synthdef]
+            [fugue.audio :as audio]
+            [fugue.chan :as chan]))
 
 (s/def ::shape #{::cancel-and-hold ::instant ::linear ::exponential})
 (s/def ::value number?)

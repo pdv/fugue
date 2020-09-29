@@ -1,9 +1,9 @@
-(ns webcv.web
+(ns fugue.web
   (:require [reagent.core :as r]
             [reagent.dom :as rdom]
-            [webcv.bootstrap :as bootstrap]
-            [webcv.api :as api]
-            [webcv.box :as box]
+            [fugue.bootstrap :as bootstrap]
+            [fugue.api :as api]
+            [fugue.box :as box]
             [cljs.repl :refer [source-fn]]))
 
 (defn app []

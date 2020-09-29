@@ -1,9 +1,9 @@
-(ns webcv.feedback
+(ns fugue.feedback
   (:require [clojure.spec.alpha :as s]
             [loom.graph :refer [digraph add-edges]]
             [loom.attr :refer [add-attr-to-edges]]
-            [webcv.synthdef :as synthdef]
-            [webcv.audio :as audio]))
+            [fugue.synthdef :as synthdef]
+            [fugue.audio :as audio]))
 
 (defn feedback [in f]
   (let [gain (audio/gain in 1)

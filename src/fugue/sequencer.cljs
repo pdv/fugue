@@ -1,7 +1,7 @@
-(ns webcv.sequencer
+(ns fugue.sequencer
   (:require [clojure.spec.alpha :as s]
-            [webcv.synthdef :as synthdef]
-            [webcv.chan :as chan]))
+            [fugue.synthdef :as synthdef]
+            [fugue.chan :as chan]))
 
 (defmethod chan/make-transducer ::sequencer [_ _]
   (fn [rf]

@@ -1,7 +1,7 @@
-(ns webcv.audio
+(ns fugue.audio
   (:require [clojure.spec.alpha :as s]
             [oops.core :refer [oset!+ oget+]]
-            [webcv.synthdef :as synthdef]))
+            [fugue.synthdef :as synthdef]))
 
 (s/def ::actx #(== js/AudioContext (type %)))
 (s/def ::outs #(== js/ChannelMergerNode (type %)))

@@ -1,12 +1,12 @@
-# webcv
+# fugue
 
 ClojureScript music programming environment
 
 ## Overview
 
-Webcv is build on operators, which produce synthdefs. Rather than directly calling the Web MIDI and Web Audio APIs, these synthdefs are loom graph representations of an audio/midi setup.
+Fugue is build on operators, which produce synthdefs. Rather than directly calling the Web MIDI and Web Audio APIs, these synthdefs are loom graph representations of an audio/midi setup.
 ```
-(require '[webcv.audio :as a])
+(require '[fugue.audio :as a])
 (a/sin-osc 440)
 ```
 To build a synthdef, call `synthdef/make-synth` with a context (audio, midi, or both) and a synthdef.
@@ -18,7 +18,7 @@ To build a synthdef, call `synthdef/make-synth` with a context (audio, midi, or 
 (in channel)
 ```
 
-#### Aduio
+#### Audio
 
 ```
 (out & ins)

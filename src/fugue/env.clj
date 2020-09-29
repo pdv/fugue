@@ -1,4 +1,4 @@
-(ns webcv.env
+(ns fugue.env
   (:require [cljs.env :as env]))
 
 (defmacro analyzer-state [[_ ns-sym]]

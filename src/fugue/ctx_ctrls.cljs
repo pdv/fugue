@@ -1,8 +1,8 @@
-(ns webcv.ctx-ctrls
+(ns fugue.ctx-ctrls
   (:require [reagent.core :as r]
             [cljs.core.async :as async]
-            [webcv.midi :as midi]
-            [webcv.audio :as audio]))
+            [fugue.midi :as midi]
+            [fugue.audio :as audio]))
 
 (defn midi-monitor [midi-ctx]
   (let [inputs (r/atom {})]

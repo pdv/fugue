@@ -1,9 +1,9 @@
-(ns webcv.midi
+(ns fugue.midi
   (:require [clojure.spec.alpha :as s]
             [cljs.core.async :as async]
             [oops.core :refer [oset!+]]
-            [webcv.synthdef :as synthdef]
-            [webcv.chan :as chan]))
+            [fugue.synthdef :as synthdef]
+            [fugue.chan :as chan]))
 
 (defmethod chan/chan-node-spec ::midi-in [_]
   (s/keys :req [::input-name]))

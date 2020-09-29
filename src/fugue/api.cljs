@@ -1,18 +1,18 @@
-(ns webcv.api
+(ns fugue.api
   (:require [clojure.string :as string]
             [cljs.repl :as repl]
             [reagent.core :as r]
-            [webcv.synthdef :as synthdef]
-            [webcv.audio :as audio]
-            [webcv.midi :as midi]
-            [webcv.keyboard :as keyboard]
-            [webcv.feedback :as feedback]
-            [webcv.envelope :as envelope]
-            [webcv.metronome :as metronome]
-            [webcv.sequencer :as sequencer]
-            [webcv.sampler :as sampler]
-            [webcv.ctx-ctrls :as ctrls]
-            [webcv.components :as components]))
+            [fugue.synthdef :as synthdef]
+            [fugue.audio :as audio]
+            [fugue.midi :as midi]
+            [fugue.keyboard :as keyboard]
+            [fugue.feedback :as feedback]
+            [fugue.envelope :as envelope]
+            [fugue.metronome :as metronome]
+            [fugue.sequencer :as sequencer]
+            [fugue.sampler :as sampler]
+            [fugue.ctx-ctrls :as ctrls]
+            [fugue.components :as components]))
 
 (def ratom r/atom)
 

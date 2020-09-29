@@ -1,10 +1,10 @@
-(ns webcv.envelope
+(ns fugue.envelope
   (:require [clojure.spec.alpha :as s]
             [oops.core :refer [oget]]
-            [webcv.audio :as audio]
-            [webcv.synthdef :as synthdef]
-            [webcv.ramp :as ramp]
-            [webcv.chan :as chan]))
+            [fugue.audio :as audio]
+            [fugue.synthdef :as synthdef]
+            [fugue.ramp :as ramp]
+            [fugue.chan :as chan]))
 
 (s/def ::stage (s/keys :req [::duration ::target] :opt [::ramp/shape]))
 (s/def ::stages (s/* ::stage))

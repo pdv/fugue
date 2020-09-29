@@ -1,10 +1,10 @@
-(ns webcv.metronome
+(ns fugue.metronome
   (:require [clojure.spec.alpha :as s]
             [cljs.core.async :as async]
             [oops.core :refer [oget]]
-            [webcv.synthdef :as synthdef]
-            [webcv.audio :as audio]
-            [webcv.chan :as chan]))
+            [fugue.synthdef :as synthdef]
+            [fugue.audio :as audio]
+            [fugue.chan :as chan]))
 
 (def bpm (partial / 60000))
 
