@@ -67,15 +67,17 @@
   (let [filename (ratom "")]
     (fn []
       [:div
-       [:input {:on-change (partial reset! filename)}]
+       [:input {:on-change #(reset! filename (-> % .-target .-value))}]
        [:button
         {:on-click (fn []
-                     (let [fn @filename]
-                       (sampler/load-sample @actx fn #(swap! buffer-cache assoc fn %))))}
+                     (let [url @filename]
+                       (sampler/load-sample (::audio/actx @actx)
+                                            url
+                                            #(swap! buffer-cache assoc url %))))}
         "load"]
        [:ul
         (for [[name buffer] @buffer-cache]
-          [:li name])]])))
+          [:li name " - " (.-length buffer)])]])))
 
 (def init-forms
   ["(defonce audio-ctx (ratom nil))"
@@ -91,6 +93,9 @@
 (def init-text
   (string/join "\n" init-forms))
 
+(defn pump-that []
+  (out (sampler "pumpthat.wav" (metro 10000) 0)))
+
 (defn mary-had-a-little-synth []
   (let [m (metro (bpm 160))
         freq-gate (hz (sequencer [64 62 60 62 64 64 64 64] m))
@@ -104,10 +109,10 @@
 
 (def demo-forms
   [
-   (with-out-str (repl/source mary-had-a-little-synth))
+   (with-out-str (repl/source pump-that))
    "[:div"
    "  [:button"
-   "   {:on-click #(render (mary-had-a-little-synth))}"
+   "   {:on-click #(render (pump-that))}"
    "   \"run\"]]"
    ])
 

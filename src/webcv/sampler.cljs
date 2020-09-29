@@ -13,27 +13,28 @@
 (defmethod synthdef/make-node ::sampler-node
   [{::audio/keys [actx] ::keys [buffer-cache]} {::keys [filename]}]
   {::detune-controller (doto (.createConstantSource actx) (.start))
-   ::filename filename
+   ::buffer (get buffer-cache filename)
    ::output (.createGain actx)})
 
-(defn trigger-sample! [sampler-node actx buffer]
+(defn trigger-sample! [sampler-node actx]
   (let [node (.createBufferSource actx)]
-    (oset! node "buffer" buffer)
+    (oset! node "buffer" (::buffer sampler-node))
     (.connect (::detune-controller sampler-node) (oget node "detune"))
     (.connect node (::output sampler-node))
     (.start node)))
 
 (defmethod synthdef/make-edge [::chan/chan-node ::sampler-node]
-  [ctx src dest {::synthdef/keys [param-name]}]
-  (async/go-loop []
-    (let [msg (async/<! (::chan/mult-out src))]
-      (case param-name
-        ::trigger
-        (let [buffer (get-in ctx [::buffer-cache (::filename dest)])]
-          (trigger-sample! dest (::audio/actx ctx) buffer))
-        ::detune
-        (ramp/schedule! (oget (::detune-node dest) "detune") msg))
-      (recur))))
+  [_ src dest {::synthdef/keys [param-name]}]
+  (let [ch (async/chan 1)
+        actx (oget (::detune-controller dest) "context")
+        detune-param (oget (::detune-controller dest) "offset")]
+    (async/go-loop []
+      (let [msg (async/<! ch)]
+        (case param-name
+          ::trigger (trigger-sample! dest actx)
+          ::detune (ramp/schedule! detune-param msg))
+        (recur)))
+    (async/tap (::chan/mult-out src) ch)))
 
 (defmethod synthdef/make-edge [::audio/audio-node ::sampler-node]
   [_ src dest _]
@@ -49,6 +50,7 @@
 (defn load-sample
   "Fetches and decodes the sample at url. Calls cb with an AudioBuffer"
   [actx url cb]
+  (print actx)
   (let [request (js/XMLHttpRequest.)
         onerror (fn [e] (.log js/console (.-err e)))
         onload #(.decodeAudioData actx (.-response request) cb onerror)]
