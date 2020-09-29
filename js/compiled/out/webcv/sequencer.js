@@ -9,37 +9,37 @@ return (function (rf){
 var v_index = cljs.core.volatile_BANG_.call(null,(-1));
 return ((function (v_index){
 return (function() {
-var G__36785 = null;
-var G__36785__0 = (function (){
+var G__36783 = null;
+var G__36783__0 = (function (){
 return rf.call(null);
 });
-var G__36785__1 = (function (result){
+var G__36783__1 = (function (result){
 return rf.call(null,result);
 });
-var G__36785__2 = (function (result,p__36782){
-var map__36783 = p__36782;
-var map__36783__$1 = (((((!((map__36783 == null))))?(((((map__36783.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__36783.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__36783):map__36783);
-var sequence = cljs.core.get.call(null,map__36783__$1,new cljs.core.Keyword("webcv.sequencer","sequence","webcv.sequencer/sequence",-1977401468));
-var gate = cljs.core.get.call(null,map__36783__$1,new cljs.core.Keyword("webcv.sequencer","gate","webcv.sequencer/gate",-1437290721));
+var G__36783__2 = (function (result,p__36780){
+var map__36781 = p__36780;
+var map__36781__$1 = (((((!((map__36781 == null))))?(((((map__36781.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__36781.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__36781):map__36781);
+var sequence = cljs.core.get.call(null,map__36781__$1,new cljs.core.Keyword("webcv.sequencer","sequence","webcv.sequencer/sequence",-1977401468));
+var gate = cljs.core.get.call(null,map__36781__$1,new cljs.core.Keyword("webcv.sequencer","gate","webcv.sequencer/gate",-1437290721));
 cljs.core._vreset_BANG_.call(null,v_index,(cljs.core._deref.call(null,v_index) + (1)));
 
 return rf.call(null,result,cljs.core.assoc.call(null,gate,new cljs.core.Keyword(null,"value","value",305978217),cljs.core.nth.call(null,sequence,cljs.core.mod.call(null,cljs.core.deref.call(null,v_index),cljs.core.count.call(null,sequence)))));
 });
-G__36785 = function(result,p__36782){
+G__36783 = function(result,p__36780){
 switch(arguments.length){
 case 0:
-return G__36785__0.call(this);
+return G__36783__0.call(this);
 case 1:
-return G__36785__1.call(this,result);
+return G__36783__1.call(this,result);
 case 2:
-return G__36785__2.call(this,result,p__36782);
+return G__36783__2.call(this,result,p__36780);
 }
 throw(new Error('Invalid arity: ' + arguments.length));
 };
-G__36785.cljs$core$IFn$_invoke$arity$0 = G__36785__0;
-G__36785.cljs$core$IFn$_invoke$arity$1 = G__36785__1;
-G__36785.cljs$core$IFn$_invoke$arity$2 = G__36785__2;
-return G__36785;
+G__36783.cljs$core$IFn$_invoke$arity$0 = G__36783__0;
+G__36783.cljs$core$IFn$_invoke$arity$1 = G__36783__1;
+G__36783.cljs$core$IFn$_invoke$arity$2 = G__36783__2;
+return G__36783;
 })()
 ;})(v_index))
 });
@@ -48,4 +48,4 @@ webcv.sequencer.sequencer = (function webcv$sequencer$sequencer(sequence,gate){
 return webcv.synthdef.synthdef.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword("webcv.synthdef","node-type","webcv.synthdef/node-type",-1036809122),new cljs.core.Keyword("webcv.chan","chan-node","webcv.chan/chan-node",-367192494),new cljs.core.Keyword("webcv.chan","chan-node-type","webcv.chan/chan-node-type",-1398165608),new cljs.core.Keyword("webcv.chan","transducer","webcv.chan/transducer",311721516),new cljs.core.Keyword("webcv.chan","xform","webcv.chan/xform",-2034901163),new cljs.core.Keyword("webcv.sequencer","sequencer","webcv.sequencer/sequencer",1632171030)], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("webcv.sequencer","gate","webcv.sequencer/gate",-1437290721),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [gate], null),new cljs.core.Keyword("webcv.sequencer","sequence","webcv.sequencer/sequence",-1977401468),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sequence], null)], null));
 });
 
-//# sourceMappingURL=sequencer.js.map?rel=1601344973819
+//# sourceMappingURL=sequencer.js.map?rel=1601347617278
