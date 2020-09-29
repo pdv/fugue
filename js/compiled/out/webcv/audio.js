@@ -4,23 +4,23 @@ goog.require('cljs.core');
 goog.require('cljs.spec.alpha');
 goog.require('oops.core');
 goog.require('webcv.synthdef');
-cljs.spec.alpha.def_impl.call(null,new cljs.core.Keyword("webcv.audio","actx","webcv.audio/actx",686780438),cljs.core.list(new cljs.core.Symbol("cljs.core","fn","cljs.core/fn",-1065745098,null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Symbol(null,"%","%",-950237169,null)], null),cljs.core.list(new cljs.core.Symbol("cljs.core","==","cljs.core/==",-632471488,null),new cljs.core.Symbol("js","AudioContext","js/AudioContext",406950847,null),cljs.core.list(new cljs.core.Symbol("cljs.core","type","cljs.core/type",-821761154,null),new cljs.core.Symbol(null,"%","%",-950237169,null)))),(function (p1__34538_SHARP_){
-return (AudioContext === cljs.core.type.call(null,p1__34538_SHARP_));
+cljs.spec.alpha.def_impl.call(null,new cljs.core.Keyword("webcv.audio","actx","webcv.audio/actx",686780438),cljs.core.list(new cljs.core.Symbol("cljs.core","fn","cljs.core/fn",-1065745098,null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Symbol(null,"%","%",-950237169,null)], null),cljs.core.list(new cljs.core.Symbol("cljs.core","==","cljs.core/==",-632471488,null),new cljs.core.Symbol("js","AudioContext","js/AudioContext",406950847,null),cljs.core.list(new cljs.core.Symbol("cljs.core","type","cljs.core/type",-821761154,null),new cljs.core.Symbol(null,"%","%",-950237169,null)))),(function (p1__36376_SHARP_){
+return (AudioContext === cljs.core.type.call(null,p1__36376_SHARP_));
 }));
-cljs.spec.alpha.def_impl.call(null,new cljs.core.Keyword("webcv.audio","outs","webcv.audio/outs",1732689968),cljs.core.list(new cljs.core.Symbol("cljs.core","fn","cljs.core/fn",-1065745098,null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Symbol(null,"%","%",-950237169,null)], null),cljs.core.list(new cljs.core.Symbol("cljs.core","==","cljs.core/==",-632471488,null),new cljs.core.Symbol("js","ChannelMergerNode","js/ChannelMergerNode",-695792816,null),cljs.core.list(new cljs.core.Symbol("cljs.core","type","cljs.core/type",-821761154,null),new cljs.core.Symbol(null,"%","%",-950237169,null)))),(function (p1__34539_SHARP_){
-return (ChannelMergerNode === cljs.core.type.call(null,p1__34539_SHARP_));
+cljs.spec.alpha.def_impl.call(null,new cljs.core.Keyword("webcv.audio","outs","webcv.audio/outs",1732689968),cljs.core.list(new cljs.core.Symbol("cljs.core","fn","cljs.core/fn",-1065745098,null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Symbol(null,"%","%",-950237169,null)], null),cljs.core.list(new cljs.core.Symbol("cljs.core","==","cljs.core/==",-632471488,null),new cljs.core.Symbol("js","ChannelMergerNode","js/ChannelMergerNode",-695792816,null),cljs.core.list(new cljs.core.Symbol("cljs.core","type","cljs.core/type",-821761154,null),new cljs.core.Symbol(null,"%","%",-950237169,null)))),(function (p1__36377_SHARP_){
+return (ChannelMergerNode === cljs.core.type.call(null,p1__36377_SHARP_));
 }));
-cljs.spec.alpha.def_impl.call(null,new cljs.core.Keyword("webcv.audio","node","webcv.audio/node",403635907),cljs.core.list(new cljs.core.Symbol("cljs.core","fn","cljs.core/fn",-1065745098,null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Symbol(null,"%","%",-950237169,null)], null),cljs.core.list(new cljs.core.Symbol("cljs.core","==","cljs.core/==",-632471488,null),new cljs.core.Symbol("js","AudioNode","js/AudioNode",1561561537,null),cljs.core.list(new cljs.core.Symbol("cljs.core","type","cljs.core/type",-821761154,null),new cljs.core.Symbol(null,"%","%",-950237169,null)))),(function (p1__34540_SHARP_){
-return (AudioNode === cljs.core.type.call(null,p1__34540_SHARP_));
+cljs.spec.alpha.def_impl.call(null,new cljs.core.Keyword("webcv.audio","node","webcv.audio/node",403635907),cljs.core.list(new cljs.core.Symbol("cljs.core","fn","cljs.core/fn",-1065745098,null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Symbol(null,"%","%",-950237169,null)], null),cljs.core.list(new cljs.core.Symbol("cljs.core","==","cljs.core/==",-632471488,null),new cljs.core.Symbol("js","AudioNode","js/AudioNode",1561561537,null),cljs.core.list(new cljs.core.Symbol("cljs.core","type","cljs.core/type",-821761154,null),new cljs.core.Symbol(null,"%","%",-950237169,null)))),(function (p1__36378_SHARP_){
+return (AudioNode === cljs.core.type.call(null,p1__36378_SHARP_));
 }));
-cljs.spec.alpha.def_impl.call(null,new cljs.core.Keyword("webcv.audio","ctx","webcv.audio/ctx",-1630553873),cljs.core.list(new cljs.core.Symbol("cljs.spec.alpha","keys","cljs.spec.alpha/keys",1109346032,null),new cljs.core.Keyword(null,"req","req",-326448303),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("webcv.audio","actx","webcv.audio/actx",686780438),new cljs.core.Keyword("webcv.audio","outs","webcv.audio/outs",1732689968)], null)),cljs.spec.alpha.map_spec_impl.call(null,cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"req-un","req-un",1074571008),new cljs.core.Keyword(null,"opt-un","opt-un",883442496),new cljs.core.Keyword(null,"gfn","gfn",791517474),new cljs.core.Keyword(null,"pred-exprs","pred-exprs",1792271395),new cljs.core.Keyword(null,"keys-pred","keys-pred",858984739),new cljs.core.Keyword(null,"opt-keys","opt-keys",1262688261),new cljs.core.Keyword(null,"req-specs","req-specs",553962313),new cljs.core.Keyword(null,"req","req",-326448303),new cljs.core.Keyword(null,"req-keys","req-keys",514319221),new cljs.core.Keyword(null,"opt-specs","opt-specs",-384905450),new cljs.core.Keyword(null,"pred-forms","pred-forms",172611832),new cljs.core.Keyword(null,"opt","opt",-794706369)],[null,null,null,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [(function (G__34541){
-return cljs.core.map_QMARK_.call(null,G__34541);
-}),(function (G__34541){
-return cljs.core.contains_QMARK_.call(null,G__34541,new cljs.core.Keyword("webcv.audio","actx","webcv.audio/actx",686780438));
-}),(function (G__34541){
-return cljs.core.contains_QMARK_.call(null,G__34541,new cljs.core.Keyword("webcv.audio","outs","webcv.audio/outs",1732689968));
-})], null),(function (G__34541){
-return ((cljs.core.map_QMARK_.call(null,G__34541)) && (cljs.core.contains_QMARK_.call(null,G__34541,new cljs.core.Keyword("webcv.audio","actx","webcv.audio/actx",686780438))) && (cljs.core.contains_QMARK_.call(null,G__34541,new cljs.core.Keyword("webcv.audio","outs","webcv.audio/outs",1732689968))));
+cljs.spec.alpha.def_impl.call(null,new cljs.core.Keyword("webcv.audio","ctx","webcv.audio/ctx",-1630553873),cljs.core.list(new cljs.core.Symbol("cljs.spec.alpha","keys","cljs.spec.alpha/keys",1109346032,null),new cljs.core.Keyword(null,"req","req",-326448303),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("webcv.audio","actx","webcv.audio/actx",686780438),new cljs.core.Keyword("webcv.audio","outs","webcv.audio/outs",1732689968)], null)),cljs.spec.alpha.map_spec_impl.call(null,cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"req-un","req-un",1074571008),new cljs.core.Keyword(null,"opt-un","opt-un",883442496),new cljs.core.Keyword(null,"gfn","gfn",791517474),new cljs.core.Keyword(null,"pred-exprs","pred-exprs",1792271395),new cljs.core.Keyword(null,"keys-pred","keys-pred",858984739),new cljs.core.Keyword(null,"opt-keys","opt-keys",1262688261),new cljs.core.Keyword(null,"req-specs","req-specs",553962313),new cljs.core.Keyword(null,"req","req",-326448303),new cljs.core.Keyword(null,"req-keys","req-keys",514319221),new cljs.core.Keyword(null,"opt-specs","opt-specs",-384905450),new cljs.core.Keyword(null,"pred-forms","pred-forms",172611832),new cljs.core.Keyword(null,"opt","opt",-794706369)],[null,null,null,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [(function (G__36379){
+return cljs.core.map_QMARK_.call(null,G__36379);
+}),(function (G__36379){
+return cljs.core.contains_QMARK_.call(null,G__36379,new cljs.core.Keyword("webcv.audio","actx","webcv.audio/actx",686780438));
+}),(function (G__36379){
+return cljs.core.contains_QMARK_.call(null,G__36379,new cljs.core.Keyword("webcv.audio","outs","webcv.audio/outs",1732689968));
+})], null),(function (G__36379){
+return ((cljs.core.map_QMARK_.call(null,G__36379)) && (cljs.core.contains_QMARK_.call(null,G__36379,new cljs.core.Keyword("webcv.audio","actx","webcv.audio/actx",686780438))) && (cljs.core.contains_QMARK_.call(null,G__36379,new cljs.core.Keyword("webcv.audio","outs","webcv.audio/outs",1732689968))));
 }),cljs.core.PersistentVector.EMPTY,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("webcv.audio","actx","webcv.audio/actx",686780438),new cljs.core.Keyword("webcv.audio","outs","webcv.audio/outs",1732689968)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("webcv.audio","actx","webcv.audio/actx",686780438),new cljs.core.Keyword("webcv.audio","outs","webcv.audio/outs",1732689968)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("webcv.audio","actx","webcv.audio/actx",686780438),new cljs.core.Keyword("webcv.audio","outs","webcv.audio/outs",1732689968)], null),cljs.core.PersistentVector.EMPTY,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.list(new cljs.core.Symbol("cljs.core","fn","cljs.core/fn",-1065745098,null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Symbol(null,"%","%",-950237169,null)], null),cljs.core.list(new cljs.core.Symbol("cljs.core","map?","cljs.core/map?",-1390345523,null),new cljs.core.Symbol(null,"%","%",-950237169,null))),cljs.core.list(new cljs.core.Symbol("cljs.core","fn","cljs.core/fn",-1065745098,null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Symbol(null,"%","%",-950237169,null)], null),cljs.core.list(new cljs.core.Symbol("cljs.core","contains?","cljs.core/contains?",-976526835,null),new cljs.core.Symbol(null,"%","%",-950237169,null),new cljs.core.Keyword("webcv.audio","actx","webcv.audio/actx",686780438))),cljs.core.list(new cljs.core.Symbol("cljs.core","fn","cljs.core/fn",-1065745098,null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Symbol(null,"%","%",-950237169,null)], null),cljs.core.list(new cljs.core.Symbol("cljs.core","contains?","cljs.core/contains?",-976526835,null),new cljs.core.Symbol(null,"%","%",-950237169,null),new cljs.core.Keyword("webcv.audio","outs","webcv.audio/outs",1732689968)))], null),null])));
 cljs.spec.alpha.def_impl.call(null,new cljs.core.Keyword("webcv.audio","constructor","webcv.audio/constructor",-951207060),new cljs.core.Symbol("cljs.core","string?","cljs.core/string?",-2072921719,null),cljs.core.string_QMARK_);
 if((typeof webcv !== 'undefined') && (typeof webcv.audio !== 'undefined') && (typeof webcv.audio.audio_node_spec !== 'undefined')){
@@ -37,21 +37,21 @@ cljs.core._add_method.call(null,webcv.synthdef.node_spec,new cljs.core.Keyword("
 return cljs.spec.alpha.multi_spec_impl.call(null,new cljs.core.Symbol("webcv.audio","audio-node-spec","webcv.audio/audio-node-spec",2011150829,null),new cljs.core.Var(function(){return webcv.audio.audio_node_spec;},new cljs.core.Symbol("webcv.audio","audio-node-spec","webcv.audio/audio-node-spec",2011150829,null),cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"ns","ns",441598760),new cljs.core.Keyword(null,"name","name",1843675177),new cljs.core.Keyword(null,"file","file",-1269645878),new cljs.core.Keyword(null,"end-column","end-column",1425389514),new cljs.core.Keyword(null,"column","column",2078222095),new cljs.core.Keyword(null,"line","line",212345235),new cljs.core.Keyword(null,"end-line","end-line",1837326455),new cljs.core.Keyword(null,"arglists","arglists",1661989754),new cljs.core.Keyword(null,"doc","doc",1913296891),new cljs.core.Keyword(null,"test","test",577538877)],[new cljs.core.Symbol(null,"webcv.audio","webcv.audio",1590939795,null),new cljs.core.Symbol(null,"audio-node-spec","audio-node-spec",865813468,null),"src/webcv/audio.cljs",26,1,12,12,cljs.core.List.EMPTY,null,(cljs.core.truth_(webcv.audio.audio_node_spec)?webcv.audio.audio_node_spec.cljs$lang$test:null)])),new cljs.core.Keyword("webcv.audio","audio-node-type","webcv.audio/audio-node-type",1987210761));
 }));
 cljs.core._add_method.call(null,webcv.audio.audio_node_spec,new cljs.core.Keyword("webcv.audio","output","webcv.audio/output",1909608704),(function (_){
-return cljs.spec.alpha.map_spec_impl.call(null,cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"req-un","req-un",1074571008),new cljs.core.Keyword(null,"opt-un","opt-un",883442496),new cljs.core.Keyword(null,"gfn","gfn",791517474),new cljs.core.Keyword(null,"pred-exprs","pred-exprs",1792271395),new cljs.core.Keyword(null,"keys-pred","keys-pred",858984739),new cljs.core.Keyword(null,"opt-keys","opt-keys",1262688261),new cljs.core.Keyword(null,"req-specs","req-specs",553962313),new cljs.core.Keyword(null,"req","req",-326448303),new cljs.core.Keyword(null,"req-keys","req-keys",514319221),new cljs.core.Keyword(null,"opt-specs","opt-specs",-384905450),new cljs.core.Keyword(null,"pred-forms","pred-forms",172611832),new cljs.core.Keyword(null,"opt","opt",-794706369)],[null,null,null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(function (G__34542){
-return cljs.core.map_QMARK_.call(null,G__34542);
-}),(function (G__34542){
-return cljs.core.contains_QMARK_.call(null,G__34542,new cljs.core.Keyword("webcv.audio","channel-idx","webcv.audio/channel-idx",-486650658));
-})], null),(function (G__34542){
-return ((cljs.core.map_QMARK_.call(null,G__34542)) && (cljs.core.contains_QMARK_.call(null,G__34542,new cljs.core.Keyword("webcv.audio","channel-idx","webcv.audio/channel-idx",-486650658))));
+return cljs.spec.alpha.map_spec_impl.call(null,cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"req-un","req-un",1074571008),new cljs.core.Keyword(null,"opt-un","opt-un",883442496),new cljs.core.Keyword(null,"gfn","gfn",791517474),new cljs.core.Keyword(null,"pred-exprs","pred-exprs",1792271395),new cljs.core.Keyword(null,"keys-pred","keys-pred",858984739),new cljs.core.Keyword(null,"opt-keys","opt-keys",1262688261),new cljs.core.Keyword(null,"req-specs","req-specs",553962313),new cljs.core.Keyword(null,"req","req",-326448303),new cljs.core.Keyword(null,"req-keys","req-keys",514319221),new cljs.core.Keyword(null,"opt-specs","opt-specs",-384905450),new cljs.core.Keyword(null,"pred-forms","pred-forms",172611832),new cljs.core.Keyword(null,"opt","opt",-794706369)],[null,null,null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(function (G__36380){
+return cljs.core.map_QMARK_.call(null,G__36380);
+}),(function (G__36380){
+return cljs.core.contains_QMARK_.call(null,G__36380,new cljs.core.Keyword("webcv.audio","channel-idx","webcv.audio/channel-idx",-486650658));
+})], null),(function (G__36380){
+return ((cljs.core.map_QMARK_.call(null,G__36380)) && (cljs.core.contains_QMARK_.call(null,G__36380,new cljs.core.Keyword("webcv.audio","channel-idx","webcv.audio/channel-idx",-486650658))));
 }),cljs.core.PersistentVector.EMPTY,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("webcv.audio","channel-idx","webcv.audio/channel-idx",-486650658)], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("webcv.audio","channel-idx","webcv.audio/channel-idx",-486650658)], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("webcv.audio","channel-idx","webcv.audio/channel-idx",-486650658)], null),cljs.core.PersistentVector.EMPTY,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.list(new cljs.core.Symbol("cljs.core","fn","cljs.core/fn",-1065745098,null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Symbol(null,"%","%",-950237169,null)], null),cljs.core.list(new cljs.core.Symbol("cljs.core","map?","cljs.core/map?",-1390345523,null),new cljs.core.Symbol(null,"%","%",-950237169,null))),cljs.core.list(new cljs.core.Symbol("cljs.core","fn","cljs.core/fn",-1065745098,null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Symbol(null,"%","%",-950237169,null)], null),cljs.core.list(new cljs.core.Symbol("cljs.core","contains?","cljs.core/contains?",-976526835,null),new cljs.core.Symbol(null,"%","%",-950237169,null),new cljs.core.Keyword("webcv.audio","channel-idx","webcv.audio/channel-idx",-486650658)))], null),null]));
 }));
 cljs.core._add_method.call(null,webcv.audio.audio_node_spec,new cljs.core.Keyword(null,"default","default",-1987822328),(function (_){
-return cljs.spec.alpha.map_spec_impl.call(null,cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"req-un","req-un",1074571008),new cljs.core.Keyword(null,"opt-un","opt-un",883442496),new cljs.core.Keyword(null,"gfn","gfn",791517474),new cljs.core.Keyword(null,"pred-exprs","pred-exprs",1792271395),new cljs.core.Keyword(null,"keys-pred","keys-pred",858984739),new cljs.core.Keyword(null,"opt-keys","opt-keys",1262688261),new cljs.core.Keyword(null,"req-specs","req-specs",553962313),new cljs.core.Keyword(null,"req","req",-326448303),new cljs.core.Keyword(null,"req-keys","req-keys",514319221),new cljs.core.Keyword(null,"opt-specs","opt-specs",-384905450),new cljs.core.Keyword(null,"pred-forms","pred-forms",172611832),new cljs.core.Keyword(null,"opt","opt",-794706369)],[null,null,null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(function (G__34543){
-return cljs.core.map_QMARK_.call(null,G__34543);
-}),(function (G__34543){
-return cljs.core.contains_QMARK_.call(null,G__34543,new cljs.core.Keyword("webcv.audio","constructor","webcv.audio/constructor",-951207060));
-})], null),(function (G__34543){
-return ((cljs.core.map_QMARK_.call(null,G__34543)) && (cljs.core.contains_QMARK_.call(null,G__34543,new cljs.core.Keyword("webcv.audio","constructor","webcv.audio/constructor",-951207060))));
+return cljs.spec.alpha.map_spec_impl.call(null,cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"req-un","req-un",1074571008),new cljs.core.Keyword(null,"opt-un","opt-un",883442496),new cljs.core.Keyword(null,"gfn","gfn",791517474),new cljs.core.Keyword(null,"pred-exprs","pred-exprs",1792271395),new cljs.core.Keyword(null,"keys-pred","keys-pred",858984739),new cljs.core.Keyword(null,"opt-keys","opt-keys",1262688261),new cljs.core.Keyword(null,"req-specs","req-specs",553962313),new cljs.core.Keyword(null,"req","req",-326448303),new cljs.core.Keyword(null,"req-keys","req-keys",514319221),new cljs.core.Keyword(null,"opt-specs","opt-specs",-384905450),new cljs.core.Keyword(null,"pred-forms","pred-forms",172611832),new cljs.core.Keyword(null,"opt","opt",-794706369)],[null,null,null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(function (G__36381){
+return cljs.core.map_QMARK_.call(null,G__36381);
+}),(function (G__36381){
+return cljs.core.contains_QMARK_.call(null,G__36381,new cljs.core.Keyword("webcv.audio","constructor","webcv.audio/constructor",-951207060));
+})], null),(function (G__36381){
+return ((cljs.core.map_QMARK_.call(null,G__36381)) && (cljs.core.contains_QMARK_.call(null,G__36381,new cljs.core.Keyword("webcv.audio","constructor","webcv.audio/constructor",-951207060))));
 }),cljs.core.PersistentVector.EMPTY,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("webcv.audio","constructor","webcv.audio/constructor",-951207060)], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("webcv.audio","constructor","webcv.audio/constructor",-951207060)], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("webcv.audio","constructor","webcv.audio/constructor",-951207060)], null),cljs.core.PersistentVector.EMPTY,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.list(new cljs.core.Symbol("cljs.core","fn","cljs.core/fn",-1065745098,null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Symbol(null,"%","%",-950237169,null)], null),cljs.core.list(new cljs.core.Symbol("cljs.core","map?","cljs.core/map?",-1390345523,null),new cljs.core.Symbol(null,"%","%",-950237169,null))),cljs.core.list(new cljs.core.Symbol("cljs.core","fn","cljs.core/fn",-1065745098,null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Symbol(null,"%","%",-950237169,null)], null),cljs.core.list(new cljs.core.Symbol("cljs.core","contains?","cljs.core/contains?",-976526835,null),new cljs.core.Symbol(null,"%","%",-950237169,null),new cljs.core.Keyword("webcv.audio","constructor","webcv.audio/constructor",-951207060)))], null),null]));
 }));
 if((typeof webcv !== 'undefined') && (typeof webcv.audio !== 'undefined') && (typeof webcv.audio.make_audio_node !== 'undefined')){
@@ -89,116 +89,116 @@ throw (new Error("Assert failed: (s/valid? :webcv.audio/ctx %)"));
 
 return _PERCENT_;
 });
-cljs.core._add_method.call(null,webcv.audio.make_audio_node,new cljs.core.Keyword("webcv.audio","output","webcv.audio/output",1909608704),(function (p__34544,p__34545){
-var map__34546 = p__34544;
-var map__34546__$1 = (((((!((map__34546 == null))))?(((((map__34546.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__34546.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__34546):map__34546);
-var actx = cljs.core.get.call(null,map__34546__$1,new cljs.core.Keyword("webcv.audio","actx","webcv.audio/actx",686780438));
-var outs = cljs.core.get.call(null,map__34546__$1,new cljs.core.Keyword("webcv.audio","outs","webcv.audio/outs",1732689968));
-var map__34547 = p__34545;
-var map__34547__$1 = (((((!((map__34547 == null))))?(((((map__34547.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__34547.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__34547):map__34547);
-var channel_idx = cljs.core.get.call(null,map__34547__$1,new cljs.core.Keyword("webcv.audio","channel-idx","webcv.audio/channel-idx",-486650658));
-var G__34550 = actx.createGain();
-G__34550.connect(outs,(0),channel_idx);
+cljs.core._add_method.call(null,webcv.audio.make_audio_node,new cljs.core.Keyword("webcv.audio","output","webcv.audio/output",1909608704),(function (p__36382,p__36383){
+var map__36384 = p__36382;
+var map__36384__$1 = (((((!((map__36384 == null))))?(((((map__36384.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__36384.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__36384):map__36384);
+var actx = cljs.core.get.call(null,map__36384__$1,new cljs.core.Keyword("webcv.audio","actx","webcv.audio/actx",686780438));
+var outs = cljs.core.get.call(null,map__36384__$1,new cljs.core.Keyword("webcv.audio","outs","webcv.audio/outs",1732689968));
+var map__36385 = p__36383;
+var map__36385__$1 = (((((!((map__36385 == null))))?(((((map__36385.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__36385.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__36385):map__36385);
+var channel_idx = cljs.core.get.call(null,map__36385__$1,new cljs.core.Keyword("webcv.audio","channel-idx","webcv.audio/channel-idx",-486650658));
+var G__36388 = actx.createGain();
+G__36388.connect(outs,(0),channel_idx);
 
-return G__34550;
+return G__36388;
 }));
 webcv.audio.set_param = (function webcv$audio$set_param(node,param_name,value){
 if(typeof value === 'number'){
-var target_obj_34555 = node;
-var _STAR_runtime_state_STAR__orig_val__34556 = oops.state._STAR_runtime_state_STAR_;
-var _STAR_runtime_state_STAR__temp_val__34557 = oops.state.prepare_state.call(null,target_obj_34555,(new Error()),function(){arguments[0].apply(console,Array.prototype.slice.call(arguments,1))});
-oops.state._STAR_runtime_state_STAR_ = _STAR_runtime_state_STAR__temp_val__34557;
+var target_obj_36393 = node;
+var _STAR_runtime_state_STAR__orig_val__36394 = oops.state._STAR_runtime_state_STAR_;
+var _STAR_runtime_state_STAR__temp_val__36395 = oops.state.prepare_state.call(null,target_obj_36393,(new Error()),function(){arguments[0].apply(console,Array.prototype.slice.call(arguments,1))});
+oops.state._STAR_runtime_state_STAR_ = _STAR_runtime_state_STAR__temp_val__36395;
 
-try{oops.core.set_selector_dynamically.call(null,target_obj_34555,[cljs.core.str.cljs$core$IFn$_invoke$arity$1(param_name),".value"].join(''),value);
+try{oops.core.set_selector_dynamically.call(null,target_obj_36393,[cljs.core.str.cljs$core$IFn$_invoke$arity$1(param_name),".value"].join(''),value);
 
-return target_obj_34555;
-}finally {oops.state._STAR_runtime_state_STAR_ = _STAR_runtime_state_STAR__orig_val__34556;
+return target_obj_36393;
+}finally {oops.state._STAR_runtime_state_STAR_ = _STAR_runtime_state_STAR__orig_val__36394;
 }} else {
 if((((!((value == null))))?(((((value.cljs$lang$protocol_mask$partition1$ & (2))) || ((cljs.core.PROTOCOL_SENTINEL === value.cljs$core$IWatchable$))))?true:(((!value.cljs$lang$protocol_mask$partition1$))?cljs.core.native_satisfies_QMARK_.call(null,cljs.core.IWatchable,value):false)):cljs.core.native_satisfies_QMARK_.call(null,cljs.core.IWatchable,value))){
-return cljs.core.add_watch.call(null,value,param_name,(function (p1__34552_SHARP_,p2__34553_SHARP_,p3__34554_SHARP_,p4__34551_SHARP_){
-return webcv.audio.set_param.call(null,node,param_name,p4__34551_SHARP_);
+return cljs.core.add_watch.call(null,value,param_name,(function (p1__36390_SHARP_,p2__36391_SHARP_,p3__36392_SHARP_,p4__36389_SHARP_){
+return webcv.audio.set_param.call(null,node,param_name,p4__36389_SHARP_);
 }));
 } else {
 return null;
 }
 }
 });
-cljs.core._add_method.call(null,webcv.audio.make_audio_node,new cljs.core.Keyword(null,"default","default",-1987822328),(function (p__34559,p__34560){
-var map__34561 = p__34559;
-var map__34561__$1 = (((((!((map__34561 == null))))?(((((map__34561.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__34561.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__34561):map__34561);
-var actx = cljs.core.get.call(null,map__34561__$1,new cljs.core.Keyword("webcv.audio","actx","webcv.audio/actx",686780438));
-var map__34562 = p__34560;
-var map__34562__$1 = (((((!((map__34562 == null))))?(((((map__34562.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__34562.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__34562):map__34562);
-var audio_node_type = cljs.core.get.call(null,map__34562__$1,new cljs.core.Keyword("webcv.audio","audio-node-type","webcv.audio/audio-node-type",1987210761));
-var constructor$ = cljs.core.get.call(null,map__34562__$1,new cljs.core.Keyword("webcv.audio","constructor","webcv.audio/constructor",-951207060));
-var props = cljs.core.get.call(null,map__34562__$1,new cljs.core.Keyword("webcv.audio","props","webcv.audio/props",1497882094));
-var static_params = cljs.core.get.call(null,map__34562__$1,new cljs.core.Keyword("webcv.synthdef","static-params","webcv.synthdef/static-params",-622811484));
+cljs.core._add_method.call(null,webcv.audio.make_audio_node,new cljs.core.Keyword(null,"default","default",-1987822328),(function (p__36397,p__36398){
+var map__36399 = p__36397;
+var map__36399__$1 = (((((!((map__36399 == null))))?(((((map__36399.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__36399.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__36399):map__36399);
+var actx = cljs.core.get.call(null,map__36399__$1,new cljs.core.Keyword("webcv.audio","actx","webcv.audio/actx",686780438));
+var map__36400 = p__36398;
+var map__36400__$1 = (((((!((map__36400 == null))))?(((((map__36400.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__36400.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__36400):map__36400);
+var audio_node_type = cljs.core.get.call(null,map__36400__$1,new cljs.core.Keyword("webcv.audio","audio-node-type","webcv.audio/audio-node-type",1987210761));
+var constructor$ = cljs.core.get.call(null,map__36400__$1,new cljs.core.Keyword("webcv.audio","constructor","webcv.audio/constructor",-951207060));
+var props = cljs.core.get.call(null,map__36400__$1,new cljs.core.Keyword("webcv.audio","props","webcv.audio/props",1497882094));
+var static_params = cljs.core.get.call(null,map__36400__$1,new cljs.core.Keyword("webcv.synthdef","static-params","webcv.synthdef/static-params",-622811484));
 var node = cljs.core.js_invoke.call(null,actx,constructor$);
-var seq__34565_34609 = cljs.core.seq.call(null,props);
-var chunk__34566_34610 = null;
-var count__34567_34611 = (0);
-var i__34568_34612 = (0);
+var seq__36403_36447 = cljs.core.seq.call(null,props);
+var chunk__36404_36448 = null;
+var count__36405_36449 = (0);
+var i__36406_36450 = (0);
 while(true){
-if((i__34568_34612 < count__34567_34611)){
-var vec__34581_34613 = cljs.core._nth.call(null,chunk__34566_34610,i__34568_34612);
-var k_34614 = cljs.core.nth.call(null,vec__34581_34613,(0),null);
-var v_34615 = cljs.core.nth.call(null,vec__34581_34613,(1),null);
-var target_obj_34584_34616 = node;
-var _STAR_runtime_state_STAR__orig_val__34585_34617 = oops.state._STAR_runtime_state_STAR_;
-var _STAR_runtime_state_STAR__temp_val__34586_34618 = oops.state.prepare_state.call(null,target_obj_34584_34616,(new Error()),function(){arguments[0].apply(console,Array.prototype.slice.call(arguments,1))});
-oops.state._STAR_runtime_state_STAR_ = _STAR_runtime_state_STAR__temp_val__34586_34618;
+if((i__36406_36450 < count__36405_36449)){
+var vec__36419_36451 = cljs.core._nth.call(null,chunk__36404_36448,i__36406_36450);
+var k_36452 = cljs.core.nth.call(null,vec__36419_36451,(0),null);
+var v_36453 = cljs.core.nth.call(null,vec__36419_36451,(1),null);
+var target_obj_36422_36454 = node;
+var _STAR_runtime_state_STAR__orig_val__36423_36455 = oops.state._STAR_runtime_state_STAR_;
+var _STAR_runtime_state_STAR__temp_val__36424_36456 = oops.state.prepare_state.call(null,target_obj_36422_36454,(new Error()),function(){arguments[0].apply(console,Array.prototype.slice.call(arguments,1))});
+oops.state._STAR_runtime_state_STAR_ = _STAR_runtime_state_STAR__temp_val__36424_36456;
 
-try{oops.core.set_selector_dynamically.call(null,target_obj_34584_34616,k_34614,v_34615);
+try{oops.core.set_selector_dynamically.call(null,target_obj_36422_36454,k_36452,v_36453);
 
-}finally {oops.state._STAR_runtime_state_STAR_ = _STAR_runtime_state_STAR__orig_val__34585_34617;
+}finally {oops.state._STAR_runtime_state_STAR_ = _STAR_runtime_state_STAR__orig_val__36423_36455;
 }
 
-var G__34619 = seq__34565_34609;
-var G__34620 = chunk__34566_34610;
-var G__34621 = count__34567_34611;
-var G__34622 = (i__34568_34612 + (1));
-seq__34565_34609 = G__34619;
-chunk__34566_34610 = G__34620;
-count__34567_34611 = G__34621;
-i__34568_34612 = G__34622;
+var G__36457 = seq__36403_36447;
+var G__36458 = chunk__36404_36448;
+var G__36459 = count__36405_36449;
+var G__36460 = (i__36406_36450 + (1));
+seq__36403_36447 = G__36457;
+chunk__36404_36448 = G__36458;
+count__36405_36449 = G__36459;
+i__36406_36450 = G__36460;
 continue;
 } else {
-var temp__5720__auto___34623 = cljs.core.seq.call(null,seq__34565_34609);
-if(temp__5720__auto___34623){
-var seq__34565_34624__$1 = temp__5720__auto___34623;
-if(cljs.core.chunked_seq_QMARK_.call(null,seq__34565_34624__$1)){
-var c__4550__auto___34625 = cljs.core.chunk_first.call(null,seq__34565_34624__$1);
-var G__34626 = cljs.core.chunk_rest.call(null,seq__34565_34624__$1);
-var G__34627 = c__4550__auto___34625;
-var G__34628 = cljs.core.count.call(null,c__4550__auto___34625);
-var G__34629 = (0);
-seq__34565_34609 = G__34626;
-chunk__34566_34610 = G__34627;
-count__34567_34611 = G__34628;
-i__34568_34612 = G__34629;
+var temp__5720__auto___36461 = cljs.core.seq.call(null,seq__36403_36447);
+if(temp__5720__auto___36461){
+var seq__36403_36462__$1 = temp__5720__auto___36461;
+if(cljs.core.chunked_seq_QMARK_.call(null,seq__36403_36462__$1)){
+var c__4550__auto___36463 = cljs.core.chunk_first.call(null,seq__36403_36462__$1);
+var G__36464 = cljs.core.chunk_rest.call(null,seq__36403_36462__$1);
+var G__36465 = c__4550__auto___36463;
+var G__36466 = cljs.core.count.call(null,c__4550__auto___36463);
+var G__36467 = (0);
+seq__36403_36447 = G__36464;
+chunk__36404_36448 = G__36465;
+count__36405_36449 = G__36466;
+i__36406_36450 = G__36467;
 continue;
 } else {
-var vec__34587_34630 = cljs.core.first.call(null,seq__34565_34624__$1);
-var k_34631 = cljs.core.nth.call(null,vec__34587_34630,(0),null);
-var v_34632 = cljs.core.nth.call(null,vec__34587_34630,(1),null);
-var target_obj_34590_34633 = node;
-var _STAR_runtime_state_STAR__orig_val__34591_34634 = oops.state._STAR_runtime_state_STAR_;
-var _STAR_runtime_state_STAR__temp_val__34592_34635 = oops.state.prepare_state.call(null,target_obj_34590_34633,(new Error()),function(){arguments[0].apply(console,Array.prototype.slice.call(arguments,1))});
-oops.state._STAR_runtime_state_STAR_ = _STAR_runtime_state_STAR__temp_val__34592_34635;
+var vec__36425_36468 = cljs.core.first.call(null,seq__36403_36462__$1);
+var k_36469 = cljs.core.nth.call(null,vec__36425_36468,(0),null);
+var v_36470 = cljs.core.nth.call(null,vec__36425_36468,(1),null);
+var target_obj_36428_36471 = node;
+var _STAR_runtime_state_STAR__orig_val__36429_36472 = oops.state._STAR_runtime_state_STAR_;
+var _STAR_runtime_state_STAR__temp_val__36430_36473 = oops.state.prepare_state.call(null,target_obj_36428_36471,(new Error()),function(){arguments[0].apply(console,Array.prototype.slice.call(arguments,1))});
+oops.state._STAR_runtime_state_STAR_ = _STAR_runtime_state_STAR__temp_val__36430_36473;
 
-try{oops.core.set_selector_dynamically.call(null,target_obj_34590_34633,k_34631,v_34632);
+try{oops.core.set_selector_dynamically.call(null,target_obj_36428_36471,k_36469,v_36470);
 
-}finally {oops.state._STAR_runtime_state_STAR_ = _STAR_runtime_state_STAR__orig_val__34591_34634;
+}finally {oops.state._STAR_runtime_state_STAR_ = _STAR_runtime_state_STAR__orig_val__36429_36472;
 }
 
-var G__34636 = cljs.core.next.call(null,seq__34565_34624__$1);
-var G__34637 = null;
-var G__34638 = (0);
-var G__34639 = (0);
-seq__34565_34609 = G__34636;
-chunk__34566_34610 = G__34637;
-count__34567_34611 = G__34638;
-i__34568_34612 = G__34639;
+var G__36474 = cljs.core.next.call(null,seq__36403_36462__$1);
+var G__36475 = null;
+var G__36476 = (0);
+var G__36477 = (0);
+seq__36403_36447 = G__36474;
+chunk__36404_36448 = G__36475;
+count__36405_36449 = G__36476;
+i__36406_36450 = G__36477;
 continue;
 }
 } else {
@@ -207,57 +207,57 @@ continue;
 break;
 }
 
-var seq__34593_34640 = cljs.core.seq.call(null,static_params);
-var chunk__34594_34641 = null;
-var count__34595_34642 = (0);
-var i__34596_34643 = (0);
+var seq__36431_36478 = cljs.core.seq.call(null,static_params);
+var chunk__36432_36479 = null;
+var count__36433_36480 = (0);
+var i__36434_36481 = (0);
 while(true){
-if((i__34596_34643 < count__34595_34642)){
-var vec__34603_34644 = cljs.core._nth.call(null,chunk__34594_34641,i__34596_34643);
-var k_34645 = cljs.core.nth.call(null,vec__34603_34644,(0),null);
-var v_34646 = cljs.core.nth.call(null,vec__34603_34644,(1),null);
-webcv.audio.set_param.call(null,node,k_34645,v_34646);
+if((i__36434_36481 < count__36433_36480)){
+var vec__36441_36482 = cljs.core._nth.call(null,chunk__36432_36479,i__36434_36481);
+var k_36483 = cljs.core.nth.call(null,vec__36441_36482,(0),null);
+var v_36484 = cljs.core.nth.call(null,vec__36441_36482,(1),null);
+webcv.audio.set_param.call(null,node,k_36483,v_36484);
 
 
-var G__34647 = seq__34593_34640;
-var G__34648 = chunk__34594_34641;
-var G__34649 = count__34595_34642;
-var G__34650 = (i__34596_34643 + (1));
-seq__34593_34640 = G__34647;
-chunk__34594_34641 = G__34648;
-count__34595_34642 = G__34649;
-i__34596_34643 = G__34650;
+var G__36485 = seq__36431_36478;
+var G__36486 = chunk__36432_36479;
+var G__36487 = count__36433_36480;
+var G__36488 = (i__36434_36481 + (1));
+seq__36431_36478 = G__36485;
+chunk__36432_36479 = G__36486;
+count__36433_36480 = G__36487;
+i__36434_36481 = G__36488;
 continue;
 } else {
-var temp__5720__auto___34651 = cljs.core.seq.call(null,seq__34593_34640);
-if(temp__5720__auto___34651){
-var seq__34593_34652__$1 = temp__5720__auto___34651;
-if(cljs.core.chunked_seq_QMARK_.call(null,seq__34593_34652__$1)){
-var c__4550__auto___34653 = cljs.core.chunk_first.call(null,seq__34593_34652__$1);
-var G__34654 = cljs.core.chunk_rest.call(null,seq__34593_34652__$1);
-var G__34655 = c__4550__auto___34653;
-var G__34656 = cljs.core.count.call(null,c__4550__auto___34653);
-var G__34657 = (0);
-seq__34593_34640 = G__34654;
-chunk__34594_34641 = G__34655;
-count__34595_34642 = G__34656;
-i__34596_34643 = G__34657;
+var temp__5720__auto___36489 = cljs.core.seq.call(null,seq__36431_36478);
+if(temp__5720__auto___36489){
+var seq__36431_36490__$1 = temp__5720__auto___36489;
+if(cljs.core.chunked_seq_QMARK_.call(null,seq__36431_36490__$1)){
+var c__4550__auto___36491 = cljs.core.chunk_first.call(null,seq__36431_36490__$1);
+var G__36492 = cljs.core.chunk_rest.call(null,seq__36431_36490__$1);
+var G__36493 = c__4550__auto___36491;
+var G__36494 = cljs.core.count.call(null,c__4550__auto___36491);
+var G__36495 = (0);
+seq__36431_36478 = G__36492;
+chunk__36432_36479 = G__36493;
+count__36433_36480 = G__36494;
+i__36434_36481 = G__36495;
 continue;
 } else {
-var vec__34606_34658 = cljs.core.first.call(null,seq__34593_34652__$1);
-var k_34659 = cljs.core.nth.call(null,vec__34606_34658,(0),null);
-var v_34660 = cljs.core.nth.call(null,vec__34606_34658,(1),null);
-webcv.audio.set_param.call(null,node,k_34659,v_34660);
+var vec__36444_36496 = cljs.core.first.call(null,seq__36431_36490__$1);
+var k_36497 = cljs.core.nth.call(null,vec__36444_36496,(0),null);
+var v_36498 = cljs.core.nth.call(null,vec__36444_36496,(1),null);
+webcv.audio.set_param.call(null,node,k_36497,v_36498);
 
 
-var G__34661 = cljs.core.next.call(null,seq__34593_34652__$1);
-var G__34662 = null;
-var G__34663 = (0);
-var G__34664 = (0);
-seq__34593_34640 = G__34661;
-chunk__34594_34641 = G__34662;
-count__34595_34642 = G__34663;
-i__34596_34643 = G__34664;
+var G__36499 = cljs.core.next.call(null,seq__36431_36490__$1);
+var G__36500 = null;
+var G__36501 = (0);
+var G__36502 = (0);
+seq__36431_36478 = G__36499;
+chunk__36432_36479 = G__36500;
+count__36433_36480 = G__36501;
+i__36434_36481 = G__36502;
 continue;
 }
 } else {
@@ -273,29 +273,29 @@ node.start();
 
 return node;
 }));
-cljs.core._add_method.call(null,webcv.synthdef.make_edge,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("webcv.audio","audio-node","webcv.audio/audio-node",1962286852),new cljs.core.Keyword("webcv.audio","audio-node","webcv.audio/audio-node",1962286852)], null),(function (_,src,dest,p__34665){
-var map__34666 = p__34665;
-var map__34666__$1 = (((((!((map__34666 == null))))?(((((map__34666.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__34666.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__34666):map__34666);
-var param_name = cljs.core.get.call(null,map__34666__$1,new cljs.core.Keyword("webcv.synthdef","param-name","webcv.synthdef/param-name",-328756077));
-return src.connect(((cljs.core.not_EQ_.call(null,new cljs.core.Keyword("webcv.audio","input","webcv.audio/input",1702213034),param_name))?(function (){var target_obj_34668 = dest;
-var _STAR_runtime_state_STAR__orig_val__34669 = oops.state._STAR_runtime_state_STAR_;
-var _STAR_runtime_state_STAR__temp_val__34670 = oops.state.prepare_state.call(null,target_obj_34668,(new Error()),function(){arguments[0].apply(console,Array.prototype.slice.call(arguments,1))});
-oops.state._STAR_runtime_state_STAR_ = _STAR_runtime_state_STAR__temp_val__34670;
+cljs.core._add_method.call(null,webcv.synthdef.make_edge,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("webcv.audio","audio-node","webcv.audio/audio-node",1962286852),new cljs.core.Keyword("webcv.audio","audio-node","webcv.audio/audio-node",1962286852)], null),(function (_,src,dest,p__36503){
+var map__36504 = p__36503;
+var map__36504__$1 = (((((!((map__36504 == null))))?(((((map__36504.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__36504.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__36504):map__36504);
+var param_name = cljs.core.get.call(null,map__36504__$1,new cljs.core.Keyword("webcv.synthdef","param-name","webcv.synthdef/param-name",-328756077));
+return src.connect(((cljs.core.not_EQ_.call(null,new cljs.core.Keyword("webcv.audio","input","webcv.audio/input",1702213034),param_name))?(function (){var target_obj_36506 = dest;
+var _STAR_runtime_state_STAR__orig_val__36507 = oops.state._STAR_runtime_state_STAR_;
+var _STAR_runtime_state_STAR__temp_val__36508 = oops.state.prepare_state.call(null,target_obj_36506,(new Error()),function(){arguments[0].apply(console,Array.prototype.slice.call(arguments,1))});
+oops.state._STAR_runtime_state_STAR_ = _STAR_runtime_state_STAR__temp_val__36508;
 
-try{return oops.core.get_selector_dynamically.call(null,target_obj_34668,param_name);
-}finally {oops.state._STAR_runtime_state_STAR_ = _STAR_runtime_state_STAR__orig_val__34669;
+try{return oops.core.get_selector_dynamically.call(null,target_obj_36506,param_name);
+}finally {oops.state._STAR_runtime_state_STAR_ = _STAR_runtime_state_STAR__orig_val__36507;
 }})():dest));
 }));
 webcv.audio.out = (function webcv$audio$out(var_args){
 var args__4736__auto__ = [];
-var len__4730__auto___34672 = arguments.length;
-var i__4731__auto___34673 = (0);
+var len__4730__auto___36510 = arguments.length;
+var i__4731__auto___36511 = (0);
 while(true){
-if((i__4731__auto___34673 < len__4730__auto___34672)){
-args__4736__auto__.push((arguments[i__4731__auto___34673]));
+if((i__4731__auto___36511 < len__4730__auto___36510)){
+args__4736__auto__.push((arguments[i__4731__auto___36511]));
 
-var G__34674 = (i__4731__auto___34673 + (1));
-i__4731__auto___34673 = G__34674;
+var G__36512 = (i__4731__auto___36511 + (1));
+i__4731__auto___36511 = G__36512;
 continue;
 } else {
 }
@@ -313,21 +313,21 @@ return webcv.synthdef.synthdef.call(null,new cljs.core.PersistentArrayMap(null, 
 webcv.audio.out.cljs$lang$maxFixedArity = (0);
 
 /** @this {Function} */
-webcv.audio.out.cljs$lang$applyTo = (function (seq34671){
+webcv.audio.out.cljs$lang$applyTo = (function (seq36509){
 var self__4718__auto__ = this;
-return self__4718__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq.call(null,seq34671));
+return self__4718__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq.call(null,seq36509));
 });
 
 webcv.audio.gain = (function webcv$audio$gain(var_args){
 var args__4736__auto__ = [];
-var len__4730__auto___34677 = arguments.length;
-var i__4731__auto___34678 = (0);
+var len__4730__auto___36515 = arguments.length;
+var i__4731__auto___36516 = (0);
 while(true){
-if((i__4731__auto___34678 < len__4730__auto___34677)){
-args__4736__auto__.push((arguments[i__4731__auto___34678]));
+if((i__4731__auto___36516 < len__4730__auto___36515)){
+args__4736__auto__.push((arguments[i__4731__auto___36516]));
 
-var G__34679 = (i__4731__auto___34678 + (1));
-i__4731__auto___34678 = G__34679;
+var G__36517 = (i__4731__auto___36516 + (1));
+i__4731__auto___36516 = G__36517;
 continue;
 } else {
 }
@@ -345,23 +345,23 @@ return webcv.synthdef.synthdef.call(null,new cljs.core.PersistentArrayMap(null, 
 webcv.audio.gain.cljs$lang$maxFixedArity = (1);
 
 /** @this {Function} */
-webcv.audio.gain.cljs$lang$applyTo = (function (seq34675){
-var G__34676 = cljs.core.first.call(null,seq34675);
-var seq34675__$1 = cljs.core.next.call(null,seq34675);
+webcv.audio.gain.cljs$lang$applyTo = (function (seq36513){
+var G__36514 = cljs.core.first.call(null,seq36513);
+var seq36513__$1 = cljs.core.next.call(null,seq36513);
 var self__4717__auto__ = this;
-return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__34676,seq34675__$1);
+return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__36514,seq36513__$1);
 });
 
 webcv.audio.mix = (function webcv$audio$mix(var_args){
 var args__4736__auto__ = [];
-var len__4730__auto___34681 = arguments.length;
-var i__4731__auto___34682 = (0);
+var len__4730__auto___36519 = arguments.length;
+var i__4731__auto___36520 = (0);
 while(true){
-if((i__4731__auto___34682 < len__4730__auto___34681)){
-args__4736__auto__.push((arguments[i__4731__auto___34682]));
+if((i__4731__auto___36520 < len__4730__auto___36519)){
+args__4736__auto__.push((arguments[i__4731__auto___36520]));
 
-var G__34683 = (i__4731__auto___34682 + (1));
-i__4731__auto___34682 = G__34683;
+var G__36521 = (i__4731__auto___36520 + (1));
+i__4731__auto___36520 = G__36521;
 continue;
 } else {
 }
@@ -379,21 +379,21 @@ return webcv.synthdef.synthdef.call(null,new cljs.core.PersistentArrayMap(null, 
 webcv.audio.mix.cljs$lang$maxFixedArity = (0);
 
 /** @this {Function} */
-webcv.audio.mix.cljs$lang$applyTo = (function (seq34680){
+webcv.audio.mix.cljs$lang$applyTo = (function (seq36518){
 var self__4718__auto__ = this;
-return self__4718__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq.call(null,seq34680));
+return self__4718__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq.call(null,seq36518));
 });
 
 webcv.audio.const$ = (function webcv$audio$const(var_args){
 var args__4736__auto__ = [];
-var len__4730__auto___34685 = arguments.length;
-var i__4731__auto___34686 = (0);
+var len__4730__auto___36523 = arguments.length;
+var i__4731__auto___36524 = (0);
 while(true){
-if((i__4731__auto___34686 < len__4730__auto___34685)){
-args__4736__auto__.push((arguments[i__4731__auto___34686]));
+if((i__4731__auto___36524 < len__4730__auto___36523)){
+args__4736__auto__.push((arguments[i__4731__auto___36524]));
 
-var G__34687 = (i__4731__auto___34686 + (1));
-i__4731__auto___34686 = G__34687;
+var G__36525 = (i__4731__auto___36524 + (1));
+i__4731__auto___36524 = G__36525;
 continue;
 } else {
 }
@@ -411,14 +411,14 @@ return webcv.synthdef.synthdef.call(null,new cljs.core.PersistentArrayMap(null, 
 webcv.audio.const$.cljs$lang$maxFixedArity = (0);
 
 /** @this {Function} */
-webcv.audio.const$.cljs$lang$applyTo = (function (seq34684){
+webcv.audio.const$.cljs$lang$applyTo = (function (seq36522){
 var self__4718__auto__ = this;
-return self__4718__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq.call(null,seq34684));
+return self__4718__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq.call(null,seq36522));
 });
 
 webcv.audio.oscillator = (function webcv$audio$oscillator(var_args){
-var G__34689 = arguments.length;
-switch (G__34689) {
+var G__36527 = arguments.length;
+switch (G__36527) {
 case 2:
 return webcv.audio.oscillator.cljs$core$IFn$_invoke$arity$2((arguments[(0)]),(arguments[(1)]));
 
@@ -451,8 +451,8 @@ webcv.audio.lfo = (function webcv$audio$lfo(bias,scale,freq){
 return webcv.audio.mix.call(null,webcv.audio.const$.call(null,bias),webcv.audio.gain.call(null,webcv.audio.sin_osc.call(null,freq),scale));
 });
 webcv.audio.biquad_filter = (function webcv$audio$biquad_filter(var_args){
-var G__34692 = arguments.length;
-switch (G__34692) {
+var G__36530 = arguments.length;
+switch (G__36530) {
 case 3:
 return webcv.audio.biquad_filter.cljs$core$IFn$_invoke$arity$3((arguments[(0)]),(arguments[(1)]),(arguments[(2)]));
 
@@ -484,4 +484,4 @@ webcv.audio.delay_node = (function webcv$audio$delay_node(in$,time){
 return webcv.synthdef.synthdef.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword("webcv.synthdef","node-type","webcv.synthdef/node-type",-1036809122),new cljs.core.Keyword("webcv.audio","audio-node","webcv.audio/audio-node",1962286852),new cljs.core.Keyword("webcv.audio","audio-node-type","webcv.audio/audio-node-type",1987210761),new cljs.core.Keyword("webcv.audio","effect","webcv.audio/effect",-933765172),new cljs.core.Keyword("webcv.audio","constructor","webcv.audio/constructor",-951207060),"createDelay"], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("webcv.audio","input","webcv.audio/input",1702213034),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [in$], null),"delayTime",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(0),time], null)], null));
 });
 
-//# sourceMappingURL=audio.js.map?rel=1601328142487
+//# sourceMappingURL=audio.js.map?rel=1601341171699

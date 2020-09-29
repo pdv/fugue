@@ -266,8 +266,8 @@ loom.graph.WeightedGraph = function(){};
  * Returns the weight of edge e or edge [n1 n2]
  */
 loom.graph.weight_STAR_ = (function loom$graph$weight_STAR_(var_args){
-var G__33940 = arguments.length;
-switch (G__33940) {
+var G__34990 = arguments.length;
+switch (G__34990) {
 case 2:
 return loom.graph.weight_STAR_.cljs$core$IFn$_invoke$arity$2((arguments[(0)]),(arguments[(1)]));
 
@@ -539,8 +539,8 @@ return new cljs.core.Keyword(null,"dest","dest",-34569477).cljs$core$IFn$_invoke
  * Returns direct successors of node
  */
 loom.graph.successors = (function loom$graph$successors(var_args){
-var G__33944 = arguments.length;
-switch (G__33944) {
+var G__34994 = arguments.length;
+switch (G__34994) {
 case 1:
 return loom.graph.successors.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
 
@@ -556,8 +556,8 @@ throw (new Error(["Invalid arity: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(
 });
 
 loom.graph.successors.cljs$core$IFn$_invoke$arity$1 = (function (g){
-return (function (p1__33942_SHARP_){
-return loom.graph.successors.call(null,g,p1__33942_SHARP_);
+return (function (p1__34992_SHARP_){
+return loom.graph.successors.call(null,g,p1__34992_SHARP_);
 });
 });
 
@@ -571,8 +571,8 @@ loom.graph.successors.cljs$lang$maxFixedArity = 2;
  * Returns direct predecessors of node
  */
 loom.graph.predecessors = (function loom$graph$predecessors(var_args){
-var G__33948 = arguments.length;
-switch (G__33948) {
+var G__34998 = arguments.length;
+switch (G__34998) {
 case 1:
 return loom.graph.predecessors.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
 
@@ -588,8 +588,8 @@ throw (new Error(["Invalid arity: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(
 });
 
 loom.graph.predecessors.cljs$core$IFn$_invoke$arity$1 = (function (g){
-return (function (p1__33946_SHARP_){
-return loom.graph.predecessors.call(null,g,p1__33946_SHARP_);
+return (function (p1__34996_SHARP_){
+return loom.graph.predecessors.call(null,g,p1__34996_SHARP_);
 });
 });
 
@@ -603,8 +603,8 @@ loom.graph.predecessors.cljs$lang$maxFixedArity = 2;
  * Returns the weight of edge e or edge [n1 n2]
  */
 loom.graph.weight = (function loom$graph$weight(var_args){
-var G__33951 = arguments.length;
-switch (G__33951) {
+var G__35001 = arguments.length;
+switch (G__35001) {
 case 1:
 return loom.graph.weight.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
 
@@ -642,14 +642,14 @@ loom.graph.weight.cljs$lang$maxFixedArity = 3;
  */
 loom.graph.add_nodes = (function loom$graph$add_nodes(var_args){
 var args__4736__auto__ = [];
-var len__4730__auto___33955 = arguments.length;
-var i__4731__auto___33956 = (0);
+var len__4730__auto___35005 = arguments.length;
+var i__4731__auto___35006 = (0);
 while(true){
-if((i__4731__auto___33956 < len__4730__auto___33955)){
-args__4736__auto__.push((arguments[i__4731__auto___33956]));
+if((i__4731__auto___35006 < len__4730__auto___35005)){
+args__4736__auto__.push((arguments[i__4731__auto___35006]));
 
-var G__33957 = (i__4731__auto___33956 + (1));
-i__4731__auto___33956 = G__33957;
+var G__35007 = (i__4731__auto___35006 + (1));
+i__4731__auto___35006 = G__35007;
 continue;
 } else {
 }
@@ -667,11 +667,11 @@ return loom.graph.add_nodes_STAR_.call(null,g,nodes);
 loom.graph.add_nodes.cljs$lang$maxFixedArity = (1);
 
 /** @this {Function} */
-loom.graph.add_nodes.cljs$lang$applyTo = (function (seq33953){
-var G__33954 = cljs.core.first.call(null,seq33953);
-var seq33953__$1 = cljs.core.next.call(null,seq33953);
+loom.graph.add_nodes.cljs$lang$applyTo = (function (seq35003){
+var G__35004 = cljs.core.first.call(null,seq35003);
+var seq35003__$1 = cljs.core.next.call(null,seq35003);
 var self__4717__auto__ = this;
-return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__33954,seq33953__$1);
+return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__35004,seq35003__$1);
 });
 
 /**
@@ -681,14 +681,14 @@ return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__33954,seq33953
  */
 loom.graph.add_edges = (function loom$graph$add_edges(var_args){
 var args__4736__auto__ = [];
-var len__4730__auto___33960 = arguments.length;
-var i__4731__auto___33961 = (0);
+var len__4730__auto___35010 = arguments.length;
+var i__4731__auto___35011 = (0);
 while(true){
-if((i__4731__auto___33961 < len__4730__auto___33960)){
-args__4736__auto__.push((arguments[i__4731__auto___33961]));
+if((i__4731__auto___35011 < len__4730__auto___35010)){
+args__4736__auto__.push((arguments[i__4731__auto___35011]));
 
-var G__33962 = (i__4731__auto___33961 + (1));
-i__4731__auto___33961 = G__33962;
+var G__35012 = (i__4731__auto___35011 + (1));
+i__4731__auto___35011 = G__35012;
 continue;
 } else {
 }
@@ -706,11 +706,11 @@ return loom.graph.add_edges_STAR_.call(null,g,edges);
 loom.graph.add_edges.cljs$lang$maxFixedArity = (1);
 
 /** @this {Function} */
-loom.graph.add_edges.cljs$lang$applyTo = (function (seq33958){
-var G__33959 = cljs.core.first.call(null,seq33958);
-var seq33958__$1 = cljs.core.next.call(null,seq33958);
+loom.graph.add_edges.cljs$lang$applyTo = (function (seq35008){
+var G__35009 = cljs.core.first.call(null,seq35008);
+var seq35008__$1 = cljs.core.next.call(null,seq35008);
 var self__4717__auto__ = this;
-return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__33959,seq33958__$1);
+return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__35009,seq35008__$1);
 });
 
 /**
@@ -718,14 +718,14 @@ return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__33959,seq33958
  */
 loom.graph.remove_nodes = (function loom$graph$remove_nodes(var_args){
 var args__4736__auto__ = [];
-var len__4730__auto___33965 = arguments.length;
-var i__4731__auto___33966 = (0);
+var len__4730__auto___35015 = arguments.length;
+var i__4731__auto___35016 = (0);
 while(true){
-if((i__4731__auto___33966 < len__4730__auto___33965)){
-args__4736__auto__.push((arguments[i__4731__auto___33966]));
+if((i__4731__auto___35016 < len__4730__auto___35015)){
+args__4736__auto__.push((arguments[i__4731__auto___35016]));
 
-var G__33967 = (i__4731__auto___33966 + (1));
-i__4731__auto___33966 = G__33967;
+var G__35017 = (i__4731__auto___35016 + (1));
+i__4731__auto___35016 = G__35017;
 continue;
 } else {
 }
@@ -743,11 +743,11 @@ return loom.graph.remove_nodes_STAR_.call(null,g,nodes);
 loom.graph.remove_nodes.cljs$lang$maxFixedArity = (1);
 
 /** @this {Function} */
-loom.graph.remove_nodes.cljs$lang$applyTo = (function (seq33963){
-var G__33964 = cljs.core.first.call(null,seq33963);
-var seq33963__$1 = cljs.core.next.call(null,seq33963);
+loom.graph.remove_nodes.cljs$lang$applyTo = (function (seq35013){
+var G__35014 = cljs.core.first.call(null,seq35013);
+var seq35013__$1 = cljs.core.next.call(null,seq35013);
 var self__4717__auto__ = this;
-return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__33964,seq33963__$1);
+return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__35014,seq35013__$1);
 });
 
 /**
@@ -755,14 +755,14 @@ return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__33964,seq33963
  */
 loom.graph.remove_edges = (function loom$graph$remove_edges(var_args){
 var args__4736__auto__ = [];
-var len__4730__auto___33970 = arguments.length;
-var i__4731__auto___33971 = (0);
+var len__4730__auto___35020 = arguments.length;
+var i__4731__auto___35021 = (0);
 while(true){
-if((i__4731__auto___33971 < len__4730__auto___33970)){
-args__4736__auto__.push((arguments[i__4731__auto___33971]));
+if((i__4731__auto___35021 < len__4730__auto___35020)){
+args__4736__auto__.push((arguments[i__4731__auto___35021]));
 
-var G__33972 = (i__4731__auto___33971 + (1));
-i__4731__auto___33971 = G__33972;
+var G__35022 = (i__4731__auto___35021 + (1));
+i__4731__auto___35021 = G__35022;
 continue;
 } else {
 }
@@ -780,11 +780,11 @@ return loom.graph.remove_edges_STAR_.call(null,g,edges);
 loom.graph.remove_edges.cljs$lang$maxFixedArity = (1);
 
 /** @this {Function} */
-loom.graph.remove_edges.cljs$lang$applyTo = (function (seq33968){
-var G__33969 = cljs.core.first.call(null,seq33968);
-var seq33968__$1 = cljs.core.next.call(null,seq33968);
+loom.graph.remove_edges.cljs$lang$applyTo = (function (seq35018){
+var G__35019 = cljs.core.first.call(null,seq35018);
+var seq35018__$1 = cljs.core.next.call(null,seq35018);
 var self__4717__auto__ = this;
-return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__33969,seq33968__$1);
+return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__35019,seq35018__$1);
 });
 
 
@@ -821,12 +821,12 @@ var this__4385__auto____$1 = this;
 return this__4385__auto____$1.cljs$core$ILookup$_lookup$arity$3(null,k__4386__auto__,null);
 });
 
-loom.graph.BasicEditableGraph.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__4387__auto__,k33974,else__4388__auto__){
+loom.graph.BasicEditableGraph.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__4387__auto__,k35024,else__4388__auto__){
 var self__ = this;
 var this__4387__auto____$1 = this;
-var G__33978 = k33974;
-var G__33978__$1 = (((G__33978 instanceof cljs.core.Keyword))?G__33978.fqn:null);
-switch (G__33978__$1) {
+var G__35028 = k35024;
+var G__35028__$1 = (((G__35028 instanceof cljs.core.Keyword))?G__35028.fqn:null);
+switch (G__35028__$1) {
 case "nodeset":
 return self__.nodeset;
 
@@ -836,7 +836,7 @@ return self__.adj;
 
 break;
 default:
-return cljs.core.get.call(null,self__.__extmap,k33974,else__4388__auto__);
+return cljs.core.get.call(null,self__.__extmap,k35024,else__4388__auto__);
 
 }
 });
@@ -845,10 +845,10 @@ loom.graph.BasicEditableGraph.prototype.cljs$core$IKVReduce$_kv_reduce$arity$3 =
 var self__ = this;
 var this__4404__auto____$1 = this;
 return cljs.core.reduce.call(null,((function (this__4404__auto____$1){
-return (function (ret__4407__auto__,p__33979){
-var vec__33980 = p__33979;
-var k__4408__auto__ = cljs.core.nth.call(null,vec__33980,(0),null);
-var v__4409__auto__ = cljs.core.nth.call(null,vec__33980,(1),null);
+return (function (ret__4407__auto__,p__35029){
+var vec__35030 = p__35029;
+var k__4408__auto__ = cljs.core.nth.call(null,vec__35030,(0),null);
+var v__4409__auto__ = cljs.core.nth.call(null,vec__35030,(1),null);
 return f__4405__auto__.call(null,ret__4407__auto__,k__4408__auto__,v__4409__auto__);
 });})(this__4404__auto____$1))
 ,init__4406__auto__,this__4404__auto____$1);
@@ -865,10 +865,10 @@ return cljs.core.pr_sequential_writer.call(null,writer__4400__auto__,cljs.core.p
 return cljs.core.pr_sequential_writer.call(null,writer__4400__auto__,pr_pair__4402__auto__,"#loom.graph.BasicEditableGraph{",", ","}",opts__4401__auto__,cljs.core.concat.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"nodeset","nodeset",695991339),self__.nodeset],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"adj","adj",-1344630196),self__.adj],null))], null),self__.__extmap));
 });
 
-loom.graph.BasicEditableGraph.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__33973){
+loom.graph.BasicEditableGraph.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__35023){
 var self__ = this;
-var G__33973__$1 = this;
-return (new cljs.core.RecordIter((0),G__33973__$1,2,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"nodeset","nodeset",695991339),new cljs.core.Keyword(null,"adj","adj",-1344630196)], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator.call(null,self__.__extmap):cljs.core.nil_iter.call(null))));
+var G__35023__$1 = this;
+return (new cljs.core.RecordIter((0),G__35023__$1,2,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"nodeset","nodeset",695991339),new cljs.core.Keyword(null,"adj","adj",-1344630196)], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator.call(null,self__.__extmap):cljs.core.nil_iter.call(null))));
 });
 
 loom.graph.BasicEditableGraph.prototype.cljs$core$IMeta$_meta$arity$1 = (function (this__4383__auto__){
@@ -907,10 +907,10 @@ return h__4243__auto____$1;
 }
 });
 
-loom.graph.BasicEditableGraph.prototype.cljs$core$IEquiv$_equiv$arity$2 = (function (this33975,other33976){
+loom.graph.BasicEditableGraph.prototype.cljs$core$IEquiv$_equiv$arity$2 = (function (this35025,other35026){
 var self__ = this;
-var this33975__$1 = this;
-return (((!((other33976 == null)))) && ((this33975__$1.constructor === other33976.constructor)) && (cljs.core._EQ_.call(null,this33975__$1.nodeset,other33976.nodeset)) && (cljs.core._EQ_.call(null,this33975__$1.adj,other33976.adj)) && (cljs.core._EQ_.call(null,this33975__$1.__extmap,other33976.__extmap)));
+var this35025__$1 = this;
+return (((!((other35026 == null)))) && ((this35025__$1.constructor === other35026.constructor)) && (cljs.core._EQ_.call(null,this35025__$1.nodeset,other35026.nodeset)) && (cljs.core._EQ_.call(null,this35025__$1.adj,other35026.adj)) && (cljs.core._EQ_.call(null,this35025__$1.__extmap,other35026.__extmap)));
 });
 
 loom.graph.BasicEditableGraph.prototype.cljs$core$IMap$_dissoc$arity$2 = (function (this__4394__auto__,k__4395__auto__){
@@ -923,18 +923,18 @@ return (new loom.graph.BasicEditableGraph(self__.nodeset,self__.adj,self__.__met
 }
 });
 
-loom.graph.BasicEditableGraph.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__4392__auto__,k__4393__auto__,G__33973){
+loom.graph.BasicEditableGraph.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__4392__auto__,k__4393__auto__,G__35023){
 var self__ = this;
 var this__4392__auto____$1 = this;
-var pred__33983 = cljs.core.keyword_identical_QMARK_;
-var expr__33984 = k__4393__auto__;
-if(cljs.core.truth_(pred__33983.call(null,new cljs.core.Keyword(null,"nodeset","nodeset",695991339),expr__33984))){
-return (new loom.graph.BasicEditableGraph(G__33973,self__.adj,self__.__meta,self__.__extmap,null));
+var pred__35033 = cljs.core.keyword_identical_QMARK_;
+var expr__35034 = k__4393__auto__;
+if(cljs.core.truth_(pred__35033.call(null,new cljs.core.Keyword(null,"nodeset","nodeset",695991339),expr__35034))){
+return (new loom.graph.BasicEditableGraph(G__35023,self__.adj,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_(pred__33983.call(null,new cljs.core.Keyword(null,"adj","adj",-1344630196),expr__33984))){
-return (new loom.graph.BasicEditableGraph(self__.nodeset,G__33973,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_(pred__35033.call(null,new cljs.core.Keyword(null,"adj","adj",-1344630196),expr__35034))){
+return (new loom.graph.BasicEditableGraph(self__.nodeset,G__35023,self__.__meta,self__.__extmap,null));
 } else {
-return (new loom.graph.BasicEditableGraph(self__.nodeset,self__.adj,self__.__meta,cljs.core.assoc.call(null,self__.__extmap,k__4393__auto__,G__33973),null));
+return (new loom.graph.BasicEditableGraph(self__.nodeset,self__.adj,self__.__meta,cljs.core.assoc.call(null,self__.__extmap,k__4393__auto__,G__35023),null));
 }
 }
 });
@@ -945,10 +945,10 @@ var this__4397__auto____$1 = this;
 return cljs.core.seq.call(null,cljs.core.concat.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.MapEntry(new cljs.core.Keyword(null,"nodeset","nodeset",695991339),self__.nodeset,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"adj","adj",-1344630196),self__.adj,null))], null),self__.__extmap));
 });
 
-loom.graph.BasicEditableGraph.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__4384__auto__,G__33973){
+loom.graph.BasicEditableGraph.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__4384__auto__,G__35023){
 var self__ = this;
 var this__4384__auto____$1 = this;
-return (new loom.graph.BasicEditableGraph(self__.nodeset,self__.adj,G__33973,self__.__extmap,self__.__hash));
+return (new loom.graph.BasicEditableGraph(self__.nodeset,self__.adj,G__35023,self__.__extmap,self__.__hash));
 });
 
 loom.graph.BasicEditableGraph.prototype.cljs$core$ICollection$_conj$arity$2 = (function (this__4390__auto__,entry__4391__auto__){
@@ -985,15 +985,15 @@ return (new loom.graph.BasicEditableGraph(nodeset,adj,null,null,null));
 /**
  * Factory function for loom.graph/BasicEditableGraph, taking a map of keywords to field values.
  */
-loom.graph.map__GT_BasicEditableGraph = (function loom$graph$map__GT_BasicEditableGraph(G__33977){
-var extmap__4424__auto__ = (function (){var G__33986 = cljs.core.dissoc.call(null,G__33977,new cljs.core.Keyword(null,"nodeset","nodeset",695991339),new cljs.core.Keyword(null,"adj","adj",-1344630196));
-if(cljs.core.record_QMARK_.call(null,G__33977)){
-return cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,G__33986);
+loom.graph.map__GT_BasicEditableGraph = (function loom$graph$map__GT_BasicEditableGraph(G__35027){
+var extmap__4424__auto__ = (function (){var G__35036 = cljs.core.dissoc.call(null,G__35027,new cljs.core.Keyword(null,"nodeset","nodeset",695991339),new cljs.core.Keyword(null,"adj","adj",-1344630196));
+if(cljs.core.record_QMARK_.call(null,G__35027)){
+return cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,G__35036);
 } else {
-return G__33986;
+return G__35036;
 }
 })();
-return (new loom.graph.BasicEditableGraph(new cljs.core.Keyword(null,"nodeset","nodeset",695991339).cljs$core$IFn$_invoke$arity$1(G__33977),new cljs.core.Keyword(null,"adj","adj",-1344630196).cljs$core$IFn$_invoke$arity$1(G__33977),null,cljs.core.not_empty.call(null,extmap__4424__auto__),null));
+return (new loom.graph.BasicEditableGraph(new cljs.core.Keyword(null,"nodeset","nodeset",695991339).cljs$core$IFn$_invoke$arity$1(G__35027),new cljs.core.Keyword(null,"adj","adj",-1344630196).cljs$core$IFn$_invoke$arity$1(G__35027),null,cljs.core.not_empty.call(null,extmap__4424__auto__),null));
 });
 
 
@@ -1031,12 +1031,12 @@ var this__4385__auto____$1 = this;
 return this__4385__auto____$1.cljs$core$ILookup$_lookup$arity$3(null,k__4386__auto__,null);
 });
 
-loom.graph.BasicEditableDigraph.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__4387__auto__,k33989,else__4388__auto__){
+loom.graph.BasicEditableDigraph.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__4387__auto__,k35039,else__4388__auto__){
 var self__ = this;
 var this__4387__auto____$1 = this;
-var G__33993 = k33989;
-var G__33993__$1 = (((G__33993 instanceof cljs.core.Keyword))?G__33993.fqn:null);
-switch (G__33993__$1) {
+var G__35043 = k35039;
+var G__35043__$1 = (((G__35043 instanceof cljs.core.Keyword))?G__35043.fqn:null);
+switch (G__35043__$1) {
 case "nodeset":
 return self__.nodeset;
 
@@ -1050,7 +1050,7 @@ return self__.in$;
 
 break;
 default:
-return cljs.core.get.call(null,self__.__extmap,k33989,else__4388__auto__);
+return cljs.core.get.call(null,self__.__extmap,k35039,else__4388__auto__);
 
 }
 });
@@ -1059,10 +1059,10 @@ loom.graph.BasicEditableDigraph.prototype.cljs$core$IKVReduce$_kv_reduce$arity$3
 var self__ = this;
 var this__4404__auto____$1 = this;
 return cljs.core.reduce.call(null,((function (this__4404__auto____$1){
-return (function (ret__4407__auto__,p__33994){
-var vec__33995 = p__33994;
-var k__4408__auto__ = cljs.core.nth.call(null,vec__33995,(0),null);
-var v__4409__auto__ = cljs.core.nth.call(null,vec__33995,(1),null);
+return (function (ret__4407__auto__,p__35044){
+var vec__35045 = p__35044;
+var k__4408__auto__ = cljs.core.nth.call(null,vec__35045,(0),null);
+var v__4409__auto__ = cljs.core.nth.call(null,vec__35045,(1),null);
 return f__4405__auto__.call(null,ret__4407__auto__,k__4408__auto__,v__4409__auto__);
 });})(this__4404__auto____$1))
 ,init__4406__auto__,this__4404__auto____$1);
@@ -1079,10 +1079,10 @@ return cljs.core.pr_sequential_writer.call(null,writer__4400__auto__,cljs.core.p
 return cljs.core.pr_sequential_writer.call(null,writer__4400__auto__,pr_pair__4402__auto__,"#loom.graph.BasicEditableDigraph{",", ","}",opts__4401__auto__,cljs.core.concat.call(null,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"nodeset","nodeset",695991339),self__.nodeset],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"adj","adj",-1344630196),self__.adj],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"in","in",-1531184865),self__.in$],null))], null),self__.__extmap));
 });
 
-loom.graph.BasicEditableDigraph.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__33988){
+loom.graph.BasicEditableDigraph.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__35038){
 var self__ = this;
-var G__33988__$1 = this;
-return (new cljs.core.RecordIter((0),G__33988__$1,3,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"nodeset","nodeset",695991339),new cljs.core.Keyword(null,"adj","adj",-1344630196),new cljs.core.Keyword(null,"in","in",-1531184865)], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator.call(null,self__.__extmap):cljs.core.nil_iter.call(null))));
+var G__35038__$1 = this;
+return (new cljs.core.RecordIter((0),G__35038__$1,3,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"nodeset","nodeset",695991339),new cljs.core.Keyword(null,"adj","adj",-1344630196),new cljs.core.Keyword(null,"in","in",-1531184865)], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator.call(null,self__.__extmap):cljs.core.nil_iter.call(null))));
 });
 
 loom.graph.BasicEditableDigraph.prototype.cljs$core$IMeta$_meta$arity$1 = (function (this__4383__auto__){
@@ -1121,10 +1121,10 @@ return h__4243__auto____$1;
 }
 });
 
-loom.graph.BasicEditableDigraph.prototype.cljs$core$IEquiv$_equiv$arity$2 = (function (this33990,other33991){
+loom.graph.BasicEditableDigraph.prototype.cljs$core$IEquiv$_equiv$arity$2 = (function (this35040,other35041){
 var self__ = this;
-var this33990__$1 = this;
-return (((!((other33991 == null)))) && ((this33990__$1.constructor === other33991.constructor)) && (cljs.core._EQ_.call(null,this33990__$1.nodeset,other33991.nodeset)) && (cljs.core._EQ_.call(null,this33990__$1.adj,other33991.adj)) && (cljs.core._EQ_.call(null,this33990__$1.in,other33991.in)) && (cljs.core._EQ_.call(null,this33990__$1.__extmap,other33991.__extmap)));
+var this35040__$1 = this;
+return (((!((other35041 == null)))) && ((this35040__$1.constructor === other35041.constructor)) && (cljs.core._EQ_.call(null,this35040__$1.nodeset,other35041.nodeset)) && (cljs.core._EQ_.call(null,this35040__$1.adj,other35041.adj)) && (cljs.core._EQ_.call(null,this35040__$1.in,other35041.in)) && (cljs.core._EQ_.call(null,this35040__$1.__extmap,other35041.__extmap)));
 });
 
 loom.graph.BasicEditableDigraph.prototype.cljs$core$IMap$_dissoc$arity$2 = (function (this__4394__auto__,k__4395__auto__){
@@ -1137,21 +1137,21 @@ return (new loom.graph.BasicEditableDigraph(self__.nodeset,self__.adj,self__.in$
 }
 });
 
-loom.graph.BasicEditableDigraph.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__4392__auto__,k__4393__auto__,G__33988){
+loom.graph.BasicEditableDigraph.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__4392__auto__,k__4393__auto__,G__35038){
 var self__ = this;
 var this__4392__auto____$1 = this;
-var pred__33998 = cljs.core.keyword_identical_QMARK_;
-var expr__33999 = k__4393__auto__;
-if(cljs.core.truth_(pred__33998.call(null,new cljs.core.Keyword(null,"nodeset","nodeset",695991339),expr__33999))){
-return (new loom.graph.BasicEditableDigraph(G__33988,self__.adj,self__.in$,self__.__meta,self__.__extmap,null));
+var pred__35048 = cljs.core.keyword_identical_QMARK_;
+var expr__35049 = k__4393__auto__;
+if(cljs.core.truth_(pred__35048.call(null,new cljs.core.Keyword(null,"nodeset","nodeset",695991339),expr__35049))){
+return (new loom.graph.BasicEditableDigraph(G__35038,self__.adj,self__.in$,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_(pred__33998.call(null,new cljs.core.Keyword(null,"adj","adj",-1344630196),expr__33999))){
-return (new loom.graph.BasicEditableDigraph(self__.nodeset,G__33988,self__.in$,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_(pred__35048.call(null,new cljs.core.Keyword(null,"adj","adj",-1344630196),expr__35049))){
+return (new loom.graph.BasicEditableDigraph(self__.nodeset,G__35038,self__.in$,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_(pred__33998.call(null,new cljs.core.Keyword(null,"in","in",-1531184865),expr__33999))){
-return (new loom.graph.BasicEditableDigraph(self__.nodeset,self__.adj,G__33988,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_(pred__35048.call(null,new cljs.core.Keyword(null,"in","in",-1531184865),expr__35049))){
+return (new loom.graph.BasicEditableDigraph(self__.nodeset,self__.adj,G__35038,self__.__meta,self__.__extmap,null));
 } else {
-return (new loom.graph.BasicEditableDigraph(self__.nodeset,self__.adj,self__.in$,self__.__meta,cljs.core.assoc.call(null,self__.__extmap,k__4393__auto__,G__33988),null));
+return (new loom.graph.BasicEditableDigraph(self__.nodeset,self__.adj,self__.in$,self__.__meta,cljs.core.assoc.call(null,self__.__extmap,k__4393__auto__,G__35038),null));
 }
 }
 }
@@ -1163,10 +1163,10 @@ var this__4397__auto____$1 = this;
 return cljs.core.seq.call(null,cljs.core.concat.call(null,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.MapEntry(new cljs.core.Keyword(null,"nodeset","nodeset",695991339),self__.nodeset,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"adj","adj",-1344630196),self__.adj,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"in","in",-1531184865),self__.in$,null))], null),self__.__extmap));
 });
 
-loom.graph.BasicEditableDigraph.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__4384__auto__,G__33988){
+loom.graph.BasicEditableDigraph.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__4384__auto__,G__35038){
 var self__ = this;
 var this__4384__auto____$1 = this;
-return (new loom.graph.BasicEditableDigraph(self__.nodeset,self__.adj,self__.in$,G__33988,self__.__extmap,self__.__hash));
+return (new loom.graph.BasicEditableDigraph(self__.nodeset,self__.adj,self__.in$,G__35038,self__.__extmap,self__.__hash));
 });
 
 loom.graph.BasicEditableDigraph.prototype.cljs$core$ICollection$_conj$arity$2 = (function (this__4390__auto__,entry__4391__auto__){
@@ -1203,15 +1203,15 @@ return (new loom.graph.BasicEditableDigraph(nodeset,adj,in$,null,null,null));
 /**
  * Factory function for loom.graph/BasicEditableDigraph, taking a map of keywords to field values.
  */
-loom.graph.map__GT_BasicEditableDigraph = (function loom$graph$map__GT_BasicEditableDigraph(G__33992){
-var extmap__4424__auto__ = (function (){var G__34001 = cljs.core.dissoc.call(null,G__33992,new cljs.core.Keyword(null,"nodeset","nodeset",695991339),new cljs.core.Keyword(null,"adj","adj",-1344630196),new cljs.core.Keyword(null,"in","in",-1531184865));
-if(cljs.core.record_QMARK_.call(null,G__33992)){
-return cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,G__34001);
+loom.graph.map__GT_BasicEditableDigraph = (function loom$graph$map__GT_BasicEditableDigraph(G__35042){
+var extmap__4424__auto__ = (function (){var G__35051 = cljs.core.dissoc.call(null,G__35042,new cljs.core.Keyword(null,"nodeset","nodeset",695991339),new cljs.core.Keyword(null,"adj","adj",-1344630196),new cljs.core.Keyword(null,"in","in",-1531184865));
+if(cljs.core.record_QMARK_.call(null,G__35042)){
+return cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,G__35051);
 } else {
-return G__34001;
+return G__35051;
 }
 })();
-return (new loom.graph.BasicEditableDigraph(new cljs.core.Keyword(null,"nodeset","nodeset",695991339).cljs$core$IFn$_invoke$arity$1(G__33992),new cljs.core.Keyword(null,"adj","adj",-1344630196).cljs$core$IFn$_invoke$arity$1(G__33992),new cljs.core.Keyword(null,"in","in",-1531184865).cljs$core$IFn$_invoke$arity$1(G__33992),null,cljs.core.not_empty.call(null,extmap__4424__auto__),null));
+return (new loom.graph.BasicEditableDigraph(new cljs.core.Keyword(null,"nodeset","nodeset",695991339).cljs$core$IFn$_invoke$arity$1(G__35042),new cljs.core.Keyword(null,"adj","adj",-1344630196).cljs$core$IFn$_invoke$arity$1(G__35042),new cljs.core.Keyword(null,"in","in",-1531184865).cljs$core$IFn$_invoke$arity$1(G__35042),null,cljs.core.not_empty.call(null,extmap__4424__auto__),null));
 });
 
 
@@ -1248,12 +1248,12 @@ var this__4385__auto____$1 = this;
 return this__4385__auto____$1.cljs$core$ILookup$_lookup$arity$3(null,k__4386__auto__,null);
 });
 
-loom.graph.BasicEditableWeightedGraph.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__4387__auto__,k34004,else__4388__auto__){
+loom.graph.BasicEditableWeightedGraph.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__4387__auto__,k35054,else__4388__auto__){
 var self__ = this;
 var this__4387__auto____$1 = this;
-var G__34008 = k34004;
-var G__34008__$1 = (((G__34008 instanceof cljs.core.Keyword))?G__34008.fqn:null);
-switch (G__34008__$1) {
+var G__35058 = k35054;
+var G__35058__$1 = (((G__35058 instanceof cljs.core.Keyword))?G__35058.fqn:null);
+switch (G__35058__$1) {
 case "nodeset":
 return self__.nodeset;
 
@@ -1263,7 +1263,7 @@ return self__.adj;
 
 break;
 default:
-return cljs.core.get.call(null,self__.__extmap,k34004,else__4388__auto__);
+return cljs.core.get.call(null,self__.__extmap,k35054,else__4388__auto__);
 
 }
 });
@@ -1272,10 +1272,10 @@ loom.graph.BasicEditableWeightedGraph.prototype.cljs$core$IKVReduce$_kv_reduce$a
 var self__ = this;
 var this__4404__auto____$1 = this;
 return cljs.core.reduce.call(null,((function (this__4404__auto____$1){
-return (function (ret__4407__auto__,p__34009){
-var vec__34010 = p__34009;
-var k__4408__auto__ = cljs.core.nth.call(null,vec__34010,(0),null);
-var v__4409__auto__ = cljs.core.nth.call(null,vec__34010,(1),null);
+return (function (ret__4407__auto__,p__35059){
+var vec__35060 = p__35059;
+var k__4408__auto__ = cljs.core.nth.call(null,vec__35060,(0),null);
+var v__4409__auto__ = cljs.core.nth.call(null,vec__35060,(1),null);
 return f__4405__auto__.call(null,ret__4407__auto__,k__4408__auto__,v__4409__auto__);
 });})(this__4404__auto____$1))
 ,init__4406__auto__,this__4404__auto____$1);
@@ -1292,10 +1292,10 @@ return cljs.core.pr_sequential_writer.call(null,writer__4400__auto__,cljs.core.p
 return cljs.core.pr_sequential_writer.call(null,writer__4400__auto__,pr_pair__4402__auto__,"#loom.graph.BasicEditableWeightedGraph{",", ","}",opts__4401__auto__,cljs.core.concat.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"nodeset","nodeset",695991339),self__.nodeset],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"adj","adj",-1344630196),self__.adj],null))], null),self__.__extmap));
 });
 
-loom.graph.BasicEditableWeightedGraph.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__34003){
+loom.graph.BasicEditableWeightedGraph.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__35053){
 var self__ = this;
-var G__34003__$1 = this;
-return (new cljs.core.RecordIter((0),G__34003__$1,2,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"nodeset","nodeset",695991339),new cljs.core.Keyword(null,"adj","adj",-1344630196)], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator.call(null,self__.__extmap):cljs.core.nil_iter.call(null))));
+var G__35053__$1 = this;
+return (new cljs.core.RecordIter((0),G__35053__$1,2,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"nodeset","nodeset",695991339),new cljs.core.Keyword(null,"adj","adj",-1344630196)], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator.call(null,self__.__extmap):cljs.core.nil_iter.call(null))));
 });
 
 loom.graph.BasicEditableWeightedGraph.prototype.cljs$core$IMeta$_meta$arity$1 = (function (this__4383__auto__){
@@ -1334,10 +1334,10 @@ return h__4243__auto____$1;
 }
 });
 
-loom.graph.BasicEditableWeightedGraph.prototype.cljs$core$IEquiv$_equiv$arity$2 = (function (this34005,other34006){
+loom.graph.BasicEditableWeightedGraph.prototype.cljs$core$IEquiv$_equiv$arity$2 = (function (this35055,other35056){
 var self__ = this;
-var this34005__$1 = this;
-return (((!((other34006 == null)))) && ((this34005__$1.constructor === other34006.constructor)) && (cljs.core._EQ_.call(null,this34005__$1.nodeset,other34006.nodeset)) && (cljs.core._EQ_.call(null,this34005__$1.adj,other34006.adj)) && (cljs.core._EQ_.call(null,this34005__$1.__extmap,other34006.__extmap)));
+var this35055__$1 = this;
+return (((!((other35056 == null)))) && ((this35055__$1.constructor === other35056.constructor)) && (cljs.core._EQ_.call(null,this35055__$1.nodeset,other35056.nodeset)) && (cljs.core._EQ_.call(null,this35055__$1.adj,other35056.adj)) && (cljs.core._EQ_.call(null,this35055__$1.__extmap,other35056.__extmap)));
 });
 
 loom.graph.BasicEditableWeightedGraph.prototype.cljs$core$IMap$_dissoc$arity$2 = (function (this__4394__auto__,k__4395__auto__){
@@ -1350,18 +1350,18 @@ return (new loom.graph.BasicEditableWeightedGraph(self__.nodeset,self__.adj,self
 }
 });
 
-loom.graph.BasicEditableWeightedGraph.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__4392__auto__,k__4393__auto__,G__34003){
+loom.graph.BasicEditableWeightedGraph.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__4392__auto__,k__4393__auto__,G__35053){
 var self__ = this;
 var this__4392__auto____$1 = this;
-var pred__34013 = cljs.core.keyword_identical_QMARK_;
-var expr__34014 = k__4393__auto__;
-if(cljs.core.truth_(pred__34013.call(null,new cljs.core.Keyword(null,"nodeset","nodeset",695991339),expr__34014))){
-return (new loom.graph.BasicEditableWeightedGraph(G__34003,self__.adj,self__.__meta,self__.__extmap,null));
+var pred__35063 = cljs.core.keyword_identical_QMARK_;
+var expr__35064 = k__4393__auto__;
+if(cljs.core.truth_(pred__35063.call(null,new cljs.core.Keyword(null,"nodeset","nodeset",695991339),expr__35064))){
+return (new loom.graph.BasicEditableWeightedGraph(G__35053,self__.adj,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_(pred__34013.call(null,new cljs.core.Keyword(null,"adj","adj",-1344630196),expr__34014))){
-return (new loom.graph.BasicEditableWeightedGraph(self__.nodeset,G__34003,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_(pred__35063.call(null,new cljs.core.Keyword(null,"adj","adj",-1344630196),expr__35064))){
+return (new loom.graph.BasicEditableWeightedGraph(self__.nodeset,G__35053,self__.__meta,self__.__extmap,null));
 } else {
-return (new loom.graph.BasicEditableWeightedGraph(self__.nodeset,self__.adj,self__.__meta,cljs.core.assoc.call(null,self__.__extmap,k__4393__auto__,G__34003),null));
+return (new loom.graph.BasicEditableWeightedGraph(self__.nodeset,self__.adj,self__.__meta,cljs.core.assoc.call(null,self__.__extmap,k__4393__auto__,G__35053),null));
 }
 }
 });
@@ -1372,10 +1372,10 @@ var this__4397__auto____$1 = this;
 return cljs.core.seq.call(null,cljs.core.concat.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.MapEntry(new cljs.core.Keyword(null,"nodeset","nodeset",695991339),self__.nodeset,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"adj","adj",-1344630196),self__.adj,null))], null),self__.__extmap));
 });
 
-loom.graph.BasicEditableWeightedGraph.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__4384__auto__,G__34003){
+loom.graph.BasicEditableWeightedGraph.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__4384__auto__,G__35053){
 var self__ = this;
 var this__4384__auto____$1 = this;
-return (new loom.graph.BasicEditableWeightedGraph(self__.nodeset,self__.adj,G__34003,self__.__extmap,self__.__hash));
+return (new loom.graph.BasicEditableWeightedGraph(self__.nodeset,self__.adj,G__35053,self__.__extmap,self__.__hash));
 });
 
 loom.graph.BasicEditableWeightedGraph.prototype.cljs$core$ICollection$_conj$arity$2 = (function (this__4390__auto__,entry__4391__auto__){
@@ -1412,15 +1412,15 @@ return (new loom.graph.BasicEditableWeightedGraph(nodeset,adj,null,null,null));
 /**
  * Factory function for loom.graph/BasicEditableWeightedGraph, taking a map of keywords to field values.
  */
-loom.graph.map__GT_BasicEditableWeightedGraph = (function loom$graph$map__GT_BasicEditableWeightedGraph(G__34007){
-var extmap__4424__auto__ = (function (){var G__34016 = cljs.core.dissoc.call(null,G__34007,new cljs.core.Keyword(null,"nodeset","nodeset",695991339),new cljs.core.Keyword(null,"adj","adj",-1344630196));
-if(cljs.core.record_QMARK_.call(null,G__34007)){
-return cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,G__34016);
+loom.graph.map__GT_BasicEditableWeightedGraph = (function loom$graph$map__GT_BasicEditableWeightedGraph(G__35057){
+var extmap__4424__auto__ = (function (){var G__35066 = cljs.core.dissoc.call(null,G__35057,new cljs.core.Keyword(null,"nodeset","nodeset",695991339),new cljs.core.Keyword(null,"adj","adj",-1344630196));
+if(cljs.core.record_QMARK_.call(null,G__35057)){
+return cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,G__35066);
 } else {
-return G__34016;
+return G__35066;
 }
 })();
-return (new loom.graph.BasicEditableWeightedGraph(new cljs.core.Keyword(null,"nodeset","nodeset",695991339).cljs$core$IFn$_invoke$arity$1(G__34007),new cljs.core.Keyword(null,"adj","adj",-1344630196).cljs$core$IFn$_invoke$arity$1(G__34007),null,cljs.core.not_empty.call(null,extmap__4424__auto__),null));
+return (new loom.graph.BasicEditableWeightedGraph(new cljs.core.Keyword(null,"nodeset","nodeset",695991339).cljs$core$IFn$_invoke$arity$1(G__35057),new cljs.core.Keyword(null,"adj","adj",-1344630196).cljs$core$IFn$_invoke$arity$1(G__35057),null,cljs.core.not_empty.call(null,extmap__4424__auto__),null));
 });
 
 
@@ -1458,12 +1458,12 @@ var this__4385__auto____$1 = this;
 return this__4385__auto____$1.cljs$core$ILookup$_lookup$arity$3(null,k__4386__auto__,null);
 });
 
-loom.graph.BasicEditableWeightedDigraph.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__4387__auto__,k34019,else__4388__auto__){
+loom.graph.BasicEditableWeightedDigraph.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__4387__auto__,k35069,else__4388__auto__){
 var self__ = this;
 var this__4387__auto____$1 = this;
-var G__34023 = k34019;
-var G__34023__$1 = (((G__34023 instanceof cljs.core.Keyword))?G__34023.fqn:null);
-switch (G__34023__$1) {
+var G__35073 = k35069;
+var G__35073__$1 = (((G__35073 instanceof cljs.core.Keyword))?G__35073.fqn:null);
+switch (G__35073__$1) {
 case "nodeset":
 return self__.nodeset;
 
@@ -1477,7 +1477,7 @@ return self__.in$;
 
 break;
 default:
-return cljs.core.get.call(null,self__.__extmap,k34019,else__4388__auto__);
+return cljs.core.get.call(null,self__.__extmap,k35069,else__4388__auto__);
 
 }
 });
@@ -1486,10 +1486,10 @@ loom.graph.BasicEditableWeightedDigraph.prototype.cljs$core$IKVReduce$_kv_reduce
 var self__ = this;
 var this__4404__auto____$1 = this;
 return cljs.core.reduce.call(null,((function (this__4404__auto____$1){
-return (function (ret__4407__auto__,p__34024){
-var vec__34025 = p__34024;
-var k__4408__auto__ = cljs.core.nth.call(null,vec__34025,(0),null);
-var v__4409__auto__ = cljs.core.nth.call(null,vec__34025,(1),null);
+return (function (ret__4407__auto__,p__35074){
+var vec__35075 = p__35074;
+var k__4408__auto__ = cljs.core.nth.call(null,vec__35075,(0),null);
+var v__4409__auto__ = cljs.core.nth.call(null,vec__35075,(1),null);
 return f__4405__auto__.call(null,ret__4407__auto__,k__4408__auto__,v__4409__auto__);
 });})(this__4404__auto____$1))
 ,init__4406__auto__,this__4404__auto____$1);
@@ -1506,10 +1506,10 @@ return cljs.core.pr_sequential_writer.call(null,writer__4400__auto__,cljs.core.p
 return cljs.core.pr_sequential_writer.call(null,writer__4400__auto__,pr_pair__4402__auto__,"#loom.graph.BasicEditableWeightedDigraph{",", ","}",opts__4401__auto__,cljs.core.concat.call(null,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"nodeset","nodeset",695991339),self__.nodeset],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"adj","adj",-1344630196),self__.adj],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"in","in",-1531184865),self__.in$],null))], null),self__.__extmap));
 });
 
-loom.graph.BasicEditableWeightedDigraph.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__34018){
+loom.graph.BasicEditableWeightedDigraph.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__35068){
 var self__ = this;
-var G__34018__$1 = this;
-return (new cljs.core.RecordIter((0),G__34018__$1,3,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"nodeset","nodeset",695991339),new cljs.core.Keyword(null,"adj","adj",-1344630196),new cljs.core.Keyword(null,"in","in",-1531184865)], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator.call(null,self__.__extmap):cljs.core.nil_iter.call(null))));
+var G__35068__$1 = this;
+return (new cljs.core.RecordIter((0),G__35068__$1,3,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"nodeset","nodeset",695991339),new cljs.core.Keyword(null,"adj","adj",-1344630196),new cljs.core.Keyword(null,"in","in",-1531184865)], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator.call(null,self__.__extmap):cljs.core.nil_iter.call(null))));
 });
 
 loom.graph.BasicEditableWeightedDigraph.prototype.cljs$core$IMeta$_meta$arity$1 = (function (this__4383__auto__){
@@ -1548,10 +1548,10 @@ return h__4243__auto____$1;
 }
 });
 
-loom.graph.BasicEditableWeightedDigraph.prototype.cljs$core$IEquiv$_equiv$arity$2 = (function (this34020,other34021){
+loom.graph.BasicEditableWeightedDigraph.prototype.cljs$core$IEquiv$_equiv$arity$2 = (function (this35070,other35071){
 var self__ = this;
-var this34020__$1 = this;
-return (((!((other34021 == null)))) && ((this34020__$1.constructor === other34021.constructor)) && (cljs.core._EQ_.call(null,this34020__$1.nodeset,other34021.nodeset)) && (cljs.core._EQ_.call(null,this34020__$1.adj,other34021.adj)) && (cljs.core._EQ_.call(null,this34020__$1.in,other34021.in)) && (cljs.core._EQ_.call(null,this34020__$1.__extmap,other34021.__extmap)));
+var this35070__$1 = this;
+return (((!((other35071 == null)))) && ((this35070__$1.constructor === other35071.constructor)) && (cljs.core._EQ_.call(null,this35070__$1.nodeset,other35071.nodeset)) && (cljs.core._EQ_.call(null,this35070__$1.adj,other35071.adj)) && (cljs.core._EQ_.call(null,this35070__$1.in,other35071.in)) && (cljs.core._EQ_.call(null,this35070__$1.__extmap,other35071.__extmap)));
 });
 
 loom.graph.BasicEditableWeightedDigraph.prototype.cljs$core$IMap$_dissoc$arity$2 = (function (this__4394__auto__,k__4395__auto__){
@@ -1564,21 +1564,21 @@ return (new loom.graph.BasicEditableWeightedDigraph(self__.nodeset,self__.adj,se
 }
 });
 
-loom.graph.BasicEditableWeightedDigraph.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__4392__auto__,k__4393__auto__,G__34018){
+loom.graph.BasicEditableWeightedDigraph.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__4392__auto__,k__4393__auto__,G__35068){
 var self__ = this;
 var this__4392__auto____$1 = this;
-var pred__34028 = cljs.core.keyword_identical_QMARK_;
-var expr__34029 = k__4393__auto__;
-if(cljs.core.truth_(pred__34028.call(null,new cljs.core.Keyword(null,"nodeset","nodeset",695991339),expr__34029))){
-return (new loom.graph.BasicEditableWeightedDigraph(G__34018,self__.adj,self__.in$,self__.__meta,self__.__extmap,null));
+var pred__35078 = cljs.core.keyword_identical_QMARK_;
+var expr__35079 = k__4393__auto__;
+if(cljs.core.truth_(pred__35078.call(null,new cljs.core.Keyword(null,"nodeset","nodeset",695991339),expr__35079))){
+return (new loom.graph.BasicEditableWeightedDigraph(G__35068,self__.adj,self__.in$,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_(pred__34028.call(null,new cljs.core.Keyword(null,"adj","adj",-1344630196),expr__34029))){
-return (new loom.graph.BasicEditableWeightedDigraph(self__.nodeset,G__34018,self__.in$,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_(pred__35078.call(null,new cljs.core.Keyword(null,"adj","adj",-1344630196),expr__35079))){
+return (new loom.graph.BasicEditableWeightedDigraph(self__.nodeset,G__35068,self__.in$,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_(pred__34028.call(null,new cljs.core.Keyword(null,"in","in",-1531184865),expr__34029))){
-return (new loom.graph.BasicEditableWeightedDigraph(self__.nodeset,self__.adj,G__34018,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_(pred__35078.call(null,new cljs.core.Keyword(null,"in","in",-1531184865),expr__35079))){
+return (new loom.graph.BasicEditableWeightedDigraph(self__.nodeset,self__.adj,G__35068,self__.__meta,self__.__extmap,null));
 } else {
-return (new loom.graph.BasicEditableWeightedDigraph(self__.nodeset,self__.adj,self__.in$,self__.__meta,cljs.core.assoc.call(null,self__.__extmap,k__4393__auto__,G__34018),null));
+return (new loom.graph.BasicEditableWeightedDigraph(self__.nodeset,self__.adj,self__.in$,self__.__meta,cljs.core.assoc.call(null,self__.__extmap,k__4393__auto__,G__35068),null));
 }
 }
 }
@@ -1590,10 +1590,10 @@ var this__4397__auto____$1 = this;
 return cljs.core.seq.call(null,cljs.core.concat.call(null,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.MapEntry(new cljs.core.Keyword(null,"nodeset","nodeset",695991339),self__.nodeset,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"adj","adj",-1344630196),self__.adj,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"in","in",-1531184865),self__.in$,null))], null),self__.__extmap));
 });
 
-loom.graph.BasicEditableWeightedDigraph.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__4384__auto__,G__34018){
+loom.graph.BasicEditableWeightedDigraph.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__4384__auto__,G__35068){
 var self__ = this;
 var this__4384__auto____$1 = this;
-return (new loom.graph.BasicEditableWeightedDigraph(self__.nodeset,self__.adj,self__.in$,G__34018,self__.__extmap,self__.__hash));
+return (new loom.graph.BasicEditableWeightedDigraph(self__.nodeset,self__.adj,self__.in$,G__35068,self__.__extmap,self__.__hash));
 });
 
 loom.graph.BasicEditableWeightedDigraph.prototype.cljs$core$ICollection$_conj$arity$2 = (function (this__4390__auto__,entry__4391__auto__){
@@ -1630,15 +1630,15 @@ return (new loom.graph.BasicEditableWeightedDigraph(nodeset,adj,in$,null,null,nu
 /**
  * Factory function for loom.graph/BasicEditableWeightedDigraph, taking a map of keywords to field values.
  */
-loom.graph.map__GT_BasicEditableWeightedDigraph = (function loom$graph$map__GT_BasicEditableWeightedDigraph(G__34022){
-var extmap__4424__auto__ = (function (){var G__34031 = cljs.core.dissoc.call(null,G__34022,new cljs.core.Keyword(null,"nodeset","nodeset",695991339),new cljs.core.Keyword(null,"adj","adj",-1344630196),new cljs.core.Keyword(null,"in","in",-1531184865));
-if(cljs.core.record_QMARK_.call(null,G__34022)){
-return cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,G__34031);
+loom.graph.map__GT_BasicEditableWeightedDigraph = (function loom$graph$map__GT_BasicEditableWeightedDigraph(G__35072){
+var extmap__4424__auto__ = (function (){var G__35081 = cljs.core.dissoc.call(null,G__35072,new cljs.core.Keyword(null,"nodeset","nodeset",695991339),new cljs.core.Keyword(null,"adj","adj",-1344630196),new cljs.core.Keyword(null,"in","in",-1531184865));
+if(cljs.core.record_QMARK_.call(null,G__35072)){
+return cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,G__35081);
 } else {
-return G__34031;
+return G__35081;
 }
 })();
-return (new loom.graph.BasicEditableWeightedDigraph(new cljs.core.Keyword(null,"nodeset","nodeset",695991339).cljs$core$IFn$_invoke$arity$1(G__34022),new cljs.core.Keyword(null,"adj","adj",-1344630196).cljs$core$IFn$_invoke$arity$1(G__34022),new cljs.core.Keyword(null,"in","in",-1531184865).cljs$core$IFn$_invoke$arity$1(G__34022),null,cljs.core.not_empty.call(null,extmap__4424__auto__),null));
+return (new loom.graph.BasicEditableWeightedDigraph(new cljs.core.Keyword(null,"nodeset","nodeset",695991339).cljs$core$IFn$_invoke$arity$1(G__35072),new cljs.core.Keyword(null,"adj","adj",-1344630196).cljs$core$IFn$_invoke$arity$1(G__35072),new cljs.core.Keyword(null,"in","in",-1531184865).cljs$core$IFn$_invoke$arity$1(G__35072),null,cljs.core.not_empty.call(null,extmap__4424__auto__),null));
 });
 
 /**
@@ -1648,8 +1648,8 @@ loom.graph._STAR_default_weight_STAR_ = (1);
 loom.graph.remove_adj_nodes = (function loom$graph$remove_adj_nodes(m,nodes,adjacents,remove_fn){
 return cljs.core.reduce.call(null,(function (m__$1,n){
 if(cljs.core.truth_(m__$1.call(null,n))){
-return cljs.core.update_in.call(null,m__$1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [n], null),(function (p1__34033_SHARP_){
-return cljs.core.apply.call(null,remove_fn,p1__34033_SHARP_,nodes);
+return cljs.core.update_in.call(null,m__$1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [n], null),(function (p1__35083_SHARP_){
+return cljs.core.apply.call(null,remove_fn,p1__35083_SHARP_,nodes);
 }));
 } else {
 return m__$1;
@@ -1666,36 +1666,36 @@ return new cljs.core.Keyword(null,"nodeset","nodeset",695991339).cljs$core$IFn$_
 loom.graph.BasicEditableGraph.prototype.loom$graph$Graph$edges$arity$1 = (function (g){
 var g__$1 = this;
 var iter__4523__auto__ = ((function (g__$1){
-return (function loom$graph$iter__34036(s__34037){
+return (function loom$graph$iter__35086(s__35087){
 return (new cljs.core.LazySeq(null,((function (g__$1){
 return (function (){
-var s__34037__$1 = s__34037;
+var s__35087__$1 = s__35087;
 while(true){
-var temp__5720__auto__ = cljs.core.seq.call(null,s__34037__$1);
+var temp__5720__auto__ = cljs.core.seq.call(null,s__35087__$1);
 if(temp__5720__auto__){
 var xs__6277__auto__ = temp__5720__auto__;
 var n1 = cljs.core.first.call(null,xs__6277__auto__);
-var iterys__4519__auto__ = ((function (s__34037__$1,n1,xs__6277__auto__,temp__5720__auto__,g__$1){
-return (function loom$graph$iter__34036_$_iter__34038(s__34039){
-return (new cljs.core.LazySeq(null,((function (s__34037__$1,n1,xs__6277__auto__,temp__5720__auto__,g__$1){
+var iterys__4519__auto__ = ((function (s__35087__$1,n1,xs__6277__auto__,temp__5720__auto__,g__$1){
+return (function loom$graph$iter__35086_$_iter__35088(s__35089){
+return (new cljs.core.LazySeq(null,((function (s__35087__$1,n1,xs__6277__auto__,temp__5720__auto__,g__$1){
 return (function (){
-var s__34039__$1 = s__34039;
+var s__35089__$1 = s__35089;
 while(true){
-var temp__5720__auto____$1 = cljs.core.seq.call(null,s__34039__$1);
+var temp__5720__auto____$1 = cljs.core.seq.call(null,s__35089__$1);
 if(temp__5720__auto____$1){
-var s__34039__$2 = temp__5720__auto____$1;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__34039__$2)){
-var c__4521__auto__ = cljs.core.chunk_first.call(null,s__34039__$2);
+var s__35089__$2 = temp__5720__auto____$1;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__35089__$2)){
+var c__4521__auto__ = cljs.core.chunk_first.call(null,s__35089__$2);
 var size__4522__auto__ = cljs.core.count.call(null,c__4521__auto__);
-var b__34041 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
-if((function (){var i__34040 = (0);
+var b__35091 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
+if((function (){var i__35090 = (0);
 while(true){
-if((i__34040 < size__4522__auto__)){
-var e = cljs.core._nth.call(null,c__4521__auto__,i__34040);
-cljs.core.chunk_append.call(null,b__34041,e);
+if((i__35090 < size__4522__auto__)){
+var e = cljs.core._nth.call(null,c__4521__auto__,i__35090);
+cljs.core.chunk_append.call(null,b__35091,e);
 
-var G__34054 = (i__34040 + (1));
-i__34040 = G__34054;
+var G__35104 = (i__35090 + (1));
+i__35090 = G__35104;
 continue;
 } else {
 return true;
@@ -1703,29 +1703,29 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34041),loom$graph$iter__34036_$_iter__34038.call(null,cljs.core.chunk_rest.call(null,s__34039__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35091),loom$graph$iter__35086_$_iter__35088.call(null,cljs.core.chunk_rest.call(null,s__35089__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34041),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35091),null);
 }
 } else {
-var e = cljs.core.first.call(null,s__34039__$2);
-return cljs.core.cons.call(null,e,loom$graph$iter__34036_$_iter__34038.call(null,cljs.core.rest.call(null,s__34039__$2)));
+var e = cljs.core.first.call(null,s__35089__$2);
+return cljs.core.cons.call(null,e,loom$graph$iter__35086_$_iter__35088.call(null,cljs.core.rest.call(null,s__35089__$2)));
 }
 } else {
 return null;
 }
 break;
 }
-});})(s__34037__$1,n1,xs__6277__auto__,temp__5720__auto__,g__$1))
+});})(s__35087__$1,n1,xs__6277__auto__,temp__5720__auto__,g__$1))
 ,null,null));
-});})(s__34037__$1,n1,xs__6277__auto__,temp__5720__auto__,g__$1))
+});})(s__35087__$1,n1,xs__6277__auto__,temp__5720__auto__,g__$1))
 ;
 var fs__4520__auto__ = cljs.core.seq.call(null,iterys__4519__auto__.call(null,loom.graph.out_edges.call(null,g__$1,n1)));
 if(fs__4520__auto__){
-return cljs.core.concat.call(null,fs__4520__auto__,loom$graph$iter__34036.call(null,cljs.core.rest.call(null,s__34037__$1)));
+return cljs.core.concat.call(null,fs__4520__auto__,loom$graph$iter__35086.call(null,cljs.core.rest.call(null,s__35087__$1)));
 } else {
-var G__34055 = cljs.core.rest.call(null,s__34037__$1);
-s__34037__$1 = G__34055;
+var G__35105 = cljs.core.rest.call(null,s__35087__$1);
+s__35087__$1 = G__35105;
 continue;
 }
 } else {
@@ -1758,26 +1758,26 @@ return cljs.core.count.call(null,cljs.core.get_in.call(null,g__$1,new cljs.core.
 loom.graph.BasicEditableGraph.prototype.loom$graph$Graph$out_edges$arity$2 = (function (g,node){
 var g__$1 = this;
 var iter__4523__auto__ = ((function (g__$1){
-return (function loom$graph$iter__34042(s__34043){
+return (function loom$graph$iter__35092(s__35093){
 return (new cljs.core.LazySeq(null,((function (g__$1){
 return (function (){
-var s__34043__$1 = s__34043;
+var s__35093__$1 = s__35093;
 while(true){
-var temp__5720__auto__ = cljs.core.seq.call(null,s__34043__$1);
+var temp__5720__auto__ = cljs.core.seq.call(null,s__35093__$1);
 if(temp__5720__auto__){
-var s__34043__$2 = temp__5720__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__34043__$2)){
-var c__4521__auto__ = cljs.core.chunk_first.call(null,s__34043__$2);
+var s__35093__$2 = temp__5720__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__35093__$2)){
+var c__4521__auto__ = cljs.core.chunk_first.call(null,s__35093__$2);
 var size__4522__auto__ = cljs.core.count.call(null,c__4521__auto__);
-var b__34045 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
-if((function (){var i__34044 = (0);
+var b__35095 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
+if((function (){var i__35094 = (0);
 while(true){
-if((i__34044 < size__4522__auto__)){
-var n2 = cljs.core._nth.call(null,c__4521__auto__,i__34044);
-cljs.core.chunk_append.call(null,b__34045,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [node,n2], null));
+if((i__35094 < size__4522__auto__)){
+var n2 = cljs.core._nth.call(null,c__4521__auto__,i__35094);
+cljs.core.chunk_append.call(null,b__35095,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [node,n2], null));
 
-var G__34056 = (i__34044 + (1));
-i__34044 = G__34056;
+var G__35106 = (i__35094 + (1));
+i__35094 = G__35106;
 continue;
 } else {
 return true;
@@ -1785,13 +1785,13 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34045),loom$graph$iter__34042.call(null,cljs.core.chunk_rest.call(null,s__34043__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35095),loom$graph$iter__35092.call(null,cljs.core.chunk_rest.call(null,s__35093__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34045),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35095),null);
 }
 } else {
-var n2 = cljs.core.first.call(null,s__34043__$2);
-return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [node,n2], null),loom$graph$iter__34042.call(null,cljs.core.rest.call(null,s__34043__$2)));
+var n2 = cljs.core.first.call(null,s__35093__$2);
+return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [node,n2], null),loom$graph$iter__35092.call(null,cljs.core.rest.call(null,s__35093__$2)));
 }
 } else {
 return null;
@@ -1824,10 +1824,10 @@ return cljs.core.update_in.call(null,g__$2,new cljs.core.PersistentVector(null, 
 loom.graph.BasicEditableGraph.prototype.loom$graph$EditableGraph$add_edges_STAR_$arity$2 = (function (g,edges){
 var g__$1 = this;
 return cljs.core.reduce.call(null,((function (g__$1){
-return (function (g__$2,p__34046){
-var vec__34047 = p__34046;
-var n1 = cljs.core.nth.call(null,vec__34047,(0),null);
-var n2 = cljs.core.nth.call(null,vec__34047,(1),null);
+return (function (g__$2,p__35096){
+var vec__35097 = p__35096;
+var n1 = cljs.core.nth.call(null,vec__35097,(0),null);
+var n2 = cljs.core.nth.call(null,vec__35097,(1),null);
 return cljs.core.update_in.call(null,cljs.core.update_in.call(null,cljs.core.update_in.call(null,g__$2,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"nodeset","nodeset",695991339)], null),cljs.core.conj,n1,n2),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"adj","adj",-1344630196),n1], null),cljs.core.fnil.call(null,cljs.core.conj,cljs.core.PersistentHashSet.EMPTY),n2),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"adj","adj",-1344630196),n2], null),cljs.core.fnil.call(null,cljs.core.conj,cljs.core.PersistentHashSet.EMPTY),n1);
 });})(g__$1))
 ,g__$1,edges);
@@ -1836,13 +1836,13 @@ return cljs.core.update_in.call(null,cljs.core.update_in.call(null,cljs.core.upd
 loom.graph.BasicEditableGraph.prototype.loom$graph$EditableGraph$remove_nodes_STAR_$arity$2 = (function (g,nodes){
 var g__$1 = this;
 var nbrs = cljs.core.mapcat.call(null,((function (g__$1){
-return (function (p1__34034_SHARP_){
-return loom.graph.successors.call(null,g__$1,p1__34034_SHARP_);
+return (function (p1__35084_SHARP_){
+return loom.graph.successors.call(null,g__$1,p1__35084_SHARP_);
 });})(g__$1))
 ,nodes);
 return cljs.core.assoc.call(null,cljs.core.update_in.call(null,g__$1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"nodeset","nodeset",695991339)], null),((function (nbrs,g__$1){
-return (function (p1__34035_SHARP_){
-return cljs.core.apply.call(null,cljs.core.disj,p1__34035_SHARP_,nodes);
+return (function (p1__35085_SHARP_){
+return cljs.core.apply.call(null,cljs.core.disj,p1__35085_SHARP_,nodes);
 });})(nbrs,g__$1))
 ),new cljs.core.Keyword(null,"adj","adj",-1344630196),loom.graph.remove_adj_nodes.call(null,new cljs.core.Keyword(null,"adj","adj",-1344630196).cljs$core$IFn$_invoke$arity$1(g__$1),nodes,nbrs,cljs.core.disj));
 });
@@ -1850,10 +1850,10 @@ return cljs.core.apply.call(null,cljs.core.disj,p1__34035_SHARP_,nodes);
 loom.graph.BasicEditableGraph.prototype.loom$graph$EditableGraph$remove_edges_STAR_$arity$2 = (function (g,edges){
 var g__$1 = this;
 return cljs.core.reduce.call(null,((function (g__$1){
-return (function (g__$2,p__34050){
-var vec__34051 = p__34050;
-var n1 = cljs.core.nth.call(null,vec__34051,(0),null);
-var n2 = cljs.core.nth.call(null,vec__34051,(1),null);
+return (function (g__$2,p__35100){
+var vec__35101 = p__35100;
+var n1 = cljs.core.nth.call(null,vec__35101,(0),null);
+var n2 = cljs.core.nth.call(null,vec__35101,(1),null);
 return cljs.core.update_in.call(null,cljs.core.update_in.call(null,g__$2,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"adj","adj",-1344630196),n1], null),cljs.core.disj,n2),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"adj","adj",-1344630196),n2], null),cljs.core.disj,n1);
 });})(g__$1))
 ,g__$1,edges);
@@ -1873,36 +1873,36 @@ return new cljs.core.Keyword(null,"nodeset","nodeset",695991339).cljs$core$IFn$_
 loom.graph.BasicEditableDigraph.prototype.loom$graph$Graph$edges$arity$1 = (function (g){
 var g__$1 = this;
 var iter__4523__auto__ = ((function (g__$1){
-return (function loom$graph$iter__34060(s__34061){
+return (function loom$graph$iter__35110(s__35111){
 return (new cljs.core.LazySeq(null,((function (g__$1){
 return (function (){
-var s__34061__$1 = s__34061;
+var s__35111__$1 = s__35111;
 while(true){
-var temp__5720__auto__ = cljs.core.seq.call(null,s__34061__$1);
+var temp__5720__auto__ = cljs.core.seq.call(null,s__35111__$1);
 if(temp__5720__auto__){
 var xs__6277__auto__ = temp__5720__auto__;
 var n1 = cljs.core.first.call(null,xs__6277__auto__);
-var iterys__4519__auto__ = ((function (s__34061__$1,n1,xs__6277__auto__,temp__5720__auto__,g__$1){
-return (function loom$graph$iter__34060_$_iter__34062(s__34063){
-return (new cljs.core.LazySeq(null,((function (s__34061__$1,n1,xs__6277__auto__,temp__5720__auto__,g__$1){
+var iterys__4519__auto__ = ((function (s__35111__$1,n1,xs__6277__auto__,temp__5720__auto__,g__$1){
+return (function loom$graph$iter__35110_$_iter__35112(s__35113){
+return (new cljs.core.LazySeq(null,((function (s__35111__$1,n1,xs__6277__auto__,temp__5720__auto__,g__$1){
 return (function (){
-var s__34063__$1 = s__34063;
+var s__35113__$1 = s__35113;
 while(true){
-var temp__5720__auto____$1 = cljs.core.seq.call(null,s__34063__$1);
+var temp__5720__auto____$1 = cljs.core.seq.call(null,s__35113__$1);
 if(temp__5720__auto____$1){
-var s__34063__$2 = temp__5720__auto____$1;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__34063__$2)){
-var c__4521__auto__ = cljs.core.chunk_first.call(null,s__34063__$2);
+var s__35113__$2 = temp__5720__auto____$1;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__35113__$2)){
+var c__4521__auto__ = cljs.core.chunk_first.call(null,s__35113__$2);
 var size__4522__auto__ = cljs.core.count.call(null,c__4521__auto__);
-var b__34065 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
-if((function (){var i__34064 = (0);
+var b__35115 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
+if((function (){var i__35114 = (0);
 while(true){
-if((i__34064 < size__4522__auto__)){
-var e = cljs.core._nth.call(null,c__4521__auto__,i__34064);
-cljs.core.chunk_append.call(null,b__34065,e);
+if((i__35114 < size__4522__auto__)){
+var e = cljs.core._nth.call(null,c__4521__auto__,i__35114);
+cljs.core.chunk_append.call(null,b__35115,e);
 
-var G__34082 = (i__34064 + (1));
-i__34064 = G__34082;
+var G__35132 = (i__35114 + (1));
+i__35114 = G__35132;
 continue;
 } else {
 return true;
@@ -1910,29 +1910,29 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34065),loom$graph$iter__34060_$_iter__34062.call(null,cljs.core.chunk_rest.call(null,s__34063__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35115),loom$graph$iter__35110_$_iter__35112.call(null,cljs.core.chunk_rest.call(null,s__35113__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34065),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35115),null);
 }
 } else {
-var e = cljs.core.first.call(null,s__34063__$2);
-return cljs.core.cons.call(null,e,loom$graph$iter__34060_$_iter__34062.call(null,cljs.core.rest.call(null,s__34063__$2)));
+var e = cljs.core.first.call(null,s__35113__$2);
+return cljs.core.cons.call(null,e,loom$graph$iter__35110_$_iter__35112.call(null,cljs.core.rest.call(null,s__35113__$2)));
 }
 } else {
 return null;
 }
 break;
 }
-});})(s__34061__$1,n1,xs__6277__auto__,temp__5720__auto__,g__$1))
+});})(s__35111__$1,n1,xs__6277__auto__,temp__5720__auto__,g__$1))
 ,null,null));
-});})(s__34061__$1,n1,xs__6277__auto__,temp__5720__auto__,g__$1))
+});})(s__35111__$1,n1,xs__6277__auto__,temp__5720__auto__,g__$1))
 ;
 var fs__4520__auto__ = cljs.core.seq.call(null,iterys__4519__auto__.call(null,loom.graph.out_edges.call(null,g__$1,n1)));
 if(fs__4520__auto__){
-return cljs.core.concat.call(null,fs__4520__auto__,loom$graph$iter__34060.call(null,cljs.core.rest.call(null,s__34061__$1)));
+return cljs.core.concat.call(null,fs__4520__auto__,loom$graph$iter__35110.call(null,cljs.core.rest.call(null,s__35111__$1)));
 } else {
-var G__34083 = cljs.core.rest.call(null,s__34061__$1);
-s__34061__$1 = G__34083;
+var G__35133 = cljs.core.rest.call(null,s__35111__$1);
+s__35111__$1 = G__35133;
 continue;
 }
 } else {
@@ -1965,26 +1965,26 @@ return cljs.core.count.call(null,cljs.core.get_in.call(null,g__$1,new cljs.core.
 loom.graph.BasicEditableDigraph.prototype.loom$graph$Graph$out_edges$arity$2 = (function (g,node){
 var g__$1 = this;
 var iter__4523__auto__ = ((function (g__$1){
-return (function loom$graph$iter__34066(s__34067){
+return (function loom$graph$iter__35116(s__35117){
 return (new cljs.core.LazySeq(null,((function (g__$1){
 return (function (){
-var s__34067__$1 = s__34067;
+var s__35117__$1 = s__35117;
 while(true){
-var temp__5720__auto__ = cljs.core.seq.call(null,s__34067__$1);
+var temp__5720__auto__ = cljs.core.seq.call(null,s__35117__$1);
 if(temp__5720__auto__){
-var s__34067__$2 = temp__5720__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__34067__$2)){
-var c__4521__auto__ = cljs.core.chunk_first.call(null,s__34067__$2);
+var s__35117__$2 = temp__5720__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__35117__$2)){
+var c__4521__auto__ = cljs.core.chunk_first.call(null,s__35117__$2);
 var size__4522__auto__ = cljs.core.count.call(null,c__4521__auto__);
-var b__34069 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
-if((function (){var i__34068 = (0);
+var b__35119 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
+if((function (){var i__35118 = (0);
 while(true){
-if((i__34068 < size__4522__auto__)){
-var n2 = cljs.core._nth.call(null,c__4521__auto__,i__34068);
-cljs.core.chunk_append.call(null,b__34069,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [node,n2], null));
+if((i__35118 < size__4522__auto__)){
+var n2 = cljs.core._nth.call(null,c__4521__auto__,i__35118);
+cljs.core.chunk_append.call(null,b__35119,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [node,n2], null));
 
-var G__34084 = (i__34068 + (1));
-i__34068 = G__34084;
+var G__35134 = (i__35118 + (1));
+i__35118 = G__35134;
 continue;
 } else {
 return true;
@@ -1992,13 +1992,13 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34069),loom$graph$iter__34066.call(null,cljs.core.chunk_rest.call(null,s__34067__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35119),loom$graph$iter__35116.call(null,cljs.core.chunk_rest.call(null,s__35117__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34069),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35119),null);
 }
 } else {
-var n2 = cljs.core.first.call(null,s__34067__$2);
-return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [node,n2], null),loom$graph$iter__34066.call(null,cljs.core.rest.call(null,s__34067__$2)));
+var n2 = cljs.core.first.call(null,s__35117__$2);
+return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [node,n2], null),loom$graph$iter__35116.call(null,cljs.core.rest.call(null,s__35117__$2)));
 }
 } else {
 return null;
@@ -2031,10 +2031,10 @@ return cljs.core.update_in.call(null,g__$2,new cljs.core.PersistentVector(null, 
 loom.graph.BasicEditableDigraph.prototype.loom$graph$EditableGraph$add_edges_STAR_$arity$2 = (function (g,edges){
 var g__$1 = this;
 return cljs.core.reduce.call(null,((function (g__$1){
-return (function (g__$2,p__34070){
-var vec__34071 = p__34070;
-var n1 = cljs.core.nth.call(null,vec__34071,(0),null);
-var n2 = cljs.core.nth.call(null,vec__34071,(1),null);
+return (function (g__$2,p__35120){
+var vec__35121 = p__35120;
+var n1 = cljs.core.nth.call(null,vec__35121,(0),null);
+var n2 = cljs.core.nth.call(null,vec__35121,(1),null);
 return cljs.core.update_in.call(null,cljs.core.update_in.call(null,cljs.core.update_in.call(null,g__$2,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"nodeset","nodeset",695991339)], null),cljs.core.conj,n1,n2),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"adj","adj",-1344630196),n1], null),cljs.core.fnil.call(null,cljs.core.conj,cljs.core.PersistentHashSet.EMPTY),n2),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"in","in",-1531184865),n2], null),cljs.core.fnil.call(null,cljs.core.conj,cljs.core.PersistentHashSet.EMPTY),n1);
 });})(g__$1))
 ,g__$1,edges);
@@ -2043,18 +2043,18 @@ return cljs.core.update_in.call(null,cljs.core.update_in.call(null,cljs.core.upd
 loom.graph.BasicEditableDigraph.prototype.loom$graph$EditableGraph$remove_nodes_STAR_$arity$2 = (function (g,nodes){
 var g__$1 = this;
 var ins = cljs.core.mapcat.call(null,((function (g__$1){
-return (function (p1__34057_SHARP_){
-return loom.graph.predecessors.call(null,g__$1,p1__34057_SHARP_);
+return (function (p1__35107_SHARP_){
+return loom.graph.predecessors.call(null,g__$1,p1__35107_SHARP_);
 });})(g__$1))
 ,nodes);
 var outs = cljs.core.mapcat.call(null,((function (ins,g__$1){
-return (function (p1__34058_SHARP_){
-return loom.graph.successors.call(null,g__$1,p1__34058_SHARP_);
+return (function (p1__35108_SHARP_){
+return loom.graph.successors.call(null,g__$1,p1__35108_SHARP_);
 });})(ins,g__$1))
 ,nodes);
 return cljs.core.assoc.call(null,cljs.core.assoc.call(null,cljs.core.update_in.call(null,g__$1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"nodeset","nodeset",695991339)], null),((function (ins,outs,g__$1){
-return (function (p1__34059_SHARP_){
-return cljs.core.apply.call(null,cljs.core.disj,p1__34059_SHARP_,nodes);
+return (function (p1__35109_SHARP_){
+return cljs.core.apply.call(null,cljs.core.disj,p1__35109_SHARP_,nodes);
 });})(ins,outs,g__$1))
 ),new cljs.core.Keyword(null,"adj","adj",-1344630196),loom.graph.remove_adj_nodes.call(null,new cljs.core.Keyword(null,"adj","adj",-1344630196).cljs$core$IFn$_invoke$arity$1(g__$1),nodes,ins,cljs.core.disj)),new cljs.core.Keyword(null,"in","in",-1531184865),loom.graph.remove_adj_nodes.call(null,new cljs.core.Keyword(null,"in","in",-1531184865).cljs$core$IFn$_invoke$arity$1(g__$1),nodes,outs,cljs.core.disj));
 });
@@ -2062,10 +2062,10 @@ return cljs.core.apply.call(null,cljs.core.disj,p1__34059_SHARP_,nodes);
 loom.graph.BasicEditableDigraph.prototype.loom$graph$EditableGraph$remove_edges_STAR_$arity$2 = (function (g,edges){
 var g__$1 = this;
 return cljs.core.reduce.call(null,((function (g__$1){
-return (function (g__$2,p__34074){
-var vec__34075 = p__34074;
-var n1 = cljs.core.nth.call(null,vec__34075,(0),null);
-var n2 = cljs.core.nth.call(null,vec__34075,(1),null);
+return (function (g__$2,p__35124){
+var vec__35125 = p__35124;
+var n1 = cljs.core.nth.call(null,vec__35125,(0),null);
+var n2 = cljs.core.nth.call(null,vec__35125,(1),null);
 return cljs.core.update_in.call(null,cljs.core.update_in.call(null,g__$2,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"adj","adj",-1344630196),n1], null),cljs.core.disj,n2),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"in","in",-1531184865),n2], null),cljs.core.disj,n1);
 });})(g__$1))
 ,g__$1,edges);
@@ -2091,26 +2091,26 @@ return cljs.core.count.call(null,cljs.core.get_in.call(null,g__$1,new cljs.core.
 loom.graph.BasicEditableDigraph.prototype.loom$graph$Digraph$in_edges$arity$2 = (function (g,node){
 var g__$1 = this;
 var iter__4523__auto__ = ((function (g__$1){
-return (function loom$graph$iter__34078(s__34079){
+return (function loom$graph$iter__35128(s__35129){
 return (new cljs.core.LazySeq(null,((function (g__$1){
 return (function (){
-var s__34079__$1 = s__34079;
+var s__35129__$1 = s__35129;
 while(true){
-var temp__5720__auto__ = cljs.core.seq.call(null,s__34079__$1);
+var temp__5720__auto__ = cljs.core.seq.call(null,s__35129__$1);
 if(temp__5720__auto__){
-var s__34079__$2 = temp__5720__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__34079__$2)){
-var c__4521__auto__ = cljs.core.chunk_first.call(null,s__34079__$2);
+var s__35129__$2 = temp__5720__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__35129__$2)){
+var c__4521__auto__ = cljs.core.chunk_first.call(null,s__35129__$2);
 var size__4522__auto__ = cljs.core.count.call(null,c__4521__auto__);
-var b__34081 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
-if((function (){var i__34080 = (0);
+var b__35131 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
+if((function (){var i__35130 = (0);
 while(true){
-if((i__34080 < size__4522__auto__)){
-var n2 = cljs.core._nth.call(null,c__4521__auto__,i__34080);
-cljs.core.chunk_append.call(null,b__34081,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n2,node], null));
+if((i__35130 < size__4522__auto__)){
+var n2 = cljs.core._nth.call(null,c__4521__auto__,i__35130);
+cljs.core.chunk_append.call(null,b__35131,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n2,node], null));
 
-var G__34085 = (i__34080 + (1));
-i__34080 = G__34085;
+var G__35135 = (i__35130 + (1));
+i__35130 = G__35135;
 continue;
 } else {
 return true;
@@ -2118,13 +2118,13 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34081),loom$graph$iter__34078.call(null,cljs.core.chunk_rest.call(null,s__34079__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35131),loom$graph$iter__35128.call(null,cljs.core.chunk_rest.call(null,s__35129__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34081),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35131),null);
 }
 } else {
-var n2 = cljs.core.first.call(null,s__34079__$2);
-return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n2,node], null),loom$graph$iter__34078.call(null,cljs.core.rest.call(null,s__34079__$2)));
+var n2 = cljs.core.first.call(null,s__35129__$2);
+return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n2,node], null),loom$graph$iter__35128.call(null,cljs.core.rest.call(null,s__35129__$2)));
 }
 } else {
 return null;
@@ -2152,36 +2152,36 @@ return new cljs.core.Keyword(null,"nodeset","nodeset",695991339).cljs$core$IFn$_
 loom.graph.BasicEditableWeightedGraph.prototype.loom$graph$Graph$edges$arity$1 = (function (g){
 var g__$1 = this;
 var iter__4523__auto__ = ((function (g__$1){
-return (function loom$graph$iter__34088(s__34089){
+return (function loom$graph$iter__35138(s__35139){
 return (new cljs.core.LazySeq(null,((function (g__$1){
 return (function (){
-var s__34089__$1 = s__34089;
+var s__35139__$1 = s__35139;
 while(true){
-var temp__5720__auto__ = cljs.core.seq.call(null,s__34089__$1);
+var temp__5720__auto__ = cljs.core.seq.call(null,s__35139__$1);
 if(temp__5720__auto__){
 var xs__6277__auto__ = temp__5720__auto__;
 var n1 = cljs.core.first.call(null,xs__6277__auto__);
-var iterys__4519__auto__ = ((function (s__34089__$1,n1,xs__6277__auto__,temp__5720__auto__,g__$1){
-return (function loom$graph$iter__34088_$_iter__34090(s__34091){
-return (new cljs.core.LazySeq(null,((function (s__34089__$1,n1,xs__6277__auto__,temp__5720__auto__,g__$1){
+var iterys__4519__auto__ = ((function (s__35139__$1,n1,xs__6277__auto__,temp__5720__auto__,g__$1){
+return (function loom$graph$iter__35138_$_iter__35140(s__35141){
+return (new cljs.core.LazySeq(null,((function (s__35139__$1,n1,xs__6277__auto__,temp__5720__auto__,g__$1){
 return (function (){
-var s__34091__$1 = s__34091;
+var s__35141__$1 = s__35141;
 while(true){
-var temp__5720__auto____$1 = cljs.core.seq.call(null,s__34091__$1);
+var temp__5720__auto____$1 = cljs.core.seq.call(null,s__35141__$1);
 if(temp__5720__auto____$1){
-var s__34091__$2 = temp__5720__auto____$1;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__34091__$2)){
-var c__4521__auto__ = cljs.core.chunk_first.call(null,s__34091__$2);
+var s__35141__$2 = temp__5720__auto____$1;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__35141__$2)){
+var c__4521__auto__ = cljs.core.chunk_first.call(null,s__35141__$2);
 var size__4522__auto__ = cljs.core.count.call(null,c__4521__auto__);
-var b__34093 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
-if((function (){var i__34092 = (0);
+var b__35143 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
+if((function (){var i__35142 = (0);
 while(true){
-if((i__34092 < size__4522__auto__)){
-var e = cljs.core._nth.call(null,c__4521__auto__,i__34092);
-cljs.core.chunk_append.call(null,b__34093,e);
+if((i__35142 < size__4522__auto__)){
+var e = cljs.core._nth.call(null,c__4521__auto__,i__35142);
+cljs.core.chunk_append.call(null,b__35143,e);
 
-var G__34109 = (i__34092 + (1));
-i__34092 = G__34109;
+var G__35159 = (i__35142 + (1));
+i__35142 = G__35159;
 continue;
 } else {
 return true;
@@ -2189,29 +2189,29 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34093),loom$graph$iter__34088_$_iter__34090.call(null,cljs.core.chunk_rest.call(null,s__34091__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35143),loom$graph$iter__35138_$_iter__35140.call(null,cljs.core.chunk_rest.call(null,s__35141__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34093),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35143),null);
 }
 } else {
-var e = cljs.core.first.call(null,s__34091__$2);
-return cljs.core.cons.call(null,e,loom$graph$iter__34088_$_iter__34090.call(null,cljs.core.rest.call(null,s__34091__$2)));
+var e = cljs.core.first.call(null,s__35141__$2);
+return cljs.core.cons.call(null,e,loom$graph$iter__35138_$_iter__35140.call(null,cljs.core.rest.call(null,s__35141__$2)));
 }
 } else {
 return null;
 }
 break;
 }
-});})(s__34089__$1,n1,xs__6277__auto__,temp__5720__auto__,g__$1))
+});})(s__35139__$1,n1,xs__6277__auto__,temp__5720__auto__,g__$1))
 ,null,null));
-});})(s__34089__$1,n1,xs__6277__auto__,temp__5720__auto__,g__$1))
+});})(s__35139__$1,n1,xs__6277__auto__,temp__5720__auto__,g__$1))
 ;
 var fs__4520__auto__ = cljs.core.seq.call(null,iterys__4519__auto__.call(null,loom.graph.out_edges.call(null,g__$1,n1)));
 if(fs__4520__auto__){
-return cljs.core.concat.call(null,fs__4520__auto__,loom$graph$iter__34088.call(null,cljs.core.rest.call(null,s__34089__$1)));
+return cljs.core.concat.call(null,fs__4520__auto__,loom$graph$iter__35138.call(null,cljs.core.rest.call(null,s__35139__$1)));
 } else {
-var G__34110 = cljs.core.rest.call(null,s__34089__$1);
-s__34089__$1 = G__34110;
+var G__35160 = cljs.core.rest.call(null,s__35139__$1);
+s__35139__$1 = G__35160;
 continue;
 }
 } else {
@@ -2244,26 +2244,26 @@ return cljs.core.count.call(null,cljs.core.get_in.call(null,g__$1,new cljs.core.
 loom.graph.BasicEditableWeightedGraph.prototype.loom$graph$Graph$out_edges$arity$2 = (function (g,node){
 var g__$1 = this;
 var iter__4523__auto__ = ((function (g__$1){
-return (function loom$graph$iter__34094(s__34095){
+return (function loom$graph$iter__35144(s__35145){
 return (new cljs.core.LazySeq(null,((function (g__$1){
 return (function (){
-var s__34095__$1 = s__34095;
+var s__35145__$1 = s__35145;
 while(true){
-var temp__5720__auto__ = cljs.core.seq.call(null,s__34095__$1);
+var temp__5720__auto__ = cljs.core.seq.call(null,s__35145__$1);
 if(temp__5720__auto__){
-var s__34095__$2 = temp__5720__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__34095__$2)){
-var c__4521__auto__ = cljs.core.chunk_first.call(null,s__34095__$2);
+var s__35145__$2 = temp__5720__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__35145__$2)){
+var c__4521__auto__ = cljs.core.chunk_first.call(null,s__35145__$2);
 var size__4522__auto__ = cljs.core.count.call(null,c__4521__auto__);
-var b__34097 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
-if((function (){var i__34096 = (0);
+var b__35147 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
+if((function (){var i__35146 = (0);
 while(true){
-if((i__34096 < size__4522__auto__)){
-var n2 = cljs.core._nth.call(null,c__4521__auto__,i__34096);
-cljs.core.chunk_append.call(null,b__34097,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [node,n2], null));
+if((i__35146 < size__4522__auto__)){
+var n2 = cljs.core._nth.call(null,c__4521__auto__,i__35146);
+cljs.core.chunk_append.call(null,b__35147,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [node,n2], null));
 
-var G__34111 = (i__34096 + (1));
-i__34096 = G__34111;
+var G__35161 = (i__35146 + (1));
+i__35146 = G__35161;
 continue;
 } else {
 return true;
@@ -2271,13 +2271,13 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34097),loom$graph$iter__34094.call(null,cljs.core.chunk_rest.call(null,s__34095__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35147),loom$graph$iter__35144.call(null,cljs.core.chunk_rest.call(null,s__35145__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34097),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35147),null);
 }
 } else {
-var n2 = cljs.core.first.call(null,s__34095__$2);
-return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [node,n2], null),loom$graph$iter__34094.call(null,cljs.core.rest.call(null,s__34095__$2)));
+var n2 = cljs.core.first.call(null,s__35145__$2);
+return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [node,n2], null),loom$graph$iter__35144.call(null,cljs.core.rest.call(null,s__35145__$2)));
 }
 } else {
 return null;
@@ -2310,17 +2310,17 @@ return cljs.core.update_in.call(null,g__$2,new cljs.core.PersistentVector(null, 
 loom.graph.BasicEditableWeightedGraph.prototype.loom$graph$EditableGraph$add_edges_STAR_$arity$2 = (function (g,edges){
 var g__$1 = this;
 return cljs.core.reduce.call(null,((function (g__$1){
-return (function (g__$2,p__34098){
-var vec__34099 = p__34098;
-var seq__34100 = cljs.core.seq.call(null,vec__34099);
-var first__34101 = cljs.core.first.call(null,seq__34100);
-var seq__34100__$1 = cljs.core.next.call(null,seq__34100);
-var n1 = first__34101;
-var first__34101__$1 = cljs.core.first.call(null,seq__34100__$1);
-var seq__34100__$2 = cljs.core.next.call(null,seq__34100__$1);
-var n2 = first__34101__$1;
-var vec__34102 = seq__34100__$2;
-var w = cljs.core.nth.call(null,vec__34102,(0),null);
+return (function (g__$2,p__35148){
+var vec__35149 = p__35148;
+var seq__35150 = cljs.core.seq.call(null,vec__35149);
+var first__35151 = cljs.core.first.call(null,seq__35150);
+var seq__35150__$1 = cljs.core.next.call(null,seq__35150);
+var n1 = first__35151;
+var first__35151__$1 = cljs.core.first.call(null,seq__35150__$1);
+var seq__35150__$2 = cljs.core.next.call(null,seq__35150__$1);
+var n2 = first__35151__$1;
+var vec__35152 = seq__35150__$2;
+var w = cljs.core.nth.call(null,vec__35152,(0),null);
 return cljs.core.assoc_in.call(null,cljs.core.assoc_in.call(null,cljs.core.update_in.call(null,g__$2,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"nodeset","nodeset",695991339)], null),cljs.core.conj,n1,n2),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"adj","adj",-1344630196),n1,n2], null),(function (){var or__4131__auto__ = w;
 if(cljs.core.truth_(or__4131__auto__)){
 return or__4131__auto__;
@@ -2341,13 +2341,13 @@ return loom.graph._STAR_default_weight_STAR_;
 loom.graph.BasicEditableWeightedGraph.prototype.loom$graph$EditableGraph$remove_nodes_STAR_$arity$2 = (function (g,nodes){
 var g__$1 = this;
 var nbrs = cljs.core.mapcat.call(null,((function (g__$1){
-return (function (p1__34086_SHARP_){
-return loom.graph.successors.call(null,g__$1,p1__34086_SHARP_);
+return (function (p1__35136_SHARP_){
+return loom.graph.successors.call(null,g__$1,p1__35136_SHARP_);
 });})(g__$1))
 ,nodes);
 return cljs.core.assoc.call(null,cljs.core.update_in.call(null,g__$1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"nodeset","nodeset",695991339)], null),((function (nbrs,g__$1){
-return (function (p1__34087_SHARP_){
-return cljs.core.apply.call(null,cljs.core.disj,p1__34087_SHARP_,nodes);
+return (function (p1__35137_SHARP_){
+return cljs.core.apply.call(null,cljs.core.disj,p1__35137_SHARP_,nodes);
 });})(nbrs,g__$1))
 ),new cljs.core.Keyword(null,"adj","adj",-1344630196),loom.graph.remove_adj_nodes.call(null,new cljs.core.Keyword(null,"adj","adj",-1344630196).cljs$core$IFn$_invoke$arity$1(g__$1),nodes,nbrs,cljs.core.dissoc));
 });
@@ -2355,10 +2355,10 @@ return cljs.core.apply.call(null,cljs.core.disj,p1__34087_SHARP_,nodes);
 loom.graph.BasicEditableWeightedGraph.prototype.loom$graph$EditableGraph$remove_edges_STAR_$arity$2 = (function (g,edges){
 var g__$1 = this;
 return cljs.core.reduce.call(null,((function (g__$1){
-return (function (g__$2,p__34105){
-var vec__34106 = p__34105;
-var n1 = cljs.core.nth.call(null,vec__34106,(0),null);
-var n2 = cljs.core.nth.call(null,vec__34106,(1),null);
+return (function (g__$2,p__35155){
+var vec__35156 = p__35155;
+var n1 = cljs.core.nth.call(null,vec__35156,(0),null);
+var n2 = cljs.core.nth.call(null,vec__35156,(1),null);
 return cljs.core.update_in.call(null,cljs.core.update_in.call(null,g__$2,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"adj","adj",-1344630196),n1], null),cljs.core.dissoc,n2),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"adj","adj",-1344630196),n2], null),cljs.core.dissoc,n1);
 });})(g__$1))
 ,g__$1,edges);
@@ -2390,36 +2390,36 @@ return new cljs.core.Keyword(null,"nodeset","nodeset",695991339).cljs$core$IFn$_
 loom.graph.BasicEditableWeightedDigraph.prototype.loom$graph$Graph$edges$arity$1 = (function (g){
 var g__$1 = this;
 var iter__4523__auto__ = ((function (g__$1){
-return (function loom$graph$iter__34115(s__34116){
+return (function loom$graph$iter__35165(s__35166){
 return (new cljs.core.LazySeq(null,((function (g__$1){
 return (function (){
-var s__34116__$1 = s__34116;
+var s__35166__$1 = s__35166;
 while(true){
-var temp__5720__auto__ = cljs.core.seq.call(null,s__34116__$1);
+var temp__5720__auto__ = cljs.core.seq.call(null,s__35166__$1);
 if(temp__5720__auto__){
 var xs__6277__auto__ = temp__5720__auto__;
 var n1 = cljs.core.first.call(null,xs__6277__auto__);
-var iterys__4519__auto__ = ((function (s__34116__$1,n1,xs__6277__auto__,temp__5720__auto__,g__$1){
-return (function loom$graph$iter__34115_$_iter__34117(s__34118){
-return (new cljs.core.LazySeq(null,((function (s__34116__$1,n1,xs__6277__auto__,temp__5720__auto__,g__$1){
+var iterys__4519__auto__ = ((function (s__35166__$1,n1,xs__6277__auto__,temp__5720__auto__,g__$1){
+return (function loom$graph$iter__35165_$_iter__35167(s__35168){
+return (new cljs.core.LazySeq(null,((function (s__35166__$1,n1,xs__6277__auto__,temp__5720__auto__,g__$1){
 return (function (){
-var s__34118__$1 = s__34118;
+var s__35168__$1 = s__35168;
 while(true){
-var temp__5720__auto____$1 = cljs.core.seq.call(null,s__34118__$1);
+var temp__5720__auto____$1 = cljs.core.seq.call(null,s__35168__$1);
 if(temp__5720__auto____$1){
-var s__34118__$2 = temp__5720__auto____$1;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__34118__$2)){
-var c__4521__auto__ = cljs.core.chunk_first.call(null,s__34118__$2);
+var s__35168__$2 = temp__5720__auto____$1;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__35168__$2)){
+var c__4521__auto__ = cljs.core.chunk_first.call(null,s__35168__$2);
 var size__4522__auto__ = cljs.core.count.call(null,c__4521__auto__);
-var b__34120 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
-if((function (){var i__34119 = (0);
+var b__35170 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
+if((function (){var i__35169 = (0);
 while(true){
-if((i__34119 < size__4522__auto__)){
-var e = cljs.core._nth.call(null,c__4521__auto__,i__34119);
-cljs.core.chunk_append.call(null,b__34120,e);
+if((i__35169 < size__4522__auto__)){
+var e = cljs.core._nth.call(null,c__4521__auto__,i__35169);
+cljs.core.chunk_append.call(null,b__35170,e);
 
-var G__34144 = (i__34119 + (1));
-i__34119 = G__34144;
+var G__35194 = (i__35169 + (1));
+i__35169 = G__35194;
 continue;
 } else {
 return true;
@@ -2427,29 +2427,29 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34120),loom$graph$iter__34115_$_iter__34117.call(null,cljs.core.chunk_rest.call(null,s__34118__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35170),loom$graph$iter__35165_$_iter__35167.call(null,cljs.core.chunk_rest.call(null,s__35168__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34120),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35170),null);
 }
 } else {
-var e = cljs.core.first.call(null,s__34118__$2);
-return cljs.core.cons.call(null,e,loom$graph$iter__34115_$_iter__34117.call(null,cljs.core.rest.call(null,s__34118__$2)));
+var e = cljs.core.first.call(null,s__35168__$2);
+return cljs.core.cons.call(null,e,loom$graph$iter__35165_$_iter__35167.call(null,cljs.core.rest.call(null,s__35168__$2)));
 }
 } else {
 return null;
 }
 break;
 }
-});})(s__34116__$1,n1,xs__6277__auto__,temp__5720__auto__,g__$1))
+});})(s__35166__$1,n1,xs__6277__auto__,temp__5720__auto__,g__$1))
 ,null,null));
-});})(s__34116__$1,n1,xs__6277__auto__,temp__5720__auto__,g__$1))
+});})(s__35166__$1,n1,xs__6277__auto__,temp__5720__auto__,g__$1))
 ;
 var fs__4520__auto__ = cljs.core.seq.call(null,iterys__4519__auto__.call(null,loom.graph.out_edges.call(null,g__$1,n1)));
 if(fs__4520__auto__){
-return cljs.core.concat.call(null,fs__4520__auto__,loom$graph$iter__34115.call(null,cljs.core.rest.call(null,s__34116__$1)));
+return cljs.core.concat.call(null,fs__4520__auto__,loom$graph$iter__35165.call(null,cljs.core.rest.call(null,s__35166__$1)));
 } else {
-var G__34145 = cljs.core.rest.call(null,s__34116__$1);
-s__34116__$1 = G__34145;
+var G__35195 = cljs.core.rest.call(null,s__35166__$1);
+s__35166__$1 = G__35195;
 continue;
 }
 } else {
@@ -2482,26 +2482,26 @@ return cljs.core.count.call(null,cljs.core.get_in.call(null,g__$1,new cljs.core.
 loom.graph.BasicEditableWeightedDigraph.prototype.loom$graph$Graph$out_edges$arity$2 = (function (g,node){
 var g__$1 = this;
 var iter__4523__auto__ = ((function (g__$1){
-return (function loom$graph$iter__34121(s__34122){
+return (function loom$graph$iter__35171(s__35172){
 return (new cljs.core.LazySeq(null,((function (g__$1){
 return (function (){
-var s__34122__$1 = s__34122;
+var s__35172__$1 = s__35172;
 while(true){
-var temp__5720__auto__ = cljs.core.seq.call(null,s__34122__$1);
+var temp__5720__auto__ = cljs.core.seq.call(null,s__35172__$1);
 if(temp__5720__auto__){
-var s__34122__$2 = temp__5720__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__34122__$2)){
-var c__4521__auto__ = cljs.core.chunk_first.call(null,s__34122__$2);
+var s__35172__$2 = temp__5720__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__35172__$2)){
+var c__4521__auto__ = cljs.core.chunk_first.call(null,s__35172__$2);
 var size__4522__auto__ = cljs.core.count.call(null,c__4521__auto__);
-var b__34124 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
-if((function (){var i__34123 = (0);
+var b__35174 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
+if((function (){var i__35173 = (0);
 while(true){
-if((i__34123 < size__4522__auto__)){
-var n2 = cljs.core._nth.call(null,c__4521__auto__,i__34123);
-cljs.core.chunk_append.call(null,b__34124,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [node,n2], null));
+if((i__35173 < size__4522__auto__)){
+var n2 = cljs.core._nth.call(null,c__4521__auto__,i__35173);
+cljs.core.chunk_append.call(null,b__35174,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [node,n2], null));
 
-var G__34146 = (i__34123 + (1));
-i__34123 = G__34146;
+var G__35196 = (i__35173 + (1));
+i__35173 = G__35196;
 continue;
 } else {
 return true;
@@ -2509,13 +2509,13 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34124),loom$graph$iter__34121.call(null,cljs.core.chunk_rest.call(null,s__34122__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35174),loom$graph$iter__35171.call(null,cljs.core.chunk_rest.call(null,s__35172__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34124),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35174),null);
 }
 } else {
-var n2 = cljs.core.first.call(null,s__34122__$2);
-return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [node,n2], null),loom$graph$iter__34121.call(null,cljs.core.rest.call(null,s__34122__$2)));
+var n2 = cljs.core.first.call(null,s__35172__$2);
+return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [node,n2], null),loom$graph$iter__35171.call(null,cljs.core.rest.call(null,s__35172__$2)));
 }
 } else {
 return null;
@@ -2548,17 +2548,17 @@ return cljs.core.update_in.call(null,g__$2,new cljs.core.PersistentVector(null, 
 loom.graph.BasicEditableWeightedDigraph.prototype.loom$graph$EditableGraph$add_edges_STAR_$arity$2 = (function (g,edges){
 var g__$1 = this;
 return cljs.core.reduce.call(null,((function (g__$1){
-return (function (g__$2,p__34125){
-var vec__34126 = p__34125;
-var seq__34127 = cljs.core.seq.call(null,vec__34126);
-var first__34128 = cljs.core.first.call(null,seq__34127);
-var seq__34127__$1 = cljs.core.next.call(null,seq__34127);
-var n1 = first__34128;
-var first__34128__$1 = cljs.core.first.call(null,seq__34127__$1);
-var seq__34127__$2 = cljs.core.next.call(null,seq__34127__$1);
-var n2 = first__34128__$1;
-var vec__34129 = seq__34127__$2;
-var w = cljs.core.nth.call(null,vec__34129,(0),null);
+return (function (g__$2,p__35175){
+var vec__35176 = p__35175;
+var seq__35177 = cljs.core.seq.call(null,vec__35176);
+var first__35178 = cljs.core.first.call(null,seq__35177);
+var seq__35177__$1 = cljs.core.next.call(null,seq__35177);
+var n1 = first__35178;
+var first__35178__$1 = cljs.core.first.call(null,seq__35177__$1);
+var seq__35177__$2 = cljs.core.next.call(null,seq__35177__$1);
+var n2 = first__35178__$1;
+var vec__35179 = seq__35177__$2;
+var w = cljs.core.nth.call(null,vec__35179,(0),null);
 return cljs.core.update_in.call(null,cljs.core.assoc_in.call(null,cljs.core.update_in.call(null,g__$2,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"nodeset","nodeset",695991339)], null),cljs.core.conj,n1,n2),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"adj","adj",-1344630196),n1,n2], null),(function (){var or__4131__auto__ = w;
 if(cljs.core.truth_(or__4131__auto__)){
 return or__4131__auto__;
@@ -2573,18 +2573,18 @@ return loom.graph._STAR_default_weight_STAR_;
 loom.graph.BasicEditableWeightedDigraph.prototype.loom$graph$EditableGraph$remove_nodes_STAR_$arity$2 = (function (g,nodes){
 var g__$1 = this;
 var ins = cljs.core.mapcat.call(null,((function (g__$1){
-return (function (p1__34112_SHARP_){
-return loom.graph.predecessors.call(null,g__$1,p1__34112_SHARP_);
+return (function (p1__35162_SHARP_){
+return loom.graph.predecessors.call(null,g__$1,p1__35162_SHARP_);
 });})(g__$1))
 ,nodes);
 var outs = cljs.core.mapcat.call(null,((function (ins,g__$1){
-return (function (p1__34113_SHARP_){
-return loom.graph.successors.call(null,g__$1,p1__34113_SHARP_);
+return (function (p1__35163_SHARP_){
+return loom.graph.successors.call(null,g__$1,p1__35163_SHARP_);
 });})(ins,g__$1))
 ,nodes);
 return cljs.core.assoc.call(null,cljs.core.assoc.call(null,cljs.core.update_in.call(null,g__$1,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"nodeset","nodeset",695991339)], null),((function (ins,outs,g__$1){
-return (function (p1__34114_SHARP_){
-return cljs.core.apply.call(null,cljs.core.disj,p1__34114_SHARP_,nodes);
+return (function (p1__35164_SHARP_){
+return cljs.core.apply.call(null,cljs.core.disj,p1__35164_SHARP_,nodes);
 });})(ins,outs,g__$1))
 ),new cljs.core.Keyword(null,"adj","adj",-1344630196),loom.graph.remove_adj_nodes.call(null,new cljs.core.Keyword(null,"adj","adj",-1344630196).cljs$core$IFn$_invoke$arity$1(g__$1),nodes,ins,cljs.core.dissoc)),new cljs.core.Keyword(null,"in","in",-1531184865),loom.graph.remove_adj_nodes.call(null,new cljs.core.Keyword(null,"in","in",-1531184865).cljs$core$IFn$_invoke$arity$1(g__$1),nodes,outs,cljs.core.disj));
 });
@@ -2592,10 +2592,10 @@ return cljs.core.apply.call(null,cljs.core.disj,p1__34114_SHARP_,nodes);
 loom.graph.BasicEditableWeightedDigraph.prototype.loom$graph$EditableGraph$remove_edges_STAR_$arity$2 = (function (g,edges){
 var g__$1 = this;
 return cljs.core.reduce.call(null,((function (g__$1){
-return (function (g__$2,p__34132){
-var vec__34133 = p__34132;
-var n1 = cljs.core.nth.call(null,vec__34133,(0),null);
-var n2 = cljs.core.nth.call(null,vec__34133,(1),null);
+return (function (g__$2,p__35182){
+var vec__35183 = p__35182;
+var n1 = cljs.core.nth.call(null,vec__35183,(0),null);
+var n2 = cljs.core.nth.call(null,vec__35183,(1),null);
 return cljs.core.update_in.call(null,cljs.core.update_in.call(null,g__$2,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"adj","adj",-1344630196),n1], null),cljs.core.dissoc,n2),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"in","in",-1531184865),n2], null),cljs.core.disj,n1);
 });})(g__$1))
 ,g__$1,edges);
@@ -2621,26 +2621,26 @@ return cljs.core.count.call(null,cljs.core.get_in.call(null,g__$1,new cljs.core.
 loom.graph.BasicEditableWeightedDigraph.prototype.loom$graph$Digraph$in_edges$arity$2 = (function (g,node){
 var g__$1 = this;
 var iter__4523__auto__ = ((function (g__$1){
-return (function loom$graph$iter__34136(s__34137){
+return (function loom$graph$iter__35186(s__35187){
 return (new cljs.core.LazySeq(null,((function (g__$1){
 return (function (){
-var s__34137__$1 = s__34137;
+var s__35187__$1 = s__35187;
 while(true){
-var temp__5720__auto__ = cljs.core.seq.call(null,s__34137__$1);
+var temp__5720__auto__ = cljs.core.seq.call(null,s__35187__$1);
 if(temp__5720__auto__){
-var s__34137__$2 = temp__5720__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__34137__$2)){
-var c__4521__auto__ = cljs.core.chunk_first.call(null,s__34137__$2);
+var s__35187__$2 = temp__5720__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__35187__$2)){
+var c__4521__auto__ = cljs.core.chunk_first.call(null,s__35187__$2);
 var size__4522__auto__ = cljs.core.count.call(null,c__4521__auto__);
-var b__34139 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
-if((function (){var i__34138 = (0);
+var b__35189 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
+if((function (){var i__35188 = (0);
 while(true){
-if((i__34138 < size__4522__auto__)){
-var n2 = cljs.core._nth.call(null,c__4521__auto__,i__34138);
-cljs.core.chunk_append.call(null,b__34139,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n2,node], null));
+if((i__35188 < size__4522__auto__)){
+var n2 = cljs.core._nth.call(null,c__4521__auto__,i__35188);
+cljs.core.chunk_append.call(null,b__35189,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n2,node], null));
 
-var G__34147 = (i__34138 + (1));
-i__34138 = G__34147;
+var G__35197 = (i__35188 + (1));
+i__35188 = G__35197;
 continue;
 } else {
 return true;
@@ -2648,13 +2648,13 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34139),loom$graph$iter__34136.call(null,cljs.core.chunk_rest.call(null,s__34137__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35189),loom$graph$iter__35186.call(null,cljs.core.chunk_rest.call(null,s__35187__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34139),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35189),null);
 }
 } else {
-var n2 = cljs.core.first.call(null,s__34137__$2);
-return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n2,node], null),loom$graph$iter__34136.call(null,cljs.core.rest.call(null,s__34137__$2)));
+var n2 = cljs.core.first.call(null,s__35187__$2);
+return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n2,node], null),loom$graph$iter__35186.call(null,cljs.core.rest.call(null,s__35187__$2)));
 }
 } else {
 return null;
@@ -2671,10 +2671,10 @@ return iter__4523__auto__.call(null,loom.graph.predecessors.call(null,g__$1,node
 loom.graph.BasicEditableWeightedDigraph.prototype.loom$graph$Digraph$transpose$arity$1 = (function (g){
 var g__$1 = this;
 return cljs.core.reduce.call(null,((function (g__$1){
-return (function (tg,p__34140){
-var vec__34141 = p__34140;
-var n1 = cljs.core.nth.call(null,vec__34141,(0),null);
-var n2 = cljs.core.nth.call(null,vec__34141,(1),null);
+return (function (tg,p__35190){
+var vec__35191 = p__35190;
+var n1 = cljs.core.nth.call(null,vec__35191,(0),null);
+var n2 = cljs.core.nth.call(null,vec__35191,(1),null);
 return loom.graph.add_edges_STAR_.call(null,tg,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [n2,n1,loom.graph.weight.call(null,g__$1,n1,n2)], null)], null));
 });})(g__$1))
 ,cljs.core.assoc.call(null,g__$1,new cljs.core.Keyword(null,"adj","adj",-1344630196),cljs.core.PersistentArrayMap.EMPTY,new cljs.core.Keyword(null,"in","in",-1531184865),cljs.core.PersistentArrayMap.EMPTY),loom.graph.edges.call(null,g__$1));
@@ -2693,14 +2693,14 @@ return cljs.core.get_in.call(null,g__$1,new cljs.core.PersistentVector(null, 3, 
 });
 loom.graph.call_or_return = (function loom$graph$call_or_return(var_args){
 var args__4736__auto__ = [];
-var len__4730__auto___34150 = arguments.length;
-var i__4731__auto___34151 = (0);
+var len__4730__auto___35200 = arguments.length;
+var i__4731__auto___35201 = (0);
 while(true){
-if((i__4731__auto___34151 < len__4730__auto___34150)){
-args__4736__auto__.push((arguments[i__4731__auto___34151]));
+if((i__4731__auto___35201 < len__4730__auto___35200)){
+args__4736__auto__.push((arguments[i__4731__auto___35201]));
 
-var G__34152 = (i__4731__auto___34151 + (1));
-i__4731__auto___34151 = G__34152;
+var G__35202 = (i__4731__auto___35201 + (1));
+i__4731__auto___35201 = G__35202;
 continue;
 } else {
 }
@@ -2722,11 +2722,11 @@ return f;
 loom.graph.call_or_return.cljs$lang$maxFixedArity = (1);
 
 /** @this {Function} */
-loom.graph.call_or_return.cljs$lang$applyTo = (function (seq34148){
-var G__34149 = cljs.core.first.call(null,seq34148);
-var seq34148__$1 = cljs.core.next.call(null,seq34148);
+loom.graph.call_or_return.cljs$lang$applyTo = (function (seq35198){
+var G__35199 = cljs.core.first.call(null,seq35198);
+var seq35198__$1 = cljs.core.next.call(null,seq35198);
 var self__4717__auto__ = this;
-return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__34149,seq34148__$1);
+return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__35199,seq35198__$1);
 });
 
 
@@ -2765,12 +2765,12 @@ var this__4385__auto____$1 = this;
 return this__4385__auto____$1.cljs$core$ILookup$_lookup$arity$3(null,k__4386__auto__,null);
 });
 
-loom.graph.FlyGraph.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__4387__auto__,k34154,else__4388__auto__){
+loom.graph.FlyGraph.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__4387__auto__,k35204,else__4388__auto__){
 var self__ = this;
 var this__4387__auto____$1 = this;
-var G__34158 = k34154;
-var G__34158__$1 = (((G__34158 instanceof cljs.core.Keyword))?G__34158.fqn:null);
-switch (G__34158__$1) {
+var G__35208 = k35204;
+var G__35208__$1 = (((G__35208 instanceof cljs.core.Keyword))?G__35208.fqn:null);
+switch (G__35208__$1) {
 case "fnodes":
 return self__.fnodes;
 
@@ -2788,7 +2788,7 @@ return self__.start;
 
 break;
 default:
-return cljs.core.get.call(null,self__.__extmap,k34154,else__4388__auto__);
+return cljs.core.get.call(null,self__.__extmap,k35204,else__4388__auto__);
 
 }
 });
@@ -2797,10 +2797,10 @@ loom.graph.FlyGraph.prototype.cljs$core$IKVReduce$_kv_reduce$arity$3 = (function
 var self__ = this;
 var this__4404__auto____$1 = this;
 return cljs.core.reduce.call(null,((function (this__4404__auto____$1){
-return (function (ret__4407__auto__,p__34159){
-var vec__34160 = p__34159;
-var k__4408__auto__ = cljs.core.nth.call(null,vec__34160,(0),null);
-var v__4409__auto__ = cljs.core.nth.call(null,vec__34160,(1),null);
+return (function (ret__4407__auto__,p__35209){
+var vec__35210 = p__35209;
+var k__4408__auto__ = cljs.core.nth.call(null,vec__35210,(0),null);
+var v__4409__auto__ = cljs.core.nth.call(null,vec__35210,(1),null);
 return f__4405__auto__.call(null,ret__4407__auto__,k__4408__auto__,v__4409__auto__);
 });})(this__4404__auto____$1))
 ,init__4406__auto__,this__4404__auto____$1);
@@ -2817,10 +2817,10 @@ return cljs.core.pr_sequential_writer.call(null,writer__4400__auto__,cljs.core.p
 return cljs.core.pr_sequential_writer.call(null,writer__4400__auto__,pr_pair__4402__auto__,"#loom.graph.FlyGraph{",", ","}",opts__4401__auto__,cljs.core.concat.call(null,new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"fnodes","fnodes",-635833493),self__.fnodes],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"fedges","fedges",499673923),self__.fedges],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207),self__.fsuccessors],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"start","start",-355208981),self__.start],null))], null),self__.__extmap));
 });
 
-loom.graph.FlyGraph.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__34153){
+loom.graph.FlyGraph.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__35203){
 var self__ = this;
-var G__34153__$1 = this;
-return (new cljs.core.RecordIter((0),G__34153__$1,4,new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"fnodes","fnodes",-635833493),new cljs.core.Keyword(null,"fedges","fedges",499673923),new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207),new cljs.core.Keyword(null,"start","start",-355208981)], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator.call(null,self__.__extmap):cljs.core.nil_iter.call(null))));
+var G__35203__$1 = this;
+return (new cljs.core.RecordIter((0),G__35203__$1,4,new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"fnodes","fnodes",-635833493),new cljs.core.Keyword(null,"fedges","fedges",499673923),new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207),new cljs.core.Keyword(null,"start","start",-355208981)], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator.call(null,self__.__extmap):cljs.core.nil_iter.call(null))));
 });
 
 loom.graph.FlyGraph.prototype.cljs$core$IMeta$_meta$arity$1 = (function (this__4383__auto__){
@@ -2859,10 +2859,10 @@ return h__4243__auto____$1;
 }
 });
 
-loom.graph.FlyGraph.prototype.cljs$core$IEquiv$_equiv$arity$2 = (function (this34155,other34156){
+loom.graph.FlyGraph.prototype.cljs$core$IEquiv$_equiv$arity$2 = (function (this35205,other35206){
 var self__ = this;
-var this34155__$1 = this;
-return (((!((other34156 == null)))) && ((this34155__$1.constructor === other34156.constructor)) && (cljs.core._EQ_.call(null,this34155__$1.fnodes,other34156.fnodes)) && (cljs.core._EQ_.call(null,this34155__$1.fedges,other34156.fedges)) && (cljs.core._EQ_.call(null,this34155__$1.fsuccessors,other34156.fsuccessors)) && (cljs.core._EQ_.call(null,this34155__$1.start,other34156.start)) && (cljs.core._EQ_.call(null,this34155__$1.__extmap,other34156.__extmap)));
+var this35205__$1 = this;
+return (((!((other35206 == null)))) && ((this35205__$1.constructor === other35206.constructor)) && (cljs.core._EQ_.call(null,this35205__$1.fnodes,other35206.fnodes)) && (cljs.core._EQ_.call(null,this35205__$1.fedges,other35206.fedges)) && (cljs.core._EQ_.call(null,this35205__$1.fsuccessors,other35206.fsuccessors)) && (cljs.core._EQ_.call(null,this35205__$1.start,other35206.start)) && (cljs.core._EQ_.call(null,this35205__$1.__extmap,other35206.__extmap)));
 });
 
 loom.graph.FlyGraph.prototype.cljs$core$IMap$_dissoc$arity$2 = (function (this__4394__auto__,k__4395__auto__){
@@ -2875,24 +2875,24 @@ return (new loom.graph.FlyGraph(self__.fnodes,self__.fedges,self__.fsuccessors,s
 }
 });
 
-loom.graph.FlyGraph.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__4392__auto__,k__4393__auto__,G__34153){
+loom.graph.FlyGraph.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__4392__auto__,k__4393__auto__,G__35203){
 var self__ = this;
 var this__4392__auto____$1 = this;
-var pred__34163 = cljs.core.keyword_identical_QMARK_;
-var expr__34164 = k__4393__auto__;
-if(cljs.core.truth_(pred__34163.call(null,new cljs.core.Keyword(null,"fnodes","fnodes",-635833493),expr__34164))){
-return (new loom.graph.FlyGraph(G__34153,self__.fedges,self__.fsuccessors,self__.start,self__.__meta,self__.__extmap,null));
+var pred__35213 = cljs.core.keyword_identical_QMARK_;
+var expr__35214 = k__4393__auto__;
+if(cljs.core.truth_(pred__35213.call(null,new cljs.core.Keyword(null,"fnodes","fnodes",-635833493),expr__35214))){
+return (new loom.graph.FlyGraph(G__35203,self__.fedges,self__.fsuccessors,self__.start,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_(pred__34163.call(null,new cljs.core.Keyword(null,"fedges","fedges",499673923),expr__34164))){
-return (new loom.graph.FlyGraph(self__.fnodes,G__34153,self__.fsuccessors,self__.start,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_(pred__35213.call(null,new cljs.core.Keyword(null,"fedges","fedges",499673923),expr__35214))){
+return (new loom.graph.FlyGraph(self__.fnodes,G__35203,self__.fsuccessors,self__.start,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_(pred__34163.call(null,new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207),expr__34164))){
-return (new loom.graph.FlyGraph(self__.fnodes,self__.fedges,G__34153,self__.start,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_(pred__35213.call(null,new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207),expr__35214))){
+return (new loom.graph.FlyGraph(self__.fnodes,self__.fedges,G__35203,self__.start,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_(pred__34163.call(null,new cljs.core.Keyword(null,"start","start",-355208981),expr__34164))){
-return (new loom.graph.FlyGraph(self__.fnodes,self__.fedges,self__.fsuccessors,G__34153,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_(pred__35213.call(null,new cljs.core.Keyword(null,"start","start",-355208981),expr__35214))){
+return (new loom.graph.FlyGraph(self__.fnodes,self__.fedges,self__.fsuccessors,G__35203,self__.__meta,self__.__extmap,null));
 } else {
-return (new loom.graph.FlyGraph(self__.fnodes,self__.fedges,self__.fsuccessors,self__.start,self__.__meta,cljs.core.assoc.call(null,self__.__extmap,k__4393__auto__,G__34153),null));
+return (new loom.graph.FlyGraph(self__.fnodes,self__.fedges,self__.fsuccessors,self__.start,self__.__meta,cljs.core.assoc.call(null,self__.__extmap,k__4393__auto__,G__35203),null));
 }
 }
 }
@@ -2905,10 +2905,10 @@ var this__4397__auto____$1 = this;
 return cljs.core.seq.call(null,cljs.core.concat.call(null,new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.MapEntry(new cljs.core.Keyword(null,"fnodes","fnodes",-635833493),self__.fnodes,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"fedges","fedges",499673923),self__.fedges,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207),self__.fsuccessors,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"start","start",-355208981),self__.start,null))], null),self__.__extmap));
 });
 
-loom.graph.FlyGraph.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__4384__auto__,G__34153){
+loom.graph.FlyGraph.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__4384__auto__,G__35203){
 var self__ = this;
 var this__4384__auto____$1 = this;
-return (new loom.graph.FlyGraph(self__.fnodes,self__.fedges,self__.fsuccessors,self__.start,G__34153,self__.__extmap,self__.__hash));
+return (new loom.graph.FlyGraph(self__.fnodes,self__.fedges,self__.fsuccessors,self__.start,G__35203,self__.__extmap,self__.__hash));
 });
 
 loom.graph.FlyGraph.prototype.cljs$core$ICollection$_conj$arity$2 = (function (this__4390__auto__,entry__4391__auto__){
@@ -2945,15 +2945,15 @@ return (new loom.graph.FlyGraph(fnodes,fedges,fsuccessors,start,null,null,null))
 /**
  * Factory function for loom.graph/FlyGraph, taking a map of keywords to field values.
  */
-loom.graph.map__GT_FlyGraph = (function loom$graph$map__GT_FlyGraph(G__34157){
-var extmap__4424__auto__ = (function (){var G__34166 = cljs.core.dissoc.call(null,G__34157,new cljs.core.Keyword(null,"fnodes","fnodes",-635833493),new cljs.core.Keyword(null,"fedges","fedges",499673923),new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207),new cljs.core.Keyword(null,"start","start",-355208981));
-if(cljs.core.record_QMARK_.call(null,G__34157)){
-return cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,G__34166);
+loom.graph.map__GT_FlyGraph = (function loom$graph$map__GT_FlyGraph(G__35207){
+var extmap__4424__auto__ = (function (){var G__35216 = cljs.core.dissoc.call(null,G__35207,new cljs.core.Keyword(null,"fnodes","fnodes",-635833493),new cljs.core.Keyword(null,"fedges","fedges",499673923),new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207),new cljs.core.Keyword(null,"start","start",-355208981));
+if(cljs.core.record_QMARK_.call(null,G__35207)){
+return cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,G__35216);
 } else {
-return G__34166;
+return G__35216;
 }
 })();
-return (new loom.graph.FlyGraph(new cljs.core.Keyword(null,"fnodes","fnodes",-635833493).cljs$core$IFn$_invoke$arity$1(G__34157),new cljs.core.Keyword(null,"fedges","fedges",499673923).cljs$core$IFn$_invoke$arity$1(G__34157),new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207).cljs$core$IFn$_invoke$arity$1(G__34157),new cljs.core.Keyword(null,"start","start",-355208981).cljs$core$IFn$_invoke$arity$1(G__34157),null,cljs.core.not_empty.call(null,extmap__4424__auto__),null));
+return (new loom.graph.FlyGraph(new cljs.core.Keyword(null,"fnodes","fnodes",-635833493).cljs$core$IFn$_invoke$arity$1(G__35207),new cljs.core.Keyword(null,"fedges","fedges",499673923).cljs$core$IFn$_invoke$arity$1(G__35207),new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207).cljs$core$IFn$_invoke$arity$1(G__35207),new cljs.core.Keyword(null,"start","start",-355208981).cljs$core$IFn$_invoke$arity$1(G__35207),null,cljs.core.not_empty.call(null,extmap__4424__auto__),null));
 });
 
 
@@ -2993,12 +2993,12 @@ var this__4385__auto____$1 = this;
 return this__4385__auto____$1.cljs$core$ILookup$_lookup$arity$3(null,k__4386__auto__,null);
 });
 
-loom.graph.FlyDigraph.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__4387__auto__,k34169,else__4388__auto__){
+loom.graph.FlyDigraph.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__4387__auto__,k35219,else__4388__auto__){
 var self__ = this;
 var this__4387__auto____$1 = this;
-var G__34173 = k34169;
-var G__34173__$1 = (((G__34173 instanceof cljs.core.Keyword))?G__34173.fqn:null);
-switch (G__34173__$1) {
+var G__35223 = k35219;
+var G__35223__$1 = (((G__35223 instanceof cljs.core.Keyword))?G__35223.fqn:null);
+switch (G__35223__$1) {
 case "fnodes":
 return self__.fnodes;
 
@@ -3020,7 +3020,7 @@ return self__.start;
 
 break;
 default:
-return cljs.core.get.call(null,self__.__extmap,k34169,else__4388__auto__);
+return cljs.core.get.call(null,self__.__extmap,k35219,else__4388__auto__);
 
 }
 });
@@ -3029,10 +3029,10 @@ loom.graph.FlyDigraph.prototype.cljs$core$IKVReduce$_kv_reduce$arity$3 = (functi
 var self__ = this;
 var this__4404__auto____$1 = this;
 return cljs.core.reduce.call(null,((function (this__4404__auto____$1){
-return (function (ret__4407__auto__,p__34174){
-var vec__34175 = p__34174;
-var k__4408__auto__ = cljs.core.nth.call(null,vec__34175,(0),null);
-var v__4409__auto__ = cljs.core.nth.call(null,vec__34175,(1),null);
+return (function (ret__4407__auto__,p__35224){
+var vec__35225 = p__35224;
+var k__4408__auto__ = cljs.core.nth.call(null,vec__35225,(0),null);
+var v__4409__auto__ = cljs.core.nth.call(null,vec__35225,(1),null);
 return f__4405__auto__.call(null,ret__4407__auto__,k__4408__auto__,v__4409__auto__);
 });})(this__4404__auto____$1))
 ,init__4406__auto__,this__4404__auto____$1);
@@ -3049,10 +3049,10 @@ return cljs.core.pr_sequential_writer.call(null,writer__4400__auto__,cljs.core.p
 return cljs.core.pr_sequential_writer.call(null,writer__4400__auto__,pr_pair__4402__auto__,"#loom.graph.FlyDigraph{",", ","}",opts__4401__auto__,cljs.core.concat.call(null,new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"fnodes","fnodes",-635833493),self__.fnodes],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"fedges","fedges",499673923),self__.fedges],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207),self__.fsuccessors],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"fpredecessors","fpredecessors",-1412828934),self__.fpredecessors],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"start","start",-355208981),self__.start],null))], null),self__.__extmap));
 });
 
-loom.graph.FlyDigraph.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__34168){
+loom.graph.FlyDigraph.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__35218){
 var self__ = this;
-var G__34168__$1 = this;
-return (new cljs.core.RecordIter((0),G__34168__$1,5,new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"fnodes","fnodes",-635833493),new cljs.core.Keyword(null,"fedges","fedges",499673923),new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207),new cljs.core.Keyword(null,"fpredecessors","fpredecessors",-1412828934),new cljs.core.Keyword(null,"start","start",-355208981)], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator.call(null,self__.__extmap):cljs.core.nil_iter.call(null))));
+var G__35218__$1 = this;
+return (new cljs.core.RecordIter((0),G__35218__$1,5,new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"fnodes","fnodes",-635833493),new cljs.core.Keyword(null,"fedges","fedges",499673923),new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207),new cljs.core.Keyword(null,"fpredecessors","fpredecessors",-1412828934),new cljs.core.Keyword(null,"start","start",-355208981)], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator.call(null,self__.__extmap):cljs.core.nil_iter.call(null))));
 });
 
 loom.graph.FlyDigraph.prototype.cljs$core$IMeta$_meta$arity$1 = (function (this__4383__auto__){
@@ -3091,10 +3091,10 @@ return h__4243__auto____$1;
 }
 });
 
-loom.graph.FlyDigraph.prototype.cljs$core$IEquiv$_equiv$arity$2 = (function (this34170,other34171){
+loom.graph.FlyDigraph.prototype.cljs$core$IEquiv$_equiv$arity$2 = (function (this35220,other35221){
 var self__ = this;
-var this34170__$1 = this;
-return (((!((other34171 == null)))) && ((this34170__$1.constructor === other34171.constructor)) && (cljs.core._EQ_.call(null,this34170__$1.fnodes,other34171.fnodes)) && (cljs.core._EQ_.call(null,this34170__$1.fedges,other34171.fedges)) && (cljs.core._EQ_.call(null,this34170__$1.fsuccessors,other34171.fsuccessors)) && (cljs.core._EQ_.call(null,this34170__$1.fpredecessors,other34171.fpredecessors)) && (cljs.core._EQ_.call(null,this34170__$1.start,other34171.start)) && (cljs.core._EQ_.call(null,this34170__$1.__extmap,other34171.__extmap)));
+var this35220__$1 = this;
+return (((!((other35221 == null)))) && ((this35220__$1.constructor === other35221.constructor)) && (cljs.core._EQ_.call(null,this35220__$1.fnodes,other35221.fnodes)) && (cljs.core._EQ_.call(null,this35220__$1.fedges,other35221.fedges)) && (cljs.core._EQ_.call(null,this35220__$1.fsuccessors,other35221.fsuccessors)) && (cljs.core._EQ_.call(null,this35220__$1.fpredecessors,other35221.fpredecessors)) && (cljs.core._EQ_.call(null,this35220__$1.start,other35221.start)) && (cljs.core._EQ_.call(null,this35220__$1.__extmap,other35221.__extmap)));
 });
 
 loom.graph.FlyDigraph.prototype.cljs$core$IMap$_dissoc$arity$2 = (function (this__4394__auto__,k__4395__auto__){
@@ -3107,27 +3107,27 @@ return (new loom.graph.FlyDigraph(self__.fnodes,self__.fedges,self__.fsuccessors
 }
 });
 
-loom.graph.FlyDigraph.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__4392__auto__,k__4393__auto__,G__34168){
+loom.graph.FlyDigraph.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__4392__auto__,k__4393__auto__,G__35218){
 var self__ = this;
 var this__4392__auto____$1 = this;
-var pred__34178 = cljs.core.keyword_identical_QMARK_;
-var expr__34179 = k__4393__auto__;
-if(cljs.core.truth_(pred__34178.call(null,new cljs.core.Keyword(null,"fnodes","fnodes",-635833493),expr__34179))){
-return (new loom.graph.FlyDigraph(G__34168,self__.fedges,self__.fsuccessors,self__.fpredecessors,self__.start,self__.__meta,self__.__extmap,null));
+var pred__35228 = cljs.core.keyword_identical_QMARK_;
+var expr__35229 = k__4393__auto__;
+if(cljs.core.truth_(pred__35228.call(null,new cljs.core.Keyword(null,"fnodes","fnodes",-635833493),expr__35229))){
+return (new loom.graph.FlyDigraph(G__35218,self__.fedges,self__.fsuccessors,self__.fpredecessors,self__.start,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_(pred__34178.call(null,new cljs.core.Keyword(null,"fedges","fedges",499673923),expr__34179))){
-return (new loom.graph.FlyDigraph(self__.fnodes,G__34168,self__.fsuccessors,self__.fpredecessors,self__.start,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_(pred__35228.call(null,new cljs.core.Keyword(null,"fedges","fedges",499673923),expr__35229))){
+return (new loom.graph.FlyDigraph(self__.fnodes,G__35218,self__.fsuccessors,self__.fpredecessors,self__.start,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_(pred__34178.call(null,new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207),expr__34179))){
-return (new loom.graph.FlyDigraph(self__.fnodes,self__.fedges,G__34168,self__.fpredecessors,self__.start,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_(pred__35228.call(null,new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207),expr__35229))){
+return (new loom.graph.FlyDigraph(self__.fnodes,self__.fedges,G__35218,self__.fpredecessors,self__.start,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_(pred__34178.call(null,new cljs.core.Keyword(null,"fpredecessors","fpredecessors",-1412828934),expr__34179))){
-return (new loom.graph.FlyDigraph(self__.fnodes,self__.fedges,self__.fsuccessors,G__34168,self__.start,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_(pred__35228.call(null,new cljs.core.Keyword(null,"fpredecessors","fpredecessors",-1412828934),expr__35229))){
+return (new loom.graph.FlyDigraph(self__.fnodes,self__.fedges,self__.fsuccessors,G__35218,self__.start,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_(pred__34178.call(null,new cljs.core.Keyword(null,"start","start",-355208981),expr__34179))){
-return (new loom.graph.FlyDigraph(self__.fnodes,self__.fedges,self__.fsuccessors,self__.fpredecessors,G__34168,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_(pred__35228.call(null,new cljs.core.Keyword(null,"start","start",-355208981),expr__35229))){
+return (new loom.graph.FlyDigraph(self__.fnodes,self__.fedges,self__.fsuccessors,self__.fpredecessors,G__35218,self__.__meta,self__.__extmap,null));
 } else {
-return (new loom.graph.FlyDigraph(self__.fnodes,self__.fedges,self__.fsuccessors,self__.fpredecessors,self__.start,self__.__meta,cljs.core.assoc.call(null,self__.__extmap,k__4393__auto__,G__34168),null));
+return (new loom.graph.FlyDigraph(self__.fnodes,self__.fedges,self__.fsuccessors,self__.fpredecessors,self__.start,self__.__meta,cljs.core.assoc.call(null,self__.__extmap,k__4393__auto__,G__35218),null));
 }
 }
 }
@@ -3141,10 +3141,10 @@ var this__4397__auto____$1 = this;
 return cljs.core.seq.call(null,cljs.core.concat.call(null,new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.MapEntry(new cljs.core.Keyword(null,"fnodes","fnodes",-635833493),self__.fnodes,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"fedges","fedges",499673923),self__.fedges,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207),self__.fsuccessors,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"fpredecessors","fpredecessors",-1412828934),self__.fpredecessors,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"start","start",-355208981),self__.start,null))], null),self__.__extmap));
 });
 
-loom.graph.FlyDigraph.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__4384__auto__,G__34168){
+loom.graph.FlyDigraph.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__4384__auto__,G__35218){
 var self__ = this;
 var this__4384__auto____$1 = this;
-return (new loom.graph.FlyDigraph(self__.fnodes,self__.fedges,self__.fsuccessors,self__.fpredecessors,self__.start,G__34168,self__.__extmap,self__.__hash));
+return (new loom.graph.FlyDigraph(self__.fnodes,self__.fedges,self__.fsuccessors,self__.fpredecessors,self__.start,G__35218,self__.__extmap,self__.__hash));
 });
 
 loom.graph.FlyDigraph.prototype.cljs$core$ICollection$_conj$arity$2 = (function (this__4390__auto__,entry__4391__auto__){
@@ -3181,15 +3181,15 @@ return (new loom.graph.FlyDigraph(fnodes,fedges,fsuccessors,fpredecessors,start,
 /**
  * Factory function for loom.graph/FlyDigraph, taking a map of keywords to field values.
  */
-loom.graph.map__GT_FlyDigraph = (function loom$graph$map__GT_FlyDigraph(G__34172){
-var extmap__4424__auto__ = (function (){var G__34181 = cljs.core.dissoc.call(null,G__34172,new cljs.core.Keyword(null,"fnodes","fnodes",-635833493),new cljs.core.Keyword(null,"fedges","fedges",499673923),new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207),new cljs.core.Keyword(null,"fpredecessors","fpredecessors",-1412828934),new cljs.core.Keyword(null,"start","start",-355208981));
-if(cljs.core.record_QMARK_.call(null,G__34172)){
-return cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,G__34181);
+loom.graph.map__GT_FlyDigraph = (function loom$graph$map__GT_FlyDigraph(G__35222){
+var extmap__4424__auto__ = (function (){var G__35231 = cljs.core.dissoc.call(null,G__35222,new cljs.core.Keyword(null,"fnodes","fnodes",-635833493),new cljs.core.Keyword(null,"fedges","fedges",499673923),new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207),new cljs.core.Keyword(null,"fpredecessors","fpredecessors",-1412828934),new cljs.core.Keyword(null,"start","start",-355208981));
+if(cljs.core.record_QMARK_.call(null,G__35222)){
+return cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,G__35231);
 } else {
-return G__34181;
+return G__35231;
 }
 })();
-return (new loom.graph.FlyDigraph(new cljs.core.Keyword(null,"fnodes","fnodes",-635833493).cljs$core$IFn$_invoke$arity$1(G__34172),new cljs.core.Keyword(null,"fedges","fedges",499673923).cljs$core$IFn$_invoke$arity$1(G__34172),new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207).cljs$core$IFn$_invoke$arity$1(G__34172),new cljs.core.Keyword(null,"fpredecessors","fpredecessors",-1412828934).cljs$core$IFn$_invoke$arity$1(G__34172),new cljs.core.Keyword(null,"start","start",-355208981).cljs$core$IFn$_invoke$arity$1(G__34172),null,cljs.core.not_empty.call(null,extmap__4424__auto__),null));
+return (new loom.graph.FlyDigraph(new cljs.core.Keyword(null,"fnodes","fnodes",-635833493).cljs$core$IFn$_invoke$arity$1(G__35222),new cljs.core.Keyword(null,"fedges","fedges",499673923).cljs$core$IFn$_invoke$arity$1(G__35222),new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207).cljs$core$IFn$_invoke$arity$1(G__35222),new cljs.core.Keyword(null,"fpredecessors","fpredecessors",-1412828934).cljs$core$IFn$_invoke$arity$1(G__35222),new cljs.core.Keyword(null,"start","start",-355208981).cljs$core$IFn$_invoke$arity$1(G__35222),null,cljs.core.not_empty.call(null,extmap__4424__auto__),null));
 });
 
 
@@ -3229,12 +3229,12 @@ var this__4385__auto____$1 = this;
 return this__4385__auto____$1.cljs$core$ILookup$_lookup$arity$3(null,k__4386__auto__,null);
 });
 
-loom.graph.WeightedFlyGraph.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__4387__auto__,k34184,else__4388__auto__){
+loom.graph.WeightedFlyGraph.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__4387__auto__,k35234,else__4388__auto__){
 var self__ = this;
 var this__4387__auto____$1 = this;
-var G__34188 = k34184;
-var G__34188__$1 = (((G__34188 instanceof cljs.core.Keyword))?G__34188.fqn:null);
-switch (G__34188__$1) {
+var G__35238 = k35234;
+var G__35238__$1 = (((G__35238 instanceof cljs.core.Keyword))?G__35238.fqn:null);
+switch (G__35238__$1) {
 case "fnodes":
 return self__.fnodes;
 
@@ -3256,7 +3256,7 @@ return self__.start;
 
 break;
 default:
-return cljs.core.get.call(null,self__.__extmap,k34184,else__4388__auto__);
+return cljs.core.get.call(null,self__.__extmap,k35234,else__4388__auto__);
 
 }
 });
@@ -3265,10 +3265,10 @@ loom.graph.WeightedFlyGraph.prototype.cljs$core$IKVReduce$_kv_reduce$arity$3 = (
 var self__ = this;
 var this__4404__auto____$1 = this;
 return cljs.core.reduce.call(null,((function (this__4404__auto____$1){
-return (function (ret__4407__auto__,p__34189){
-var vec__34190 = p__34189;
-var k__4408__auto__ = cljs.core.nth.call(null,vec__34190,(0),null);
-var v__4409__auto__ = cljs.core.nth.call(null,vec__34190,(1),null);
+return (function (ret__4407__auto__,p__35239){
+var vec__35240 = p__35239;
+var k__4408__auto__ = cljs.core.nth.call(null,vec__35240,(0),null);
+var v__4409__auto__ = cljs.core.nth.call(null,vec__35240,(1),null);
 return f__4405__auto__.call(null,ret__4407__auto__,k__4408__auto__,v__4409__auto__);
 });})(this__4404__auto____$1))
 ,init__4406__auto__,this__4404__auto____$1);
@@ -3285,10 +3285,10 @@ return cljs.core.pr_sequential_writer.call(null,writer__4400__auto__,cljs.core.p
 return cljs.core.pr_sequential_writer.call(null,writer__4400__auto__,pr_pair__4402__auto__,"#loom.graph.WeightedFlyGraph{",", ","}",opts__4401__auto__,cljs.core.concat.call(null,new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"fnodes","fnodes",-635833493),self__.fnodes],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"fedges","fedges",499673923),self__.fedges],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207),self__.fsuccessors],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"fweight","fweight",1299924141),self__.fweight],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"start","start",-355208981),self__.start],null))], null),self__.__extmap));
 });
 
-loom.graph.WeightedFlyGraph.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__34183){
+loom.graph.WeightedFlyGraph.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__35233){
 var self__ = this;
-var G__34183__$1 = this;
-return (new cljs.core.RecordIter((0),G__34183__$1,5,new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"fnodes","fnodes",-635833493),new cljs.core.Keyword(null,"fedges","fedges",499673923),new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207),new cljs.core.Keyword(null,"fweight","fweight",1299924141),new cljs.core.Keyword(null,"start","start",-355208981)], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator.call(null,self__.__extmap):cljs.core.nil_iter.call(null))));
+var G__35233__$1 = this;
+return (new cljs.core.RecordIter((0),G__35233__$1,5,new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"fnodes","fnodes",-635833493),new cljs.core.Keyword(null,"fedges","fedges",499673923),new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207),new cljs.core.Keyword(null,"fweight","fweight",1299924141),new cljs.core.Keyword(null,"start","start",-355208981)], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator.call(null,self__.__extmap):cljs.core.nil_iter.call(null))));
 });
 
 loom.graph.WeightedFlyGraph.prototype.cljs$core$IMeta$_meta$arity$1 = (function (this__4383__auto__){
@@ -3327,10 +3327,10 @@ return h__4243__auto____$1;
 }
 });
 
-loom.graph.WeightedFlyGraph.prototype.cljs$core$IEquiv$_equiv$arity$2 = (function (this34185,other34186){
+loom.graph.WeightedFlyGraph.prototype.cljs$core$IEquiv$_equiv$arity$2 = (function (this35235,other35236){
 var self__ = this;
-var this34185__$1 = this;
-return (((!((other34186 == null)))) && ((this34185__$1.constructor === other34186.constructor)) && (cljs.core._EQ_.call(null,this34185__$1.fnodes,other34186.fnodes)) && (cljs.core._EQ_.call(null,this34185__$1.fedges,other34186.fedges)) && (cljs.core._EQ_.call(null,this34185__$1.fsuccessors,other34186.fsuccessors)) && (cljs.core._EQ_.call(null,this34185__$1.fweight,other34186.fweight)) && (cljs.core._EQ_.call(null,this34185__$1.start,other34186.start)) && (cljs.core._EQ_.call(null,this34185__$1.__extmap,other34186.__extmap)));
+var this35235__$1 = this;
+return (((!((other35236 == null)))) && ((this35235__$1.constructor === other35236.constructor)) && (cljs.core._EQ_.call(null,this35235__$1.fnodes,other35236.fnodes)) && (cljs.core._EQ_.call(null,this35235__$1.fedges,other35236.fedges)) && (cljs.core._EQ_.call(null,this35235__$1.fsuccessors,other35236.fsuccessors)) && (cljs.core._EQ_.call(null,this35235__$1.fweight,other35236.fweight)) && (cljs.core._EQ_.call(null,this35235__$1.start,other35236.start)) && (cljs.core._EQ_.call(null,this35235__$1.__extmap,other35236.__extmap)));
 });
 
 loom.graph.WeightedFlyGraph.prototype.cljs$core$IMap$_dissoc$arity$2 = (function (this__4394__auto__,k__4395__auto__){
@@ -3343,27 +3343,27 @@ return (new loom.graph.WeightedFlyGraph(self__.fnodes,self__.fedges,self__.fsucc
 }
 });
 
-loom.graph.WeightedFlyGraph.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__4392__auto__,k__4393__auto__,G__34183){
+loom.graph.WeightedFlyGraph.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__4392__auto__,k__4393__auto__,G__35233){
 var self__ = this;
 var this__4392__auto____$1 = this;
-var pred__34193 = cljs.core.keyword_identical_QMARK_;
-var expr__34194 = k__4393__auto__;
-if(cljs.core.truth_(pred__34193.call(null,new cljs.core.Keyword(null,"fnodes","fnodes",-635833493),expr__34194))){
-return (new loom.graph.WeightedFlyGraph(G__34183,self__.fedges,self__.fsuccessors,self__.fweight,self__.start,self__.__meta,self__.__extmap,null));
+var pred__35243 = cljs.core.keyword_identical_QMARK_;
+var expr__35244 = k__4393__auto__;
+if(cljs.core.truth_(pred__35243.call(null,new cljs.core.Keyword(null,"fnodes","fnodes",-635833493),expr__35244))){
+return (new loom.graph.WeightedFlyGraph(G__35233,self__.fedges,self__.fsuccessors,self__.fweight,self__.start,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_(pred__34193.call(null,new cljs.core.Keyword(null,"fedges","fedges",499673923),expr__34194))){
-return (new loom.graph.WeightedFlyGraph(self__.fnodes,G__34183,self__.fsuccessors,self__.fweight,self__.start,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_(pred__35243.call(null,new cljs.core.Keyword(null,"fedges","fedges",499673923),expr__35244))){
+return (new loom.graph.WeightedFlyGraph(self__.fnodes,G__35233,self__.fsuccessors,self__.fweight,self__.start,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_(pred__34193.call(null,new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207),expr__34194))){
-return (new loom.graph.WeightedFlyGraph(self__.fnodes,self__.fedges,G__34183,self__.fweight,self__.start,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_(pred__35243.call(null,new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207),expr__35244))){
+return (new loom.graph.WeightedFlyGraph(self__.fnodes,self__.fedges,G__35233,self__.fweight,self__.start,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_(pred__34193.call(null,new cljs.core.Keyword(null,"fweight","fweight",1299924141),expr__34194))){
-return (new loom.graph.WeightedFlyGraph(self__.fnodes,self__.fedges,self__.fsuccessors,G__34183,self__.start,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_(pred__35243.call(null,new cljs.core.Keyword(null,"fweight","fweight",1299924141),expr__35244))){
+return (new loom.graph.WeightedFlyGraph(self__.fnodes,self__.fedges,self__.fsuccessors,G__35233,self__.start,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_(pred__34193.call(null,new cljs.core.Keyword(null,"start","start",-355208981),expr__34194))){
-return (new loom.graph.WeightedFlyGraph(self__.fnodes,self__.fedges,self__.fsuccessors,self__.fweight,G__34183,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_(pred__35243.call(null,new cljs.core.Keyword(null,"start","start",-355208981),expr__35244))){
+return (new loom.graph.WeightedFlyGraph(self__.fnodes,self__.fedges,self__.fsuccessors,self__.fweight,G__35233,self__.__meta,self__.__extmap,null));
 } else {
-return (new loom.graph.WeightedFlyGraph(self__.fnodes,self__.fedges,self__.fsuccessors,self__.fweight,self__.start,self__.__meta,cljs.core.assoc.call(null,self__.__extmap,k__4393__auto__,G__34183),null));
+return (new loom.graph.WeightedFlyGraph(self__.fnodes,self__.fedges,self__.fsuccessors,self__.fweight,self__.start,self__.__meta,cljs.core.assoc.call(null,self__.__extmap,k__4393__auto__,G__35233),null));
 }
 }
 }
@@ -3377,10 +3377,10 @@ var this__4397__auto____$1 = this;
 return cljs.core.seq.call(null,cljs.core.concat.call(null,new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.MapEntry(new cljs.core.Keyword(null,"fnodes","fnodes",-635833493),self__.fnodes,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"fedges","fedges",499673923),self__.fedges,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207),self__.fsuccessors,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"fweight","fweight",1299924141),self__.fweight,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"start","start",-355208981),self__.start,null))], null),self__.__extmap));
 });
 
-loom.graph.WeightedFlyGraph.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__4384__auto__,G__34183){
+loom.graph.WeightedFlyGraph.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__4384__auto__,G__35233){
 var self__ = this;
 var this__4384__auto____$1 = this;
-return (new loom.graph.WeightedFlyGraph(self__.fnodes,self__.fedges,self__.fsuccessors,self__.fweight,self__.start,G__34183,self__.__extmap,self__.__hash));
+return (new loom.graph.WeightedFlyGraph(self__.fnodes,self__.fedges,self__.fsuccessors,self__.fweight,self__.start,G__35233,self__.__extmap,self__.__hash));
 });
 
 loom.graph.WeightedFlyGraph.prototype.cljs$core$ICollection$_conj$arity$2 = (function (this__4390__auto__,entry__4391__auto__){
@@ -3417,15 +3417,15 @@ return (new loom.graph.WeightedFlyGraph(fnodes,fedges,fsuccessors,fweight,start,
 /**
  * Factory function for loom.graph/WeightedFlyGraph, taking a map of keywords to field values.
  */
-loom.graph.map__GT_WeightedFlyGraph = (function loom$graph$map__GT_WeightedFlyGraph(G__34187){
-var extmap__4424__auto__ = (function (){var G__34196 = cljs.core.dissoc.call(null,G__34187,new cljs.core.Keyword(null,"fnodes","fnodes",-635833493),new cljs.core.Keyword(null,"fedges","fedges",499673923),new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207),new cljs.core.Keyword(null,"fweight","fweight",1299924141),new cljs.core.Keyword(null,"start","start",-355208981));
-if(cljs.core.record_QMARK_.call(null,G__34187)){
-return cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,G__34196);
+loom.graph.map__GT_WeightedFlyGraph = (function loom$graph$map__GT_WeightedFlyGraph(G__35237){
+var extmap__4424__auto__ = (function (){var G__35246 = cljs.core.dissoc.call(null,G__35237,new cljs.core.Keyword(null,"fnodes","fnodes",-635833493),new cljs.core.Keyword(null,"fedges","fedges",499673923),new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207),new cljs.core.Keyword(null,"fweight","fweight",1299924141),new cljs.core.Keyword(null,"start","start",-355208981));
+if(cljs.core.record_QMARK_.call(null,G__35237)){
+return cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,G__35246);
 } else {
-return G__34196;
+return G__35246;
 }
 })();
-return (new loom.graph.WeightedFlyGraph(new cljs.core.Keyword(null,"fnodes","fnodes",-635833493).cljs$core$IFn$_invoke$arity$1(G__34187),new cljs.core.Keyword(null,"fedges","fedges",499673923).cljs$core$IFn$_invoke$arity$1(G__34187),new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207).cljs$core$IFn$_invoke$arity$1(G__34187),new cljs.core.Keyword(null,"fweight","fweight",1299924141).cljs$core$IFn$_invoke$arity$1(G__34187),new cljs.core.Keyword(null,"start","start",-355208981).cljs$core$IFn$_invoke$arity$1(G__34187),null,cljs.core.not_empty.call(null,extmap__4424__auto__),null));
+return (new loom.graph.WeightedFlyGraph(new cljs.core.Keyword(null,"fnodes","fnodes",-635833493).cljs$core$IFn$_invoke$arity$1(G__35237),new cljs.core.Keyword(null,"fedges","fedges",499673923).cljs$core$IFn$_invoke$arity$1(G__35237),new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207).cljs$core$IFn$_invoke$arity$1(G__35237),new cljs.core.Keyword(null,"fweight","fweight",1299924141).cljs$core$IFn$_invoke$arity$1(G__35237),new cljs.core.Keyword(null,"start","start",-355208981).cljs$core$IFn$_invoke$arity$1(G__35237),null,cljs.core.not_empty.call(null,extmap__4424__auto__),null));
 });
 
 
@@ -3466,12 +3466,12 @@ var this__4385__auto____$1 = this;
 return this__4385__auto____$1.cljs$core$ILookup$_lookup$arity$3(null,k__4386__auto__,null);
 });
 
-loom.graph.WeightedFlyDigraph.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__4387__auto__,k34199,else__4388__auto__){
+loom.graph.WeightedFlyDigraph.prototype.cljs$core$ILookup$_lookup$arity$3 = (function (this__4387__auto__,k35249,else__4388__auto__){
 var self__ = this;
 var this__4387__auto____$1 = this;
-var G__34203 = k34199;
-var G__34203__$1 = (((G__34203 instanceof cljs.core.Keyword))?G__34203.fqn:null);
-switch (G__34203__$1) {
+var G__35253 = k35249;
+var G__35253__$1 = (((G__35253 instanceof cljs.core.Keyword))?G__35253.fqn:null);
+switch (G__35253__$1) {
 case "fnodes":
 return self__.fnodes;
 
@@ -3497,7 +3497,7 @@ return self__.start;
 
 break;
 default:
-return cljs.core.get.call(null,self__.__extmap,k34199,else__4388__auto__);
+return cljs.core.get.call(null,self__.__extmap,k35249,else__4388__auto__);
 
 }
 });
@@ -3506,10 +3506,10 @@ loom.graph.WeightedFlyDigraph.prototype.cljs$core$IKVReduce$_kv_reduce$arity$3 =
 var self__ = this;
 var this__4404__auto____$1 = this;
 return cljs.core.reduce.call(null,((function (this__4404__auto____$1){
-return (function (ret__4407__auto__,p__34204){
-var vec__34205 = p__34204;
-var k__4408__auto__ = cljs.core.nth.call(null,vec__34205,(0),null);
-var v__4409__auto__ = cljs.core.nth.call(null,vec__34205,(1),null);
+return (function (ret__4407__auto__,p__35254){
+var vec__35255 = p__35254;
+var k__4408__auto__ = cljs.core.nth.call(null,vec__35255,(0),null);
+var v__4409__auto__ = cljs.core.nth.call(null,vec__35255,(1),null);
 return f__4405__auto__.call(null,ret__4407__auto__,k__4408__auto__,v__4409__auto__);
 });})(this__4404__auto____$1))
 ,init__4406__auto__,this__4404__auto____$1);
@@ -3526,10 +3526,10 @@ return cljs.core.pr_sequential_writer.call(null,writer__4400__auto__,cljs.core.p
 return cljs.core.pr_sequential_writer.call(null,writer__4400__auto__,pr_pair__4402__auto__,"#loom.graph.WeightedFlyDigraph{",", ","}",opts__4401__auto__,cljs.core.concat.call(null,new cljs.core.PersistentVector(null, 6, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"fnodes","fnodes",-635833493),self__.fnodes],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"fedges","fedges",499673923),self__.fedges],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207),self__.fsuccessors],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"fpredecessors","fpredecessors",-1412828934),self__.fpredecessors],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"fweight","fweight",1299924141),self__.fweight],null)),(new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[new cljs.core.Keyword(null,"start","start",-355208981),self__.start],null))], null),self__.__extmap));
 });
 
-loom.graph.WeightedFlyDigraph.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__34198){
+loom.graph.WeightedFlyDigraph.prototype.cljs$core$IIterable$_iterator$arity$1 = (function (G__35248){
 var self__ = this;
-var G__34198__$1 = this;
-return (new cljs.core.RecordIter((0),G__34198__$1,6,new cljs.core.PersistentVector(null, 6, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"fnodes","fnodes",-635833493),new cljs.core.Keyword(null,"fedges","fedges",499673923),new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207),new cljs.core.Keyword(null,"fpredecessors","fpredecessors",-1412828934),new cljs.core.Keyword(null,"fweight","fweight",1299924141),new cljs.core.Keyword(null,"start","start",-355208981)], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator.call(null,self__.__extmap):cljs.core.nil_iter.call(null))));
+var G__35248__$1 = this;
+return (new cljs.core.RecordIter((0),G__35248__$1,6,new cljs.core.PersistentVector(null, 6, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"fnodes","fnodes",-635833493),new cljs.core.Keyword(null,"fedges","fedges",499673923),new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207),new cljs.core.Keyword(null,"fpredecessors","fpredecessors",-1412828934),new cljs.core.Keyword(null,"fweight","fweight",1299924141),new cljs.core.Keyword(null,"start","start",-355208981)], null),(cljs.core.truth_(self__.__extmap)?cljs.core._iterator.call(null,self__.__extmap):cljs.core.nil_iter.call(null))));
 });
 
 loom.graph.WeightedFlyDigraph.prototype.cljs$core$IMeta$_meta$arity$1 = (function (this__4383__auto__){
@@ -3568,10 +3568,10 @@ return h__4243__auto____$1;
 }
 });
 
-loom.graph.WeightedFlyDigraph.prototype.cljs$core$IEquiv$_equiv$arity$2 = (function (this34200,other34201){
+loom.graph.WeightedFlyDigraph.prototype.cljs$core$IEquiv$_equiv$arity$2 = (function (this35250,other35251){
 var self__ = this;
-var this34200__$1 = this;
-return (((!((other34201 == null)))) && ((this34200__$1.constructor === other34201.constructor)) && (cljs.core._EQ_.call(null,this34200__$1.fnodes,other34201.fnodes)) && (cljs.core._EQ_.call(null,this34200__$1.fedges,other34201.fedges)) && (cljs.core._EQ_.call(null,this34200__$1.fsuccessors,other34201.fsuccessors)) && (cljs.core._EQ_.call(null,this34200__$1.fpredecessors,other34201.fpredecessors)) && (cljs.core._EQ_.call(null,this34200__$1.fweight,other34201.fweight)) && (cljs.core._EQ_.call(null,this34200__$1.start,other34201.start)) && (cljs.core._EQ_.call(null,this34200__$1.__extmap,other34201.__extmap)));
+var this35250__$1 = this;
+return (((!((other35251 == null)))) && ((this35250__$1.constructor === other35251.constructor)) && (cljs.core._EQ_.call(null,this35250__$1.fnodes,other35251.fnodes)) && (cljs.core._EQ_.call(null,this35250__$1.fedges,other35251.fedges)) && (cljs.core._EQ_.call(null,this35250__$1.fsuccessors,other35251.fsuccessors)) && (cljs.core._EQ_.call(null,this35250__$1.fpredecessors,other35251.fpredecessors)) && (cljs.core._EQ_.call(null,this35250__$1.fweight,other35251.fweight)) && (cljs.core._EQ_.call(null,this35250__$1.start,other35251.start)) && (cljs.core._EQ_.call(null,this35250__$1.__extmap,other35251.__extmap)));
 });
 
 loom.graph.WeightedFlyDigraph.prototype.cljs$core$IMap$_dissoc$arity$2 = (function (this__4394__auto__,k__4395__auto__){
@@ -3584,30 +3584,30 @@ return (new loom.graph.WeightedFlyDigraph(self__.fnodes,self__.fedges,self__.fsu
 }
 });
 
-loom.graph.WeightedFlyDigraph.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__4392__auto__,k__4393__auto__,G__34198){
+loom.graph.WeightedFlyDigraph.prototype.cljs$core$IAssociative$_assoc$arity$3 = (function (this__4392__auto__,k__4393__auto__,G__35248){
 var self__ = this;
 var this__4392__auto____$1 = this;
-var pred__34208 = cljs.core.keyword_identical_QMARK_;
-var expr__34209 = k__4393__auto__;
-if(cljs.core.truth_(pred__34208.call(null,new cljs.core.Keyword(null,"fnodes","fnodes",-635833493),expr__34209))){
-return (new loom.graph.WeightedFlyDigraph(G__34198,self__.fedges,self__.fsuccessors,self__.fpredecessors,self__.fweight,self__.start,self__.__meta,self__.__extmap,null));
+var pred__35258 = cljs.core.keyword_identical_QMARK_;
+var expr__35259 = k__4393__auto__;
+if(cljs.core.truth_(pred__35258.call(null,new cljs.core.Keyword(null,"fnodes","fnodes",-635833493),expr__35259))){
+return (new loom.graph.WeightedFlyDigraph(G__35248,self__.fedges,self__.fsuccessors,self__.fpredecessors,self__.fweight,self__.start,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_(pred__34208.call(null,new cljs.core.Keyword(null,"fedges","fedges",499673923),expr__34209))){
-return (new loom.graph.WeightedFlyDigraph(self__.fnodes,G__34198,self__.fsuccessors,self__.fpredecessors,self__.fweight,self__.start,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_(pred__35258.call(null,new cljs.core.Keyword(null,"fedges","fedges",499673923),expr__35259))){
+return (new loom.graph.WeightedFlyDigraph(self__.fnodes,G__35248,self__.fsuccessors,self__.fpredecessors,self__.fweight,self__.start,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_(pred__34208.call(null,new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207),expr__34209))){
-return (new loom.graph.WeightedFlyDigraph(self__.fnodes,self__.fedges,G__34198,self__.fpredecessors,self__.fweight,self__.start,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_(pred__35258.call(null,new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207),expr__35259))){
+return (new loom.graph.WeightedFlyDigraph(self__.fnodes,self__.fedges,G__35248,self__.fpredecessors,self__.fweight,self__.start,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_(pred__34208.call(null,new cljs.core.Keyword(null,"fpredecessors","fpredecessors",-1412828934),expr__34209))){
-return (new loom.graph.WeightedFlyDigraph(self__.fnodes,self__.fedges,self__.fsuccessors,G__34198,self__.fweight,self__.start,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_(pred__35258.call(null,new cljs.core.Keyword(null,"fpredecessors","fpredecessors",-1412828934),expr__35259))){
+return (new loom.graph.WeightedFlyDigraph(self__.fnodes,self__.fedges,self__.fsuccessors,G__35248,self__.fweight,self__.start,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_(pred__34208.call(null,new cljs.core.Keyword(null,"fweight","fweight",1299924141),expr__34209))){
-return (new loom.graph.WeightedFlyDigraph(self__.fnodes,self__.fedges,self__.fsuccessors,self__.fpredecessors,G__34198,self__.start,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_(pred__35258.call(null,new cljs.core.Keyword(null,"fweight","fweight",1299924141),expr__35259))){
+return (new loom.graph.WeightedFlyDigraph(self__.fnodes,self__.fedges,self__.fsuccessors,self__.fpredecessors,G__35248,self__.start,self__.__meta,self__.__extmap,null));
 } else {
-if(cljs.core.truth_(pred__34208.call(null,new cljs.core.Keyword(null,"start","start",-355208981),expr__34209))){
-return (new loom.graph.WeightedFlyDigraph(self__.fnodes,self__.fedges,self__.fsuccessors,self__.fpredecessors,self__.fweight,G__34198,self__.__meta,self__.__extmap,null));
+if(cljs.core.truth_(pred__35258.call(null,new cljs.core.Keyword(null,"start","start",-355208981),expr__35259))){
+return (new loom.graph.WeightedFlyDigraph(self__.fnodes,self__.fedges,self__.fsuccessors,self__.fpredecessors,self__.fweight,G__35248,self__.__meta,self__.__extmap,null));
 } else {
-return (new loom.graph.WeightedFlyDigraph(self__.fnodes,self__.fedges,self__.fsuccessors,self__.fpredecessors,self__.fweight,self__.start,self__.__meta,cljs.core.assoc.call(null,self__.__extmap,k__4393__auto__,G__34198),null));
+return (new loom.graph.WeightedFlyDigraph(self__.fnodes,self__.fedges,self__.fsuccessors,self__.fpredecessors,self__.fweight,self__.start,self__.__meta,cljs.core.assoc.call(null,self__.__extmap,k__4393__auto__,G__35248),null));
 }
 }
 }
@@ -3622,10 +3622,10 @@ var this__4397__auto____$1 = this;
 return cljs.core.seq.call(null,cljs.core.concat.call(null,new cljs.core.PersistentVector(null, 6, 5, cljs.core.PersistentVector.EMPTY_NODE, [(new cljs.core.MapEntry(new cljs.core.Keyword(null,"fnodes","fnodes",-635833493),self__.fnodes,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"fedges","fedges",499673923),self__.fedges,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207),self__.fsuccessors,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"fpredecessors","fpredecessors",-1412828934),self__.fpredecessors,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"fweight","fweight",1299924141),self__.fweight,null)),(new cljs.core.MapEntry(new cljs.core.Keyword(null,"start","start",-355208981),self__.start,null))], null),self__.__extmap));
 });
 
-loom.graph.WeightedFlyDigraph.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__4384__auto__,G__34198){
+loom.graph.WeightedFlyDigraph.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = (function (this__4384__auto__,G__35248){
 var self__ = this;
 var this__4384__auto____$1 = this;
-return (new loom.graph.WeightedFlyDigraph(self__.fnodes,self__.fedges,self__.fsuccessors,self__.fpredecessors,self__.fweight,self__.start,G__34198,self__.__extmap,self__.__hash));
+return (new loom.graph.WeightedFlyDigraph(self__.fnodes,self__.fedges,self__.fsuccessors,self__.fpredecessors,self__.fweight,self__.start,G__35248,self__.__extmap,self__.__hash));
 });
 
 loom.graph.WeightedFlyDigraph.prototype.cljs$core$ICollection$_conj$arity$2 = (function (this__4390__auto__,entry__4391__auto__){
@@ -3662,15 +3662,15 @@ return (new loom.graph.WeightedFlyDigraph(fnodes,fedges,fsuccessors,fpredecessor
 /**
  * Factory function for loom.graph/WeightedFlyDigraph, taking a map of keywords to field values.
  */
-loom.graph.map__GT_WeightedFlyDigraph = (function loom$graph$map__GT_WeightedFlyDigraph(G__34202){
-var extmap__4424__auto__ = (function (){var G__34211 = cljs.core.dissoc.call(null,G__34202,new cljs.core.Keyword(null,"fnodes","fnodes",-635833493),new cljs.core.Keyword(null,"fedges","fedges",499673923),new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207),new cljs.core.Keyword(null,"fpredecessors","fpredecessors",-1412828934),new cljs.core.Keyword(null,"fweight","fweight",1299924141),new cljs.core.Keyword(null,"start","start",-355208981));
-if(cljs.core.record_QMARK_.call(null,G__34202)){
-return cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,G__34211);
+loom.graph.map__GT_WeightedFlyDigraph = (function loom$graph$map__GT_WeightedFlyDigraph(G__35252){
+var extmap__4424__auto__ = (function (){var G__35261 = cljs.core.dissoc.call(null,G__35252,new cljs.core.Keyword(null,"fnodes","fnodes",-635833493),new cljs.core.Keyword(null,"fedges","fedges",499673923),new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207),new cljs.core.Keyword(null,"fpredecessors","fpredecessors",-1412828934),new cljs.core.Keyword(null,"fweight","fweight",1299924141),new cljs.core.Keyword(null,"start","start",-355208981));
+if(cljs.core.record_QMARK_.call(null,G__35252)){
+return cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,G__35261);
 } else {
-return G__34211;
+return G__35261;
 }
 })();
-return (new loom.graph.WeightedFlyDigraph(new cljs.core.Keyword(null,"fnodes","fnodes",-635833493).cljs$core$IFn$_invoke$arity$1(G__34202),new cljs.core.Keyword(null,"fedges","fedges",499673923).cljs$core$IFn$_invoke$arity$1(G__34202),new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207).cljs$core$IFn$_invoke$arity$1(G__34202),new cljs.core.Keyword(null,"fpredecessors","fpredecessors",-1412828934).cljs$core$IFn$_invoke$arity$1(G__34202),new cljs.core.Keyword(null,"fweight","fweight",1299924141).cljs$core$IFn$_invoke$arity$1(G__34202),new cljs.core.Keyword(null,"start","start",-355208981).cljs$core$IFn$_invoke$arity$1(G__34202),null,cljs.core.not_empty.call(null,extmap__4424__auto__),null));
+return (new loom.graph.WeightedFlyDigraph(new cljs.core.Keyword(null,"fnodes","fnodes",-635833493).cljs$core$IFn$_invoke$arity$1(G__35252),new cljs.core.Keyword(null,"fedges","fedges",499673923).cljs$core$IFn$_invoke$arity$1(G__35252),new cljs.core.Keyword(null,"fsuccessors","fsuccessors",1827759207).cljs$core$IFn$_invoke$arity$1(G__35252),new cljs.core.Keyword(null,"fpredecessors","fpredecessors",-1412828934).cljs$core$IFn$_invoke$arity$1(G__35252),new cljs.core.Keyword(null,"fweight","fweight",1299924141).cljs$core$IFn$_invoke$arity$1(G__35252),new cljs.core.Keyword(null,"start","start",-355208981).cljs$core$IFn$_invoke$arity$1(G__35252),null,cljs.core.not_empty.call(null,extmap__4424__auto__),null));
 });
 
 loom.graph.FlyGraph.prototype.loom$graph$Graph$ = cljs.core.PROTOCOL_SENTINEL;
@@ -3696,36 +3696,36 @@ if(cljs.core.truth_(new cljs.core.Keyword(null,"fedges","fedges",499673923).cljs
 return loom.graph.call_or_return.call(null,new cljs.core.Keyword(null,"fedges","fedges",499673923).cljs$core$IFn$_invoke$arity$1(g__$1));
 } else {
 var iter__4523__auto__ = ((function (g__$1){
-return (function loom$graph$iter__34213(s__34214){
+return (function loom$graph$iter__35263(s__35264){
 return (new cljs.core.LazySeq(null,((function (g__$1){
 return (function (){
-var s__34214__$1 = s__34214;
+var s__35264__$1 = s__35264;
 while(true){
-var temp__5720__auto__ = cljs.core.seq.call(null,s__34214__$1);
+var temp__5720__auto__ = cljs.core.seq.call(null,s__35264__$1);
 if(temp__5720__auto__){
 var xs__6277__auto__ = temp__5720__auto__;
 var n = cljs.core.first.call(null,xs__6277__auto__);
-var iterys__4519__auto__ = ((function (s__34214__$1,n,xs__6277__auto__,temp__5720__auto__,g__$1){
-return (function loom$graph$iter__34213_$_iter__34215(s__34216){
-return (new cljs.core.LazySeq(null,((function (s__34214__$1,n,xs__6277__auto__,temp__5720__auto__,g__$1){
+var iterys__4519__auto__ = ((function (s__35264__$1,n,xs__6277__auto__,temp__5720__auto__,g__$1){
+return (function loom$graph$iter__35263_$_iter__35265(s__35266){
+return (new cljs.core.LazySeq(null,((function (s__35264__$1,n,xs__6277__auto__,temp__5720__auto__,g__$1){
 return (function (){
-var s__34216__$1 = s__34216;
+var s__35266__$1 = s__35266;
 while(true){
-var temp__5720__auto____$1 = cljs.core.seq.call(null,s__34216__$1);
+var temp__5720__auto____$1 = cljs.core.seq.call(null,s__35266__$1);
 if(temp__5720__auto____$1){
-var s__34216__$2 = temp__5720__auto____$1;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__34216__$2)){
-var c__4521__auto__ = cljs.core.chunk_first.call(null,s__34216__$2);
+var s__35266__$2 = temp__5720__auto____$1;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__35266__$2)){
+var c__4521__auto__ = cljs.core.chunk_first.call(null,s__35266__$2);
 var size__4522__auto__ = cljs.core.count.call(null,c__4521__auto__);
-var b__34218 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
-if((function (){var i__34217 = (0);
+var b__35268 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
+if((function (){var i__35267 = (0);
 while(true){
-if((i__34217 < size__4522__auto__)){
-var nbr = cljs.core._nth.call(null,c__4521__auto__,i__34217);
-cljs.core.chunk_append.call(null,b__34218,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n,nbr], null));
+if((i__35267 < size__4522__auto__)){
+var nbr = cljs.core._nth.call(null,c__4521__auto__,i__35267);
+cljs.core.chunk_append.call(null,b__35268,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n,nbr], null));
 
-var G__34223 = (i__34217 + (1));
-i__34217 = G__34223;
+var G__35273 = (i__35267 + (1));
+i__35267 = G__35273;
 continue;
 } else {
 return true;
@@ -3733,29 +3733,29 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34218),loom$graph$iter__34213_$_iter__34215.call(null,cljs.core.chunk_rest.call(null,s__34216__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35268),loom$graph$iter__35263_$_iter__35265.call(null,cljs.core.chunk_rest.call(null,s__35266__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34218),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35268),null);
 }
 } else {
-var nbr = cljs.core.first.call(null,s__34216__$2);
-return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n,nbr], null),loom$graph$iter__34213_$_iter__34215.call(null,cljs.core.rest.call(null,s__34216__$2)));
+var nbr = cljs.core.first.call(null,s__35266__$2);
+return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n,nbr], null),loom$graph$iter__35263_$_iter__35265.call(null,cljs.core.rest.call(null,s__35266__$2)));
 }
 } else {
 return null;
 }
 break;
 }
-});})(s__34214__$1,n,xs__6277__auto__,temp__5720__auto__,g__$1))
+});})(s__35264__$1,n,xs__6277__auto__,temp__5720__auto__,g__$1))
 ,null,null));
-});})(s__34214__$1,n,xs__6277__auto__,temp__5720__auto__,g__$1))
+});})(s__35264__$1,n,xs__6277__auto__,temp__5720__auto__,g__$1))
 ;
 var fs__4520__auto__ = cljs.core.seq.call(null,iterys__4519__auto__.call(null,loom.graph.successors.call(null,g__$1,n)));
 if(fs__4520__auto__){
-return cljs.core.concat.call(null,fs__4520__auto__,loom$graph$iter__34213.call(null,cljs.core.rest.call(null,s__34214__$1)));
+return cljs.core.concat.call(null,fs__4520__auto__,loom$graph$iter__35263.call(null,cljs.core.rest.call(null,s__35264__$1)));
 } else {
-var G__34224 = cljs.core.rest.call(null,s__34214__$1);
-s__34214__$1 = G__34224;
+var G__35274 = cljs.core.rest.call(null,s__35264__$1);
+s__35264__$1 = G__35274;
 continue;
 }
 } else {
@@ -3784,26 +3784,26 @@ return cljs.core.count.call(null,loom.graph.successors.call(null,g__$1,node));
 loom.graph.FlyGraph.prototype.loom$graph$Graph$out_edges$arity$2 = (function (g,node){
 var g__$1 = this;
 var iter__4523__auto__ = ((function (g__$1){
-return (function loom$graph$iter__34219(s__34220){
+return (function loom$graph$iter__35269(s__35270){
 return (new cljs.core.LazySeq(null,((function (g__$1){
 return (function (){
-var s__34220__$1 = s__34220;
+var s__35270__$1 = s__35270;
 while(true){
-var temp__5720__auto__ = cljs.core.seq.call(null,s__34220__$1);
+var temp__5720__auto__ = cljs.core.seq.call(null,s__35270__$1);
 if(temp__5720__auto__){
-var s__34220__$2 = temp__5720__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__34220__$2)){
-var c__4521__auto__ = cljs.core.chunk_first.call(null,s__34220__$2);
+var s__35270__$2 = temp__5720__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__35270__$2)){
+var c__4521__auto__ = cljs.core.chunk_first.call(null,s__35270__$2);
 var size__4522__auto__ = cljs.core.count.call(null,c__4521__auto__);
-var b__34222 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
-if((function (){var i__34221 = (0);
+var b__35272 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
+if((function (){var i__35271 = (0);
 while(true){
-if((i__34221 < size__4522__auto__)){
-var n2 = cljs.core._nth.call(null,c__4521__auto__,i__34221);
-cljs.core.chunk_append.call(null,b__34222,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [node,n2], null));
+if((i__35271 < size__4522__auto__)){
+var n2 = cljs.core._nth.call(null,c__4521__auto__,i__35271);
+cljs.core.chunk_append.call(null,b__35272,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [node,n2], null));
 
-var G__34225 = (i__34221 + (1));
-i__34221 = G__34225;
+var G__35275 = (i__35271 + (1));
+i__35271 = G__35275;
 continue;
 } else {
 return true;
@@ -3811,13 +3811,13 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34222),loom$graph$iter__34219.call(null,cljs.core.chunk_rest.call(null,s__34220__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35272),loom$graph$iter__35269.call(null,cljs.core.chunk_rest.call(null,s__35270__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34222),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35272),null);
 }
 } else {
-var n2 = cljs.core.first.call(null,s__34220__$2);
-return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [node,n2], null),loom$graph$iter__34219.call(null,cljs.core.rest.call(null,s__34220__$2)));
+var n2 = cljs.core.first.call(null,s__35270__$2);
+return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [node,n2], null),loom$graph$iter__35269.call(null,cljs.core.rest.call(null,s__35270__$2)));
 }
 } else {
 return null;
@@ -3863,36 +3863,36 @@ if(cljs.core.truth_(new cljs.core.Keyword(null,"fedges","fedges",499673923).cljs
 return loom.graph.call_or_return.call(null,new cljs.core.Keyword(null,"fedges","fedges",499673923).cljs$core$IFn$_invoke$arity$1(g__$1));
 } else {
 var iter__4523__auto__ = ((function (g__$1){
-return (function loom$graph$iter__34226(s__34227){
+return (function loom$graph$iter__35276(s__35277){
 return (new cljs.core.LazySeq(null,((function (g__$1){
 return (function (){
-var s__34227__$1 = s__34227;
+var s__35277__$1 = s__35277;
 while(true){
-var temp__5720__auto__ = cljs.core.seq.call(null,s__34227__$1);
+var temp__5720__auto__ = cljs.core.seq.call(null,s__35277__$1);
 if(temp__5720__auto__){
 var xs__6277__auto__ = temp__5720__auto__;
 var n = cljs.core.first.call(null,xs__6277__auto__);
-var iterys__4519__auto__ = ((function (s__34227__$1,n,xs__6277__auto__,temp__5720__auto__,g__$1){
-return (function loom$graph$iter__34226_$_iter__34228(s__34229){
-return (new cljs.core.LazySeq(null,((function (s__34227__$1,n,xs__6277__auto__,temp__5720__auto__,g__$1){
+var iterys__4519__auto__ = ((function (s__35277__$1,n,xs__6277__auto__,temp__5720__auto__,g__$1){
+return (function loom$graph$iter__35276_$_iter__35278(s__35279){
+return (new cljs.core.LazySeq(null,((function (s__35277__$1,n,xs__6277__auto__,temp__5720__auto__,g__$1){
 return (function (){
-var s__34229__$1 = s__34229;
+var s__35279__$1 = s__35279;
 while(true){
-var temp__5720__auto____$1 = cljs.core.seq.call(null,s__34229__$1);
+var temp__5720__auto____$1 = cljs.core.seq.call(null,s__35279__$1);
 if(temp__5720__auto____$1){
-var s__34229__$2 = temp__5720__auto____$1;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__34229__$2)){
-var c__4521__auto__ = cljs.core.chunk_first.call(null,s__34229__$2);
+var s__35279__$2 = temp__5720__auto____$1;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__35279__$2)){
+var c__4521__auto__ = cljs.core.chunk_first.call(null,s__35279__$2);
 var size__4522__auto__ = cljs.core.count.call(null,c__4521__auto__);
-var b__34231 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
-if((function (){var i__34230 = (0);
+var b__35281 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
+if((function (){var i__35280 = (0);
 while(true){
-if((i__34230 < size__4522__auto__)){
-var nbr = cljs.core._nth.call(null,c__4521__auto__,i__34230);
-cljs.core.chunk_append.call(null,b__34231,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n,nbr], null));
+if((i__35280 < size__4522__auto__)){
+var nbr = cljs.core._nth.call(null,c__4521__auto__,i__35280);
+cljs.core.chunk_append.call(null,b__35281,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n,nbr], null));
 
-var G__34240 = (i__34230 + (1));
-i__34230 = G__34240;
+var G__35290 = (i__35280 + (1));
+i__35280 = G__35290;
 continue;
 } else {
 return true;
@@ -3900,29 +3900,29 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34231),loom$graph$iter__34226_$_iter__34228.call(null,cljs.core.chunk_rest.call(null,s__34229__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35281),loom$graph$iter__35276_$_iter__35278.call(null,cljs.core.chunk_rest.call(null,s__35279__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34231),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35281),null);
 }
 } else {
-var nbr = cljs.core.first.call(null,s__34229__$2);
-return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n,nbr], null),loom$graph$iter__34226_$_iter__34228.call(null,cljs.core.rest.call(null,s__34229__$2)));
+var nbr = cljs.core.first.call(null,s__35279__$2);
+return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n,nbr], null),loom$graph$iter__35276_$_iter__35278.call(null,cljs.core.rest.call(null,s__35279__$2)));
 }
 } else {
 return null;
 }
 break;
 }
-});})(s__34227__$1,n,xs__6277__auto__,temp__5720__auto__,g__$1))
+});})(s__35277__$1,n,xs__6277__auto__,temp__5720__auto__,g__$1))
 ,null,null));
-});})(s__34227__$1,n,xs__6277__auto__,temp__5720__auto__,g__$1))
+});})(s__35277__$1,n,xs__6277__auto__,temp__5720__auto__,g__$1))
 ;
 var fs__4520__auto__ = cljs.core.seq.call(null,iterys__4519__auto__.call(null,loom.graph.successors.call(null,g__$1,n)));
 if(fs__4520__auto__){
-return cljs.core.concat.call(null,fs__4520__auto__,loom$graph$iter__34226.call(null,cljs.core.rest.call(null,s__34227__$1)));
+return cljs.core.concat.call(null,fs__4520__auto__,loom$graph$iter__35276.call(null,cljs.core.rest.call(null,s__35277__$1)));
 } else {
-var G__34241 = cljs.core.rest.call(null,s__34227__$1);
-s__34227__$1 = G__34241;
+var G__35291 = cljs.core.rest.call(null,s__35277__$1);
+s__35277__$1 = G__35291;
 continue;
 }
 } else {
@@ -3951,26 +3951,26 @@ return cljs.core.count.call(null,loom.graph.successors.call(null,g__$1,node));
 loom.graph.FlyDigraph.prototype.loom$graph$Graph$out_edges$arity$2 = (function (g,node){
 var g__$1 = this;
 var iter__4523__auto__ = ((function (g__$1){
-return (function loom$graph$iter__34232(s__34233){
+return (function loom$graph$iter__35282(s__35283){
 return (new cljs.core.LazySeq(null,((function (g__$1){
 return (function (){
-var s__34233__$1 = s__34233;
+var s__35283__$1 = s__35283;
 while(true){
-var temp__5720__auto__ = cljs.core.seq.call(null,s__34233__$1);
+var temp__5720__auto__ = cljs.core.seq.call(null,s__35283__$1);
 if(temp__5720__auto__){
-var s__34233__$2 = temp__5720__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__34233__$2)){
-var c__4521__auto__ = cljs.core.chunk_first.call(null,s__34233__$2);
+var s__35283__$2 = temp__5720__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__35283__$2)){
+var c__4521__auto__ = cljs.core.chunk_first.call(null,s__35283__$2);
 var size__4522__auto__ = cljs.core.count.call(null,c__4521__auto__);
-var b__34235 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
-if((function (){var i__34234 = (0);
+var b__35285 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
+if((function (){var i__35284 = (0);
 while(true){
-if((i__34234 < size__4522__auto__)){
-var n2 = cljs.core._nth.call(null,c__4521__auto__,i__34234);
-cljs.core.chunk_append.call(null,b__34235,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [node,n2], null));
+if((i__35284 < size__4522__auto__)){
+var n2 = cljs.core._nth.call(null,c__4521__auto__,i__35284);
+cljs.core.chunk_append.call(null,b__35285,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [node,n2], null));
 
-var G__34242 = (i__34234 + (1));
-i__34234 = G__34242;
+var G__35292 = (i__35284 + (1));
+i__35284 = G__35292;
 continue;
 } else {
 return true;
@@ -3978,13 +3978,13 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34235),loom$graph$iter__34232.call(null,cljs.core.chunk_rest.call(null,s__34233__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35285),loom$graph$iter__35282.call(null,cljs.core.chunk_rest.call(null,s__35283__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34235),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35285),null);
 }
 } else {
-var n2 = cljs.core.first.call(null,s__34233__$2);
-return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [node,n2], null),loom$graph$iter__34232.call(null,cljs.core.rest.call(null,s__34233__$2)));
+var n2 = cljs.core.first.call(null,s__35283__$2);
+return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [node,n2], null),loom$graph$iter__35282.call(null,cljs.core.rest.call(null,s__35283__$2)));
 }
 } else {
 return null;
@@ -4023,26 +4023,26 @@ return cljs.core.count.call(null,loom.graph.predecessors.call(null,g__$1,node));
 loom.graph.FlyDigraph.prototype.loom$graph$Digraph$in_edges$arity$2 = (function (g,node){
 var g__$1 = this;
 var iter__4523__auto__ = ((function (g__$1){
-return (function loom$graph$iter__34236(s__34237){
+return (function loom$graph$iter__35286(s__35287){
 return (new cljs.core.LazySeq(null,((function (g__$1){
 return (function (){
-var s__34237__$1 = s__34237;
+var s__35287__$1 = s__35287;
 while(true){
-var temp__5720__auto__ = cljs.core.seq.call(null,s__34237__$1);
+var temp__5720__auto__ = cljs.core.seq.call(null,s__35287__$1);
 if(temp__5720__auto__){
-var s__34237__$2 = temp__5720__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__34237__$2)){
-var c__4521__auto__ = cljs.core.chunk_first.call(null,s__34237__$2);
+var s__35287__$2 = temp__5720__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__35287__$2)){
+var c__4521__auto__ = cljs.core.chunk_first.call(null,s__35287__$2);
 var size__4522__auto__ = cljs.core.count.call(null,c__4521__auto__);
-var b__34239 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
-if((function (){var i__34238 = (0);
+var b__35289 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
+if((function (){var i__35288 = (0);
 while(true){
-if((i__34238 < size__4522__auto__)){
-var n2 = cljs.core._nth.call(null,c__4521__auto__,i__34238);
-cljs.core.chunk_append.call(null,b__34239,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n2,node], null));
+if((i__35288 < size__4522__auto__)){
+var n2 = cljs.core._nth.call(null,c__4521__auto__,i__35288);
+cljs.core.chunk_append.call(null,b__35289,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n2,node], null));
 
-var G__34243 = (i__34238 + (1));
-i__34238 = G__34243;
+var G__35293 = (i__35288 + (1));
+i__35288 = G__35293;
 continue;
 } else {
 return true;
@@ -4050,13 +4050,13 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34239),loom$graph$iter__34236.call(null,cljs.core.chunk_rest.call(null,s__34237__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35289),loom$graph$iter__35286.call(null,cljs.core.chunk_rest.call(null,s__35287__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34239),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35289),null);
 }
 } else {
-var n2 = cljs.core.first.call(null,s__34237__$2);
-return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n2,node], null),loom$graph$iter__34236.call(null,cljs.core.rest.call(null,s__34237__$2)));
+var n2 = cljs.core.first.call(null,s__35287__$2);
+return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n2,node], null),loom$graph$iter__35286.call(null,cljs.core.rest.call(null,s__35287__$2)));
 }
 } else {
 return null;
@@ -4092,36 +4092,36 @@ if(cljs.core.truth_(new cljs.core.Keyword(null,"fedges","fedges",499673923).cljs
 return loom.graph.call_or_return.call(null,new cljs.core.Keyword(null,"fedges","fedges",499673923).cljs$core$IFn$_invoke$arity$1(g__$1));
 } else {
 var iter__4523__auto__ = ((function (g__$1){
-return (function loom$graph$iter__34244(s__34245){
+return (function loom$graph$iter__35294(s__35295){
 return (new cljs.core.LazySeq(null,((function (g__$1){
 return (function (){
-var s__34245__$1 = s__34245;
+var s__35295__$1 = s__35295;
 while(true){
-var temp__5720__auto__ = cljs.core.seq.call(null,s__34245__$1);
+var temp__5720__auto__ = cljs.core.seq.call(null,s__35295__$1);
 if(temp__5720__auto__){
 var xs__6277__auto__ = temp__5720__auto__;
 var n = cljs.core.first.call(null,xs__6277__auto__);
-var iterys__4519__auto__ = ((function (s__34245__$1,n,xs__6277__auto__,temp__5720__auto__,g__$1){
-return (function loom$graph$iter__34244_$_iter__34246(s__34247){
-return (new cljs.core.LazySeq(null,((function (s__34245__$1,n,xs__6277__auto__,temp__5720__auto__,g__$1){
+var iterys__4519__auto__ = ((function (s__35295__$1,n,xs__6277__auto__,temp__5720__auto__,g__$1){
+return (function loom$graph$iter__35294_$_iter__35296(s__35297){
+return (new cljs.core.LazySeq(null,((function (s__35295__$1,n,xs__6277__auto__,temp__5720__auto__,g__$1){
 return (function (){
-var s__34247__$1 = s__34247;
+var s__35297__$1 = s__35297;
 while(true){
-var temp__5720__auto____$1 = cljs.core.seq.call(null,s__34247__$1);
+var temp__5720__auto____$1 = cljs.core.seq.call(null,s__35297__$1);
 if(temp__5720__auto____$1){
-var s__34247__$2 = temp__5720__auto____$1;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__34247__$2)){
-var c__4521__auto__ = cljs.core.chunk_first.call(null,s__34247__$2);
+var s__35297__$2 = temp__5720__auto____$1;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__35297__$2)){
+var c__4521__auto__ = cljs.core.chunk_first.call(null,s__35297__$2);
 var size__4522__auto__ = cljs.core.count.call(null,c__4521__auto__);
-var b__34249 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
-if((function (){var i__34248 = (0);
+var b__35299 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
+if((function (){var i__35298 = (0);
 while(true){
-if((i__34248 < size__4522__auto__)){
-var nbr = cljs.core._nth.call(null,c__4521__auto__,i__34248);
-cljs.core.chunk_append.call(null,b__34249,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n,nbr], null));
+if((i__35298 < size__4522__auto__)){
+var nbr = cljs.core._nth.call(null,c__4521__auto__,i__35298);
+cljs.core.chunk_append.call(null,b__35299,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n,nbr], null));
 
-var G__34254 = (i__34248 + (1));
-i__34248 = G__34254;
+var G__35304 = (i__35298 + (1));
+i__35298 = G__35304;
 continue;
 } else {
 return true;
@@ -4129,29 +4129,29 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34249),loom$graph$iter__34244_$_iter__34246.call(null,cljs.core.chunk_rest.call(null,s__34247__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35299),loom$graph$iter__35294_$_iter__35296.call(null,cljs.core.chunk_rest.call(null,s__35297__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34249),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35299),null);
 }
 } else {
-var nbr = cljs.core.first.call(null,s__34247__$2);
-return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n,nbr], null),loom$graph$iter__34244_$_iter__34246.call(null,cljs.core.rest.call(null,s__34247__$2)));
+var nbr = cljs.core.first.call(null,s__35297__$2);
+return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n,nbr], null),loom$graph$iter__35294_$_iter__35296.call(null,cljs.core.rest.call(null,s__35297__$2)));
 }
 } else {
 return null;
 }
 break;
 }
-});})(s__34245__$1,n,xs__6277__auto__,temp__5720__auto__,g__$1))
+});})(s__35295__$1,n,xs__6277__auto__,temp__5720__auto__,g__$1))
 ,null,null));
-});})(s__34245__$1,n,xs__6277__auto__,temp__5720__auto__,g__$1))
+});})(s__35295__$1,n,xs__6277__auto__,temp__5720__auto__,g__$1))
 ;
 var fs__4520__auto__ = cljs.core.seq.call(null,iterys__4519__auto__.call(null,loom.graph.successors.call(null,g__$1,n)));
 if(fs__4520__auto__){
-return cljs.core.concat.call(null,fs__4520__auto__,loom$graph$iter__34244.call(null,cljs.core.rest.call(null,s__34245__$1)));
+return cljs.core.concat.call(null,fs__4520__auto__,loom$graph$iter__35294.call(null,cljs.core.rest.call(null,s__35295__$1)));
 } else {
-var G__34255 = cljs.core.rest.call(null,s__34245__$1);
-s__34245__$1 = G__34255;
+var G__35305 = cljs.core.rest.call(null,s__35295__$1);
+s__35295__$1 = G__35305;
 continue;
 }
 } else {
@@ -4180,26 +4180,26 @@ return cljs.core.count.call(null,loom.graph.successors.call(null,g__$1,node));
 loom.graph.WeightedFlyGraph.prototype.loom$graph$Graph$out_edges$arity$2 = (function (g,node){
 var g__$1 = this;
 var iter__4523__auto__ = ((function (g__$1){
-return (function loom$graph$iter__34250(s__34251){
+return (function loom$graph$iter__35300(s__35301){
 return (new cljs.core.LazySeq(null,((function (g__$1){
 return (function (){
-var s__34251__$1 = s__34251;
+var s__35301__$1 = s__35301;
 while(true){
-var temp__5720__auto__ = cljs.core.seq.call(null,s__34251__$1);
+var temp__5720__auto__ = cljs.core.seq.call(null,s__35301__$1);
 if(temp__5720__auto__){
-var s__34251__$2 = temp__5720__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__34251__$2)){
-var c__4521__auto__ = cljs.core.chunk_first.call(null,s__34251__$2);
+var s__35301__$2 = temp__5720__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__35301__$2)){
+var c__4521__auto__ = cljs.core.chunk_first.call(null,s__35301__$2);
 var size__4522__auto__ = cljs.core.count.call(null,c__4521__auto__);
-var b__34253 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
-if((function (){var i__34252 = (0);
+var b__35303 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
+if((function (){var i__35302 = (0);
 while(true){
-if((i__34252 < size__4522__auto__)){
-var n2 = cljs.core._nth.call(null,c__4521__auto__,i__34252);
-cljs.core.chunk_append.call(null,b__34253,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [node,n2], null));
+if((i__35302 < size__4522__auto__)){
+var n2 = cljs.core._nth.call(null,c__4521__auto__,i__35302);
+cljs.core.chunk_append.call(null,b__35303,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [node,n2], null));
 
-var G__34256 = (i__34252 + (1));
-i__34252 = G__34256;
+var G__35306 = (i__35302 + (1));
+i__35302 = G__35306;
 continue;
 } else {
 return true;
@@ -4207,13 +4207,13 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34253),loom$graph$iter__34250.call(null,cljs.core.chunk_rest.call(null,s__34251__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35303),loom$graph$iter__35300.call(null,cljs.core.chunk_rest.call(null,s__35301__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34253),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35303),null);
 }
 } else {
-var n2 = cljs.core.first.call(null,s__34251__$2);
-return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [node,n2], null),loom$graph$iter__34250.call(null,cljs.core.rest.call(null,s__34251__$2)));
+var n2 = cljs.core.first.call(null,s__35301__$2);
+return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [node,n2], null),loom$graph$iter__35300.call(null,cljs.core.rest.call(null,s__35301__$2)));
 }
 } else {
 return null;
@@ -4271,36 +4271,36 @@ if(cljs.core.truth_(new cljs.core.Keyword(null,"fedges","fedges",499673923).cljs
 return loom.graph.call_or_return.call(null,new cljs.core.Keyword(null,"fedges","fedges",499673923).cljs$core$IFn$_invoke$arity$1(g__$1));
 } else {
 var iter__4523__auto__ = ((function (g__$1){
-return (function loom$graph$iter__34257(s__34258){
+return (function loom$graph$iter__35307(s__35308){
 return (new cljs.core.LazySeq(null,((function (g__$1){
 return (function (){
-var s__34258__$1 = s__34258;
+var s__35308__$1 = s__35308;
 while(true){
-var temp__5720__auto__ = cljs.core.seq.call(null,s__34258__$1);
+var temp__5720__auto__ = cljs.core.seq.call(null,s__35308__$1);
 if(temp__5720__auto__){
 var xs__6277__auto__ = temp__5720__auto__;
 var n = cljs.core.first.call(null,xs__6277__auto__);
-var iterys__4519__auto__ = ((function (s__34258__$1,n,xs__6277__auto__,temp__5720__auto__,g__$1){
-return (function loom$graph$iter__34257_$_iter__34259(s__34260){
-return (new cljs.core.LazySeq(null,((function (s__34258__$1,n,xs__6277__auto__,temp__5720__auto__,g__$1){
+var iterys__4519__auto__ = ((function (s__35308__$1,n,xs__6277__auto__,temp__5720__auto__,g__$1){
+return (function loom$graph$iter__35307_$_iter__35309(s__35310){
+return (new cljs.core.LazySeq(null,((function (s__35308__$1,n,xs__6277__auto__,temp__5720__auto__,g__$1){
 return (function (){
-var s__34260__$1 = s__34260;
+var s__35310__$1 = s__35310;
 while(true){
-var temp__5720__auto____$1 = cljs.core.seq.call(null,s__34260__$1);
+var temp__5720__auto____$1 = cljs.core.seq.call(null,s__35310__$1);
 if(temp__5720__auto____$1){
-var s__34260__$2 = temp__5720__auto____$1;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__34260__$2)){
-var c__4521__auto__ = cljs.core.chunk_first.call(null,s__34260__$2);
+var s__35310__$2 = temp__5720__auto____$1;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__35310__$2)){
+var c__4521__auto__ = cljs.core.chunk_first.call(null,s__35310__$2);
 var size__4522__auto__ = cljs.core.count.call(null,c__4521__auto__);
-var b__34262 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
-if((function (){var i__34261 = (0);
+var b__35312 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
+if((function (){var i__35311 = (0);
 while(true){
-if((i__34261 < size__4522__auto__)){
-var nbr = cljs.core._nth.call(null,c__4521__auto__,i__34261);
-cljs.core.chunk_append.call(null,b__34262,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n,nbr], null));
+if((i__35311 < size__4522__auto__)){
+var nbr = cljs.core._nth.call(null,c__4521__auto__,i__35311);
+cljs.core.chunk_append.call(null,b__35312,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n,nbr], null));
 
-var G__34271 = (i__34261 + (1));
-i__34261 = G__34271;
+var G__35321 = (i__35311 + (1));
+i__35311 = G__35321;
 continue;
 } else {
 return true;
@@ -4308,29 +4308,29 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34262),loom$graph$iter__34257_$_iter__34259.call(null,cljs.core.chunk_rest.call(null,s__34260__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35312),loom$graph$iter__35307_$_iter__35309.call(null,cljs.core.chunk_rest.call(null,s__35310__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34262),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35312),null);
 }
 } else {
-var nbr = cljs.core.first.call(null,s__34260__$2);
-return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n,nbr], null),loom$graph$iter__34257_$_iter__34259.call(null,cljs.core.rest.call(null,s__34260__$2)));
+var nbr = cljs.core.first.call(null,s__35310__$2);
+return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n,nbr], null),loom$graph$iter__35307_$_iter__35309.call(null,cljs.core.rest.call(null,s__35310__$2)));
 }
 } else {
 return null;
 }
 break;
 }
-});})(s__34258__$1,n,xs__6277__auto__,temp__5720__auto__,g__$1))
+});})(s__35308__$1,n,xs__6277__auto__,temp__5720__auto__,g__$1))
 ,null,null));
-});})(s__34258__$1,n,xs__6277__auto__,temp__5720__auto__,g__$1))
+});})(s__35308__$1,n,xs__6277__auto__,temp__5720__auto__,g__$1))
 ;
 var fs__4520__auto__ = cljs.core.seq.call(null,iterys__4519__auto__.call(null,loom.graph.successors.call(null,g__$1,n)));
 if(fs__4520__auto__){
-return cljs.core.concat.call(null,fs__4520__auto__,loom$graph$iter__34257.call(null,cljs.core.rest.call(null,s__34258__$1)));
+return cljs.core.concat.call(null,fs__4520__auto__,loom$graph$iter__35307.call(null,cljs.core.rest.call(null,s__35308__$1)));
 } else {
-var G__34272 = cljs.core.rest.call(null,s__34258__$1);
-s__34258__$1 = G__34272;
+var G__35322 = cljs.core.rest.call(null,s__35308__$1);
+s__35308__$1 = G__35322;
 continue;
 }
 } else {
@@ -4359,26 +4359,26 @@ return cljs.core.count.call(null,loom.graph.successors.call(null,g__$1,node));
 loom.graph.WeightedFlyDigraph.prototype.loom$graph$Graph$out_edges$arity$2 = (function (g,node){
 var g__$1 = this;
 var iter__4523__auto__ = ((function (g__$1){
-return (function loom$graph$iter__34263(s__34264){
+return (function loom$graph$iter__35313(s__35314){
 return (new cljs.core.LazySeq(null,((function (g__$1){
 return (function (){
-var s__34264__$1 = s__34264;
+var s__35314__$1 = s__35314;
 while(true){
-var temp__5720__auto__ = cljs.core.seq.call(null,s__34264__$1);
+var temp__5720__auto__ = cljs.core.seq.call(null,s__35314__$1);
 if(temp__5720__auto__){
-var s__34264__$2 = temp__5720__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__34264__$2)){
-var c__4521__auto__ = cljs.core.chunk_first.call(null,s__34264__$2);
+var s__35314__$2 = temp__5720__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__35314__$2)){
+var c__4521__auto__ = cljs.core.chunk_first.call(null,s__35314__$2);
 var size__4522__auto__ = cljs.core.count.call(null,c__4521__auto__);
-var b__34266 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
-if((function (){var i__34265 = (0);
+var b__35316 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
+if((function (){var i__35315 = (0);
 while(true){
-if((i__34265 < size__4522__auto__)){
-var n2 = cljs.core._nth.call(null,c__4521__auto__,i__34265);
-cljs.core.chunk_append.call(null,b__34266,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [node,n2], null));
+if((i__35315 < size__4522__auto__)){
+var n2 = cljs.core._nth.call(null,c__4521__auto__,i__35315);
+cljs.core.chunk_append.call(null,b__35316,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [node,n2], null));
 
-var G__34273 = (i__34265 + (1));
-i__34265 = G__34273;
+var G__35323 = (i__35315 + (1));
+i__35315 = G__35323;
 continue;
 } else {
 return true;
@@ -4386,13 +4386,13 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34266),loom$graph$iter__34263.call(null,cljs.core.chunk_rest.call(null,s__34264__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35316),loom$graph$iter__35313.call(null,cljs.core.chunk_rest.call(null,s__35314__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34266),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35316),null);
 }
 } else {
-var n2 = cljs.core.first.call(null,s__34264__$2);
-return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [node,n2], null),loom$graph$iter__34263.call(null,cljs.core.rest.call(null,s__34264__$2)));
+var n2 = cljs.core.first.call(null,s__35314__$2);
+return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [node,n2], null),loom$graph$iter__35313.call(null,cljs.core.rest.call(null,s__35314__$2)));
 }
 } else {
 return null;
@@ -4431,26 +4431,26 @@ return cljs.core.count.call(null,loom.graph.predecessors.call(null,g__$1,node));
 loom.graph.WeightedFlyDigraph.prototype.loom$graph$Digraph$in_edges$arity$2 = (function (g,node){
 var g__$1 = this;
 var iter__4523__auto__ = ((function (g__$1){
-return (function loom$graph$iter__34267(s__34268){
+return (function loom$graph$iter__35317(s__35318){
 return (new cljs.core.LazySeq(null,((function (g__$1){
 return (function (){
-var s__34268__$1 = s__34268;
+var s__35318__$1 = s__35318;
 while(true){
-var temp__5720__auto__ = cljs.core.seq.call(null,s__34268__$1);
+var temp__5720__auto__ = cljs.core.seq.call(null,s__35318__$1);
 if(temp__5720__auto__){
-var s__34268__$2 = temp__5720__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__34268__$2)){
-var c__4521__auto__ = cljs.core.chunk_first.call(null,s__34268__$2);
+var s__35318__$2 = temp__5720__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__35318__$2)){
+var c__4521__auto__ = cljs.core.chunk_first.call(null,s__35318__$2);
 var size__4522__auto__ = cljs.core.count.call(null,c__4521__auto__);
-var b__34270 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
-if((function (){var i__34269 = (0);
+var b__35320 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
+if((function (){var i__35319 = (0);
 while(true){
-if((i__34269 < size__4522__auto__)){
-var n2 = cljs.core._nth.call(null,c__4521__auto__,i__34269);
-cljs.core.chunk_append.call(null,b__34270,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n2,node], null));
+if((i__35319 < size__4522__auto__)){
+var n2 = cljs.core._nth.call(null,c__4521__auto__,i__35319);
+cljs.core.chunk_append.call(null,b__35320,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n2,node], null));
 
-var G__34274 = (i__34269 + (1));
-i__34269 = G__34274;
+var G__35324 = (i__35319 + (1));
+i__35319 = G__35324;
 continue;
 } else {
 return true;
@@ -4458,13 +4458,13 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34270),loom$graph$iter__34267.call(null,cljs.core.chunk_rest.call(null,s__34268__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35320),loom$graph$iter__35317.call(null,cljs.core.chunk_rest.call(null,s__35318__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34270),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35320),null);
 }
 } else {
-var n2 = cljs.core.first.call(null,s__34268__$2);
-return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n2,node], null),loom$graph$iter__34267.call(null,cljs.core.rest.call(null,s__34268__$2)));
+var n2 = cljs.core.first.call(null,s__35318__$2);
+return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n2,node], null),loom$graph$iter__35317.call(null,cljs.core.rest.call(null,s__35318__$2)));
 }
 } else {
 return null;
@@ -4500,14 +4500,14 @@ return loom.graph.remove_nodes_STAR_.call(null,g,cljs.core.remove.call(null,cljs
  */
 loom.graph.add_path = (function loom$graph$add_path(var_args){
 var args__4736__auto__ = [];
-var len__4730__auto___34277 = arguments.length;
-var i__4731__auto___34278 = (0);
+var len__4730__auto___35327 = arguments.length;
+var i__4731__auto___35328 = (0);
 while(true){
-if((i__4731__auto___34278 < len__4730__auto___34277)){
-args__4736__auto__.push((arguments[i__4731__auto___34278]));
+if((i__4731__auto___35328 < len__4730__auto___35327)){
+args__4736__auto__.push((arguments[i__4731__auto___35328]));
 
-var G__34279 = (i__4731__auto___34278 + (1));
-i__4731__auto___34278 = G__34279;
+var G__35329 = (i__4731__auto___35328 + (1));
+i__4731__auto___35328 = G__35329;
 continue;
 } else {
 }
@@ -4525,11 +4525,11 @@ return loom.graph.add_edges_STAR_.call(null,g,cljs.core.partition.call(null,(2),
 loom.graph.add_path.cljs$lang$maxFixedArity = (1);
 
 /** @this {Function} */
-loom.graph.add_path.cljs$lang$applyTo = (function (seq34275){
-var G__34276 = cljs.core.first.call(null,seq34275);
-var seq34275__$1 = cljs.core.next.call(null,seq34275);
+loom.graph.add_path.cljs$lang$applyTo = (function (seq35325){
+var G__35326 = cljs.core.first.call(null,seq35325);
+var seq35325__$1 = cljs.core.next.call(null,seq35325);
 var self__4717__auto__ = this;
-return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__34276,seq34275__$1);
+return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__35326,seq35325__$1);
 });
 
 /**
@@ -4537,14 +4537,14 @@ return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__34276,seq34275
  */
 loom.graph.add_cycle = (function loom$graph$add_cycle(var_args){
 var args__4736__auto__ = [];
-var len__4730__auto___34282 = arguments.length;
-var i__4731__auto___34283 = (0);
+var len__4730__auto___35332 = arguments.length;
+var i__4731__auto___35333 = (0);
 while(true){
-if((i__4731__auto___34283 < len__4730__auto___34282)){
-args__4736__auto__.push((arguments[i__4731__auto___34283]));
+if((i__4731__auto___35333 < len__4730__auto___35332)){
+args__4736__auto__.push((arguments[i__4731__auto___35333]));
 
-var G__34284 = (i__4731__auto___34283 + (1));
-i__4731__auto___34283 = G__34284;
+var G__35334 = (i__4731__auto___35333 + (1));
+i__4731__auto___35333 = G__35334;
 continue;
 } else {
 }
@@ -4562,11 +4562,11 @@ return loom.graph.add_edges_STAR_.call(null,g,cljs.core.partition.call(null,(2),
 loom.graph.add_cycle.cljs$lang$maxFixedArity = (1);
 
 /** @this {Function} */
-loom.graph.add_cycle.cljs$lang$applyTo = (function (seq34280){
-var G__34281 = cljs.core.first.call(null,seq34280);
-var seq34280__$1 = cljs.core.next.call(null,seq34280);
+loom.graph.add_cycle.cljs$lang$applyTo = (function (seq35330){
+var G__35331 = cljs.core.first.call(null,seq35330);
+var seq35330__$1 = cljs.core.next.call(null,seq35330);
 var self__4717__auto__ = this;
-return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__34281,seq34280__$1);
+return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__35331,seq35330__$1);
 });
 
 /**
@@ -4647,14 +4647,14 @@ return cljs.core.native_satisfies_QMARK_.call(null,loom.graph.EditableGraph,g);
  */
 loom.graph.build_graph = (function loom$graph$build_graph(var_args){
 var args__4736__auto__ = [];
-var len__4730__auto___34359 = arguments.length;
-var i__4731__auto___34360 = (0);
+var len__4730__auto___35409 = arguments.length;
+var i__4731__auto___35410 = (0);
 while(true){
-if((i__4731__auto___34360 < len__4730__auto___34359)){
-args__4736__auto__.push((arguments[i__4731__auto___34360]));
+if((i__4731__auto___35410 < len__4730__auto___35409)){
+args__4736__auto__.push((arguments[i__4731__auto___35410]));
 
-var G__34361 = (i__4731__auto___34360 + (1));
-i__4731__auto___34360 = G__34361;
+var G__35411 = (i__4731__auto___35410 + (1));
+i__4731__auto___35410 = G__35411;
 continue;
 } else {
 }
@@ -4669,27 +4669,27 @@ loom.graph.build_graph.cljs$core$IFn$_invoke$arity$variadic = (function (g,inits
 var build = (function loom$graph$build(g__$1,init){
 if(loom.graph.graph_QMARK_.call(null,init)){
 if(((loom.graph.weighted_QMARK_.call(null,g__$1)) && (loom.graph.weighted_QMARK_.call(null,init)))){
-return cljs.core.assoc.call(null,cljs.core.reduce.call(null,loom.graph.add_edges,loom.graph.add_nodes_STAR_.call(null,g__$1,loom.graph.nodes.call(null,init)),(function (){var iter__4523__auto__ = (function loom$graph$build_$_iter__34325(s__34326){
+return cljs.core.assoc.call(null,cljs.core.reduce.call(null,loom.graph.add_edges,loom.graph.add_nodes_STAR_.call(null,g__$1,loom.graph.nodes.call(null,init)),(function (){var iter__4523__auto__ = (function loom$graph$build_$_iter__35375(s__35376){
 return (new cljs.core.LazySeq(null,(function (){
-var s__34326__$1 = s__34326;
+var s__35376__$1 = s__35376;
 while(true){
-var temp__5720__auto__ = cljs.core.seq.call(null,s__34326__$1);
+var temp__5720__auto__ = cljs.core.seq.call(null,s__35376__$1);
 if(temp__5720__auto__){
-var s__34326__$2 = temp__5720__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__34326__$2)){
-var c__4521__auto__ = cljs.core.chunk_first.call(null,s__34326__$2);
+var s__35376__$2 = temp__5720__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__35376__$2)){
+var c__4521__auto__ = cljs.core.chunk_first.call(null,s__35376__$2);
 var size__4522__auto__ = cljs.core.count.call(null,c__4521__auto__);
-var b__34328 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
-if((function (){var i__34327 = (0);
+var b__35378 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
+if((function (){var i__35377 = (0);
 while(true){
-if((i__34327 < size__4522__auto__)){
-var vec__34329 = cljs.core._nth.call(null,c__4521__auto__,i__34327);
-var n1 = cljs.core.nth.call(null,vec__34329,(0),null);
-var n2 = cljs.core.nth.call(null,vec__34329,(1),null);
-cljs.core.chunk_append.call(null,b__34328,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [n1,n2,loom.graph.weight.call(null,init,n1,n2)], null));
+if((i__35377 < size__4522__auto__)){
+var vec__35379 = cljs.core._nth.call(null,c__4521__auto__,i__35377);
+var n1 = cljs.core.nth.call(null,vec__35379,(0),null);
+var n2 = cljs.core.nth.call(null,vec__35379,(1),null);
+cljs.core.chunk_append.call(null,b__35378,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [n1,n2,loom.graph.weight.call(null,init,n1,n2)], null));
 
-var G__34362 = (i__34327 + (1));
-i__34327 = G__34362;
+var G__35412 = (i__35377 + (1));
+i__35377 = G__35412;
 continue;
 } else {
 return true;
@@ -4697,15 +4697,15 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34328),loom$graph$build_$_iter__34325.call(null,cljs.core.chunk_rest.call(null,s__34326__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35378),loom$graph$build_$_iter__35375.call(null,cljs.core.chunk_rest.call(null,s__35376__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34328),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35378),null);
 }
 } else {
-var vec__34332 = cljs.core.first.call(null,s__34326__$2);
-var n1 = cljs.core.nth.call(null,vec__34332,(0),null);
-var n2 = cljs.core.nth.call(null,vec__34332,(1),null);
-return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [n1,n2,loom.graph.weight.call(null,init,n1,n2)], null),loom$graph$build_$_iter__34325.call(null,cljs.core.rest.call(null,s__34326__$2)));
+var vec__35382 = cljs.core.first.call(null,s__35376__$2);
+var n1 = cljs.core.nth.call(null,vec__35382,(0),null);
+var n2 = cljs.core.nth.call(null,vec__35382,(1),null);
+return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [n1,n2,loom.graph.weight.call(null,init,n1,n2)], null),loom$graph$build_$_iter__35375.call(null,cljs.core.rest.call(null,s__35376__$2)));
 }
 } else {
 return null;
@@ -4721,39 +4721,39 @@ return cljs.core.assoc.call(null,loom.graph.add_edges_STAR_.call(null,loom.graph
 }
 } else {
 if(cljs.core.map_QMARK_.call(null,init)){
-var es = ((cljs.core.map_QMARK_.call(null,cljs.core.val.call(null,cljs.core.first.call(null,init))))?(function (){var iter__4523__auto__ = (function loom$graph$build_$_iter__34335(s__34336){
+var es = ((cljs.core.map_QMARK_.call(null,cljs.core.val.call(null,cljs.core.first.call(null,init))))?(function (){var iter__4523__auto__ = (function loom$graph$build_$_iter__35385(s__35386){
 return (new cljs.core.LazySeq(null,(function (){
-var s__34336__$1 = s__34336;
+var s__35386__$1 = s__35386;
 while(true){
-var temp__5720__auto__ = cljs.core.seq.call(null,s__34336__$1);
+var temp__5720__auto__ = cljs.core.seq.call(null,s__35386__$1);
 if(temp__5720__auto__){
 var xs__6277__auto__ = temp__5720__auto__;
-var vec__34341 = cljs.core.first.call(null,xs__6277__auto__);
-var n = cljs.core.nth.call(null,vec__34341,(0),null);
-var nbrs = cljs.core.nth.call(null,vec__34341,(1),null);
-var iterys__4519__auto__ = ((function (s__34336__$1,vec__34341,n,nbrs,xs__6277__auto__,temp__5720__auto__){
-return (function loom$graph$build_$_iter__34335_$_iter__34337(s__34338){
-return (new cljs.core.LazySeq(null,((function (s__34336__$1,vec__34341,n,nbrs,xs__6277__auto__,temp__5720__auto__){
+var vec__35391 = cljs.core.first.call(null,xs__6277__auto__);
+var n = cljs.core.nth.call(null,vec__35391,(0),null);
+var nbrs = cljs.core.nth.call(null,vec__35391,(1),null);
+var iterys__4519__auto__ = ((function (s__35386__$1,vec__35391,n,nbrs,xs__6277__auto__,temp__5720__auto__){
+return (function loom$graph$build_$_iter__35385_$_iter__35387(s__35388){
+return (new cljs.core.LazySeq(null,((function (s__35386__$1,vec__35391,n,nbrs,xs__6277__auto__,temp__5720__auto__){
 return (function (){
-var s__34338__$1 = s__34338;
+var s__35388__$1 = s__35388;
 while(true){
-var temp__5720__auto____$1 = cljs.core.seq.call(null,s__34338__$1);
+var temp__5720__auto____$1 = cljs.core.seq.call(null,s__35388__$1);
 if(temp__5720__auto____$1){
-var s__34338__$2 = temp__5720__auto____$1;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__34338__$2)){
-var c__4521__auto__ = cljs.core.chunk_first.call(null,s__34338__$2);
+var s__35388__$2 = temp__5720__auto____$1;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__35388__$2)){
+var c__4521__auto__ = cljs.core.chunk_first.call(null,s__35388__$2);
 var size__4522__auto__ = cljs.core.count.call(null,c__4521__auto__);
-var b__34340 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
-if((function (){var i__34339 = (0);
+var b__35390 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
+if((function (){var i__35389 = (0);
 while(true){
-if((i__34339 < size__4522__auto__)){
-var vec__34344 = cljs.core._nth.call(null,c__4521__auto__,i__34339);
-var nbr = cljs.core.nth.call(null,vec__34344,(0),null);
-var wt = cljs.core.nth.call(null,vec__34344,(1),null);
-cljs.core.chunk_append.call(null,b__34340,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [n,nbr,wt], null));
+if((i__35389 < size__4522__auto__)){
+var vec__35394 = cljs.core._nth.call(null,c__4521__auto__,i__35389);
+var nbr = cljs.core.nth.call(null,vec__35394,(0),null);
+var wt = cljs.core.nth.call(null,vec__35394,(1),null);
+cljs.core.chunk_append.call(null,b__35390,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [n,nbr,wt], null));
 
-var G__34363 = (i__34339 + (1));
-i__34339 = G__34363;
+var G__35413 = (i__35389 + (1));
+i__35389 = G__35413;
 continue;
 } else {
 return true;
@@ -4761,31 +4761,31 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34340),loom$graph$build_$_iter__34335_$_iter__34337.call(null,cljs.core.chunk_rest.call(null,s__34338__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35390),loom$graph$build_$_iter__35385_$_iter__35387.call(null,cljs.core.chunk_rest.call(null,s__35388__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34340),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35390),null);
 }
 } else {
-var vec__34347 = cljs.core.first.call(null,s__34338__$2);
-var nbr = cljs.core.nth.call(null,vec__34347,(0),null);
-var wt = cljs.core.nth.call(null,vec__34347,(1),null);
-return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [n,nbr,wt], null),loom$graph$build_$_iter__34335_$_iter__34337.call(null,cljs.core.rest.call(null,s__34338__$2)));
+var vec__35397 = cljs.core.first.call(null,s__35388__$2);
+var nbr = cljs.core.nth.call(null,vec__35397,(0),null);
+var wt = cljs.core.nth.call(null,vec__35397,(1),null);
+return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [n,nbr,wt], null),loom$graph$build_$_iter__35385_$_iter__35387.call(null,cljs.core.rest.call(null,s__35388__$2)));
 }
 } else {
 return null;
 }
 break;
 }
-});})(s__34336__$1,vec__34341,n,nbrs,xs__6277__auto__,temp__5720__auto__))
+});})(s__35386__$1,vec__35391,n,nbrs,xs__6277__auto__,temp__5720__auto__))
 ,null,null));
-});})(s__34336__$1,vec__34341,n,nbrs,xs__6277__auto__,temp__5720__auto__))
+});})(s__35386__$1,vec__35391,n,nbrs,xs__6277__auto__,temp__5720__auto__))
 ;
 var fs__4520__auto__ = cljs.core.seq.call(null,iterys__4519__auto__.call(null,nbrs));
 if(fs__4520__auto__){
-return cljs.core.concat.call(null,fs__4520__auto__,loom$graph$build_$_iter__34335.call(null,cljs.core.rest.call(null,s__34336__$1)));
+return cljs.core.concat.call(null,fs__4520__auto__,loom$graph$build_$_iter__35385.call(null,cljs.core.rest.call(null,s__35386__$1)));
 } else {
-var G__34364 = cljs.core.rest.call(null,s__34336__$1);
-s__34336__$1 = G__34364;
+var G__35414 = cljs.core.rest.call(null,s__35386__$1);
+s__35386__$1 = G__35414;
 continue;
 }
 } else {
@@ -4796,37 +4796,37 @@ break;
 }),null,null));
 });
 return iter__4523__auto__.call(null,init);
-})():(function (){var iter__4523__auto__ = (function loom$graph$build_$_iter__34350(s__34351){
+})():(function (){var iter__4523__auto__ = (function loom$graph$build_$_iter__35400(s__35401){
 return (new cljs.core.LazySeq(null,(function (){
-var s__34351__$1 = s__34351;
+var s__35401__$1 = s__35401;
 while(true){
-var temp__5720__auto__ = cljs.core.seq.call(null,s__34351__$1);
+var temp__5720__auto__ = cljs.core.seq.call(null,s__35401__$1);
 if(temp__5720__auto__){
 var xs__6277__auto__ = temp__5720__auto__;
-var vec__34356 = cljs.core.first.call(null,xs__6277__auto__);
-var n = cljs.core.nth.call(null,vec__34356,(0),null);
-var nbrs = cljs.core.nth.call(null,vec__34356,(1),null);
-var iterys__4519__auto__ = ((function (s__34351__$1,vec__34356,n,nbrs,xs__6277__auto__,temp__5720__auto__){
-return (function loom$graph$build_$_iter__34350_$_iter__34352(s__34353){
-return (new cljs.core.LazySeq(null,((function (s__34351__$1,vec__34356,n,nbrs,xs__6277__auto__,temp__5720__auto__){
+var vec__35406 = cljs.core.first.call(null,xs__6277__auto__);
+var n = cljs.core.nth.call(null,vec__35406,(0),null);
+var nbrs = cljs.core.nth.call(null,vec__35406,(1),null);
+var iterys__4519__auto__ = ((function (s__35401__$1,vec__35406,n,nbrs,xs__6277__auto__,temp__5720__auto__){
+return (function loom$graph$build_$_iter__35400_$_iter__35402(s__35403){
+return (new cljs.core.LazySeq(null,((function (s__35401__$1,vec__35406,n,nbrs,xs__6277__auto__,temp__5720__auto__){
 return (function (){
-var s__34353__$1 = s__34353;
+var s__35403__$1 = s__35403;
 while(true){
-var temp__5720__auto____$1 = cljs.core.seq.call(null,s__34353__$1);
+var temp__5720__auto____$1 = cljs.core.seq.call(null,s__35403__$1);
 if(temp__5720__auto____$1){
-var s__34353__$2 = temp__5720__auto____$1;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__34353__$2)){
-var c__4521__auto__ = cljs.core.chunk_first.call(null,s__34353__$2);
+var s__35403__$2 = temp__5720__auto____$1;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__35403__$2)){
+var c__4521__auto__ = cljs.core.chunk_first.call(null,s__35403__$2);
 var size__4522__auto__ = cljs.core.count.call(null,c__4521__auto__);
-var b__34355 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
-if((function (){var i__34354 = (0);
+var b__35405 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
+if((function (){var i__35404 = (0);
 while(true){
-if((i__34354 < size__4522__auto__)){
-var nbr = cljs.core._nth.call(null,c__4521__auto__,i__34354);
-cljs.core.chunk_append.call(null,b__34355,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n,nbr], null));
+if((i__35404 < size__4522__auto__)){
+var nbr = cljs.core._nth.call(null,c__4521__auto__,i__35404);
+cljs.core.chunk_append.call(null,b__35405,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n,nbr], null));
 
-var G__34365 = (i__34354 + (1));
-i__34354 = G__34365;
+var G__35415 = (i__35404 + (1));
+i__35404 = G__35415;
 continue;
 } else {
 return true;
@@ -4834,29 +4834,29 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34355),loom$graph$build_$_iter__34350_$_iter__34352.call(null,cljs.core.chunk_rest.call(null,s__34353__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35405),loom$graph$build_$_iter__35400_$_iter__35402.call(null,cljs.core.chunk_rest.call(null,s__35403__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__34355),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__35405),null);
 }
 } else {
-var nbr = cljs.core.first.call(null,s__34353__$2);
-return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n,nbr], null),loom$graph$build_$_iter__34350_$_iter__34352.call(null,cljs.core.rest.call(null,s__34353__$2)));
+var nbr = cljs.core.first.call(null,s__35403__$2);
+return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [n,nbr], null),loom$graph$build_$_iter__35400_$_iter__35402.call(null,cljs.core.rest.call(null,s__35403__$2)));
 }
 } else {
 return null;
 }
 break;
 }
-});})(s__34351__$1,vec__34356,n,nbrs,xs__6277__auto__,temp__5720__auto__))
+});})(s__35401__$1,vec__35406,n,nbrs,xs__6277__auto__,temp__5720__auto__))
 ,null,null));
-});})(s__34351__$1,vec__34356,n,nbrs,xs__6277__auto__,temp__5720__auto__))
+});})(s__35401__$1,vec__35406,n,nbrs,xs__6277__auto__,temp__5720__auto__))
 ;
 var fs__4520__auto__ = cljs.core.seq.call(null,iterys__4519__auto__.call(null,nbrs));
 if(fs__4520__auto__){
-return cljs.core.concat.call(null,fs__4520__auto__,loom$graph$build_$_iter__34350.call(null,cljs.core.rest.call(null,s__34351__$1)));
+return cljs.core.concat.call(null,fs__4520__auto__,loom$graph$build_$_iter__35400.call(null,cljs.core.rest.call(null,s__35401__$1)));
 } else {
-var G__34366 = cljs.core.rest.call(null,s__34351__$1);
-s__34351__$1 = G__34366;
+var G__35416 = cljs.core.rest.call(null,s__35401__$1);
+s__35401__$1 = G__35416;
 continue;
 }
 } else {
@@ -4885,11 +4885,11 @@ return cljs.core.reduce.call(null,build,g,inits);
 loom.graph.build_graph.cljs$lang$maxFixedArity = (1);
 
 /** @this {Function} */
-loom.graph.build_graph.cljs$lang$applyTo = (function (seq34289){
-var G__34290 = cljs.core.first.call(null,seq34289);
-var seq34289__$1 = cljs.core.next.call(null,seq34289);
+loom.graph.build_graph.cljs$lang$applyTo = (function (seq35339){
+var G__35340 = cljs.core.first.call(null,seq35339);
+var seq35339__$1 = cljs.core.next.call(null,seq35339);
 var self__4717__auto__ = this;
-return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__34290,seq34289__$1);
+return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__35340,seq35339__$1);
 });
 
 /**
@@ -4898,14 +4898,14 @@ return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__34290,seq34289
  */
 loom.graph.graph = (function loom$graph$graph(var_args){
 var args__4736__auto__ = [];
-var len__4730__auto___34368 = arguments.length;
-var i__4731__auto___34369 = (0);
+var len__4730__auto___35418 = arguments.length;
+var i__4731__auto___35419 = (0);
 while(true){
-if((i__4731__auto___34369 < len__4730__auto___34368)){
-args__4736__auto__.push((arguments[i__4731__auto___34369]));
+if((i__4731__auto___35419 < len__4730__auto___35418)){
+args__4736__auto__.push((arguments[i__4731__auto___35419]));
 
-var G__34370 = (i__4731__auto___34369 + (1));
-i__4731__auto___34369 = G__34370;
+var G__35420 = (i__4731__auto___35419 + (1));
+i__4731__auto___35419 = G__35420;
 continue;
 } else {
 }
@@ -4923,9 +4923,9 @@ return cljs.core.apply.call(null,loom.graph.build_graph,(new loom.graph.BasicEdi
 loom.graph.graph.cljs$lang$maxFixedArity = (0);
 
 /** @this {Function} */
-loom.graph.graph.cljs$lang$applyTo = (function (seq34367){
+loom.graph.graph.cljs$lang$applyTo = (function (seq35417){
 var self__4718__auto__ = this;
-return self__4718__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq.call(null,seq34367));
+return self__4718__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq.call(null,seq35417));
 });
 
 /**
@@ -4934,14 +4934,14 @@ return self__4718__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq.cal
  */
 loom.graph.digraph = (function loom$graph$digraph(var_args){
 var args__4736__auto__ = [];
-var len__4730__auto___34372 = arguments.length;
-var i__4731__auto___34373 = (0);
+var len__4730__auto___35422 = arguments.length;
+var i__4731__auto___35423 = (0);
 while(true){
-if((i__4731__auto___34373 < len__4730__auto___34372)){
-args__4736__auto__.push((arguments[i__4731__auto___34373]));
+if((i__4731__auto___35423 < len__4730__auto___35422)){
+args__4736__auto__.push((arguments[i__4731__auto___35423]));
 
-var G__34374 = (i__4731__auto___34373 + (1));
-i__4731__auto___34373 = G__34374;
+var G__35424 = (i__4731__auto___35423 + (1));
+i__4731__auto___35423 = G__35424;
 continue;
 } else {
 }
@@ -4959,9 +4959,9 @@ return cljs.core.apply.call(null,loom.graph.build_graph,(new loom.graph.BasicEdi
 loom.graph.digraph.cljs$lang$maxFixedArity = (0);
 
 /** @this {Function} */
-loom.graph.digraph.cljs$lang$applyTo = (function (seq34371){
+loom.graph.digraph.cljs$lang$applyTo = (function (seq35421){
 var self__4718__auto__ = this;
-return self__4718__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq.call(null,seq34371));
+return self__4718__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq.call(null,seq35421));
 });
 
 /**
@@ -4970,14 +4970,14 @@ return self__4718__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq.cal
  */
 loom.graph.weighted_graph = (function loom$graph$weighted_graph(var_args){
 var args__4736__auto__ = [];
-var len__4730__auto___34376 = arguments.length;
-var i__4731__auto___34377 = (0);
+var len__4730__auto___35426 = arguments.length;
+var i__4731__auto___35427 = (0);
 while(true){
-if((i__4731__auto___34377 < len__4730__auto___34376)){
-args__4736__auto__.push((arguments[i__4731__auto___34377]));
+if((i__4731__auto___35427 < len__4730__auto___35426)){
+args__4736__auto__.push((arguments[i__4731__auto___35427]));
 
-var G__34378 = (i__4731__auto___34377 + (1));
-i__4731__auto___34377 = G__34378;
+var G__35428 = (i__4731__auto___35427 + (1));
+i__4731__auto___35427 = G__35428;
 continue;
 } else {
 }
@@ -4995,9 +4995,9 @@ return cljs.core.apply.call(null,loom.graph.build_graph,(new loom.graph.BasicEdi
 loom.graph.weighted_graph.cljs$lang$maxFixedArity = (0);
 
 /** @this {Function} */
-loom.graph.weighted_graph.cljs$lang$applyTo = (function (seq34375){
+loom.graph.weighted_graph.cljs$lang$applyTo = (function (seq35425){
 var self__4718__auto__ = this;
-return self__4718__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq.call(null,seq34375));
+return self__4718__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq.call(null,seq35425));
 });
 
 /**
@@ -5006,14 +5006,14 @@ return self__4718__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq.cal
  */
 loom.graph.weighted_digraph = (function loom$graph$weighted_digraph(var_args){
 var args__4736__auto__ = [];
-var len__4730__auto___34380 = arguments.length;
-var i__4731__auto___34381 = (0);
+var len__4730__auto___35430 = arguments.length;
+var i__4731__auto___35431 = (0);
 while(true){
-if((i__4731__auto___34381 < len__4730__auto___34380)){
-args__4736__auto__.push((arguments[i__4731__auto___34381]));
+if((i__4731__auto___35431 < len__4730__auto___35430)){
+args__4736__auto__.push((arguments[i__4731__auto___35431]));
 
-var G__34382 = (i__4731__auto___34381 + (1));
-i__4731__auto___34381 = G__34382;
+var G__35432 = (i__4731__auto___35431 + (1));
+i__4731__auto___35431 = G__35432;
 continue;
 } else {
 }
@@ -5031,9 +5031,9 @@ return cljs.core.apply.call(null,loom.graph.build_graph,(new loom.graph.BasicEdi
 loom.graph.weighted_digraph.cljs$lang$maxFixedArity = (0);
 
 /** @this {Function} */
-loom.graph.weighted_digraph.cljs$lang$applyTo = (function (seq34379){
+loom.graph.weighted_digraph.cljs$lang$applyTo = (function (seq35429){
 var self__4718__auto__ = this;
-return self__4718__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq.call(null,seq34379));
+return self__4718__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq.call(null,seq35429));
 });
 
 /**
@@ -5045,14 +5045,14 @@ return self__4718__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq.cal
  */
 loom.graph.fly_graph = (function loom$graph$fly_graph(var_args){
 var args__4736__auto__ = [];
-var len__4730__auto___34387 = arguments.length;
-var i__4731__auto___34388 = (0);
+var len__4730__auto___35437 = arguments.length;
+var i__4731__auto___35438 = (0);
 while(true){
-if((i__4731__auto___34388 < len__4730__auto___34387)){
-args__4736__auto__.push((arguments[i__4731__auto___34388]));
+if((i__4731__auto___35438 < len__4730__auto___35437)){
+args__4736__auto__.push((arguments[i__4731__auto___35438]));
 
-var G__34389 = (i__4731__auto___34388 + (1));
-i__4731__auto___34388 = G__34389;
+var G__35439 = (i__4731__auto___35438 + (1));
+i__4731__auto___35438 = G__35439;
 continue;
 } else {
 }
@@ -5063,15 +5063,15 @@ var argseq__4737__auto__ = ((((0) < args__4736__auto__.length))?(new cljs.core.I
 return loom.graph.fly_graph.cljs$core$IFn$_invoke$arity$variadic(argseq__4737__auto__);
 });
 
-loom.graph.fly_graph.cljs$core$IFn$_invoke$arity$variadic = (function (p__34384){
-var map__34385 = p__34384;
-var map__34385__$1 = (((((!((map__34385 == null))))?(((((map__34385.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__34385.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__34385):map__34385);
-var nodes = cljs.core.get.call(null,map__34385__$1,new cljs.core.Keyword(null,"nodes","nodes",-2099585805));
-var edges = cljs.core.get.call(null,map__34385__$1,new cljs.core.Keyword(null,"edges","edges",-694791395));
-var successors = cljs.core.get.call(null,map__34385__$1,new cljs.core.Keyword(null,"successors","successors",-1239296414));
-var predecessors = cljs.core.get.call(null,map__34385__$1,new cljs.core.Keyword(null,"predecessors","predecessors",229913357));
-var weight = cljs.core.get.call(null,map__34385__$1,new cljs.core.Keyword(null,"weight","weight",-1262796205));
-var start = cljs.core.get.call(null,map__34385__$1,new cljs.core.Keyword(null,"start","start",-355208981));
+loom.graph.fly_graph.cljs$core$IFn$_invoke$arity$variadic = (function (p__35434){
+var map__35435 = p__35434;
+var map__35435__$1 = (((((!((map__35435 == null))))?(((((map__35435.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__35435.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__35435):map__35435);
+var nodes = cljs.core.get.call(null,map__35435__$1,new cljs.core.Keyword(null,"nodes","nodes",-2099585805));
+var edges = cljs.core.get.call(null,map__35435__$1,new cljs.core.Keyword(null,"edges","edges",-694791395));
+var successors = cljs.core.get.call(null,map__35435__$1,new cljs.core.Keyword(null,"successors","successors",-1239296414));
+var predecessors = cljs.core.get.call(null,map__35435__$1,new cljs.core.Keyword(null,"predecessors","predecessors",229913357));
+var weight = cljs.core.get.call(null,map__35435__$1,new cljs.core.Keyword(null,"weight","weight",-1262796205));
+var start = cljs.core.get.call(null,map__35435__$1,new cljs.core.Keyword(null,"start","start",-355208981));
 if(cljs.core.truth_((function (){var and__4120__auto__ = predecessors;
 if(cljs.core.truth_(and__4120__auto__)){
 return weight;
@@ -5097,10 +5097,10 @@ return (new loom.graph.FlyGraph(nodes,edges,successors,start,null,null,null));
 loom.graph.fly_graph.cljs$lang$maxFixedArity = (0);
 
 /** @this {Function} */
-loom.graph.fly_graph.cljs$lang$applyTo = (function (seq34383){
+loom.graph.fly_graph.cljs$lang$applyTo = (function (seq35433){
 var self__4718__auto__ = this;
-return self__4718__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq.call(null,seq34383));
+return self__4718__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq.call(null,seq35433));
 });
 
 
-//# sourceMappingURL=graph.js.map?rel=1601328141887
+//# sourceMappingURL=graph.js.map?rel=1601341170398

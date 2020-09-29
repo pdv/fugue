@@ -48,8 +48,9 @@
         ([result {::keys [env gate scale bias]}]
          (let [prev-gate @v-prev-gate
                last-scheduled @v-last-scheduled
-               start-time (now-fn)
-               stages ((if (> gate 0) ::open ::closed) env)
+               start-time (+ (now-fn) (or (:delay gate) 0))
+               gate-val (or (:value gate) gate)
+               stages ((if (> gate-val 0) ::open ::closed) env)
                start-event (start-event start-time last-scheduled)
                ramp-events (ramps start-time stages scale bias)]
            (if (and (not= prev-gate gate) (not-empty ramp-events))

@@ -1,6 +1,5 @@
 (ns webcv.synthdef
   (:require [clojure.spec.alpha :as s]
-            [cljs.pprint :refer [pprint]]
             [loom.graph :refer [graph? digraph add-nodes add-edges nodes edges successors]]
             [loom.attr :refer [attr attrs add-attr add-attr-to-edges remove-attr]]))
 
@@ -106,5 +105,6 @@
             :let [edge-type (map #(attr synthdef % ::node-type) edge)
                   [src dest] (map nodes-by-id edge)
                   edge-attrs (attrs synthdef edge)]]
-      (make-edge edge-type src dest edge-attrs))))
+      (make-edge edge-type src dest edge-attrs))
+    nodes-by-id))
 
