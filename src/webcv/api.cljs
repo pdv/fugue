@@ -10,6 +10,7 @@
             [webcv.envelope :as envelope]
             [webcv.metronome :as metronome]
             [webcv.sequencer :as sequencer]
+            [webcv.sampler :as sampler]
             [webcv.ctx-ctrls :as ctrls]
             [webcv.components :as components]))
 
@@ -50,19 +51,42 @@
 (def metro metronome/metro)
 (def sequencer sequencer/sequencer)
 
+(def sampler sampler/sampler)
+
 (def audio-ctx-ctrl ctrls/audio-controls)
 (def midi-ctx-ctrl ctrls/midi-controls)
 
 (def slider components/slider)
 
+(defn make-renderer [actx-atom mctx-atom buffer-cache-atom]
+  (fn [synthdef]
+    (let [ctx (merge @actx-atom @mctx-atom {::sampler/buffer-cache @buffer-cache-atom})]
+      (make-synth ctx synthdef))))
+
+(defn sample-loader [actx buffer-cache]
+  (let [filename (ratom "")]
+    (fn []
+      [:div
+       [:input {:on-change (partial reset! filename)}]
+       [:button
+        {:on-click (fn []
+                     (let [fn @filename]
+                       (sampler/load-sample @actx fn #(swap! buffer-cache assoc fn %))))}
+        "load"]
+       [:ul
+        (for [[name buffer] @buffer-cache]
+          [:li name])]])))
+
 (def init-forms
   ["(defonce audio-ctx (ratom nil))"
    "(defonce midi-ctx (ratom nil))"
-   "(defn render [synthdef]"
-   "  (make-synth (merge @audio-ctx @midi-ctx) synthdef))"
+   "(defonce buffer-cache (ratom {}))"
+   "(def render (make-renderer audio-ctx midi-ctx buffer-cache))"
+   ""
    "[:div"
    "  [audio-ctx-ctrl audio-ctx]"
-   "  [midi-ctx-ctrl midi-ctx]]"])
+   "  [midi-ctx-ctrl midi-ctx]"
+   "  [sample-loader audio-ctx buffer-cache]]"])
 
 (def init-text
   (string/join "\n" init-forms))
