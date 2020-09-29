@@ -7,6 +7,7 @@ goog.require('oops.core');
 goog.require('webcv.synthdef');
 goog.require('webcv.audio');
 goog.require('webcv.chan');
+webcv.metronome.bpm = cljs.core.partial.call(null,cljs.core._SLASH_,(60000));
 cljs.core._add_method.call(null,webcv.chan.chan_node_spec,new cljs.core.Keyword("webcv.metronome","metronome","webcv.metronome/metronome",1387895218),(function (_){
 return cljs.spec.alpha.map_spec_impl.call(null,cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"req-un","req-un",1074571008),new cljs.core.Keyword(null,"opt-un","opt-un",883442496),new cljs.core.Keyword(null,"gfn","gfn",791517474),new cljs.core.Keyword(null,"pred-exprs","pred-exprs",1792271395),new cljs.core.Keyword(null,"keys-pred","keys-pred",858984739),new cljs.core.Keyword(null,"opt-keys","opt-keys",1262688261),new cljs.core.Keyword(null,"req-specs","req-specs",553962313),new cljs.core.Keyword(null,"req","req",-326448303),new cljs.core.Keyword(null,"req-keys","req-keys",514319221),new cljs.core.Keyword(null,"opt-specs","opt-specs",-384905450),new cljs.core.Keyword(null,"pred-forms","pred-forms",172611832),new cljs.core.Keyword(null,"opt","opt",-794706369)],[null,null,null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(function (G__36678){
 return cljs.core.map_QMARK_.call(null,G__36678);
@@ -238,4 +239,4 @@ webcv.metronome.metro = (function webcv$metronome$metro(period_ms){
 return webcv.synthdef.synthdef.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword("webcv.synthdef","node-type","webcv.synthdef/node-type",-1036809122),new cljs.core.Keyword("webcv.chan","chan-node","webcv.chan/chan-node",-367192494),new cljs.core.Keyword("webcv.chan","chan-node-type","webcv.chan/chan-node-type",-1398165608),new cljs.core.Keyword("webcv.metronome","metronome","webcv.metronome/metronome",1387895218),new cljs.core.Keyword("webcv.metronome","period-ms","webcv.metronome/period-ms",1942360315),period_ms], null),cljs.core.PersistentArrayMap.EMPTY);
 });
 
-//# sourceMappingURL=metronome.js.map?rel=1601341171821
+//# sourceMappingURL=metronome.js.map?rel=1601344973769

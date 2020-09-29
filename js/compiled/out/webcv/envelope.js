@@ -105,7 +105,7 @@ return gate;
 })();
 var stages = (((gate_val > (0)))?new cljs.core.Keyword("webcv.envelope","open","webcv.envelope/open",-1257337783):new cljs.core.Keyword("webcv.envelope","closed","webcv.envelope/closed",1726447802)).cljs$core$IFn$_invoke$arity$1(env);
 var start_event = webcv.envelope.start_event.call(null,start_time,last_scheduled);
-var ramp_events = webcv.envelope.ramps.call(null,start_time,stages,scale,bias);
+var ramp_events = webcv.envelope.ramps.call(null,start_time,stages,(scale * gate_val),bias);
 if(cljs.core.truth_((function (){var and__4120__auto__ = cljs.core.not_EQ_.call(null,prev_gate,gate);
 if(and__4120__auto__){
 return cljs.core.not_empty.call(null,ramp_events);
@@ -168,26 +168,48 @@ return new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("webcv.e
 webcv.envelope.perc = (function webcv$envelope$perc(a,d){
 return webcv.synthdef.synthdef.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword("webcv.synthdef","node-type","webcv.synthdef/node-type",-1036809122),new cljs.core.Keyword("webcv.chan","chan-node","webcv.chan/chan-node",-367192494),new cljs.core.Keyword("webcv.chan","chan-node-type","webcv.chan/chan-node-type",-1398165608),new cljs.core.Keyword("webcv.chan","transducer","webcv.chan/transducer",311721516),new cljs.core.Keyword("webcv.chan","xform","webcv.chan/xform",-2034901163),new cljs.core.Keyword("webcv.envelope","perc","webcv.envelope/perc",-8043441)], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("webcv.envelope","a","webcv.envelope/a",532823109),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(0),a], null),new cljs.core.Keyword("webcv.envelope","d","webcv.envelope/d",320839789),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(0),d], null)], null));
 });
-cljs.core._add_method.call(null,webcv.chan.make_transducer,new cljs.core.Keyword("webcv.envelope","env-gen","webcv.envelope/env-gen",-1732965233),(function (p__36889,_){
+cljs.core._add_method.call(null,webcv.chan.make_transducer,new cljs.core.Keyword("webcv.envelope","pulse","webcv.envelope/pulse",-1884670915),(function (_,___$1){
+return cljs.core.map.call(null,(function (p__36889){
 var map__36890 = p__36889;
 var map__36890__$1 = (((((!((map__36890 == null))))?(((((map__36890.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__36890.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__36890):map__36890);
-var actx = cljs.core.get.call(null,map__36890__$1,new cljs.core.Keyword("webcv.audio","actx","webcv.audio/actx",686780438));
-return webcv.envelope.stages_x_ramp.call(null,((function (map__36890,map__36890__$1,actx){
+var duration = cljs.core.get.call(null,map__36890__$1,new cljs.core.Keyword("webcv.envelope","duration","webcv.envelope/duration",1750604963));
+return new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("webcv.envelope","open","webcv.envelope/open",-1257337783),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("webcv.envelope","duration","webcv.envelope/duration",1750604963),(0),new cljs.core.Keyword("webcv.envelope","target","webcv.envelope/target",1892655906),(1)], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("webcv.envelope","duration","webcv.envelope/duration",1750604963),duration,new cljs.core.Keyword("webcv.envelope","target","webcv.envelope/target",1892655906),(1)], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("webcv.envelope","duration","webcv.envelope/duration",1750604963),(0),new cljs.core.Keyword("webcv.envelope","target","webcv.envelope/target",1892655906),(0)], null)], null),new cljs.core.Keyword("webcv.envelope","closed","webcv.envelope/closed",1726447802),cljs.core.PersistentVector.EMPTY], null);
+}));
+}));
+webcv.envelope.pulse = (function webcv$envelope$pulse(duration){
+return webcv.synthdef.synthdef.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword("webcv.synthdef","node-type","webcv.synthdef/node-type",-1036809122),new cljs.core.Keyword("webcv.chan","chan-node","webcv.chan/chan-node",-367192494),new cljs.core.Keyword("webcv.chan","chan-node-type","webcv.chan/chan-node-type",-1398165608),new cljs.core.Keyword("webcv.chan","transducer","webcv.chan/transducer",311721516),new cljs.core.Keyword("webcv.chan","xform","webcv.chan/xform",-2034901163),new cljs.core.Keyword("webcv.envelope","pulse","webcv.envelope/pulse",-1884670915)], null),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("webcv.envelope","duration","webcv.envelope/duration",1750604963),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(0),duration], null)], null));
+});
+cljs.core._add_method.call(null,webcv.chan.make_transducer,new cljs.core.Keyword("webcv.envelope","slide","webcv.envelope/slide",-1372382787),(function (_,___$1){
+return cljs.core.map.call(null,(function (p__36892){
+var map__36893 = p__36892;
+var map__36893__$1 = (((((!((map__36893 == null))))?(((((map__36893.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__36893.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__36893):map__36893);
+var duration = cljs.core.get.call(null,map__36893__$1,new cljs.core.Keyword("webcv.envelope","duration","webcv.envelope/duration",1750604963));
+return new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("webcv.envelope","open","webcv.envelope/open",-1257337783),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("webcv.envelope","duration","webcv.envelope/duration",1750604963),duration,new cljs.core.Keyword("webcv.envelope","target","webcv.envelope/target",1892655906),(1)], null)], null),new cljs.core.Keyword("webcv.envelope","closed","webcv.envelope/closed",1726447802),cljs.core.PersistentVector.EMPTY], null);
+}));
+}));
+webcv.envelope.slide = (function webcv$envelope$slide(duration){
+return webcv.synthdef.synthdef.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword("webcv.synthdef","node-type","webcv.synthdef/node-type",-1036809122),new cljs.core.Keyword("webcv.chan","chan-node","webcv.chan/chan-node",-367192494),new cljs.core.Keyword("webcv.chan","chan-node-type","webcv.chan/chan-node-type",-1398165608),new cljs.core.Keyword("webcv.chan","transducer","webcv.chan/transducer",311721516),new cljs.core.Keyword("webcv.chan","xform","webcv.chan/xform",-2034901163),new cljs.core.Keyword("webcv.envelope","slide","webcv.envelope/slide",-1372382787)], null),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("webcv.envelope","duration","webcv.envelope/duration",1750604963),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(0),duration], null)], null));
+});
+cljs.core._add_method.call(null,webcv.chan.make_transducer,new cljs.core.Keyword("webcv.envelope","env-gen","webcv.envelope/env-gen",-1732965233),(function (p__36895,_){
+var map__36896 = p__36895;
+var map__36896__$1 = (((((!((map__36896 == null))))?(((((map__36896.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__36896.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__36896):map__36896);
+var actx = cljs.core.get.call(null,map__36896__$1,new cljs.core.Keyword("webcv.audio","actx","webcv.audio/actx",686780438));
+return webcv.envelope.stages_x_ramp.call(null,((function (map__36896,map__36896__$1,actx){
 return (function (){
-var target_obj_36892 = actx;
-var _STAR_runtime_state_STAR__orig_val__36894 = oops.state._STAR_runtime_state_STAR_;
-var _STAR_runtime_state_STAR__temp_val__36895 = oops.state.prepare_state.call(null,target_obj_36892,(new Error()),function(){arguments[0].apply(console,Array.prototype.slice.call(arguments,1))});
-oops.state._STAR_runtime_state_STAR_ = _STAR_runtime_state_STAR__temp_val__36895;
+var target_obj_36898 = actx;
+var _STAR_runtime_state_STAR__orig_val__36900 = oops.state._STAR_runtime_state_STAR_;
+var _STAR_runtime_state_STAR__temp_val__36901 = oops.state.prepare_state.call(null,target_obj_36898,(new Error()),function(){arguments[0].apply(console,Array.prototype.slice.call(arguments,1))});
+oops.state._STAR_runtime_state_STAR_ = _STAR_runtime_state_STAR__temp_val__36901;
 
-try{var next_obj_36893 = ((oops.core.validate_object_access_dynamically.call(null,target_obj_36892,(0),"currentTime",true,true,false))?(target_obj_36892["currentTime"]):null);
-return next_obj_36893;
-}finally {oops.state._STAR_runtime_state_STAR_ = _STAR_runtime_state_STAR__orig_val__36894;
-}});})(map__36890,map__36890__$1,actx))
+try{var next_obj_36899 = ((oops.core.validate_object_access_dynamically.call(null,target_obj_36898,(0),"currentTime",true,true,false))?(target_obj_36898["currentTime"]):null);
+return next_obj_36899;
+}finally {oops.state._STAR_runtime_state_STAR_ = _STAR_runtime_state_STAR__orig_val__36900;
+}});})(map__36896,map__36896__$1,actx))
 );
 }));
 webcv.envelope.env_gen = (function webcv$envelope$env_gen(var_args){
-var G__36897 = arguments.length;
-switch (G__36897) {
+var G__36903 = arguments.length;
+switch (G__36903) {
 case 2:
 return webcv.envelope.env_gen.cljs$core$IFn$_invoke$arity$2((arguments[(0)]),(arguments[(1)]));
 
@@ -221,4 +243,4 @@ return webcv.synthdef.synthdef.call(null,new cljs.core.PersistentArrayMap(null, 
 webcv.envelope.env_gen.cljs$lang$maxFixedArity = 4;
 
 
-//# sourceMappingURL=envelope.js.map?rel=1601341172022
+//# sourceMappingURL=envelope.js.map?rel=1601344973965

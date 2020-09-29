@@ -28,6 +28,9 @@ cljs.core.async.tap.call(null,midi_chan,out_chan);
 
 return new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("webcv.chan","mult-out","webcv.chan/mult-out",1070529409),cljs.core.async.mult.call(null,out_chan)], null);
 }));
+webcv.midi.note__GT_hz = (function webcv$midi$note__GT_hz(note){
+return (440.0 * Math.pow(2.0,((note - 69.0) / 12.0)));
+});
 /**
  * Returns a stateful transducer that maps midi events to midi notes based on
  *   priority-fn, which selects from a list of notes currently down.
@@ -85,10 +88,6 @@ return G__36334;
 ;})(v_down))
 });
 });
-webcv.midi.note__GT_hz = (function webcv$midi$note__GT_hz(note){
-return (440.0 * Math.pow(2.0,((note - 69.0) / 12.0)));
-});
-webcv.midi.midi_x_hz = cljs.core.comp.call(null,webcv.midi.midi_x_note.call(null,cljs.core.last),cljs.core.map.call(null,webcv.midi.note__GT_hz));
 /**
  * Returns a stateful transducer that maps midi events to midi velocities,
  *   retriggering if retrigger is truthful
@@ -162,8 +161,11 @@ return G__36337;
 webcv.midi.midi_x_gate = cljs.core.comp.call(null,webcv.midi.midi_x_velo.call(null,true),cljs.core.map.call(null,(function (p1__36338_SHARP_){
 return (p1__36338_SHARP_ / (128));
 })));
-cljs.core._add_method.call(null,webcv.chan.make_transducer,new cljs.core.Keyword("webcv.midi","midi-x-hz","webcv.midi/midi-x-hz",1634580645),(function (_,___$1){
-return cljs.core.comp.call(null,cljs.core.map.call(null,new cljs.core.Keyword("webcv.chan","input","webcv.chan/input",1319946644)),webcv.midi.midi_x_hz);
+cljs.core._add_method.call(null,webcv.chan.make_transducer,new cljs.core.Keyword("webcv.midi","note-x-hz","webcv.midi/note-x-hz",-1592949558),(function (_,___$1){
+return cljs.core.comp.call(null,cljs.core.map.call(null,new cljs.core.Keyword("webcv.chan","input","webcv.chan/input",1319946644)),cljs.core.map.call(null,new cljs.core.Keyword(null,"value","value",305978217)),cljs.core.map.call(null,webcv.midi.note__GT_hz));
+}));
+cljs.core._add_method.call(null,webcv.chan.make_transducer,new cljs.core.Keyword("webcv.midi","midi-x-note","webcv.midi/midi-x-note",-467499036),(function (_,___$1){
+return cljs.core.comp.call(null,cljs.core.map.call(null,new cljs.core.Keyword("webcv.chan","input","webcv.chan/input",1319946644)),webcv.midi.midi_x_note.call(null,cljs.core.last));
 }));
 cljs.core._add_method.call(null,webcv.chan.make_transducer,new cljs.core.Keyword("webcv.midi","midi-x-gate","webcv.midi/midi-x-gate",1907706552),(function (_,___$1){
 return cljs.core.comp.call(null,cljs.core.map.call(null,new cljs.core.Keyword("webcv.chan","input","webcv.chan/input",1319946644)),webcv.midi.midi_x_gate);
@@ -364,8 +366,11 @@ return cb.call(null,webcv.midi.ports.call(null,midi_access));
 webcv.midi.midi_in = (function webcv$midi$midi_in(name){
 return webcv.synthdef.synthdef.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword("webcv.synthdef","node-type","webcv.synthdef/node-type",-1036809122),new cljs.core.Keyword("webcv.chan","chan-node","webcv.chan/chan-node",-367192494),new cljs.core.Keyword("webcv.chan","chan-node-type","webcv.chan/chan-node-type",-1398165608),new cljs.core.Keyword("webcv.midi","midi-in","webcv.midi/midi-in",1504142596),new cljs.core.Keyword("webcv.midi","input-name","webcv.midi/input-name",80810145),name], null),cljs.core.PersistentArrayMap.EMPTY);
 });
-webcv.midi.hz = (function webcv$midi$hz(in$){
-return webcv.synthdef.synthdef.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword("webcv.synthdef","node-type","webcv.synthdef/node-type",-1036809122),new cljs.core.Keyword("webcv.chan","chan-node","webcv.chan/chan-node",-367192494),new cljs.core.Keyword("webcv.chan","chan-node-type","webcv.chan/chan-node-type",-1398165608),new cljs.core.Keyword("webcv.chan","transducer","webcv.chan/transducer",311721516),new cljs.core.Keyword("webcv.chan","xform","webcv.chan/xform",-2034901163),new cljs.core.Keyword("webcv.midi","midi-x-hz","webcv.midi/midi-x-hz",1634580645)], null),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("webcv.chan","input","webcv.chan/input",1319946644),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [in$], null)], null));
+webcv.midi.note = (function webcv$midi$note(in$){
+return webcv.synthdef.synthdef.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword("webcv.synthdef","node-type","webcv.synthdef/node-type",-1036809122),new cljs.core.Keyword("webcv.chan","chan-node","webcv.chan/chan-node",-367192494),new cljs.core.Keyword("webcv.chan","chan-node-type","webcv.chan/chan-node-type",-1398165608),new cljs.core.Keyword("webcv.chan","transducer","webcv.chan/transducer",311721516),new cljs.core.Keyword("webcv.chan","xform","webcv.chan/xform",-2034901163),new cljs.core.Keyword("webcv.midi","midi-x-note","webcv.midi/midi-x-note",-467499036)], null),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("webcv.chan","input","webcv.chan/input",1319946644),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [in$], null)], null));
+});
+webcv.midi.hz = (function webcv$midi$hz(note_in){
+return webcv.synthdef.synthdef.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword("webcv.synthdef","node-type","webcv.synthdef/node-type",-1036809122),new cljs.core.Keyword("webcv.chan","chan-node","webcv.chan/chan-node",-367192494),new cljs.core.Keyword("webcv.chan","chan-node-type","webcv.chan/chan-node-type",-1398165608),new cljs.core.Keyword("webcv.chan","transducer","webcv.chan/transducer",311721516),new cljs.core.Keyword("webcv.chan","xform","webcv.chan/xform",-2034901163),new cljs.core.Keyword("webcv.midi","note-x-hz","webcv.midi/note-x-hz",-1592949558)], null),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("webcv.chan","input","webcv.chan/input",1319946644),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [note_in], null)], null));
 });
 webcv.midi.gate = (function webcv$midi$gate(in$){
 return webcv.synthdef.synthdef.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword("webcv.synthdef","node-type","webcv.synthdef/node-type",-1036809122),new cljs.core.Keyword("webcv.chan","chan-node","webcv.chan/chan-node",-367192494),new cljs.core.Keyword("webcv.chan","chan-node-type","webcv.chan/chan-node-type",-1398165608),new cljs.core.Keyword("webcv.chan","transducer","webcv.chan/transducer",311721516),new cljs.core.Keyword("webcv.chan","xform","webcv.chan/xform",-2034901163),new cljs.core.Keyword("webcv.midi","midi-x-gate","webcv.midi/midi-x-gate",1907706552)], null),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("webcv.chan","input","webcv.chan/input",1319946644),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [in$], null)], null));
@@ -398,4 +403,4 @@ return webcv.synthdef.synthdef.call(null,new cljs.core.PersistentArrayMap(null, 
 webcv.midi.ctrl.cljs$lang$maxFixedArity = 4;
 
 
-//# sourceMappingURL=midi.js.map?rel=1601341171570
+//# sourceMappingURL=midi.js.map?rel=1601344973532

@@ -1,5 +1,6 @@
 (ns webcv.api
   (:require [clojure.string :as string]
+            [cljs.repl :as repl]
             [reagent.core :as r]
             [webcv.synthdef :as synthdef]
             [webcv.audio :as audio]
@@ -39,8 +40,11 @@
 
 (def adsr envelope/adsr)
 (def perc envelope/perc)
+(def pulse envelope/pulse)
+(def slide envelope/slide)
 (def env-gen envelope/env-gen)
 
+(def bpm metronome/bpm)
 (def metro metronome/metro)
 (def sequencer sequencer/sequencer)
 
@@ -61,22 +65,22 @@
 (def init-text
   (string/join "\n" init-forms))
 
-(defn enve []
-  (->> (metro 100)
-       (sequencer [1 0 0 1 0 0 1 0])
-       (env-gen (adsr 0.05 0.1 0.3 0.4))))
-
-(defn demo-synth []
-  (-> (saw 110)
-      (gain (enve))
-      (out)))
+(defn mary-had-a-little-synth []
+  (let [m (metro (bpm 160))
+        freq-gate (hz (sequencer [64 62 60 62 64 64 64 64] m))
+        freq-env (env-gen (slide 0.01) freq-gate)
+        gain-gate (sequencer [1 1 1 1 1 1 1 0] m)
+        gain-env (env-gen (perc 0.1 0.1) gain-gate)]
+    (-> (saw freq-env)
+        (gain gain-env)
+        (out))))
 
 (def demo-forms
   [
-   "(defonce nodes (ratom nil))"
+   (with-out-str (repl/source mary-had-a-little-synth))
    "[:div"
    "  [:button"
-   "   {:on-click #(reset! nodes (render (demo-synth)))}"
+   "   {:on-click #(render (mary-had-a-little-synth))}"
    "   \"run\"]]"
    ])
 

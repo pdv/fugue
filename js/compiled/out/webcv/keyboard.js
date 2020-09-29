@@ -215,4 +215,4 @@ webcv.keyboard.kb = (function webcv$keyboard$kb(){
 return webcv.synthdef.synthdef.call(null,new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("webcv.synthdef","node-type","webcv.synthdef/node-type",-1036809122),new cljs.core.Keyword("webcv.chan","chan-node","webcv.chan/chan-node",-367192494),new cljs.core.Keyword("webcv.chan","chan-node-type","webcv.chan/chan-node-type",-1398165608),new cljs.core.Keyword("webcv.keyboard","keyboard","webcv.keyboard/keyboard",-997514189)], null),cljs.core.PersistentArrayMap.EMPTY);
 });
 
-//# sourceMappingURL=keyboard.js.map?rel=1601341171860
+//# sourceMappingURL=keyboard.js.map?rel=1601344973800
