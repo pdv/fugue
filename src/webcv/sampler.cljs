@@ -38,7 +38,7 @@
 
 (defmethod synthdef/make-edge [::audio/audio-node ::sampler-node]
   [_ src dest _]
-  (.connect src (::detune-controller dest)))
+  (.connect src (oget (::detune-controller dest) "offset")))
 
 (defmethod synthdef/make-edge [::sampler-node ::audio/audio-node]
   [_ src dest {::synthdef/keys [param-name]}]
@@ -46,18 +46,6 @@
             (if (not= ::audio/input param-name)
               (oget+ dest param-name)
               dest)))
-
-(defn load-sample
-  "Fetches and decodes the sample at url. Calls cb with an AudioBuffer"
-  [actx url cb]
-  (print actx)
-  (let [request (js/XMLHttpRequest.)
-        onerror (fn [e] (.log js/console (.-err e)))
-        onload #(.decodeAudioData actx (.-response request) cb onerror)]
-    (.open request "GET" url true)
-    (set! (.-responseType request) "arraybuffer")
-    (set! (.-onload request) onload)
-    (.send request)))
 
 (defn note->detune [note]
   (* 100 (- note 60)))

@@ -22,7 +22,7 @@
                   " note: " note
                   " velo: " velocity)])])))
 
-(defn midi-controls [midi-ctx]
+(defn midi-ctx-ctrls [midi-ctx]
   [:div
    [:button
     {:on-click #(midi/make-ctx (partial reset! midi-ctx))}
@@ -31,7 +31,7 @@
      [midi-monitor mctx]
      [:p "midi ctx not loaded"])])
 
-(defn audio-controls [audio-ctx]
+(defn audio-ctx-ctrls [audio-ctx]
   [:div
    [:button
     {:on-click #(do
@@ -44,3 +44,25 @@
       (str (.-maxChannelCount (.-destination actx)) " outs")
       "audio ctx not loaded")]])
 
+(defn read-file-upload
+  [e actx buffer-cb]
+  (let [files (.from js/Array (-> e .-target .-files))]
+    (doseq [file files]
+      (-> (.arrayBuffer file)
+          (.then #(.decodeAudioData actx %))
+          (.then #(buffer-cb (.-name file) %))))))
+
+(defn buffer-ctrl [actx-atom buffer-cache-atom]
+  (fn []
+    [:div
+     [:input
+      {:type :file
+       :on-change
+       (fn [e]
+         (doseq [file (.from js/Array (-> e .-target .-files))]
+           (-> (.arrayBuffer file)
+               (.then #(.decodeAudioData (::audio/actx @actx-atom) %))
+               (.then #(swap! buffer-cache-atom assoc (.-name file) %)))))}]
+     [:ul
+      (for [[name buffer] @buffer-cache-atom]
+        [:li (str name " - " (.-length buffer))])]]))

@@ -53,8 +53,9 @@
 
 (def sampler sampler/sampler)
 
-(def audio-ctx-ctrl ctrls/audio-controls)
-(def midi-ctx-ctrl ctrls/midi-controls)
+(def audio-ctx-ctrls ctrls/audio-ctx-ctrls)
+(def midi-ctx-ctrls ctrls/midi-ctx-ctrls)
+(def buffer-ctrl ctrls/buffer-ctrl)
 
 (def slider components/slider)
 
@@ -63,22 +64,6 @@
     (let [ctx (merge @actx-atom @mctx-atom {::sampler/buffer-cache @buffer-cache-atom})]
       (make-synth ctx synthdef))))
 
-(defn sample-loader [actx buffer-cache]
-  (let [filename (ratom "")]
-    (fn []
-      [:div
-       [:input {:on-change #(reset! filename (-> % .-target .-value))}]
-       [:button
-        {:on-click (fn []
-                     (let [url @filename]
-                       (sampler/load-sample (::audio/actx @actx)
-                                            url
-                                            #(swap! buffer-cache assoc url %))))}
-        "load"]
-       [:ul
-        (for [[name buffer] @buffer-cache]
-          [:li name " - " (.-length buffer)])]])))
-
 (def init-forms
   ["(defonce audio-ctx (ratom nil))"
    "(defonce midi-ctx (ratom nil))"
@@ -86,9 +71,9 @@
    "(def render (make-renderer audio-ctx midi-ctx buffer-cache))"
    ""
    "[:div"
-   "  [audio-ctx-ctrl audio-ctx]"
-   "  [midi-ctx-ctrl midi-ctx]"
-   "  [sample-loader audio-ctx buffer-cache]]"])
+   "  [audio-ctx-ctrls audio-ctx]"
+   "  [midi-ctx-ctrls midi-ctx]"
+   "  [buffer-ctrl audio-ctx buffer-cache]]"])
 
 (def init-text
   (string/join "\n" init-forms))
@@ -116,6 +101,5 @@
    "   \"run\"]]"
    ])
 
-(def demo-text
-  (string/join "\n" demo-forms))
+(def demo-text "")
 
