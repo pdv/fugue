@@ -78,8 +78,8 @@
 (def init-text
   (string/join "\n" init-forms))
 
-(defn mary-had-a-little-synth [decay cutoff]
-  (let [m (metro (bpm 160))
+(defn mary-had-a-little-synth [tempo decay cutoff]
+  (let [m (metro tempo)
         freq-gate (hz (sequencer [64 62 60 62 64 64 64 64] m))
         freq-env (env-gen (slide 0.01) freq-gate)
         gain-gate (sequencer [1 1 1 1 1 1 1 0] m)
@@ -92,15 +92,17 @@
 
 (def demo-forms
   [
+   "(defonce tempo (ratom 500))"
    "(defonce decay (ratom 0.1))"
    "(defonce cutoff (ratom 440))"
    ""
    (with-out-str (repl/source mary-had-a-little-synth))
    "[:div"
+   "  [slider tempo 100 1000]"
    "  [slider decay 0.01 0.8]"
    "  [slider cutoff 30 20000 :log]"
    "  [:button"
-   "   {:on-click #(render (mary-had-a-little-synth decay cutoff))}"
+   "   {:on-click #(render (mary-had-a-little-synth tempo decay cutoff))}"
    "   \"run\"]]"
    ])
 
