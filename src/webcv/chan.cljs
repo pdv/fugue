@@ -38,8 +38,10 @@
   [ctx {::keys [xform] ::synthdef/keys [static-params]}]
   (let [out (async/chan 1 (comp (merge-xform static-params)
                                 (make-transducer ctx xform)))]
-    (when static-params
-      (async/put! out static-params))
+    (doseq [[k v] static-params]
+      (if (satisfies? IWatchable v)
+        (add-watch v k #(async/put! out {k v}))
+        (async/put! out {k v})))
     {::mult-out (async/mult out)
      ::mix-out (async/mix out)}))
 

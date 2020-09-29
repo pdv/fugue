@@ -94,12 +94,11 @@
 
 (def demo-forms
   [
-   (with-out-str (repl/source pump-that))
+   (with-out-str (repl/source mary-had-a-little-synth))
    "[:div"
    "  [:button"
-   "   {:on-click #(render (pump-that))}"
+   "   {:on-click #(render (mary-had-a-little-synth))}"
    "   \"run\"]]"
    ])
 
-(def demo-text "")
-
+(def demo-text (string/join "\n" demo-forms))
