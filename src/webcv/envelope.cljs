@@ -87,6 +87,20 @@
     {::a [0 a]
      ::d [0 d]}))
 
+(defmethod chan/make-transducer ::pulse [_ _]
+  (map (fn [{::keys [duration]}]
+         {::open [{::duration 0 ::target 1}
+                  {::duration duration ::target 1}
+                  {::duration 0 ::target 0}]
+          ::closed []})))
+
+(defn pulse [duration]
+  (synthdef/synthdef
+    {::synthdef/node-type ::chan/chan-node
+     ::chan/chan-node-type ::chan/transducer
+     ::chan/xform ::pulse}
+    {::duration [0 duration]}))
+
 (defmethod chan/make-transducer ::env-gen
   [{::audio/keys [actx]} _]
   (stages-x-ramp #(oget actx "currentTime")))

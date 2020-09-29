@@ -39,6 +39,7 @@
 
 (def adsr envelope/adsr)
 (def perc envelope/perc)
+(def pulse envelope/pulse)
 (def env-gen envelope/env-gen)
 
 (def metro metronome/metro)
@@ -64,7 +65,7 @@
 (defn enve []
   (->> (metro 100)
        (sequencer [1 0 0 1 0 0 1 0])
-       (env-gen (adsr 0.05 0.1 0.3 0.4))))
+       (env-gen (pulse 0.1))))
 
 (defn demo-synth []
   (-> (saw 110)
