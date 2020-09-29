@@ -40,6 +40,7 @@
 (def adsr envelope/adsr)
 (def perc envelope/perc)
 (def pulse envelope/pulse)
+(def slide envelope/slide)
 (def env-gen envelope/env-gen)
 
 (def metro metronome/metro)
@@ -63,13 +64,13 @@
   (string/join "\n" init-forms))
 
 (defn enve []
-  (->> (metro 100)
-       (sequencer [1 0 0 1 0 0 1 0])
-       (env-gen (pulse 0.1))))
+  (->> (kb)
+       (hz)
+       (env-gen (slide 0.2))))
 
 (defn demo-synth []
-  (-> (saw 110)
-      (gain (enve))
+  (-> (saw (enve))
+      (gain 0.3)
       (out)))
 
 (def demo-forms

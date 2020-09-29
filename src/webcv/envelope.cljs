@@ -52,7 +52,7 @@
                gate-val (or (:value gate) gate)
                stages ((if (> gate-val 0) ::open ::closed) env)
                start-event (start-event start-time last-scheduled)
-               ramp-events (ramps start-time stages scale bias)]
+               ramp-events (ramps start-time stages (* scale gate-val) bias)]
            (if (and (not= prev-gate gate) (not-empty ramp-events))
              (let [all-events (cons start-event ramp-events)]
                (vreset! v-prev-gate gate)
@@ -99,6 +99,18 @@
     {::synthdef/node-type ::chan/chan-node
      ::chan/chan-node-type ::chan/transducer
      ::chan/xform ::pulse}
+    {::duration [0 duration]}))
+
+(defmethod chan/make-transducer ::slide [_ _]
+  (map (fn [{::keys [duration]}]
+         {::open [{::duration duration ::target 1}]
+          ::closed []})))
+
+(defn slide [duration]
+  (synthdef/synthdef
+    {::synthdef/node-type ::chan/chan-node
+     ::chan/chan-node-type ::chan/transducer
+     ::chan/xform ::slide}
     {::duration [0 duration]}))
 
 (defmethod chan/make-transducer ::env-gen
