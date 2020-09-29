@@ -39,6 +39,7 @@
   (let [out (async/chan 1 (comp (merge-xform static-params)
                                 (make-transducer ctx xform)))]
     (doseq [[k v] static-params]
+      (.log js/console k v)
       (if (satisfies? IWatchable v)
         (add-watch v k #(async/put! out {k v}))
         (async/put! out {k v})))

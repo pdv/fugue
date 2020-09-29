@@ -81,12 +81,12 @@
 (defn pump-that []
   (out (sampler "pumpthat.wav" (metro 10000) 0)))
 
-(defn mary-had-a-little-synth []
+(defn mary-had-a-little-synth [decay]
   (let [m (metro (bpm 160))
         freq-gate (hz (sequencer [64 62 60 62 64 64 64 64] m))
         freq-env (env-gen (slide 0.01) freq-gate)
         gain-gate (sequencer [1 1 1 1 1 1 1 0] m)
-        gain-env (env-gen (perc 0.1 0.1) gain-gate 0.5)]
+        gain-env (env-gen (perc 0.1 decay) gain-gate 0.5)]
     (-> (saw freq-env)
         (gain gain-env)
         (panner 0)
@@ -94,10 +94,13 @@
 
 (def demo-forms
   [
+   "(defonce decay (ratom 0.1))"
+   ""
    (with-out-str (repl/source mary-had-a-little-synth))
    "[:div"
+   "  [slider decay 0.01 0.8]"
    "  [:button"
-   "   {:on-click #(render (mary-had-a-little-synth))}"
+   "   {:on-click #(render (mary-had-a-little-synth decay))}"
    "   \"run\"]]"
    ])
 
