@@ -289,4 +289,4 @@ fugue.sampler.sampler = (function fugue$sampler$sampler(filename,trigger,detune)
 return fugue.synthdef.synthdef.call(null,new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("fugue.synthdef","node-type","fugue.synthdef/node-type",806558205),new cljs.core.Keyword("fugue.sampler","sampler-node","fugue.sampler/sampler-node",-1948162772),new cljs.core.Keyword("fugue.sampler","filename","fugue.sampler/filename",1571739795),filename], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("fugue.sampler","trigger","fugue.sampler/trigger",1938922045),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [trigger], null),"detune",new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [detune], null)], null));
 });
 
-//# sourceMappingURL=sampler.js.map?rel=1601516301572
+//# sourceMappingURL=sampler.js.map?rel=1601516333420
