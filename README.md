@@ -24,23 +24,29 @@ fugue is...
 #### Example
 
 ```clojure
-(defn mary-had-a-little-synth [tempo decay cutoff]
-  (let [m (metro tempo)
-        freq-gate (hz (sequencer [64 62 60 62 64 64 64 64] m))
-        freq-env (env-gen (slide 0.01) freq-gate)
-        gain-gate (sequencer [1 1 1 1 1 1 1 0] m)
-        gain-env (env-gen (perc 0.1 decay) gain-gate 0.5)]
-    (-> (saw freq-env)
-        (gain gain-env)
-        (lpf cutoff 2)
-        (panner 0)
-        (out))))
-        
 (def tempo (reagent.core/atom 120))
 (def decay (midi-ctrl "FaderFox" 33 0.3 0.8))
 (def cutoff (lfo 400 200 0.2))
 
-(make-synth (make-ctx) (mary-had-a-little-synth tempo decay cutoff))
+(def m (metro tempo))
+
+(def freq-env
+  (->> m
+       (sequencer [64 62 60 62 64 64 64 64])
+       hz
+       (env-gen (slide 0.01)))
+       
+ (def gain-env
+   (env-gen (perc 0.1 decay) (sequencer [1 1 1 1 1 1 1 0] m) 0.5))
+
+(def mary-had-a-little-synth
+  (-> (saw freq-env)
+      (gain gain-env)
+      (lpf cutoff 2)
+      (panner 0)
+      (out))))
+
+(make-synth (make-ctx) mary-had-a-little-synth)
 ```
 
 ## Operators
