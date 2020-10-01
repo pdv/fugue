@@ -11,7 +11,7 @@ fugue is...
 - quickly prototype musical programming experiments without installation or setup
 - rapidly develop user interfaces with [Reagent](https://github.com/reagent-project/reagent), live in the browser
 - control a modular synthesizer from the web (if you have a DC-coupled audio interface)
-- get the most out of the Web Audio API and Web MIDI APIs
+- get the most out of the Web Audio and Web MIDI APIs
 
 ...with some nifty features
 - operators are just functions that return synthdefs, and can be composed (e.g. with `->`)
