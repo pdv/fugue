@@ -1925,4 +1925,4 @@ loom.alg_generic.ancestry_nodes = (function loom$alg_generic$ancestry_nodes(ance
 return cljs.core.keys.call(null,new cljs.core.Keyword(null,"node->idx","node->idx",152705227).cljs$core$IFn$_invoke$arity$1(ancestry));
 });
 
-//# sourceMappingURL=alg_generic.js.map?rel=1601415256099
+//# sourceMappingURL=alg_generic.js.map?rel=1601516294825

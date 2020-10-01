@@ -88,4 +88,4 @@ return cljs.core.str.cljs$core$IFn$_invoke$arity$1(sb__4661__auto__);
 })(),"[:div","  [slider tempo 100 1000]","  [slider decay 0.01 0.8]","  [slider cutoff 30 20000 :log]","  [:button","   {:on-click #(render (mary-had-a-little-synth tempo decay cutoff))}","   \"run\"]]"], null);
 fugue.api.demo_text = clojure.string.join.call(null,"\n",fugue.api.demo_forms);
 
-//# sourceMappingURL=api.js.map?rel=1601415265042
+//# sourceMappingURL=api.js.map?rel=1601516301818
