@@ -3,8 +3,7 @@
             [reagent.dom :as rdom]
             [fugue.bootstrap :as bootstrap]
             [fugue.api :as api]
-            [fugue.box :as box]
-            [cljs.repl :refer [source-fn]]))
+            [fugue.box :as box]))
 
 (defn app []
   (let [boxes (r/atom [api/init-text

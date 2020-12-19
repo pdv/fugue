@@ -1,6 +1,7 @@
 (ns fugue.ctx-ctrls
   (:require [reagent.core :as r]
             [cljs.core.async :as async]
+            [fugue.buffer :as buffer]
             [fugue.midi :as midi]
             [fugue.audio :as audio]))
 

@@ -43,7 +43,9 @@ goog.addDependency("../loom/graph.js", ['loom.graph'], ['cljs.core', 'loom.alg_g
 goog.addDependency("../loom/attr.js", ['loom.attr'], ['cljs.core', 'loom.graph']);
 goog.addDependency("../fugue/synthdef.js", ['fugue.synthdef'], ['cljs.core', 'loom.graph', 'loom.attr', 'cljs.spec.alpha']);
 goog.addDependency("../fugue/audio.js", ['fugue.audio'], ['cljs.core', 'oops.core', 'fugue.synthdef', 'cljs.spec.alpha']);
+goog.addDependency("../fugue/buffer.js", ['fugue.buffer'], ['cljs.core', 'cljs.spec.alpha']);
 goog.addDependency("../fugue/components.js", ['fugue.components'], ['cljs.core']);
+goog.addDependency("../fugue/convolver.js", ['fugue.convolver'], ['fugue.audio', 'fugue.buffer', 'cljs.core', 'oops.core', 'fugue.synthdef', 'cljs.spec.alpha']);
 goog.addDependency("../reagent/impl/util.js", ['reagent.impl.util'], ['cljs.core', 'clojure.string']);
 goog.addDependency("../reagent/debug.js", ['reagent.debug'], ['cljs.core']);
 goog.addDependency("../reagent/impl/batching.js", ['reagent.impl.batching'], ['reagent.impl.util', 'cljs.core', 'reagent.debug']);
@@ -65,14 +67,14 @@ goog.addDependency("../fugue/chan.js", ['fugue.chan'], ['cljs.core', 'cljs.core.
 goog.addDependency("../fugue/sequencer.js", ['fugue.sequencer'], ['cljs.core', 'fugue.chan', 'fugue.synthdef', 'cljs.spec.alpha']);
 goog.addDependency("../fugue/feedback.js", ['fugue.feedback'], ['fugue.audio', 'cljs.core', 'loom.graph', 'loom.attr', 'fugue.synthdef', 'cljs.spec.alpha']);
 goog.addDependency("../fugue/midi.js", ['fugue.midi'], ['cljs.core', 'cljs.core.async', 'fugue.chan', 'oops.core', 'fugue.synthdef', 'cljs.spec.alpha']);
-goog.addDependency("../fugue/ctx_ctrls.js", ['fugue.ctx_ctrls'], ['fugue.audio', 'reagent.core', 'cljs.core', 'cljs.core.async', 'fugue.midi']);
+goog.addDependency("../fugue/ctx_ctrls.js", ['fugue.ctx_ctrls'], ['fugue.audio', 'fugue.buffer', 'reagent.core', 'cljs.core', 'cljs.core.async', 'fugue.midi']);
 goog.addDependency("../fugue/keyboard.js", ['fugue.keyboard'], ['cljs.core', 'cljs.core.async', 'fugue.chan', 'fugue.synthdef', 'fugue.midi', 'cljs.spec.alpha']);
 goog.addDependency("../fugue/ramp.js", ['fugue.ramp'], ['fugue.audio', 'cljs.core', 'cljs.core.async', 'fugue.chan', 'oops.core', 'fugue.synthdef', 'cljs.spec.alpha']);
-goog.addDependency("../fugue/sampler.js", ['fugue.sampler'], ['fugue.audio', 'fugue.ramp', 'cljs.core', 'cljs.core.async', 'fugue.chan', 'oops.core', 'fugue.synthdef', 'cljs.spec.alpha']);
+goog.addDependency("../fugue/sampler.js", ['fugue.sampler'], ['fugue.audio', 'fugue.buffer', 'fugue.ramp', 'cljs.core', 'cljs.core.async', 'fugue.chan', 'oops.core', 'fugue.synthdef', 'cljs.spec.alpha']);
 goog.addDependency("../fugue/metronome.js", ['fugue.metronome'], ['fugue.audio', 'cljs.core', 'cljs.core.async', 'fugue.chan', 'oops.core', 'fugue.synthdef', 'cljs.spec.alpha']);
 goog.addDependency("../cljs/repl.js", ['cljs.repl'], ['goog.string', 'cljs.core', 'goog.string.format', 'cljs.spec.alpha']);
 goog.addDependency("../fugue/envelope.js", ['fugue.envelope'], ['fugue.audio', 'fugue.ramp', 'cljs.core', 'fugue.chan', 'oops.core', 'fugue.synthdef', 'cljs.spec.alpha']);
-goog.addDependency("../fugue/api.js", ['fugue.api'], ['fugue.audio', 'fugue.components', 'reagent.core', 'fugue.sequencer', 'cljs.core', 'fugue.feedback', 'fugue.ctx_ctrls', 'fugue.synthdef', 'fugue.keyboard', 'fugue.sampler', 'fugue.metronome', 'fugue.midi', 'cljs.repl', 'clojure.string', 'fugue.envelope']);
+goog.addDependency("../fugue/api.js", ['fugue.api'], ['fugue.audio', 'fugue.buffer', 'fugue.components', 'fugue.convolver', 'reagent.core', 'fugue.sequencer', 'cljs.core', 'fugue.feedback', 'fugue.ctx_ctrls', 'fugue.synthdef', 'fugue.keyboard', 'fugue.sampler', 'fugue.metronome', 'fugue.midi', 'cljs.repl', 'clojure.string', 'fugue.envelope']);
 goog.addDependency("../fugue/box.js", ['fugue.box'], ['reagent.core', 'cljs.core', 'cljs.pprint', 'cljs.repl', 'reagent.dom']);
 goog.addDependency("../cljs/tools/reader/impl/utils.js", ['cljs.tools.reader.impl.utils'], ['goog.string', 'cljs.core', 'clojure.string']);
 goog.addDependency("../cljs/tools/reader/reader_types.js", ['cljs.tools.reader.reader_types'], ['goog.string', 'cljs.core', 'goog.string.StringBuffer', 'cljs.tools.reader.impl.utils']);
@@ -92,4 +94,4 @@ goog.addDependency("../cljs/compiler.js", ['cljs.compiler'], ['cljs.tools.reader
 goog.addDependency("../cljs/core$macros.js", ['cljs.core$macros'], ['cljs.compiler', 'cljs.core', 'cljs.env', 'clojure.set', 'cljs.analyzer', 'clojure.string', 'clojure.walk']);
 goog.addDependency("../cljs/js.js", ['cljs.js'], ['cljs.compiler', 'cljs.tools.reader', 'cljs.core', 'goog.crypt.base64', 'cljs.tools.reader.reader_types', 'cljs.env', 'goog.string.StringBuffer', 'cljs.tagged_literals', 'cljs.analyzer', 'cljs.source_map', 'clojure.string', 'cljs.spec.alpha', 'clojure.walk', 'cljs.core$macros']);
 goog.addDependency("../fugue/bootstrap.js", ['fugue.bootstrap'], ['fugue.api', 'cljs.js', 'cljs.core']);
-goog.addDependency("../fugue/web.js", ['fugue.web'], ['fugue.api', 'fugue.box', 'reagent.core', 'cljs.core', 'cljs.repl', 'fugue.bootstrap', 'reagent.dom']);
+goog.addDependency("../fugue/web.js", ['fugue.web'], ['fugue.api', 'fugue.box', 'reagent.core', 'cljs.core', 'fugue.bootstrap', 'reagent.dom']);
