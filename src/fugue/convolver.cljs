@@ -14,9 +14,9 @@
     (oset! node "buffer" (get buffer-cache buffer-name))
     node))
 
-(defn convolver [buffer-name]
+(defn convolver [in buffer-name]
   (synthdef/synthdef
     {::synthdef/node-type ::audio/audio-node
      ::audio/audio-node-type ::convolver
      ::buffer/buffer-name buffer-name}
-    {}))
+    {::audio/input [in]}))
