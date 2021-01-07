@@ -3,6 +3,7 @@ html, body, #app {
   width: 100%; 
   height: 100%; 
   margin: 0;
+  font-family: sans-serif;
 }
 
 #app {
@@ -23,6 +24,19 @@ html, body, #app {
   border: 1px solid black;
   margin: 16px;
   max-width: 80vw;
+}
+
+.box-toolbar {
+  border-bottom: 1px solid black;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+}
+
+#close {
+  display: flex;
+  flex-flow: column;
+  margin-left: auto;
 }
 
 .box-top {
