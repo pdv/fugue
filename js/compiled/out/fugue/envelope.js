@@ -7,14 +7,14 @@ goog.require('fugue.audio');
 goog.require('fugue.synthdef');
 goog.require('fugue.ramp');
 goog.require('fugue.chan');
-cljs.spec.alpha.def_impl.call(null,new cljs.core.Keyword("fugue.envelope","stage","fugue.envelope/stage",494509546),cljs.core.list(new cljs.core.Symbol("cljs.spec.alpha","keys","cljs.spec.alpha/keys",1109346032,null),new cljs.core.Keyword(null,"req","req",-326448303),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("fugue.envelope","duration","fugue.envelope/duration",-1569089346),new cljs.core.Keyword("fugue.envelope","target","fugue.envelope/target",-1091406589)], null),new cljs.core.Keyword(null,"opt","opt",-794706369),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("fugue.ramp","shape","fugue.ramp/shape",111917230)], null)),cljs.spec.alpha.map_spec_impl.call(null,cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"req-un","req-un",1074571008),new cljs.core.Keyword(null,"opt-un","opt-un",883442496),new cljs.core.Keyword(null,"gfn","gfn",791517474),new cljs.core.Keyword(null,"pred-exprs","pred-exprs",1792271395),new cljs.core.Keyword(null,"keys-pred","keys-pred",858984739),new cljs.core.Keyword(null,"opt-keys","opt-keys",1262688261),new cljs.core.Keyword(null,"req-specs","req-specs",553962313),new cljs.core.Keyword(null,"req","req",-326448303),new cljs.core.Keyword(null,"req-keys","req-keys",514319221),new cljs.core.Keyword(null,"opt-specs","opt-specs",-384905450),new cljs.core.Keyword(null,"pred-forms","pred-forms",172611832),new cljs.core.Keyword(null,"opt","opt",-794706369)],[null,null,null,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [(function (G__35395){
-return cljs.core.map_QMARK_.call(null,G__35395);
-}),(function (G__35395){
-return cljs.core.contains_QMARK_.call(null,G__35395,new cljs.core.Keyword("fugue.envelope","duration","fugue.envelope/duration",-1569089346));
-}),(function (G__35395){
-return cljs.core.contains_QMARK_.call(null,G__35395,new cljs.core.Keyword("fugue.envelope","target","fugue.envelope/target",-1091406589));
-})], null),(function (G__35395){
-return ((cljs.core.map_QMARK_.call(null,G__35395)) && (cljs.core.contains_QMARK_.call(null,G__35395,new cljs.core.Keyword("fugue.envelope","duration","fugue.envelope/duration",-1569089346))) && (cljs.core.contains_QMARK_.call(null,G__35395,new cljs.core.Keyword("fugue.envelope","target","fugue.envelope/target",-1091406589))));
+cljs.spec.alpha.def_impl.call(null,new cljs.core.Keyword("fugue.envelope","stage","fugue.envelope/stage",494509546),cljs.core.list(new cljs.core.Symbol("cljs.spec.alpha","keys","cljs.spec.alpha/keys",1109346032,null),new cljs.core.Keyword(null,"req","req",-326448303),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("fugue.envelope","duration","fugue.envelope/duration",-1569089346),new cljs.core.Keyword("fugue.envelope","target","fugue.envelope/target",-1091406589)], null),new cljs.core.Keyword(null,"opt","opt",-794706369),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("fugue.ramp","shape","fugue.ramp/shape",111917230)], null)),cljs.spec.alpha.map_spec_impl.call(null,cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"req-un","req-un",1074571008),new cljs.core.Keyword(null,"opt-un","opt-un",883442496),new cljs.core.Keyword(null,"gfn","gfn",791517474),new cljs.core.Keyword(null,"pred-exprs","pred-exprs",1792271395),new cljs.core.Keyword(null,"keys-pred","keys-pred",858984739),new cljs.core.Keyword(null,"opt-keys","opt-keys",1262688261),new cljs.core.Keyword(null,"req-specs","req-specs",553962313),new cljs.core.Keyword(null,"req","req",-326448303),new cljs.core.Keyword(null,"req-keys","req-keys",514319221),new cljs.core.Keyword(null,"opt-specs","opt-specs",-384905450),new cljs.core.Keyword(null,"pred-forms","pred-forms",172611832),new cljs.core.Keyword(null,"opt","opt",-794706369)],[null,null,null,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [(function (G__35460){
+return cljs.core.map_QMARK_.call(null,G__35460);
+}),(function (G__35460){
+return cljs.core.contains_QMARK_.call(null,G__35460,new cljs.core.Keyword("fugue.envelope","duration","fugue.envelope/duration",-1569089346));
+}),(function (G__35460){
+return cljs.core.contains_QMARK_.call(null,G__35460,new cljs.core.Keyword("fugue.envelope","target","fugue.envelope/target",-1091406589));
+})], null),(function (G__35460){
+return ((cljs.core.map_QMARK_.call(null,G__35460)) && (cljs.core.contains_QMARK_.call(null,G__35460,new cljs.core.Keyword("fugue.envelope","duration","fugue.envelope/duration",-1569089346))) && (cljs.core.contains_QMARK_.call(null,G__35460,new cljs.core.Keyword("fugue.envelope","target","fugue.envelope/target",-1091406589))));
 }),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("fugue.ramp","shape","fugue.ramp/shape",111917230)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("fugue.envelope","duration","fugue.envelope/duration",-1569089346),new cljs.core.Keyword("fugue.envelope","target","fugue.envelope/target",-1091406589)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("fugue.envelope","duration","fugue.envelope/duration",-1569089346),new cljs.core.Keyword("fugue.envelope","target","fugue.envelope/target",-1091406589)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("fugue.envelope","duration","fugue.envelope/duration",-1569089346),new cljs.core.Keyword("fugue.envelope","target","fugue.envelope/target",-1091406589)], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("fugue.ramp","shape","fugue.ramp/shape",111917230)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.list(new cljs.core.Symbol("cljs.core","fn","cljs.core/fn",-1065745098,null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Symbol(null,"%","%",-950237169,null)], null),cljs.core.list(new cljs.core.Symbol("cljs.core","map?","cljs.core/map?",-1390345523,null),new cljs.core.Symbol(null,"%","%",-950237169,null))),cljs.core.list(new cljs.core.Symbol("cljs.core","fn","cljs.core/fn",-1065745098,null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Symbol(null,"%","%",-950237169,null)], null),cljs.core.list(new cljs.core.Symbol("cljs.core","contains?","cljs.core/contains?",-976526835,null),new cljs.core.Symbol(null,"%","%",-950237169,null),new cljs.core.Keyword("fugue.envelope","duration","fugue.envelope/duration",-1569089346))),cljs.core.list(new cljs.core.Symbol("cljs.core","fn","cljs.core/fn",-1065745098,null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Symbol(null,"%","%",-950237169,null)], null),cljs.core.list(new cljs.core.Symbol("cljs.core","contains?","cljs.core/contains?",-976526835,null),new cljs.core.Symbol(null,"%","%",-950237169,null),new cljs.core.Keyword("fugue.envelope","target","fugue.envelope/target",-1091406589)))], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("fugue.ramp","shape","fugue.ramp/shape",111917230)], null)])));
 cljs.spec.alpha.def_impl.call(null,new cljs.core.Keyword("fugue.envelope","stages","fugue.envelope/stages",-1255369578),cljs.core.list(new cljs.core.Symbol("cljs.spec.alpha","*","cljs.spec.alpha/*",-1238084288,null),new cljs.core.Keyword("fugue.envelope","stage","fugue.envelope/stage",494509546)),cljs.spec.alpha.rep_impl.call(null,new cljs.core.Keyword("fugue.envelope","stage","fugue.envelope/stage",494509546),new cljs.core.Keyword("fugue.envelope","stage","fugue.envelope/stage",494509546)));
 fugue.envelope.start_event = (function fugue$envelope$start_event(start_time,last_scheduled){
@@ -42,13 +42,13 @@ throw (new Error("Assert failed: (s/valid? :fugue.envelope/stages stages)"));
 var _PERCENT_ = (function (){var durations = cljs.core.map.call(null,new cljs.core.Keyword("fugue.envelope","duration","fugue.envelope/duration",-1569089346),stages);
 var times = cljs.core.reductions.call(null,cljs.core._PLUS_,start_time,durations);
 var levels = cljs.core.map.call(null,((function (durations,times){
-return (function (p1__35396_SHARP_){
-return (bias + (scale * new cljs.core.Keyword("fugue.envelope","target","fugue.envelope/target",-1091406589).cljs$core$IFn$_invoke$arity$1(p1__35396_SHARP_)));
+return (function (p1__35461_SHARP_){
+return (bias + (scale * new cljs.core.Keyword("fugue.envelope","target","fugue.envelope/target",-1091406589).cljs$core$IFn$_invoke$arity$1(p1__35461_SHARP_)));
 });})(durations,times))
 ,stages);
 var shapes = cljs.core.map.call(null,((function (durations,times,levels){
-return (function (p1__35397_SHARP_){
-return cljs.core.get.call(null,p1__35397_SHARP_,new cljs.core.Keyword("fugue.ramp","shape","fugue.ramp/shape",111917230),new cljs.core.Keyword("fugue.ramp","exponential","fugue.ramp/exponential",1652981676));
+return (function (p1__35462_SHARP_){
+return cljs.core.get.call(null,p1__35462_SHARP_,new cljs.core.Keyword("fugue.ramp","shape","fugue.ramp/shape",111917230),new cljs.core.Keyword("fugue.ramp","exponential","fugue.ramp/exponential",1652981676));
 });})(durations,times,levels))
 ,stages);
 return cljs.core.map.call(null,((function (durations,times,levels,shapes){
@@ -73,20 +73,20 @@ var v_prev_gate = cljs.core.volatile_BANG_.call(null,(0));
 var v_last_scheduled = cljs.core.volatile_BANG_.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword("fugue.ramp","shape","fugue.ramp/shape",111917230),new cljs.core.Keyword("fugue.ramp","cancel-and-hold","fugue.ramp/cancel-and-hold",1218085274),new cljs.core.Keyword("fugue.ramp","value","fugue.ramp/value",-708720719),(0),new cljs.core.Keyword("fugue.ramp","time","fugue.ramp/time",-1815618494),now_fn.call(null)], null));
 return ((function (v_prev_gate,v_last_scheduled){
 return (function() {
-var G__35401 = null;
-var G__35401__0 = (function (){
+var G__35466 = null;
+var G__35466__0 = (function (){
 return rf.call(null);
 });
-var G__35401__1 = (function (result){
+var G__35466__1 = (function (result){
 return rf.call(null,result);
 });
-var G__35401__2 = (function (result,p__35398){
-var map__35399 = p__35398;
-var map__35399__$1 = (((((!((map__35399 == null))))?(((((map__35399.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__35399.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__35399):map__35399);
-var env = cljs.core.get.call(null,map__35399__$1,new cljs.core.Keyword("fugue.envelope","env","fugue.envelope/env",1112422551));
-var gate = cljs.core.get.call(null,map__35399__$1,new cljs.core.Keyword("fugue.envelope","gate","fugue.envelope/gate",1600847179));
-var scale = cljs.core.get.call(null,map__35399__$1,new cljs.core.Keyword("fugue.envelope","scale","fugue.envelope/scale",-1562195919));
-var bias = cljs.core.get.call(null,map__35399__$1,new cljs.core.Keyword("fugue.envelope","bias","fugue.envelope/bias",1014735024));
+var G__35466__2 = (function (result,p__35463){
+var map__35464 = p__35463;
+var map__35464__$1 = (((((!((map__35464 == null))))?(((((map__35464.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__35464.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__35464):map__35464);
+var env = cljs.core.get.call(null,map__35464__$1,new cljs.core.Keyword("fugue.envelope","env","fugue.envelope/env",1112422551));
+var gate = cljs.core.get.call(null,map__35464__$1,new cljs.core.Keyword("fugue.envelope","gate","fugue.envelope/gate",1600847179));
+var scale = cljs.core.get.call(null,map__35464__$1,new cljs.core.Keyword("fugue.envelope","scale","fugue.envelope/scale",-1562195919));
+var bias = cljs.core.get.call(null,map__35464__$1,new cljs.core.Keyword("fugue.envelope","bias","fugue.envelope/bias",1014735024));
 var prev_gate = cljs.core.deref.call(null,v_prev_gate);
 var last_scheduled = cljs.core.deref.call(null,v_last_scheduled);
 var start_time = (now_fn.call(null) + (function (){var or__4131__auto__ = new cljs.core.Keyword(null,"delay","delay",-574225219).cljs$core$IFn$_invoke$arity$1(gate);
@@ -123,33 +123,33 @@ return cljs.core.reduce.call(null,rf,result,all_events);
 return result;
 }
 });
-G__35401 = function(result,p__35398){
+G__35466 = function(result,p__35463){
 switch(arguments.length){
 case 0:
-return G__35401__0.call(this);
+return G__35466__0.call(this);
 case 1:
-return G__35401__1.call(this,result);
+return G__35466__1.call(this,result);
 case 2:
-return G__35401__2.call(this,result,p__35398);
+return G__35466__2.call(this,result,p__35463);
 }
 throw(new Error('Invalid arity: ' + arguments.length));
 };
-G__35401.cljs$core$IFn$_invoke$arity$0 = G__35401__0;
-G__35401.cljs$core$IFn$_invoke$arity$1 = G__35401__1;
-G__35401.cljs$core$IFn$_invoke$arity$2 = G__35401__2;
-return G__35401;
+G__35466.cljs$core$IFn$_invoke$arity$0 = G__35466__0;
+G__35466.cljs$core$IFn$_invoke$arity$1 = G__35466__1;
+G__35466.cljs$core$IFn$_invoke$arity$2 = G__35466__2;
+return G__35466;
 })()
 ;})(v_prev_gate,v_last_scheduled))
 });
 });
 cljs.core._add_method.call(null,fugue.chan.make_transducer,new cljs.core.Keyword("fugue.envelope","adsr","fugue.envelope/adsr",1664722965),(function (_,___$1){
-return cljs.core.map.call(null,(function (p__35402){
-var map__35403 = p__35402;
-var map__35403__$1 = (((((!((map__35403 == null))))?(((((map__35403.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__35403.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__35403):map__35403);
-var a = cljs.core.get.call(null,map__35403__$1,new cljs.core.Keyword("fugue.envelope","a","fugue.envelope/a",-236705240));
-var d = cljs.core.get.call(null,map__35403__$1,new cljs.core.Keyword("fugue.envelope","d","fugue.envelope/d",-989442482));
-var s = cljs.core.get.call(null,map__35403__$1,new cljs.core.Keyword("fugue.envelope","s","fugue.envelope/s",-708464424));
-var r = cljs.core.get.call(null,map__35403__$1,new cljs.core.Keyword("fugue.envelope","r","fugue.envelope/r",-1841532240));
+return cljs.core.map.call(null,(function (p__35467){
+var map__35468 = p__35467;
+var map__35468__$1 = (((((!((map__35468 == null))))?(((((map__35468.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__35468.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__35468):map__35468);
+var a = cljs.core.get.call(null,map__35468__$1,new cljs.core.Keyword("fugue.envelope","a","fugue.envelope/a",-236705240));
+var d = cljs.core.get.call(null,map__35468__$1,new cljs.core.Keyword("fugue.envelope","d","fugue.envelope/d",-989442482));
+var s = cljs.core.get.call(null,map__35468__$1,new cljs.core.Keyword("fugue.envelope","s","fugue.envelope/s",-708464424));
+var r = cljs.core.get.call(null,map__35468__$1,new cljs.core.Keyword("fugue.envelope","r","fugue.envelope/r",-1841532240));
 return new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("fugue.envelope","open","fugue.envelope/open",1164786282),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("fugue.envelope","duration","fugue.envelope/duration",-1569089346),a,new cljs.core.Keyword("fugue.envelope","target","fugue.envelope/target",-1091406589),(1)], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("fugue.envelope","duration","fugue.envelope/duration",-1569089346),d,new cljs.core.Keyword("fugue.envelope","target","fugue.envelope/target",-1091406589),s], null)], null),new cljs.core.Keyword("fugue.envelope","closed","fugue.envelope/closed",416754455),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("fugue.envelope","duration","fugue.envelope/duration",-1569089346),r,new cljs.core.Keyword("fugue.envelope","target","fugue.envelope/target",-1091406589),(0)], null)], null)], null);
 }));
 }));
@@ -157,11 +157,11 @@ fugue.envelope.adsr = (function fugue$envelope$adsr(a,d,s,r){
 return fugue.synthdef.synthdef.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword("fugue.synthdef","node-type","fugue.synthdef/node-type",806558205),new cljs.core.Keyword("fugue.chan","chan-node","fugue.chan/chan-node",-1139152001),new cljs.core.Keyword("fugue.chan","chan-node-type","fugue.chan/chan-node-type",447830325),new cljs.core.Keyword("fugue.chan","transducer","fugue.chan/transducer",546482313),new cljs.core.Keyword("fugue.chan","xform","fugue.chan/xform",1487931640),new cljs.core.Keyword("fugue.envelope","adsr","fugue.envelope/adsr",1664722965)], null),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword("fugue.envelope","a","fugue.envelope/a",-236705240),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [a], null),new cljs.core.Keyword("fugue.envelope","d","fugue.envelope/d",-989442482),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [d], null),new cljs.core.Keyword("fugue.envelope","s","fugue.envelope/s",-708464424),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [s], null),new cljs.core.Keyword("fugue.envelope","r","fugue.envelope/r",-1841532240),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [r], null)], null));
 });
 cljs.core._add_method.call(null,fugue.chan.make_transducer,new cljs.core.Keyword("fugue.envelope","perc","fugue.envelope/perc",-790645078),(function (_,___$1){
-return cljs.core.map.call(null,(function (p__35405){
-var map__35406 = p__35405;
-var map__35406__$1 = (((((!((map__35406 == null))))?(((((map__35406.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__35406.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__35406):map__35406);
-var a = cljs.core.get.call(null,map__35406__$1,new cljs.core.Keyword("fugue.envelope","a","fugue.envelope/a",-236705240));
-var d = cljs.core.get.call(null,map__35406__$1,new cljs.core.Keyword("fugue.envelope","d","fugue.envelope/d",-989442482));
+return cljs.core.map.call(null,(function (p__35470){
+var map__35471 = p__35470;
+var map__35471__$1 = (((((!((map__35471 == null))))?(((((map__35471.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__35471.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__35471):map__35471);
+var a = cljs.core.get.call(null,map__35471__$1,new cljs.core.Keyword("fugue.envelope","a","fugue.envelope/a",-236705240));
+var d = cljs.core.get.call(null,map__35471__$1,new cljs.core.Keyword("fugue.envelope","d","fugue.envelope/d",-989442482));
 return new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("fugue.envelope","open","fugue.envelope/open",1164786282),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("fugue.envelope","duration","fugue.envelope/duration",-1569089346),a,new cljs.core.Keyword("fugue.envelope","target","fugue.envelope/target",-1091406589),(1)], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("fugue.envelope","duration","fugue.envelope/duration",-1569089346),d,new cljs.core.Keyword("fugue.envelope","target","fugue.envelope/target",-1091406589),(0)], null)], null),new cljs.core.Keyword("fugue.envelope","closed","fugue.envelope/closed",416754455),cljs.core.PersistentVector.EMPTY], null);
 }));
 }));
@@ -169,10 +169,10 @@ fugue.envelope.perc = (function fugue$envelope$perc(a,d){
 return fugue.synthdef.synthdef.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword("fugue.synthdef","node-type","fugue.synthdef/node-type",806558205),new cljs.core.Keyword("fugue.chan","chan-node","fugue.chan/chan-node",-1139152001),new cljs.core.Keyword("fugue.chan","chan-node-type","fugue.chan/chan-node-type",447830325),new cljs.core.Keyword("fugue.chan","transducer","fugue.chan/transducer",546482313),new cljs.core.Keyword("fugue.chan","xform","fugue.chan/xform",1487931640),new cljs.core.Keyword("fugue.envelope","perc","fugue.envelope/perc",-790645078)], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("fugue.envelope","a","fugue.envelope/a",-236705240),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(0),a], null),new cljs.core.Keyword("fugue.envelope","d","fugue.envelope/d",-989442482),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(0),d], null)], null));
 });
 cljs.core._add_method.call(null,fugue.chan.make_transducer,new cljs.core.Keyword("fugue.envelope","pulse","fugue.envelope/pulse",-1585151394),(function (_,___$1){
-return cljs.core.map.call(null,(function (p__35408){
-var map__35409 = p__35408;
-var map__35409__$1 = (((((!((map__35409 == null))))?(((((map__35409.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__35409.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__35409):map__35409);
-var duration = cljs.core.get.call(null,map__35409__$1,new cljs.core.Keyword("fugue.envelope","duration","fugue.envelope/duration",-1569089346));
+return cljs.core.map.call(null,(function (p__35473){
+var map__35474 = p__35473;
+var map__35474__$1 = (((((!((map__35474 == null))))?(((((map__35474.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__35474.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__35474):map__35474);
+var duration = cljs.core.get.call(null,map__35474__$1,new cljs.core.Keyword("fugue.envelope","duration","fugue.envelope/duration",-1569089346));
 return new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("fugue.envelope","open","fugue.envelope/open",1164786282),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("fugue.envelope","duration","fugue.envelope/duration",-1569089346),(0),new cljs.core.Keyword("fugue.envelope","target","fugue.envelope/target",-1091406589),(1)], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("fugue.envelope","duration","fugue.envelope/duration",-1569089346),duration,new cljs.core.Keyword("fugue.envelope","target","fugue.envelope/target",-1091406589),(1)], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("fugue.envelope","duration","fugue.envelope/duration",-1569089346),(0),new cljs.core.Keyword("fugue.envelope","target","fugue.envelope/target",-1091406589),(0)], null)], null),new cljs.core.Keyword("fugue.envelope","closed","fugue.envelope/closed",416754455),cljs.core.PersistentVector.EMPTY], null);
 }));
 }));
@@ -180,36 +180,36 @@ fugue.envelope.pulse = (function fugue$envelope$pulse(duration){
 return fugue.synthdef.synthdef.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword("fugue.synthdef","node-type","fugue.synthdef/node-type",806558205),new cljs.core.Keyword("fugue.chan","chan-node","fugue.chan/chan-node",-1139152001),new cljs.core.Keyword("fugue.chan","chan-node-type","fugue.chan/chan-node-type",447830325),new cljs.core.Keyword("fugue.chan","transducer","fugue.chan/transducer",546482313),new cljs.core.Keyword("fugue.chan","xform","fugue.chan/xform",1487931640),new cljs.core.Keyword("fugue.envelope","pulse","fugue.envelope/pulse",-1585151394)], null),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("fugue.envelope","duration","fugue.envelope/duration",-1569089346),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(0),duration], null)], null));
 });
 cljs.core._add_method.call(null,fugue.chan.make_transducer,new cljs.core.Keyword("fugue.envelope","slide","fugue.envelope/slide",1477807070),(function (_,___$1){
-return cljs.core.map.call(null,(function (p__35411){
-var map__35412 = p__35411;
-var map__35412__$1 = (((((!((map__35412 == null))))?(((((map__35412.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__35412.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__35412):map__35412);
-var duration = cljs.core.get.call(null,map__35412__$1,new cljs.core.Keyword("fugue.envelope","duration","fugue.envelope/duration",-1569089346));
+return cljs.core.map.call(null,(function (p__35476){
+var map__35477 = p__35476;
+var map__35477__$1 = (((((!((map__35477 == null))))?(((((map__35477.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__35477.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__35477):map__35477);
+var duration = cljs.core.get.call(null,map__35477__$1,new cljs.core.Keyword("fugue.envelope","duration","fugue.envelope/duration",-1569089346));
 return new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("fugue.envelope","open","fugue.envelope/open",1164786282),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("fugue.envelope","duration","fugue.envelope/duration",-1569089346),duration,new cljs.core.Keyword("fugue.envelope","target","fugue.envelope/target",-1091406589),(1)], null)], null),new cljs.core.Keyword("fugue.envelope","closed","fugue.envelope/closed",416754455),cljs.core.PersistentVector.EMPTY], null);
 }));
 }));
 fugue.envelope.slide = (function fugue$envelope$slide(duration){
 return fugue.synthdef.synthdef.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword("fugue.synthdef","node-type","fugue.synthdef/node-type",806558205),new cljs.core.Keyword("fugue.chan","chan-node","fugue.chan/chan-node",-1139152001),new cljs.core.Keyword("fugue.chan","chan-node-type","fugue.chan/chan-node-type",447830325),new cljs.core.Keyword("fugue.chan","transducer","fugue.chan/transducer",546482313),new cljs.core.Keyword("fugue.chan","xform","fugue.chan/xform",1487931640),new cljs.core.Keyword("fugue.envelope","slide","fugue.envelope/slide",1477807070)], null),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("fugue.envelope","duration","fugue.envelope/duration",-1569089346),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(0),duration], null)], null));
 });
-cljs.core._add_method.call(null,fugue.chan.make_transducer,new cljs.core.Keyword("fugue.envelope","env-gen","fugue.envelope/env-gen",-963204886),(function (p__35414,_){
-var map__35415 = p__35414;
-var map__35415__$1 = (((((!((map__35415 == null))))?(((((map__35415.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__35415.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__35415):map__35415);
-var actx = cljs.core.get.call(null,map__35415__$1,new cljs.core.Keyword("fugue.audio","actx","fugue.audio/actx",-1808529001));
-return fugue.envelope.stages_x_ramp.call(null,((function (map__35415,map__35415__$1,actx){
+cljs.core._add_method.call(null,fugue.chan.make_transducer,new cljs.core.Keyword("fugue.envelope","env-gen","fugue.envelope/env-gen",-963204886),(function (p__35479,_){
+var map__35480 = p__35479;
+var map__35480__$1 = (((((!((map__35480 == null))))?(((((map__35480.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__35480.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__35480):map__35480);
+var actx = cljs.core.get.call(null,map__35480__$1,new cljs.core.Keyword("fugue.audio","actx","fugue.audio/actx",-1808529001));
+return fugue.envelope.stages_x_ramp.call(null,((function (map__35480,map__35480__$1,actx){
 return (function (){
-var target_obj_35417 = actx;
-var _STAR_runtime_state_STAR__orig_val__35419 = oops.state._STAR_runtime_state_STAR_;
-var _STAR_runtime_state_STAR__temp_val__35420 = oops.state.prepare_state.call(null,target_obj_35417,(new Error()),function(){arguments[0].apply(console,Array.prototype.slice.call(arguments,1))});
-oops.state._STAR_runtime_state_STAR_ = _STAR_runtime_state_STAR__temp_val__35420;
+var target_obj_35482 = actx;
+var _STAR_runtime_state_STAR__orig_val__35484 = oops.state._STAR_runtime_state_STAR_;
+var _STAR_runtime_state_STAR__temp_val__35485 = oops.state.prepare_state.call(null,target_obj_35482,(new Error()),function(){arguments[0].apply(console,Array.prototype.slice.call(arguments,1))});
+oops.state._STAR_runtime_state_STAR_ = _STAR_runtime_state_STAR__temp_val__35485;
 
-try{var next_obj_35418 = ((oops.core.validate_object_access_dynamically.call(null,target_obj_35417,(0),"currentTime",true,true,false))?(target_obj_35417["currentTime"]):null);
-return next_obj_35418;
-}finally {oops.state._STAR_runtime_state_STAR_ = _STAR_runtime_state_STAR__orig_val__35419;
-}});})(map__35415,map__35415__$1,actx))
+try{var next_obj_35483 = ((oops.core.validate_object_access_dynamically.call(null,target_obj_35482,(0),"currentTime",true,true,false))?(target_obj_35482["currentTime"]):null);
+return next_obj_35483;
+}finally {oops.state._STAR_runtime_state_STAR_ = _STAR_runtime_state_STAR__orig_val__35484;
+}});})(map__35480,map__35480__$1,actx))
 );
 }));
 fugue.envelope.env_gen = (function fugue$envelope$env_gen(var_args){
-var G__35422 = arguments.length;
-switch (G__35422) {
+var G__35487 = arguments.length;
+switch (G__35487) {
 case 2:
 return fugue.envelope.env_gen.cljs$core$IFn$_invoke$arity$2((arguments[(0)]),(arguments[(1)]));
 
@@ -243,4 +243,4 @@ return fugue.synthdef.synthdef.call(null,new cljs.core.PersistentArrayMap(null, 
 fugue.envelope.env_gen.cljs$lang$maxFixedArity = 4;
 
 
-//# sourceMappingURL=envelope.js.map?rel=1610051744975
+//# sourceMappingURL=envelope.js.map?rel=1610058839107

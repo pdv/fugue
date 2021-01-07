@@ -7,21 +7,21 @@ goog.require('oops.core');
 goog.require('fugue.synthdef');
 goog.require('fugue.chan');
 cljs.core._add_method.call(null,fugue.chan.chan_node_spec,new cljs.core.Keyword("fugue.midi","midi-in","fugue.midi/midi-in",-1281528989),(function (_){
-return cljs.spec.alpha.map_spec_impl.call(null,cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"req-un","req-un",1074571008),new cljs.core.Keyword(null,"opt-un","opt-un",883442496),new cljs.core.Keyword(null,"gfn","gfn",791517474),new cljs.core.Keyword(null,"pred-exprs","pred-exprs",1792271395),new cljs.core.Keyword(null,"keys-pred","keys-pred",858984739),new cljs.core.Keyword(null,"opt-keys","opt-keys",1262688261),new cljs.core.Keyword(null,"req-specs","req-specs",553962313),new cljs.core.Keyword(null,"req","req",-326448303),new cljs.core.Keyword(null,"req-keys","req-keys",514319221),new cljs.core.Keyword(null,"opt-specs","opt-specs",-384905450),new cljs.core.Keyword(null,"pred-forms","pred-forms",172611832),new cljs.core.Keyword(null,"opt","opt",-794706369)],[null,null,null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(function (G__34676){
-return cljs.core.map_QMARK_.call(null,G__34676);
-}),(function (G__34676){
-return cljs.core.contains_QMARK_.call(null,G__34676,new cljs.core.Keyword("fugue.midi","input-name","fugue.midi/input-name",1387993924));
-})], null),(function (G__34676){
-return ((cljs.core.map_QMARK_.call(null,G__34676)) && (cljs.core.contains_QMARK_.call(null,G__34676,new cljs.core.Keyword("fugue.midi","input-name","fugue.midi/input-name",1387993924))));
+return cljs.spec.alpha.map_spec_impl.call(null,cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"req-un","req-un",1074571008),new cljs.core.Keyword(null,"opt-un","opt-un",883442496),new cljs.core.Keyword(null,"gfn","gfn",791517474),new cljs.core.Keyword(null,"pred-exprs","pred-exprs",1792271395),new cljs.core.Keyword(null,"keys-pred","keys-pred",858984739),new cljs.core.Keyword(null,"opt-keys","opt-keys",1262688261),new cljs.core.Keyword(null,"req-specs","req-specs",553962313),new cljs.core.Keyword(null,"req","req",-326448303),new cljs.core.Keyword(null,"req-keys","req-keys",514319221),new cljs.core.Keyword(null,"opt-specs","opt-specs",-384905450),new cljs.core.Keyword(null,"pred-forms","pred-forms",172611832),new cljs.core.Keyword(null,"opt","opt",-794706369)],[null,null,null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [(function (G__34667){
+return cljs.core.map_QMARK_.call(null,G__34667);
+}),(function (G__34667){
+return cljs.core.contains_QMARK_.call(null,G__34667,new cljs.core.Keyword("fugue.midi","input-name","fugue.midi/input-name",1387993924));
+})], null),(function (G__34667){
+return ((cljs.core.map_QMARK_.call(null,G__34667)) && (cljs.core.contains_QMARK_.call(null,G__34667,new cljs.core.Keyword("fugue.midi","input-name","fugue.midi/input-name",1387993924))));
 }),cljs.core.PersistentVector.EMPTY,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("fugue.midi","input-name","fugue.midi/input-name",1387993924)], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("fugue.midi","input-name","fugue.midi/input-name",1387993924)], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("fugue.midi","input-name","fugue.midi/input-name",1387993924)], null),cljs.core.PersistentVector.EMPTY,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.list(new cljs.core.Symbol("cljs.core","fn","cljs.core/fn",-1065745098,null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Symbol(null,"%","%",-950237169,null)], null),cljs.core.list(new cljs.core.Symbol("cljs.core","map?","cljs.core/map?",-1390345523,null),new cljs.core.Symbol(null,"%","%",-950237169,null))),cljs.core.list(new cljs.core.Symbol("cljs.core","fn","cljs.core/fn",-1065745098,null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Symbol(null,"%","%",-950237169,null)], null),cljs.core.list(new cljs.core.Symbol("cljs.core","contains?","cljs.core/contains?",-976526835,null),new cljs.core.Symbol(null,"%","%",-950237169,null),new cljs.core.Keyword("fugue.midi","input-name","fugue.midi/input-name",1387993924)))], null),null]));
 }));
-cljs.core._add_method.call(null,fugue.chan.make_chan_node,new cljs.core.Keyword("fugue.midi","midi-in","fugue.midi/midi-in",-1281528989),(function (p__34677,p__34678){
-var map__34679 = p__34677;
-var map__34679__$1 = (((((!((map__34679 == null))))?(((((map__34679.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__34679.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__34679):map__34679);
-var ins = cljs.core.get.call(null,map__34679__$1,new cljs.core.Keyword("fugue.midi","ins","fugue.midi/ins",-1182466185));
-var map__34680 = p__34678;
-var map__34680__$1 = (((((!((map__34680 == null))))?(((((map__34680.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__34680.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__34680):map__34680);
-var input_name = cljs.core.get.call(null,map__34680__$1,new cljs.core.Keyword("fugue.midi","input-name","fugue.midi/input-name",1387993924));
+cljs.core._add_method.call(null,fugue.chan.make_chan_node,new cljs.core.Keyword("fugue.midi","midi-in","fugue.midi/midi-in",-1281528989),(function (p__34668,p__34669){
+var map__34670 = p__34668;
+var map__34670__$1 = (((((!((map__34670 == null))))?(((((map__34670.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__34670.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__34670):map__34670);
+var ins = cljs.core.get.call(null,map__34670__$1,new cljs.core.Keyword("fugue.midi","ins","fugue.midi/ins",-1182466185));
+var map__34671 = p__34669;
+var map__34671__$1 = (((((!((map__34671 == null))))?(((((map__34671.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__34671.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__34671):map__34671);
+var input_name = cljs.core.get.call(null,map__34671__$1,new cljs.core.Keyword("fugue.midi","input-name","fugue.midi/input-name",1387993924));
 var midi_chan = cljs.core.get.call(null,ins,input_name);
 var out_chan = cljs.core.async.chan.call(null,(1));
 cljs.core.async.tap.call(null,midi_chan,out_chan);
@@ -40,23 +40,23 @@ return (function (rf){
 var v_down = cljs.core.volatile_BANG_.call(null,cljs.core.PersistentVector.EMPTY);
 return ((function (v_down){
 return (function() {
-var G__34687 = null;
-var G__34687__0 = (function (){
+var G__34678 = null;
+var G__34678__0 = (function (){
 return rf.call(null);
 });
-var G__34687__1 = (function (result){
+var G__34678__1 = (function (result){
 return rf.call(null,result);
 });
-var G__34687__2 = (function (result,midi){
-var map__34685 = midi;
-var map__34685__$1 = (((((!((map__34685 == null))))?(((((map__34685.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__34685.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__34685):map__34685);
-var note = cljs.core.get.call(null,map__34685__$1,new cljs.core.Keyword("fugue.midi","note","fugue.midi/note",343363945));
-var velocity = cljs.core.get.call(null,map__34685__$1,new cljs.core.Keyword("fugue.midi","velocity","fugue.midi/velocity",382164680));
+var G__34678__2 = (function (result,midi){
+var map__34676 = midi;
+var map__34676__$1 = (((((!((map__34676 == null))))?(((((map__34676.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__34676.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__34676):map__34676);
+var note = cljs.core.get.call(null,map__34676__$1,new cljs.core.Keyword("fugue.midi","note","fugue.midi/note",343363945));
+var velocity = cljs.core.get.call(null,map__34676__$1,new cljs.core.Keyword("fugue.midi","velocity","fugue.midi/velocity",382164680));
 var note_on = (velocity > (0));
-var op = ((note_on)?cljs.core.conj:((function (map__34685,map__34685__$1,note,velocity,note_on,v_down){
-return (function (p1__34684_SHARP_,p2__34683_SHARP_){
-return cljs.core.remove.call(null,cljs.core.PersistentHashSet.createAsIfByAssoc([p2__34683_SHARP_]),p1__34684_SHARP_);
-});})(map__34685,map__34685__$1,note,velocity,note_on,v_down))
+var op = ((note_on)?cljs.core.conj:((function (map__34676,map__34676__$1,note,velocity,note_on,v_down){
+return (function (p1__34675_SHARP_,p2__34674_SHARP_){
+return cljs.core.remove.call(null,cljs.core.PersistentHashSet.createAsIfByAssoc([p2__34674_SHARP_]),p1__34675_SHARP_);
+});})(map__34676,map__34676__$1,note,velocity,note_on,v_down))
 );
 var down = op.call(null,cljs.core.deref.call(null,v_down),note);
 cljs.core.vreset_BANG_.call(null,v_down,cljs.core.into.call(null,cljs.core.PersistentVector.EMPTY,down));
@@ -69,21 +69,21 @@ return rf.call(null,result,output);
 return result;
 }
 });
-G__34687 = function(result,midi){
+G__34678 = function(result,midi){
 switch(arguments.length){
 case 0:
-return G__34687__0.call(this);
+return G__34678__0.call(this);
 case 1:
-return G__34687__1.call(this,result);
+return G__34678__1.call(this,result);
 case 2:
-return G__34687__2.call(this,result,midi);
+return G__34678__2.call(this,result,midi);
 }
 throw(new Error('Invalid arity: ' + arguments.length));
 };
-G__34687.cljs$core$IFn$_invoke$arity$0 = G__34687__0;
-G__34687.cljs$core$IFn$_invoke$arity$1 = G__34687__1;
-G__34687.cljs$core$IFn$_invoke$arity$2 = G__34687__2;
-return G__34687;
+G__34678.cljs$core$IFn$_invoke$arity$0 = G__34678__0;
+G__34678.cljs$core$IFn$_invoke$arity$1 = G__34678__1;
+G__34678.cljs$core$IFn$_invoke$arity$2 = G__34678__2;
+return G__34678;
 })()
 ;})(v_down))
 });
@@ -97,18 +97,18 @@ return (function (rf){
 var v_down_count = cljs.core.volatile_BANG_.call(null,(0));
 return ((function (v_down_count){
 return (function() {
-var G__34690 = null;
-var G__34690__0 = (function (){
+var G__34681 = null;
+var G__34681__0 = (function (){
 return rf.call(null);
 });
-var G__34690__1 = (function (result){
+var G__34681__1 = (function (result){
 return rf.call(null,result);
 });
-var G__34690__2 = (function (result,midi){
-var map__34688 = midi;
-var map__34688__$1 = (((((!((map__34688 == null))))?(((((map__34688.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__34688.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__34688):map__34688);
-var type = cljs.core.get.call(null,map__34688__$1,new cljs.core.Keyword("fugue.midi","type","fugue.midi/type",2122361827));
-var velocity = cljs.core.get.call(null,map__34688__$1,new cljs.core.Keyword("fugue.midi","velocity","fugue.midi/velocity",382164680));
+var G__34681__2 = (function (result,midi){
+var map__34679 = midi;
+var map__34679__$1 = (((((!((map__34679 == null))))?(((((map__34679.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__34679.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__34679):map__34679);
+var type = cljs.core.get.call(null,map__34679__$1,new cljs.core.Keyword("fugue.midi","type","fugue.midi/type",2122361827));
+var velocity = cljs.core.get.call(null,map__34679__$1,new cljs.core.Keyword("fugue.midi","velocity","fugue.midi/velocity",382164680));
 var note_on = ((cljs.core._EQ_.call(null,new cljs.core.Keyword("fugue.midi","note-on","fugue.midi/note-on",1265446966),type)) && ((velocity > (0))));
 var prev_down_count = cljs.core.deref.call(null,v_down_count);
 cljs.core._vreset_BANG_.call(null,v_down_count,((note_on)?cljs.core.inc:cljs.core.dec).call(null,cljs.core._deref.call(null,v_down_count)));
@@ -136,21 +136,21 @@ return rf.call(null,result,velocity);
 return result;
 }
 });
-G__34690 = function(result,midi){
+G__34681 = function(result,midi){
 switch(arguments.length){
 case 0:
-return G__34690__0.call(this);
+return G__34681__0.call(this);
 case 1:
-return G__34690__1.call(this,result);
+return G__34681__1.call(this,result);
 case 2:
-return G__34690__2.call(this,result,midi);
+return G__34681__2.call(this,result,midi);
 }
 throw(new Error('Invalid arity: ' + arguments.length));
 };
-G__34690.cljs$core$IFn$_invoke$arity$0 = G__34690__0;
-G__34690.cljs$core$IFn$_invoke$arity$1 = G__34690__1;
-G__34690.cljs$core$IFn$_invoke$arity$2 = G__34690__2;
-return G__34690;
+G__34681.cljs$core$IFn$_invoke$arity$0 = G__34681__0;
+G__34681.cljs$core$IFn$_invoke$arity$1 = G__34681__1;
+G__34681.cljs$core$IFn$_invoke$arity$2 = G__34681__2;
+return G__34681;
 })()
 ;})(v_down_count))
 });
@@ -158,8 +158,8 @@ return G__34690;
 /**
  * Naive monophonic algorithm, outputs [0, 1)
  */
-fugue.midi.midi_x_gate = cljs.core.comp.call(null,fugue.midi.midi_x_velo.call(null,true),cljs.core.map.call(null,(function (p1__34691_SHARP_){
-return (p1__34691_SHARP_ / (128));
+fugue.midi.midi_x_gate = cljs.core.comp.call(null,fugue.midi.midi_x_velo.call(null,true),cljs.core.map.call(null,(function (p1__34682_SHARP_){
+return (p1__34682_SHARP_ / (128));
 })));
 cljs.core._add_method.call(null,fugue.chan.make_transducer,new cljs.core.Keyword("fugue.midi","note-x-hz","fugue.midi/note-x-hz",1862530671),(function (_,___$1){
 return cljs.core.comp.call(null,cljs.core.map.call(null,new cljs.core.Keyword("fugue.chan","input","fugue.chan/input",-525931471)),cljs.core.map.call(null,new cljs.core.Keyword(null,"value","value",305978217)),cljs.core.map.call(null,fugue.midi.note__GT_hz));
@@ -174,10 +174,10 @@ fugue.midi.map_to_range = (function fugue$midi$map_to_range(x,in_min,in_max,out_
 return (out_min + ((out_max - out_min) * ((x - in_min) / in_max)));
 });
 cljs.core._add_method.call(null,fugue.chan.make_transducer,new cljs.core.Keyword("fugue.midi","midi-x-ctrl","fugue.midi/midi-x-ctrl",1988373092),(function (_,___$1){
-return cljs.core.comp.call(null,cljs.core.filter.call(null,(function (p1__34692_SHARP_){
-return cljs.core._EQ_.call(null,new cljs.core.Keyword("fugue.midi","note","fugue.midi/note",343363945).cljs$core$IFn$_invoke$arity$1(p1__34692_SHARP_),new cljs.core.Keyword("fugue.midi","note","fugue.midi/note",343363945).cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword("fugue.chan","input","fugue.chan/input",-525931471).cljs$core$IFn$_invoke$arity$1(p1__34692_SHARP_)));
-})),cljs.core.map.call(null,(function (p1__34693_SHARP_){
-return fugue.midi.map_to_range.call(null,new cljs.core.Keyword("fugue.midi","velocity","fugue.midi/velocity",382164680).cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword("fugue.chan","input","fugue.chan/input",-525931471).cljs$core$IFn$_invoke$arity$1(p1__34693_SHARP_)),(0),(127),new cljs.core.Keyword("fugue.midi","min","fugue.midi/min",-629752999).cljs$core$IFn$_invoke$arity$1(p1__34693_SHARP_),new cljs.core.Keyword("fugue.midi","max","fugue.midi/max",-1023959717).cljs$core$IFn$_invoke$arity$1(p1__34693_SHARP_));
+return cljs.core.comp.call(null,cljs.core.filter.call(null,(function (p1__34683_SHARP_){
+return cljs.core._EQ_.call(null,new cljs.core.Keyword("fugue.midi","note","fugue.midi/note",343363945).cljs$core$IFn$_invoke$arity$1(p1__34683_SHARP_),new cljs.core.Keyword("fugue.midi","note","fugue.midi/note",343363945).cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword("fugue.chan","input","fugue.chan/input",-525931471).cljs$core$IFn$_invoke$arity$1(p1__34683_SHARP_)));
+})),cljs.core.map.call(null,(function (p1__34684_SHARP_){
+return fugue.midi.map_to_range.call(null,new cljs.core.Keyword("fugue.midi","velocity","fugue.midi/velocity",382164680).cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword("fugue.chan","input","fugue.chan/input",-525931471).cljs$core$IFn$_invoke$arity$1(p1__34684_SHARP_)),(0),(127),new cljs.core.Keyword("fugue.midi","min","fugue.midi/min",-629752999).cljs$core$IFn$_invoke$arity$1(p1__34684_SHARP_),new cljs.core.Keyword("fugue.midi","max","fugue.midi/max",-1023959717).cljs$core$IFn$_invoke$arity$1(p1__34684_SHARP_));
 })));
 }));
 fugue.midi.msg_type = new cljs.core.PersistentArrayMap(null, 4, [(144),new cljs.core.Keyword("fugue.midi","note-on","fugue.midi/note-on",1265446966),(128),new cljs.core.Keyword("fugue.midi","note-off","fugue.midi/note-off",1641005158),(224),new cljs.core.Keyword("fugue.midi","bend","fugue.midi/bend",1370227139),(176),new cljs.core.Keyword("fugue.midi","ctrl","fugue.midi/ctrl",1444532779)], null);
@@ -186,24 +186,24 @@ fugue.midi.msg_type = new cljs.core.PersistentArrayMap(null, 4, [(144),new cljs.
  */
 fugue.midi.event__GT_msg = (function fugue$midi$event__GT_msg(e){
 var js_arr = Array.from(e.data);
-var vec__34694 = cljs.core.js__GT_clj.call(null,js_arr);
-var status = cljs.core.nth.call(null,vec__34694,(0),null);
-var note = cljs.core.nth.call(null,vec__34694,(1),null);
-var velocity = cljs.core.nth.call(null,vec__34694,(2),null);
+var vec__34685 = cljs.core.js__GT_clj.call(null,js_arr);
+var status = cljs.core.nth.call(null,vec__34685,(0),null);
+var note = cljs.core.nth.call(null,vec__34685,(1),null);
+var velocity = cljs.core.nth.call(null,vec__34685,(2),null);
 return new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword("fugue.midi","type","fugue.midi/type",2122361827),fugue.midi.msg_type.call(null,(status & (240))),new cljs.core.Keyword("fugue.midi","note","fugue.midi/note",343363945),note,new cljs.core.Keyword("fugue.midi","velocity","fugue.midi/velocity",382164680),velocity], null);
 });
-fugue.midi.event_x_msg = cljs.core.comp.call(null,cljs.core.filter.call(null,(function (p1__34697_SHARP_){
-return cljs.core._EQ_.call(null,(3),p1__34697_SHARP_.data.length);
+fugue.midi.event_x_msg = cljs.core.comp.call(null,cljs.core.filter.call(null,(function (p1__34688_SHARP_){
+return cljs.core._EQ_.call(null,(3),p1__34688_SHARP_.data.length);
 })),cljs.core.map.call(null,fugue.midi.event__GT_msg));
 /**
  * This is probably wrong
  */
-fugue.midi.msg__GT_event = (function fugue$midi$msg__GT_event(p__34698){
-var map__34699 = p__34698;
-var map__34699__$1 = (((((!((map__34699 == null))))?(((((map__34699.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__34699.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__34699):map__34699);
-var type = cljs.core.get.call(null,map__34699__$1,new cljs.core.Keyword("fugue.midi","type","fugue.midi/type",2122361827));
-var note = cljs.core.get.call(null,map__34699__$1,new cljs.core.Keyword("fugue.midi","note","fugue.midi/note",343363945));
-var velocity = cljs.core.get.call(null,map__34699__$1,new cljs.core.Keyword("fugue.midi","velocity","fugue.midi/velocity",382164680));
+fugue.midi.msg__GT_event = (function fugue$midi$msg__GT_event(p__34689){
+var map__34690 = p__34689;
+var map__34690__$1 = (((((!((map__34690 == null))))?(((((map__34690.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__34690.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__34690):map__34690);
+var type = cljs.core.get.call(null,map__34690__$1,new cljs.core.Keyword("fugue.midi","type","fugue.midi/type",2122361827));
+var note = cljs.core.get.call(null,map__34690__$1,new cljs.core.Keyword("fugue.midi","note","fugue.midi/note",343363945));
+var velocity = cljs.core.get.call(null,map__34690__$1,new cljs.core.Keyword("fugue.midi","velocity","fugue.midi/velocity",382164680));
 return Array.from(new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [type,note,velocity], null));
 });
 /**
@@ -220,43 +220,43 @@ return cljs.core.async.mult.call(null,c);
  */
 fugue.midi.midi_out_chan = (function fugue$midi$midi_out_chan(midi_out){
 var c = cljs.core.async.chan.call(null,(1),cljs.core.map.call(null,fugue.midi.msg__GT_event));
-var c__32685__auto___34718 = cljs.core.async.chan.call(null,(1));
-cljs.core.async.impl.dispatch.run.call(null,((function (c__32685__auto___34718,c){
+var c__32685__auto___34709 = cljs.core.async.chan.call(null,(1));
+cljs.core.async.impl.dispatch.run.call(null,((function (c__32685__auto___34709,c){
 return (function (){
-var f__32686__auto__ = (function (){var switch__32590__auto__ = ((function (c__32685__auto___34718,c){
-return (function (state_34709){
-var state_val_34710 = (state_34709[(1)]);
-if((state_val_34710 === (1))){
-var state_34709__$1 = state_34709;
-var statearr_34711_34719 = state_34709__$1;
-(statearr_34711_34719[(2)] = null);
+var f__32686__auto__ = (function (){var switch__32590__auto__ = ((function (c__32685__auto___34709,c){
+return (function (state_34700){
+var state_val_34701 = (state_34700[(1)]);
+if((state_val_34701 === (1))){
+var state_34700__$1 = state_34700;
+var statearr_34702_34710 = state_34700__$1;
+(statearr_34702_34710[(2)] = null);
 
-(statearr_34711_34719[(1)] = (2));
+(statearr_34702_34710[(1)] = (2));
 
 
 return new cljs.core.Keyword(null,"recur","recur",-437573268);
 } else {
-if((state_val_34710 === (2))){
-var state_34709__$1 = state_34709;
-return cljs.core.async.impl.ioc_helpers.take_BANG_.call(null,state_34709__$1,(4),c);
+if((state_val_34701 === (2))){
+var state_34700__$1 = state_34700;
+return cljs.core.async.impl.ioc_helpers.take_BANG_.call(null,state_34700__$1,(4),c);
 } else {
-if((state_val_34710 === (3))){
-var inst_34707 = (state_34709[(2)]);
-var state_34709__$1 = state_34709;
-return cljs.core.async.impl.ioc_helpers.return_chan.call(null,state_34709__$1,inst_34707);
+if((state_val_34701 === (3))){
+var inst_34698 = (state_34700[(2)]);
+var state_34700__$1 = state_34700;
+return cljs.core.async.impl.ioc_helpers.return_chan.call(null,state_34700__$1,inst_34698);
 } else {
-if((state_val_34710 === (4))){
-var inst_34703 = (state_34709[(2)]);
-var inst_34704 = midi_out.send(inst_34703);
-var state_34709__$1 = (function (){var statearr_34712 = state_34709;
-(statearr_34712[(7)] = inst_34704);
+if((state_val_34701 === (4))){
+var inst_34694 = (state_34700[(2)]);
+var inst_34695 = midi_out.send(inst_34694);
+var state_34700__$1 = (function (){var statearr_34703 = state_34700;
+(statearr_34703[(7)] = inst_34695);
 
-return statearr_34712;
+return statearr_34703;
 })();
-var statearr_34713_34720 = state_34709__$1;
-(statearr_34713_34720[(2)] = null);
+var statearr_34704_34711 = state_34700__$1;
+(statearr_34704_34711[(2)] = null);
 
-(statearr_34713_34720[(1)] = (2));
+(statearr_34704_34711[(1)] = (2));
 
 
 return new cljs.core.Keyword(null,"recur","recur",-437573268);
@@ -266,23 +266,23 @@ return null;
 }
 }
 }
-});})(c__32685__auto___34718,c))
+});})(c__32685__auto___34709,c))
 ;
-return ((function (switch__32590__auto__,c__32685__auto___34718,c){
+return ((function (switch__32590__auto__,c__32685__auto___34709,c){
 return (function() {
 var fugue$midi$midi_out_chan_$_state_machine__32591__auto__ = null;
 var fugue$midi$midi_out_chan_$_state_machine__32591__auto____0 = (function (){
-var statearr_34714 = [null,null,null,null,null,null,null,null];
-(statearr_34714[(0)] = fugue$midi$midi_out_chan_$_state_machine__32591__auto__);
+var statearr_34705 = [null,null,null,null,null,null,null,null];
+(statearr_34705[(0)] = fugue$midi$midi_out_chan_$_state_machine__32591__auto__);
 
-(statearr_34714[(1)] = (1));
+(statearr_34705[(1)] = (1));
 
-return statearr_34714;
+return statearr_34705;
 });
-var fugue$midi$midi_out_chan_$_state_machine__32591__auto____1 = (function (state_34709){
+var fugue$midi$midi_out_chan_$_state_machine__32591__auto____1 = (function (state_34700){
 while(true){
 var ret_value__32592__auto__ = (function (){try{while(true){
-var result__32593__auto__ = switch__32590__auto__.call(null,state_34709);
+var result__32593__auto__ = switch__32590__auto__.call(null,state_34700);
 if(cljs.core.keyword_identical_QMARK_.call(null,result__32593__auto__,new cljs.core.Keyword(null,"recur","recur",-437573268))){
 continue;
 } else {
@@ -290,23 +290,23 @@ return result__32593__auto__;
 }
 break;
 }
-}catch (e34715){if((e34715 instanceof Object)){
-var ex__32594__auto__ = e34715;
-var statearr_34716_34721 = state_34709;
-(statearr_34716_34721[(5)] = ex__32594__auto__);
+}catch (e34706){if((e34706 instanceof Object)){
+var ex__32594__auto__ = e34706;
+var statearr_34707_34712 = state_34700;
+(statearr_34707_34712[(5)] = ex__32594__auto__);
 
 
-cljs.core.async.impl.ioc_helpers.process_exception.call(null,state_34709);
+cljs.core.async.impl.ioc_helpers.process_exception.call(null,state_34700);
 
 return new cljs.core.Keyword(null,"recur","recur",-437573268);
 } else {
-throw e34715;
+throw e34706;
 
 }
 }})();
 if(cljs.core.keyword_identical_QMARK_.call(null,ret_value__32592__auto__,new cljs.core.Keyword(null,"recur","recur",-437573268))){
-var G__34722 = state_34709;
-state_34709 = G__34722;
+var G__34713 = state_34700;
+state_34700 = G__34713;
 continue;
 } else {
 return ret_value__32592__auto__;
@@ -314,12 +314,12 @@ return ret_value__32592__auto__;
 break;
 }
 });
-fugue$midi$midi_out_chan_$_state_machine__32591__auto__ = function(state_34709){
+fugue$midi$midi_out_chan_$_state_machine__32591__auto__ = function(state_34700){
 switch(arguments.length){
 case 0:
 return fugue$midi$midi_out_chan_$_state_machine__32591__auto____0.call(this);
 case 1:
-return fugue$midi$midi_out_chan_$_state_machine__32591__auto____1.call(this,state_34709);
+return fugue$midi$midi_out_chan_$_state_machine__32591__auto____1.call(this,state_34700);
 }
 throw(new Error('Invalid arity: ' + arguments.length));
 };
@@ -327,15 +327,15 @@ fugue$midi$midi_out_chan_$_state_machine__32591__auto__.cljs$core$IFn$_invoke$ar
 fugue$midi$midi_out_chan_$_state_machine__32591__auto__.cljs$core$IFn$_invoke$arity$1 = fugue$midi$midi_out_chan_$_state_machine__32591__auto____1;
 return fugue$midi$midi_out_chan_$_state_machine__32591__auto__;
 })()
-;})(switch__32590__auto__,c__32685__auto___34718,c))
+;})(switch__32590__auto__,c__32685__auto___34709,c))
 })();
-var state__32687__auto__ = (function (){var statearr_34717 = f__32686__auto__.call(null);
-(statearr_34717[(6)] = c__32685__auto___34718);
+var state__32687__auto__ = (function (){var statearr_34708 = f__32686__auto__.call(null);
+(statearr_34708[(6)] = c__32685__auto___34709);
 
-return statearr_34717;
+return statearr_34708;
 })();
 return cljs.core.async.impl.ioc_helpers.run_state_machine_wrapped.call(null,state__32687__auto__);
-});})(c__32685__auto___34718,c))
+});})(c__32685__auto___34709,c))
 );
 
 
@@ -351,8 +351,8 @@ return cljs.core.js__GT_clj.call(null,Array.from(m.values()));
  * Maps port name to a channel that sends/receives on that port
  */
 fugue.midi.port_map = (function fugue$midi$port_map(ports_maplike,chan_fn){
-return cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,cljs.core.map.call(null,cljs.core.juxt.call(null,(function (p1__34723_SHARP_){
-return p1__34723_SHARP_.name;
+return cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,cljs.core.map.call(null,cljs.core.juxt.call(null,(function (p1__34714_SHARP_){
+return p1__34714_SHARP_.name;
 }),chan_fn),fugue.midi.maplike__GT_seq.call(null,ports_maplike)));
 });
 fugue.midi.ports = (function fugue$midi$ports(midi_access){
@@ -376,8 +376,8 @@ fugue.midi.gate = (function fugue$midi$gate(in$){
 return fugue.synthdef.synthdef.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword("fugue.synthdef","node-type","fugue.synthdef/node-type",806558205),new cljs.core.Keyword("fugue.chan","chan-node","fugue.chan/chan-node",-1139152001),new cljs.core.Keyword("fugue.chan","chan-node-type","fugue.chan/chan-node-type",447830325),new cljs.core.Keyword("fugue.chan","transducer","fugue.chan/transducer",546482313),new cljs.core.Keyword("fugue.chan","xform","fugue.chan/xform",1487931640),new cljs.core.Keyword("fugue.midi","midi-x-gate","fugue.midi/midi-x-gate",62865431)], null),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("fugue.chan","input","fugue.chan/input",-525931471),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [in$], null)], null));
 });
 fugue.midi.ctrl = (function fugue$midi$ctrl(var_args){
-var G__34725 = arguments.length;
-switch (G__34725) {
+var G__34716 = arguments.length;
+switch (G__34716) {
 case 2:
 return fugue.midi.ctrl.cljs$core$IFn$_invoke$arity$2((arguments[(0)]),(arguments[(1)]));
 
@@ -403,4 +403,4 @@ return fugue.synthdef.synthdef.call(null,new cljs.core.PersistentArrayMap(null, 
 fugue.midi.ctrl.cljs$lang$maxFixedArity = 4;
 
 
-//# sourceMappingURL=midi.js.map?rel=1610051744348
+//# sourceMappingURL=midi.js.map?rel=1610058838654

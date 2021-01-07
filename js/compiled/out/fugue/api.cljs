@@ -14,6 +14,7 @@
             [fugue.sampler :as sampler]
             [fugue.convolver :as convolver]
             [fugue.ctx-ctrls :as ctrls]
+            [fugue.midi-monitor :as monitor]
             [fugue.components :as components]))
 
 (def ratom r/atom)
@@ -48,6 +49,7 @@
 (def sequencer sequencer/sequencer)
 (def sampler sampler/sampler)
 (def conv convolver/convolver)
+(def monitor monitor/monitor)
 
 (def audio-ctx-ctrls ctrls/audio-ctx-ctrls)
 (def midi-ctx-ctrls ctrls/midi-ctx-ctrls)
@@ -104,4 +106,6 @@
    "   \"run\"]]"
    ])
 
-(def demo-text (string/join "\n" demo-forms))
+(def demo-text-old (string/join "\n" demo-forms))
+
+(def demo-text "[:div [monitor midi-ctx]]")
