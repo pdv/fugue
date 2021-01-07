@@ -20,8 +20,8 @@ var scale = ((maxv - minv) / (127));
 return Math.exp((minv + (scale * x)));
 });
 fugue.components.slider = (function fugue$components$slider(var_args){
-var G__30744 = arguments.length;
-switch (G__30744) {
+var G__30756 = arguments.length;
+switch (G__30756) {
 case 3:
 return fugue.components.slider.cljs$core$IFn$_invoke$arity$3((arguments[(0)]),(arguments[(1)]),(arguments[(2)]));
 
@@ -41,9 +41,9 @@ return fugue.components.slider.call(null,value,min,max,new cljs.core.Keyword(nul
 });
 
 fugue.components.slider.cljs$core$IFn$_invoke$arity$4 = (function (value,min,max,type){
-var to_midi = (function (){var G__30745 = type;
-var G__30745__$1 = (((G__30745 instanceof cljs.core.Keyword))?G__30745.fqn:null);
-switch (G__30745__$1) {
+var to_midi = (function (){var G__30757 = type;
+var G__30757__$1 = (((G__30757 instanceof cljs.core.Keyword))?G__30757.fqn:null);
+switch (G__30757__$1) {
 case "linear":
 return fugue.components.to_midi_linear;
 
@@ -53,13 +53,13 @@ return fugue.components.to_midi_log;
 
 break;
 default:
-throw (new Error(["No matching clause: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(G__30745__$1)].join('')));
+throw (new Error(["No matching clause: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(G__30757__$1)].join('')));
 
 }
 })();
-var from_midi = (function (){var G__30746 = type;
-var G__30746__$1 = (((G__30746 instanceof cljs.core.Keyword))?G__30746.fqn:null);
-switch (G__30746__$1) {
+var from_midi = (function (){var G__30758 = type;
+var G__30758__$1 = (((G__30758 instanceof cljs.core.Keyword))?G__30758.fqn:null);
+switch (G__30758__$1) {
 case "linear":
 return fugue.components.from_midi_linear;
 
@@ -69,13 +69,13 @@ return fugue.components.from_midi_log;
 
 break;
 default:
-throw (new Error(["No matching clause: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(G__30746__$1)].join('')));
+throw (new Error(["No matching clause: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(G__30758__$1)].join('')));
 
 }
 })();
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 6, [new cljs.core.Keyword(null,"type","type",1174270348),"range",new cljs.core.Keyword(null,"value","value",305978217),to_midi.call(null,cljs.core.deref.call(null,value),min,max),new cljs.core.Keyword(null,"min","min",444991522),(0),new cljs.core.Keyword(null,"max","max",61366548),(127),new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"width","width",-384071477),"100%"], null),new cljs.core.Keyword(null,"on-change","on-change",-732046149),((function (to_midi,from_midi){
-return (function (p1__30742_SHARP_){
-return cljs.core.reset_BANG_.call(null,value,from_midi.call(null,parseInt(p1__30742_SHARP_.target.value),min,max));
+return (function (p1__30754_SHARP_){
+return cljs.core.reset_BANG_.call(null,value,from_midi.call(null,parseInt(p1__30754_SHARP_.target.value),min,max));
 });})(to_midi,from_midi))
 ], null)], null);
 });
@@ -83,4 +83,4 @@ return cljs.core.reset_BANG_.call(null,value,from_midi.call(null,parseInt(p1__30
 fugue.components.slider.cljs$lang$maxFixedArity = 4;
 
 
-//# sourceMappingURL=components.js.map?rel=1608403389930
+//# sourceMappingURL=components.js.map?rel=1610051526046
