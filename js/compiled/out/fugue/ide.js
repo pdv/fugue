@@ -17,15 +17,19 @@ return component;
 } else {
 return null;
 }
-})()], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.ide-right","div.ide-right",-6482676),new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [fugue.editor.editor,init,cljs.core.partial.call(null,cljs.core.reset_BANG_,input),cljs.core.partial.call(null,cljs.core.reset_BANG_,selected),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"keyMap","keyMap",945500512),(cljs.core.truth_(cljs.core.deref.call(null,vim_on))?"vim":"default")], null)], null),new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.ide-toolbar","div.ide-toolbar",989742605),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"button#eval","button#eval",-429647517),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"on-click","on-click",1632826543),((function (input,selected,render_out,eval_out,vim_on){
-return (function (){
-return eval_fn.call(null,cljs.core.deref.call(null,input),cljs.core.partial.call(null,cljs.core.reset_BANG_,eval_out));
-});})(input,selected,render_out,eval_out,vim_on))
-], null),"eval all"], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"button#eval","button#eval",-429647517),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"on-click","on-click",1632826543),((function (input,selected,render_out,eval_out,vim_on){
+})()], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.ide-right","div.ide-right",-6482676),new cljs.core.PersistentVector(null, 6, 5, cljs.core.PersistentVector.EMPTY_NODE, [fugue.editor.editor,init,cljs.core.partial.call(null,cljs.core.reset_BANG_,input),cljs.core.partial.call(null,cljs.core.reset_BANG_,selected),((function (input,selected,render_out,eval_out,vim_on){
 return (function (){
 return eval_fn.call(null,cljs.core.deref.call(null,selected),cljs.core.partial.call(null,cljs.core.reset_BANG_,eval_out));
 });})(input,selected,render_out,eval_out,vim_on))
-,new cljs.core.Keyword(null,"disabled","disabled",-1529784218),cljs.core.empty_QMARK_.call(null,cljs.core.deref.call(null,selected))], null),"eval selection"], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"button#eval","button#eval",-429647517),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"on-click","on-click",1632826543),((function (input,selected,render_out,eval_out,vim_on){
+,new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"keyMap","keyMap",945500512),(cljs.core.truth_(cljs.core.deref.call(null,vim_on))?"vim":"default")], null)], null),new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.ide-toolbar","div.ide-toolbar",989742605),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"button","button",1456579943),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"on-click","on-click",1632826543),((function (input,selected,render_out,eval_out,vim_on){
+return (function (){
+return eval_fn.call(null,cljs.core.deref.call(null,input),cljs.core.partial.call(null,cljs.core.reset_BANG_,eval_out));
+});})(input,selected,render_out,eval_out,vim_on))
+], null),"eval all"], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"button","button",1456579943),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"on-click","on-click",1632826543),((function (input,selected,render_out,eval_out,vim_on){
+return (function (){
+return eval_fn.call(null,cljs.core.deref.call(null,selected),cljs.core.partial.call(null,cljs.core.reset_BANG_,eval_out));
+});})(input,selected,render_out,eval_out,vim_on))
+,new cljs.core.Keyword(null,"disabled","disabled",-1529784218),cljs.core.empty_QMARK_.call(null,cljs.core.deref.call(null,selected))], null),"eval selection (ctrl-space)"], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"button","button",1456579943),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"on-click","on-click",1632826543),((function (input,selected,render_out,eval_out,vim_on){
 return (function (){
 return cljs.core.reset_BANG_.call(null,render_out,cljs.core.deref.call(null,eval_out));
 });})(input,selected,render_out,eval_out,vim_on))
@@ -38,4 +42,4 @@ return cljs.core.swap_BANG_.call(null,vim_on,cljs.core.not);
 ;})(input,selected,render_out,eval_out,vim_on))
 });
 
-//# sourceMappingURL=ide.js.map?rel=1610134122080
+//# sourceMappingURL=ide.js.map?rel=1610142284231
