@@ -24,12 +24,17 @@
     (async/tap in-mult in-chan)
     (fn []
       (let [notes (keys @msgs)
-            chords (chords/possible-chords notes)]
+            possible-chords (chords/possible-chords notes)
+            contained-chords (chords/contained-chords notes)]
         [:div
          [:p (str notes)]
-        [:ul
-         (for [chord chords]
-           [:li (str chord)])]]))))
+         [:ul
+          (for [chord possible-chords]
+            [:li (str chord)])]
+         [:hr]
+         [:ol
+          (for [chord contained-chords]
+            [:li (str chord)])]]))))
 
 (defn monitor [midi-ctx]
   (let [in-chan (r/atom nil)]
