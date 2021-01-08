@@ -4,16 +4,33 @@
 
 (defn ide [init eval-fn]
   (let [input (r/atom init)
-        output (r/atom nil)]
+        selected (r/atom "")
+        render-out (r/atom nil)
+        eval-out (r/atom nil)
+        vim-on (r/atom true)]
     (fn []
       [:div.ide
        [:div.ide-left
-        (when @output
-          [output-box @output])]
+        (let [component (:value @render-out)]
+          (if (vector? component) component))]
        [:div.ide-right
-        [editor init (partial reset! input)]
+        [editor init
+         (partial reset! input)
+         (partial reset! selected)
+         {:keyMap (if @vim-on "vim" "default")}]
         [:div.ide-toolbar
          [:button#eval
-          {:on-click #(eval-fn @input (partial reset! output))}
-          "eval"]]
-        [editor "repl" (partial print)]]])))
+          {:on-click #(eval-fn @input (partial reset! eval-out))}
+          "eval all"]
+         [:button#eval
+          {:on-click #(eval-fn @selected (partial reset! eval-out))
+           :disabled (empty? @selected)}
+          "eval selection"]
+         [:button#eval
+          {:on-click #(reset! render-out @eval-out)
+           :disabled (not (vector? (:value @eval-out)))}
+          "render"]
+         [:button
+          {:on-click #(swap! vim-on not)}
+          (str "vim on?" @vim-on)]]
+        [output-box @eval-out]]])))
