@@ -1,7 +1,8 @@
 (ns fugue.midi-monitor
   (:require [reagent.core :as r]
             [cljs.core.async :as async]
-            [fugue.midi :as midi]))
+            [fugue.midi :as midi]
+            [fugue.chords :as chords]))
 
 (defn midi-selector [midi-ctx on-change]
   [:div
@@ -22,9 +23,13 @@
                      (recur)))
     (async/tap in-mult in-chan)
     (fn []
-      [:ul
-       (for [[_ msg] @msgs]
-         [:li (str msg)])])))
+      (let [notes (keys @msgs)
+            chords (chords/possible-chords notes)]
+        [:div
+         [:p (str notes)]
+        [:ul
+         (for [chord chords]
+           [:li (str chord)])]]))))
 
 (defn monitor [midi-ctx]
   (let [in-chan (r/atom nil)]
