@@ -7,18 +7,32 @@
 (defn midi-selector [midi-ctx on-change]
   [:div
    (if-let [mctx @midi-ctx]
-     [:select {:on-change #(on-change ((::midi/ins mctx) (.. % -target -value)))}
-      (for [[in-name] (::midi/ins mctx)]
-        [:option {:value in-name} in-name])]
+     (do
+       (on-change (second (first (::midi/ins mctx))))
+       [:select {:on-change #(on-change ((::midi/ins mctx) (.. % -target -value)))}
+        (for [[in-name] (::midi/ins mctx)]
+          [:option {:value in-name} in-name])])
      "no midi ctx")])
+
+(defn note-on? [midi-msg]
+  (and (= ::midi/note-on (::midi/type midi-msg))
+       (not= 0 (::midi/velocity midi-msg))))
+
+(defn note-off? [midi-msg]
+  (case (::midi/type midi-msg)
+    ::midi/note-off true
+    ::midi/note-on (= 0 (::midi/velocity midi-msg))
+    false))
 
 (defn note-monitor [in-mult]
   (let [msgs (r/atom {})
         in-chan (async/chan)]
     (async/go-loop []
                    (let [msg (async/<! in-chan)]
-                     (if (< 0 (::midi/velocity msg))
+                     (cond
+                       (note-on? msg)
                        (swap! msgs assoc (::midi/note msg) msg)
+                       (note-off? msg)
                        (swap! msgs dissoc (::midi/note msg)))
                      (recur)))
     (async/tap in-mult in-chan)

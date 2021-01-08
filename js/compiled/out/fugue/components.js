@@ -83,4 +83,4 @@ return cljs.core.reset_BANG_.call(null,value,from_midi.call(null,parseInt(p1__30
 fugue.components.slider.cljs$lang$maxFixedArity = 4;
 
 
-//# sourceMappingURL=components.js.map?rel=1610066028983
+//# sourceMappingURL=components.js.map?rel=1610120085002
