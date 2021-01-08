@@ -63,7 +63,9 @@
           (.then #(.decodeAudioData actx %))
           (.then #(buffer-cb (.-name file) %))))))
 
-(defn buffer-ctrl [actx-atom buffer-ctx]
+(defn buffer-ctrl [audio-ctx buffer-ctx]
+  (when-not @buffer-ctx
+    (reset! buffer-ctx {::buffer/buffer-cache {}}))
   (fn []
     [:div
      [:input
@@ -72,8 +74,8 @@
        (fn [e]
          (doseq [file (.from js/Array (-> e .-target .-files))]
            (-> (.arrayBuffer file)
-               (.then #(.decodeAudioData (::audio/actx @actx-atom) %))
-               (.then #(swap! buffer-ctx assoc-in ::buffer/buffer-cache (.-name file) %)))))}]
+               (.then #(.decodeAudioData (::audio/actx @audio-ctx) %))
+               (.then #(swap! buffer-ctx assoc-in [::buffer/buffer-cache (.-name file)] %)))))}]
      [:ul
-      (for [[name buffer] (::buffer/buffer-cache @buffer-ctx)]
+      (for [[name buffer] (::buffer/buffer-cache (or @buffer-ctx {}))]
         [:li (str name " - " (.-length buffer))])]]))
