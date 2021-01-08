@@ -64,7 +64,7 @@ return fugue.api.make_synth.call(null,ctx,synthdef);
 fugue.api.welcome = (function fugue$api$welcome(){
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"h3","h3",2067611163),"nice work clicking those buttons"], null)], null);
 });
-fugue.api.init_forms = new cljs.core.PersistentVector(null, 20, 5, cljs.core.PersistentVector.EMPTY_NODE, ["(defonce audio-ctx (ratom nil))","(defonce midi-ctx (ratom nil))","(defonce buffer-ctx (ratom {}))","(defn play! [synthdef]"," (make-synth (merge @audio-ctx @midi-ctx @buffer-ctx) synthdef))","","(defn demo []","  (-> (sin-osc 440)","      (gain (env-gen (perc 0.01 2) 1))","      out))","","[:div","  [welcome]","  [audio-ctx-ctrls audio-ctx]","  [midi-ctx-ctrls midi-ctx]","  [buffer-ctrl audio-ctx buffer-cache]","  [:button","   {:on-click #(play! (demo))}","   \"ping\"]","  [monitor midi-ctx]]"], null);
+fugue.api.init_forms = new cljs.core.PersistentVector(null, 20, 5, cljs.core.PersistentVector.EMPTY_NODE, ["(defonce audio-ctx (ratom nil))","(defonce midi-ctx (ratom nil))","(defonce buffer-ctx (ratom nil))","(defn play! [synthdef]"," (make-synth (merge @audio-ctx @midi-ctx @buffer-ctx) synthdef))","","(defn demo []","  (-> (sin-osc 440)","      (gain (env-gen (perc 0.01 2) 1))","      out))","","[:div","  [welcome]","  [audio-ctx-ctrls audio-ctx]","  [midi-ctx-ctrls midi-ctx]","  [buffer-ctrl audio-ctx buffer-ctx]","  [:button","   {:on-click #(play! (demo))}","   \"ping\"]","  [monitor midi-ctx]]"], null);
 fugue.api.init_text = clojure.string.join.call(null,"\n",fugue.api.init_forms);
 fugue.api.mary_had_a_little_synth = (function fugue$api$mary_had_a_little_synth(tempo,decay,cutoff){
 var m = fugue.api.metro.call(null,tempo);
@@ -100,4 +100,4 @@ return cljs.core.str.cljs$core$IFn$_invoke$arity$1(sb__4661__auto__);
 fugue.api.demo_text_old = clojure.string.join.call(null,"\n",fugue.api.demo_forms);
 fugue.api.demo_text = "[:div [monitor midi-ctx]]";
 
-//# sourceMappingURL=api.js.map?rel=1610146512607
+//# sourceMappingURL=api.js.map?rel=1610147342629

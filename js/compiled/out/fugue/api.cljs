@@ -69,7 +69,7 @@
   [
    "(defonce audio-ctx (ratom nil))"
    "(defonce midi-ctx (ratom nil))"
-   "(defonce buffer-ctx (ratom {}))"
+   "(defonce buffer-ctx (ratom nil))"
    "(defn play! [synthdef]"
    " (make-synth (merge @audio-ctx @midi-ctx @buffer-ctx) synthdef))"
    ""
@@ -82,7 +82,7 @@
    "  [welcome]"
    "  [audio-ctx-ctrls audio-ctx]"
    "  [midi-ctx-ctrls midi-ctx]"
-   "  [buffer-ctrl audio-ctx buffer-cache]"
+   "  [buffer-ctrl audio-ctx buffer-ctx]"
    "  [:button"
    "   {:on-click #(play! (demo))}"
    "   \"ping\"]"

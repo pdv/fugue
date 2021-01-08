@@ -489,7 +489,12 @@ return null;
 break;
 }
 });
-fugue.ctx_ctrls.buffer_ctrl = (function fugue$ctx_ctrls$buffer_ctrl(actx_atom,buffer_ctx){
+fugue.ctx_ctrls.buffer_ctrl = (function fugue$ctx_ctrls$buffer_ctrl(audio_ctx,buffer_ctx){
+if(cljs.core.truth_(cljs.core.deref.call(null,buffer_ctx))){
+} else {
+cljs.core.reset_BANG_.call(null,buffer_ctx,new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("fugue.buffer","buffer-cache","fugue.buffer/buffer-cache",-2046975648),cljs.core.PersistentArrayMap.EMPTY], null));
+}
+
 return (function (){
 return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"file","file",-1269645878),new cljs.core.Keyword(null,"on-change","on-change",-732046149),(function (e){
 var seq__34988 = cljs.core.seq.call(null,Array.from(e.target.files));
@@ -501,11 +506,11 @@ if((i__34991 < count__34990)){
 var file = cljs.core._nth.call(null,chunk__34989,i__34991);
 file.arrayBuffer().then(((function (seq__34988,chunk__34989,count__34990,i__34991,file){
 return (function (p1__34986_SHARP_){
-return new cljs.core.Keyword("fugue.audio","actx","fugue.audio/actx",-1808529001).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,actx_atom)).decodeAudioData(p1__34986_SHARP_);
+return new cljs.core.Keyword("fugue.audio","actx","fugue.audio/actx",-1808529001).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,audio_ctx)).decodeAudioData(p1__34986_SHARP_);
 });})(seq__34988,chunk__34989,count__34990,i__34991,file))
 ).then(((function (seq__34988,chunk__34989,count__34990,i__34991,file){
 return (function (p1__34987_SHARP_){
-return cljs.core.swap_BANG_.call(null,buffer_ctx,cljs.core.assoc_in,new cljs.core.Keyword("fugue.buffer","buffer-cache","fugue.buffer/buffer-cache",-2046975648),file.name,p1__34987_SHARP_);
+return cljs.core.swap_BANG_.call(null,buffer_ctx,cljs.core.assoc_in,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("fugue.buffer","buffer-cache","fugue.buffer/buffer-cache",-2046975648),file.name], null),p1__34987_SHARP_);
 });})(seq__34988,chunk__34989,count__34990,i__34991,file))
 );
 
@@ -538,11 +543,11 @@ continue;
 var file = cljs.core.first.call(null,seq__34988__$1);
 file.arrayBuffer().then(((function (seq__34988,chunk__34989,count__34990,i__34991,file,seq__34988__$1,temp__5720__auto__){
 return (function (p1__34986_SHARP_){
-return new cljs.core.Keyword("fugue.audio","actx","fugue.audio/actx",-1808529001).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,actx_atom)).decodeAudioData(p1__34986_SHARP_);
+return new cljs.core.Keyword("fugue.audio","actx","fugue.audio/actx",-1808529001).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,audio_ctx)).decodeAudioData(p1__34986_SHARP_);
 });})(seq__34988,chunk__34989,count__34990,i__34991,file,seq__34988__$1,temp__5720__auto__))
 ).then(((function (seq__34988,chunk__34989,count__34990,i__34991,file,seq__34988__$1,temp__5720__auto__){
 return (function (p1__34987_SHARP_){
-return cljs.core.swap_BANG_.call(null,buffer_ctx,cljs.core.assoc_in,new cljs.core.Keyword("fugue.buffer","buffer-cache","fugue.buffer/buffer-cache",-2046975648),file.name,p1__34987_SHARP_);
+return cljs.core.swap_BANG_.call(null,buffer_ctx,cljs.core.assoc_in,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("fugue.buffer","buffer-cache","fugue.buffer/buffer-cache",-2046975648),file.name], null),p1__34987_SHARP_);
 });})(seq__34988,chunk__34989,count__34990,i__34991,file,seq__34988__$1,temp__5720__auto__))
 );
 
@@ -608,9 +613,15 @@ break;
 }
 }),null,null));
 });
-return iter__4523__auto__.call(null,new cljs.core.Keyword("fugue.buffer","buffer-cache","fugue.buffer/buffer-cache",-2046975648).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,buffer_ctx)));
+return iter__4523__auto__.call(null,new cljs.core.Keyword("fugue.buffer","buffer-cache","fugue.buffer/buffer-cache",-2046975648).cljs$core$IFn$_invoke$arity$1((function (){var or__4131__auto__ = cljs.core.deref.call(null,buffer_ctx);
+if(cljs.core.truth_(or__4131__auto__)){
+return or__4131__auto__;
+} else {
+return cljs.core.PersistentArrayMap.EMPTY;
+}
+})()));
 })()], null)], null);
 });
 });
 
-//# sourceMappingURL=ctx_ctrls.js.map?rel=1610146512185
+//# sourceMappingURL=ctx_ctrls.js.map?rel=1610147342213
