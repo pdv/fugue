@@ -4,7 +4,7 @@
             [cljs.pprint :refer [pprint]]
             [cljs.repl :refer [Error->map]]))
 
-(defn editor [init on-change settings]
+(defn editor [init on-change on-selection-change settings]
   (let [codemirror (volatile! nil)]
   (r/create-class
     {:render
@@ -15,6 +15,7 @@
              settings (clj->js (merge settings {:mode "clojure" :lineNumbers true}))
              cm (.fromTextArea js/CodeMirror node settings)]
          (.on cm "change" #(on-change (.getValue %)))
+         (.on cm "cursorActivity" #(on-selection-change (.getSelection %)))
          (vreset! codemirror cm)
          (js/setTimeout #(on-change init) 5)))
      :component-did-update
