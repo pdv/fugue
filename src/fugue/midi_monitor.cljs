@@ -5,14 +5,13 @@
             [fugue.chords :as chords]))
 
 (defn midi-selector [midi-ctx on-change]
-  (fn []
-    (if-let [mctx @midi-ctx]
-      (do
-        [:select {:on-change #(on-change ((::midi/ins mctx) (.. % -target -value)))}
-         [:option {:value nil} "Select an input"]
-         (for [[in-name] (::midi/ins mctx)]
-           [:option {:value in-name} in-name])])
-      [:p "no midi ctx"])))
+  (if-let [mctx @midi-ctx]
+    (do
+      [:select {:on-change #(on-change ((::midi/ins mctx) (.. % -target -value)))}
+       [:option {:value nil} "Select an input"]
+       (for [[in-name] (::midi/ins mctx)]
+         [:option {:value in-name} in-name])])
+    [:p "no midi ctx"]))
 
 (defn note-on? [midi-msg]
   (and (= ::midi/note-on (::midi/type midi-msg))
