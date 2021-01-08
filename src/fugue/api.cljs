@@ -71,7 +71,7 @@
    "(defonce midi-ctx (ratom nil))"
    "(defonce buffer-ctx (ratom nil))"
    "(defn play! [synthdef]"
-   " (make-synth (merge @audio-ctx @midi-ctx @buffer-ctx) synthdef))"
+   "  (make-synth (merge @audio-ctx @midi-ctx @buffer-ctx) synthdef))"
    ""
    "(defn demo []"
    "  (-> (sin-osc 440)"
