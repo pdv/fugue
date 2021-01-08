@@ -403,4 +403,4 @@ return fugue.synthdef.synthdef.call(null,new cljs.core.PersistentArrayMap(null, 
 fugue.midi.ctrl.cljs$lang$maxFixedArity = 4;
 
 
-//# sourceMappingURL=midi.js.map?rel=1610142280005
+//# sourceMappingURL=midi.js.map?rel=1610145023276

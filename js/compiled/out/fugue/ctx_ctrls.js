@@ -489,7 +489,7 @@ return null;
 break;
 }
 });
-fugue.ctx_ctrls.buffer_ctrl = (function fugue$ctx_ctrls$buffer_ctrl(actx_atom,buffer_cache_atom){
+fugue.ctx_ctrls.buffer_ctrl = (function fugue$ctx_ctrls$buffer_ctrl(actx_atom,buffer_ctx){
 return (function (){
 return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"file","file",-1269645878),new cljs.core.Keyword(null,"on-change","on-change",-732046149),(function (e){
 var seq__34988 = cljs.core.seq.call(null,Array.from(e.target.files));
@@ -505,7 +505,7 @@ return new cljs.core.Keyword("fugue.audio","actx","fugue.audio/actx",-1808529001
 });})(seq__34988,chunk__34989,count__34990,i__34991,file))
 ).then(((function (seq__34988,chunk__34989,count__34990,i__34991,file){
 return (function (p1__34987_SHARP_){
-return cljs.core.swap_BANG_.call(null,buffer_cache_atom,cljs.core.assoc,file.name,p1__34987_SHARP_);
+return cljs.core.swap_BANG_.call(null,buffer_ctx,cljs.core.assoc_in,new cljs.core.Keyword("fugue.buffer","buffer-cache","fugue.buffer/buffer-cache",-2046975648),file.name,p1__34987_SHARP_);
 });})(seq__34988,chunk__34989,count__34990,i__34991,file))
 );
 
@@ -542,7 +542,7 @@ return new cljs.core.Keyword("fugue.audio","actx","fugue.audio/actx",-1808529001
 });})(seq__34988,chunk__34989,count__34990,i__34991,file,seq__34988__$1,temp__5720__auto__))
 ).then(((function (seq__34988,chunk__34989,count__34990,i__34991,file,seq__34988__$1,temp__5720__auto__){
 return (function (p1__34987_SHARP_){
-return cljs.core.swap_BANG_.call(null,buffer_cache_atom,cljs.core.assoc,file.name,p1__34987_SHARP_);
+return cljs.core.swap_BANG_.call(null,buffer_ctx,cljs.core.assoc_in,new cljs.core.Keyword("fugue.buffer","buffer-cache","fugue.buffer/buffer-cache",-2046975648),file.name,p1__34987_SHARP_);
 });})(seq__34988,chunk__34989,count__34990,i__34991,file,seq__34988__$1,temp__5720__auto__))
 );
 
@@ -608,9 +608,9 @@ break;
 }
 }),null,null));
 });
-return iter__4523__auto__.call(null,cljs.core.deref.call(null,buffer_cache_atom));
+return iter__4523__auto__.call(null,new cljs.core.Keyword("fugue.buffer","buffer-cache","fugue.buffer/buffer-cache",-2046975648).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,buffer_ctx)));
 })()], null)], null);
 });
 });
 
-//# sourceMappingURL=ctx_ctrls.js.map?rel=1610142280154
+//# sourceMappingURL=ctx_ctrls.js.map?rel=1610145023436

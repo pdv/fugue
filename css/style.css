@@ -61,7 +61,7 @@ html, body, #app {
 
 .repl-out {
   border: none;
-  padding: 0px;
+  padding: 8px;
   width: 100%;
   resize: none;
   background-color: transparent;
@@ -91,6 +91,7 @@ html, body, #app {
   border-right: 1px solid black;
   flex-grow: 1;
   width: 50%;
+  padding: 16px;
 }
 
 .ide-right {

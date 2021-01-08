@@ -8,7 +8,7 @@ goog.require('clojure.string');
 goog.require('cljs.pprint');
 goog.require('cljs.repl');
 CodeMirror.registerHelper("hintWords","clojure",["midi","audio","buffer","render"]);
-fugue.editor.editor = (function fugue$editor$editor(init,on_change,on_selection_change,on_shortcut,settings){
+fugue.editor.editor = (function fugue$editor$editor(init,on_change,on_selection_change,on_shortcut,on_shift_shortcut,settings){
 var codemirror = cljs.core.volatile_BANG_.call(null,null);
 return reagent.core.create_class.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"render","render",-1408033454),((function (codemirror){
 return (function (){
@@ -20,6 +20,8 @@ var node = reagent.dom.dom_node.call(null,this$);
 var settings__$1 = cljs.core.clj__GT_js.call(null,cljs.core.merge.call(null,settings,new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"mode","mode",654403691),"clojure",new cljs.core.Keyword(null,"lineNumbers","lineNumbers",1374890941),true], null)));
 var cm = CodeMirror.fromTextArea(node,settings__$1);
 cm.setOption("extraKeys",({"Ctrl-Space": on_shortcut}));
+
+cm.setOption("extraKeys",({"Shift-Ctrl-Space": on_shift_shortcut}));
 
 cm.on("change",((function (node,settings__$1,cm,codemirror){
 return (function (p1__38298_SHARP_){
@@ -153,4 +155,4 @@ return cljs.core.str.cljs$core$IFn$_invoke$arity$1(sb__4661__auto__);
 })()));
 });
 
-//# sourceMappingURL=editor.js.map?rel=1610142284209
+//# sourceMappingURL=editor.js.map?rel=1610145027780
