@@ -27,6 +27,10 @@
           {:on-click #(eval-fn @input (partial reset! eval-out))}
           "eval all"]
          [:button
+          {:on-click #(reset! render-out @eval-out)
+           :disabled (not (vector? (:value @eval-out)))}
+          "render last eval result"]
+         [:button
           {:on-click #(eval-fn @selected (partial reset! eval-out))
            :disabled (empty? @selected)}
           "eval selection (ctrl-space)"]
@@ -37,10 +41,6 @@
            :disabled (empty? @selected)}
           "eval and render selection (ctrl-shift-space)"]
          [:button
-          {:on-click #(reset! render-out @eval-out)
-           :disabled (not (vector? (:value @eval-out)))}
-          "render last eval result"]
-         [:button
           {:on-click #(swap! vim-on not)}
-          (str "vim on?" @vim-on)]]
+          (str (if @vim-on "disable" "enable") " vim bindings")]]
         [output-box @eval-out]]])))
