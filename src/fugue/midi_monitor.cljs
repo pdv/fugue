@@ -7,9 +7,11 @@
 (defn midi-selector [midi-ctx on-change]
   [:div
    (if-let [mctx @midi-ctx]
-     [:select {:on-change #(on-change ((::midi/ins mctx) (.. % -target -value)))}
-      (for [[in-name] (::midi/ins mctx)]
-        [:option {:value in-name} in-name])]
+     (do
+       (on-change (second (first (::midi/ins mctx))))
+       [:select {:on-change #(on-change ((::midi/ins mctx) (.. % -target -value)))}
+        (for [[in-name] (::midi/ins mctx)]
+          [:option {:value in-name} in-name])])
      "no midi ctx")])
 
 (defn note-monitor [in-mult]
