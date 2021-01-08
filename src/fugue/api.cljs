@@ -70,7 +70,8 @@
    "[:div"
    "  [audio-ctx-ctrls audio-ctx]"
    "  [midi-ctx-ctrls midi-ctx]"
-   "  [buffer-ctrl audio-ctx buffer-cache]]"])
+   "  [buffer-ctrl audio-ctx buffer-cache]"
+   "  [monitor midi-ctx]]"])
 
 (def init-text
   (string/join "\n" init-forms))

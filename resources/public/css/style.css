@@ -51,10 +51,8 @@ html, body, #app {
 }
 
 .CodeMirror {
-  min-width: 432px;
-  min-height: 300px;
-  resize: both;
   overflow: hidden;
+  height: 100%;
 }
 
 .CodeMirror-gutters {
@@ -76,4 +74,37 @@ html, body, #app {
   width: 40px;
   height: 40px;
   margin: 16px;
+}
+
+.ide {
+  display: flex;
+  flex-flow: row;
+  border: 1px solid black;
+  margin: 16px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.ide-left {
+  flex: 1 1 auto;
+  overflow: hidden;
+  border-right: 1px solid black;
+  flex-grow: 1;
+  width: 50%;
+}
+
+.ide-right {
+  display: flex;
+  flex-flow: column;
+  align-items: stretch;
+  flex-grow: 1;
+  width: 50%;
+}
+
+.ide-toolbar {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  display: flex;
+  align-items: center;
+  padding: 16px;
 }
