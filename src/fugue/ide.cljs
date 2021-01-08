@@ -17,6 +17,7 @@
         [editor init
          (partial reset! input)
          (partial reset! selected)
+         #(eval-fn @selected (partial reset! eval-out))
          {:keyMap (if @vim-on "vim" "default")}]
         [:div.ide-toolbar
          [:button
