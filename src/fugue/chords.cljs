@@ -15,24 +15,25 @@
 
 (def note-names [:C :Db :D :Eb :E :F :F# :G :Ab :A :Bb :B])
 
-(defn possible-chords [notes]
-  (into #{}
-  (mapcat (fn [root]
-            (let [relative (map #(mod (- % root) 12) notes)]
-              (->> chord-names
-                   (filter (fn [[_ chord]]
-                             (every? #(contains? chord %) relative)))
-                   (map (fn [[name _]]
-                          [(nth note-names (mod root 12)) name])))))
-          notes)))
 
-(defn contained-chords [notes]
+(defn chords-where [predicate notes]
   (into #{}
         (mapcat (fn [root]
                   (let [relative (map #(mod (- % root) 12) notes)]
                     (->> chord-names
                          (filter (fn [[_ chord]]
-                                   (every? #(contains? (set relative) %) chord)))
+                                   (predicate chord relative)))
                          (map (fn [[name _]]
                                 [(nth note-names (mod root 12)) name])))))
                 notes)))
+
+(defn possible-chords [notes]
+  (chords-where (fn [chord relative]
+                  (every? #(contains? chord %) relative))
+                notes))
+
+(defn contained-chords [notes]
+  (chords-where (fn [chord relative]
+                  (every? #(contains? (set relative) %) chord))
+                notes))
+
