@@ -3,6 +3,9 @@ goog.provide('fugue.ide');
 goog.require('cljs.core');
 goog.require('reagent.core');
 goog.require('fugue.editor');
+fugue.ide.welcome = (function fugue$ide$welcome(){
+return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"h2","h2",-372662728),"welcome to fugue"], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"p","p",151049309),"click 'eval' to evaluate the buffer"], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"p","p",151049309),"then click 'render' to display the ui"], null)], null);
+});
 fugue.ide.ide = (function fugue$ide$ide(init,eval_fn){
 var input = reagent.core.atom.call(null,init);
 var selected = reagent.core.atom.call(null,"");
@@ -11,11 +14,12 @@ var eval_out = reagent.core.atom.call(null,null);
 var vim_on = reagent.core.atom.call(null,true);
 return ((function (input,selected,render_out,eval_out,vim_on){
 return (function (){
-return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.ide","div.ide",109632974),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.ide-left","div.ide-left",-417241263),(function (){var component = new cljs.core.Keyword(null,"value","value",305978217).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,render_out));
-if(cljs.core.vector_QMARK_.call(null,component)){
+return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.ide","div.ide",109632974),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.ide-left","div.ide-left",-417241263),(function (){var temp__5718__auto__ = new cljs.core.Keyword(null,"value","value",305978217).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,render_out));
+if(cljs.core.truth_(temp__5718__auto__)){
+var component = temp__5718__auto__;
 return component;
 } else {
-return null;
+return new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [fugue.ide.welcome], null);
 }
 })()], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.ide-right","div.ide-right",-6482676),new cljs.core.PersistentVector(null, 7, 5, cljs.core.PersistentVector.EMPTY_NODE, [fugue.editor.editor,init,cljs.core.partial.call(null,cljs.core.reset_BANG_,input),cljs.core.partial.call(null,cljs.core.reset_BANG_,selected),((function (input,selected,render_out,eval_out,vim_on){
 return (function (){
@@ -35,11 +39,11 @@ return cljs.core.reset_BANG_.call(null,render_out,new_out);
 return (function (){
 return eval_fn.call(null,cljs.core.deref.call(null,input),cljs.core.partial.call(null,cljs.core.reset_BANG_,eval_out));
 });})(input,selected,render_out,eval_out,vim_on))
-], null),"eval all"], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"button","button",1456579943),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"on-click","on-click",1632826543),((function (input,selected,render_out,eval_out,vim_on){
+], null),"eval"], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"button","button",1456579943),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"on-click","on-click",1632826543),((function (input,selected,render_out,eval_out,vim_on){
 return (function (){
 return cljs.core.reset_BANG_.call(null,render_out,cljs.core.deref.call(null,eval_out));
 });})(input,selected,render_out,eval_out,vim_on))
-,new cljs.core.Keyword(null,"disabled","disabled",-1529784218),(!(cljs.core.vector_QMARK_.call(null,new cljs.core.Keyword(null,"value","value",305978217).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,eval_out)))))], null),"render last eval result"], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"button","button",1456579943),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"on-click","on-click",1632826543),((function (input,selected,render_out,eval_out,vim_on){
+,new cljs.core.Keyword(null,"disabled","disabled",-1529784218),(!(cljs.core.vector_QMARK_.call(null,new cljs.core.Keyword(null,"value","value",305978217).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,eval_out)))))], null),"render"], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"button","button",1456579943),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"on-click","on-click",1632826543),((function (input,selected,render_out,eval_out,vim_on){
 return (function (){
 return eval_fn.call(null,cljs.core.deref.call(null,selected),cljs.core.partial.call(null,cljs.core.reset_BANG_,eval_out));
 });})(input,selected,render_out,eval_out,vim_on))
@@ -62,4 +66,4 @@ return cljs.core.swap_BANG_.call(null,vim_on,cljs.core.not);
 ;})(input,selected,render_out,eval_out,vim_on))
 });
 
-//# sourceMappingURL=ide.js.map?rel=1610145027806
+//# sourceMappingURL=ide.js.map?rel=1610146515784
