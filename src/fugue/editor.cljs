@@ -23,7 +23,7 @@
          (.on cm "change" #(on-change (.getValue %)))
          (.on cm "cursorActivity" #(on-selection-change (.getSelection %)))
          (.on cm "inputRead" (fn [_ event]
-                               (if (not (blank? (oget event "text")))
+                               (if (re-find #"[a-zA-Z]" (first (oget event "text")))
                                  (.showHint cm #js {:completeSingle false}))))
          (vreset! codemirror cm)
          (js/setTimeout #(on-change init) 5)))

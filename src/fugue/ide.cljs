@@ -26,7 +26,7 @@
          [:button
           {:on-click #(eval-fn @selected (partial reset! eval-out))
            :disabled (empty? @selected)}
-          "eval selection"]
+          "eval selection (ctrl-space)"]
          [:button
           {:on-click #(reset! render-out @eval-out)
            :disabled (not (vector? (:value @eval-out)))}
