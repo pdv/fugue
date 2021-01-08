@@ -9,7 +9,7 @@
 (.registerHelper js/CodeMirror "hintWords" "clojure"
                  #js ["midi" "audio" "buffer" "render"])
 
-(defn editor [init on-change on-selection-change on-shortcut settings]
+(defn editor [init on-change on-selection-change on-shortcut on-shift-shortcut settings]
   (let [codemirror (volatile! nil)]
   (r/create-class
     {:render
@@ -20,6 +20,7 @@
              settings (clj->js (merge settings {:mode "clojure" :lineNumbers true}))
              cm (.fromTextArea js/CodeMirror node settings)]
          (.setOption cm "extraKeys", #js {"Ctrl-Space" on-shortcut})
+         (.setOption cm "extraKeys", #js {"Shift-Ctrl-Space" on-shift-shortcut})
          (.on cm "change" #(on-change (.getValue %)))
          (.on cm "cursorActivity" #(on-selection-change (.getSelection %)))
          (.on cm "inputRead" (fn [_ event]

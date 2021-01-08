@@ -18,6 +18,9 @@
          (partial reset! input)
          (partial reset! selected)
          #(eval-fn @selected (partial reset! eval-out))
+         #(eval-fn @selected (fn [new-out]
+                               (reset! eval-out new-out)
+                               (reset! render-out new-out)))
          {:keyMap (if @vim-on "vim" "default")}]
         [:div.ide-toolbar
          [:button
@@ -28,9 +31,15 @@
            :disabled (empty? @selected)}
           "eval selection (ctrl-space)"]
          [:button
+          {:on-click #(eval-fn @selected (fn [new-out]
+                                           (reset! eval-out new-out)
+                                           (reset! render-out new-out)))
+           :disabled (empty? @selected)}
+          "eval and render selection (ctrl-shift-space)"]
+         [:button
           {:on-click #(reset! render-out @eval-out)
            :disabled (not (vector? (:value @eval-out)))}
-          "render"]
+          "render last eval result"]
          [:button
           {:on-click #(swap! vim-on not)}
           (str "vim on?" @vim-on)]]
