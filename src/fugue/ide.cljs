@@ -2,6 +2,12 @@
   (:require [reagent.core :as r]
             [fugue.editor :refer [editor output-box]]))
 
+(defn welcome []
+  [:div
+   [:h2 "welcome to fugue"]
+   [:p "click 'eval' to evaluate the buffer"]
+   [:p "then click 'render' to display the ui"]])
+
 (defn ide [init eval-fn]
   (let [input (r/atom init)
         selected (r/atom "")
@@ -11,8 +17,9 @@
     (fn []
       [:div.ide
        [:div.ide-left
-        (let [component (:value @render-out)]
-          (if (vector? component) component))]
+        (if-let [component (:value @render-out)]
+          component
+          [welcome])]
        [:div.ide-right
         [editor init
          (partial reset! input)
@@ -25,11 +32,11 @@
         [:div.ide-toolbar
          [:button
           {:on-click #(eval-fn @input (partial reset! eval-out))}
-          "eval all"]
+          "eval"]
          [:button
           {:on-click #(reset! render-out @eval-out)
            :disabled (not (vector? (:value @eval-out)))}
-          "render last eval result"]
+          "render"]
          [:button
           {:on-click #(eval-fn @selected (partial reset! eval-out))
            :disabled (empty? @selected)}

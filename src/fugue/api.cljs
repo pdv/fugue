@@ -61,17 +61,33 @@
     (let [ctx (merge @actx-atom @mctx-atom {::buffer/buffer-cache @buffer-cache-atom})]
       (make-synth ctx synthdef))))
 
+(defn welcome []
+  [:div
+   [:h3 "nice work clicking those buttons"]])
+
 (def init-forms
-  ["(defonce audio-ctx (ratom nil))"
+  [
+   "(defonce audio-ctx (ratom nil))"
    "(defonce midi-ctx (ratom nil))"
-   "(defonce buffer-cache (ratom {}))"
-   "(def render (make-renderer audio-ctx midi-ctx buffer-cache))"
+   "(defonce buffer-ctx (ratom {}))"
+   "(defn play! [synthdef]"
+   " (make-synth (merge @audio-ctx @midi-ctx @buffer-ctx) synthdef))"
+   ""
+   "(defn demo []"
+   "  (-> (sin-osc 440)"
+   "      (gain (env-gen (perc 0.01 2) 1))"
+   "      out))"
    ""
    "[:div"
+   "  [welcome]"
    "  [audio-ctx-ctrls audio-ctx]"
    "  [midi-ctx-ctrls midi-ctx]"
    "  [buffer-ctrl audio-ctx buffer-cache]"
-   "  [monitor midi-ctx]]"])
+   "  [:button"
+   "   {:on-click #(play! (demo))}"
+   "   \"ping\"]"
+   "  [monitor midi-ctx]]"
+   ])
 
 (def init-text
   (string/join "\n" init-forms))
