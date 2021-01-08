@@ -12,4 +12,4 @@ return cljs.core.map_QMARK_.call(null,G__30751);
 return cljs.core.nth.call(null,v__23108__auto__,(0));
 }),new cljs.core.Keyword("cljs.spec.alpha","conform-all","cljs.spec.alpha/conform-all",45201917),true,new cljs.core.Keyword("cljs.spec.alpha","describe","cljs.spec.alpha/describe",1883026911),cljs.core.list(new cljs.core.Symbol("cljs.spec.alpha","map-of","cljs.spec.alpha/map-of",153715093,null),new cljs.core.Keyword("fugue.buffer","buffer-name","fugue.buffer/buffer-name",-1610711486),new cljs.core.Keyword("fugue.buffer","audio-buffer","fugue.buffer/audio-buffer",-783824162))], null),null));
 
-//# sourceMappingURL=buffer.js.map?rel=1610120084988
+//# sourceMappingURL=buffer.js.map?rel=1610123899334
