@@ -43,7 +43,8 @@ goog.addDependency("../reagent/core.js", ['reagent.core'], ['reagent.impl.util',
 goog.addDependency("../cljs/spec/gen/alpha.js", ['cljs.spec.gen.alpha'], ['goog.Uri', 'cljs.core']);
 goog.addDependency("../cljs/spec/alpha.js", ['cljs.spec.alpha'], ['cljs.core', 'goog.object', 'clojure.string', 'clojure.walk', 'cljs.spec.gen.alpha']);
 goog.addDependency("../cljs/repl.js", ['cljs.repl'], ['goog.string', 'cljs.core', 'goog.string.format', 'cljs.spec.alpha']);
-goog.addDependency("../fugue/box.js", ['fugue.box'], ['reagent.core', 'cljs.core', 'cljs.pprint', 'cljs.repl', 'reagent.dom']);
+goog.addDependency("../fugue/editor.js", ['fugue.editor'], ['reagent.core', 'cljs.core', 'cljs.pprint', 'cljs.repl', 'reagent.dom']);
+goog.addDependency("../fugue/box.js", ['fugue.box'], ['reagent.core', 'cljs.core', 'fugue.editor']);
 goog.addDependency("../loom/alg_generic.js", ['loom.alg_generic'], ['cljs.core']);
 goog.addDependency("../loom/graph.js", ['loom.graph'], ['cljs.core', 'loom.alg_generic']);
 goog.addDependency("../loom/attr.js", ['loom.attr'], ['cljs.core', 'loom.graph']);
@@ -97,4 +98,5 @@ goog.addDependency("../cljs/compiler.js", ['cljs.compiler'], ['cljs.tools.reader
 goog.addDependency("../cljs/core$macros.js", ['cljs.core$macros'], ['cljs.compiler', 'cljs.core', 'cljs.env', 'clojure.set', 'cljs.analyzer', 'clojure.string', 'clojure.walk']);
 goog.addDependency("../cljs/js.js", ['cljs.js'], ['cljs.compiler', 'cljs.tools.reader', 'cljs.core', 'goog.crypt.base64', 'cljs.tools.reader.reader_types', 'cljs.env', 'goog.string.StringBuffer', 'cljs.tagged_literals', 'cljs.analyzer', 'cljs.source_map', 'clojure.string', 'cljs.spec.alpha', 'clojure.walk', 'cljs.core$macros']);
 goog.addDependency("../fugue/bootstrap.js", ['fugue.bootstrap'], ['fugue.api', 'cljs.js', 'cljs.core']);
-goog.addDependency("../fugue/web.js", ['fugue.web'], ['fugue.api', 'fugue.box', 'reagent.core', 'cljs.core', 'fugue.bootstrap', 'reagent.dom']);
+goog.addDependency("../fugue/ide.js", ['fugue.ide'], ['reagent.core', 'cljs.core', 'fugue.editor']);
+goog.addDependency("../fugue/web.js", ['fugue.web'], ['fugue.api', 'fugue.box', 'reagent.core', 'fugue.ide', 'cljs.core', 'fugue.bootstrap', 'reagent.dom']);

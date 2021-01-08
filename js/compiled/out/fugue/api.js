@@ -61,7 +61,7 @@ var ctx = cljs.core.merge.call(null,cljs.core.deref.call(null,actx_atom),cljs.co
 return fugue.api.make_synth.call(null,ctx,synthdef);
 });
 });
-fugue.api.init_forms = new cljs.core.PersistentVector(null, 9, 5, cljs.core.PersistentVector.EMPTY_NODE, ["(defonce audio-ctx (ratom nil))","(defonce midi-ctx (ratom nil))","(defonce buffer-cache (ratom {}))","(def render (make-renderer audio-ctx midi-ctx buffer-cache))","","[:div","  [audio-ctx-ctrls audio-ctx]","  [midi-ctx-ctrls midi-ctx]","  [buffer-ctrl audio-ctx buffer-cache]]"], null);
+fugue.api.init_forms = new cljs.core.PersistentVector(null, 10, 5, cljs.core.PersistentVector.EMPTY_NODE, ["(defonce audio-ctx (ratom nil))","(defonce midi-ctx (ratom nil))","(defonce buffer-cache (ratom {}))","(def render (make-renderer audio-ctx midi-ctx buffer-cache))","","[:div","  [audio-ctx-ctrls audio-ctx]","  [midi-ctx-ctrls midi-ctx]","  [buffer-ctrl audio-ctx buffer-cache]","  [monitor midi-ctx]]"], null);
 fugue.api.init_text = clojure.string.join.call(null,"\n",fugue.api.init_forms);
 fugue.api.mary_had_a_little_synth = (function fugue$api$mary_had_a_little_synth(tempo,decay,cutoff){
 var m = fugue.api.metro.call(null,tempo);
@@ -97,4 +97,4 @@ return cljs.core.str.cljs$core$IFn$_invoke$arity$1(sb__4661__auto__);
 fugue.api.demo_text_old = clojure.string.join.call(null,"\n",fugue.api.demo_forms);
 fugue.api.demo_text = "[:div [monitor midi-ctx]]";
 
-//# sourceMappingURL=api.js.map?rel=1610124009065
+//# sourceMappingURL=api.js.map?rel=1610128212959
