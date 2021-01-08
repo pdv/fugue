@@ -6,7 +6,6 @@ goog.require('cljs.core.async');
 goog.require('fugue.midi');
 goog.require('fugue.chords');
 fugue.midi_monitor.midi_selector = (function fugue$midi_monitor$midi_selector(midi_ctx,on_change){
-return (function (){
 var temp__5718__auto__ = cljs.core.deref.call(null,midi_ctx);
 if(cljs.core.truth_(temp__5718__auto__)){
 var mctx = temp__5718__auto__;
@@ -66,7 +65,6 @@ return iter__4523__auto__.call(null,new cljs.core.Keyword("fugue.midi","ins","fu
 } else {
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"p","p",151049309),"no midi ctx"], null);
 }
-});
 });
 fugue.midi_monitor.note_on_QMARK_ = (function fugue$midi_monitor$note_on_QMARK_(midi_msg){
 return ((cljs.core._EQ_.call(null,new cljs.core.Keyword("fugue.midi","note-on","fugue.midi/note-on",1265446966),new cljs.core.Keyword("fugue.midi","type","fugue.midi/type",2122361827).cljs$core$IFn$_invoke$arity$1(midi_msg))) && (cljs.core.not_EQ_.call(null,(0),new cljs.core.Keyword("fugue.midi","velocity","fugue.midi/velocity",382164680).cljs$core$IFn$_invoke$arity$1(midi_msg))));
@@ -417,4 +415,4 @@ return cljs.core.reset_BANG_.call(null,in_mult,in$);
 ;})(msgs,in_mult,in_chan))
 });
 
-//# sourceMappingURL=midi_monitor.js.map?rel=1610123902020
+//# sourceMappingURL=midi_monitor.js.map?rel=1610124008594
