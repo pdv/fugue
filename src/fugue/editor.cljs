@@ -22,11 +22,10 @@
        (doseq [[key value] (last (r/argv this))]
          (.setOption @codemirror (clj->js key) value)))})))
 
-(defn top-text [text]
+(defn repl-out [text]
   [:textarea.repl-out {:read-only true :value text}])
 
 (defn output-box [{:keys [value error]}]
-  (cond
-    (vector? value) value
-    error (top-text (:cause (Error->map error)))
-    :else (top-text (with-out-str (pprint value)))))
+  (repl-out (if error
+              (:cause (Error->map error))
+              (with-out-str (pprint value)))))
