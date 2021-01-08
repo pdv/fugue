@@ -19,14 +19,14 @@
          (partial reset! selected)
          {:keyMap (if @vim-on "vim" "default")}]
         [:div.ide-toolbar
-         [:button#eval
+         [:button
           {:on-click #(eval-fn @input (partial reset! eval-out))}
           "eval all"]
-         [:button#eval
+         [:button
           {:on-click #(eval-fn @selected (partial reset! eval-out))
            :disabled (empty? @selected)}
           "eval selection"]
-         [:button#eval
+         [:button
           {:on-click #(reset! render-out @eval-out)
            :disabled (not (vector? (:value @eval-out)))}
           "render"]

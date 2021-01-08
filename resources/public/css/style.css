@@ -62,12 +62,12 @@ html, body, #app {
 .repl-out {
   border: none;
   padding: 0px;
-  height: 150px;
   width: 100%;
   resize: none;
   background-color: transparent;
   outline: none;
   font-family: monospace;
+  height: 50%;
 }
 
 #add {
@@ -107,4 +107,8 @@ html, body, #app {
   display: flex;
   align-items: center;
   padding: 16px;
+}
+
+.ide-toolbar button {
+  margin-right: 8px;
 }

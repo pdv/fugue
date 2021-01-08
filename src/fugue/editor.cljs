@@ -4,6 +4,9 @@
             [cljs.pprint :refer [pprint]]
             [cljs.repl :refer [Error->map]]))
 
+(.registerHelper js/CodeMirror "hintWords" "clojure"
+                 #js ["these" "are" "some" "words"])
+
 (defn editor [init on-change on-selection-change settings]
   (let [codemirror (volatile! nil)]
   (r/create-class
@@ -16,6 +19,9 @@
              cm (.fromTextArea js/CodeMirror node settings)]
          (.on cm "change" #(on-change (.getValue %)))
          (.on cm "cursorActivity" #(on-selection-change (.getSelection %)))
+         (.on cm "keyup" (fn [_ event]
+                           (when (not= (.-keyCode event) 13)
+                             (.showHint cm #js {:completeSingle false}))))
          (vreset! codemirror cm)
          (js/setTimeout #(on-change init) 5)))
      :component-did-update
