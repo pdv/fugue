@@ -24,10 +24,14 @@
     ::midi/note-on (= 0 (::midi/velocity midi-msg))
     false))
 
+(defn sanitize [notes]
+  (sort (into #{} (map #(mod % 12) notes))))
+
 (defn note-monitor-view [notes]
   [:div
    [cof notes]
-   [:p (str notes)]
+   [:p (str (sanitize notes))]
+   [:p (str (sort (map (comp int midi/note->hz) notes)))]
    [:ul
     (for [chord (chords/possible-chords notes)]
       [:li (str chord)])]
