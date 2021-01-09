@@ -1,9 +1,11 @@
 (ns fugue.ide
   (:require [reagent.core :as r]
+            [fugue.cof :refer [cof]]
             [fugue.editor :refer [editor output-box]]))
 
 (defn welcome []
   [:div
+   [cof (range 12)]
    [:h2 "welcome to fugue"]
    [:p "click 'eval' to evaluate the buffer"]
    [:p "then click 'render' to display the ui"]])
