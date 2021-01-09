@@ -1,0 +1,143 @@
+
+/** from https://codepen.io/opheliafl/pen/RaYbvL/ **/
+/** and http://jsfiddle.net/thirtydot/k8gspoyv/ **/
+
+div.cof-container {
+  width: 400px;
+  height: 400px;
+}
+
+div.cof {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+}
+
+div.cof ul {
+  list-style: none;
+  height: 38%;
+  width: 0;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+}
+
+div.cof ul li {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 50% 100%;
+}
+
+div.cof ul li i {
+  font-style: normal;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  text-align: center;
+  font-size: 28px;
+
+  border: 2px solid #666;
+  background: #fff;
+  color: #666;
+}
+
+div.cof ul li i.active {
+  background: #666;
+  color: white;
+}
+
+div.cof ul li:nth-child(2) {
+  transform: rotate(30deg);
+}
+
+div.cof ul li:nth-child(2) i {
+  transform: translateX(-50%) rotate(-30deg)
+}
+
+div.cof ul li:nth-child(3) {
+  transform: rotate(60deg);
+}
+
+div.cof ul li:nth-child(3) i {
+  transform: translateX(-50%) rotate(-60deg)
+}
+
+div.cof ul li:nth-child(4) {
+  transform: rotate(90deg);
+}
+
+div.cof ul li:nth-child(4) i {
+  transform: translateX(-50%) rotate(-90deg)
+}
+
+div.cof ul li:nth-child(5) {
+  transform: rotate(120deg);
+}
+
+div.cof ul li:nth-child(5) i {
+  transform: translateX(-50%) rotate(-120deg)
+}
+
+div.cof ul li:nth-child(6) {
+  transform: rotate(150deg);
+}
+
+div.cof ul li:nth-child(6) i {
+  transform: translateX(-50%) rotate(-150deg)
+}
+
+div.cof ul li:nth-child(7) {
+  transform: rotate(180deg);
+}
+
+div.cof ul li:nth-child(7) i {
+  transform: translateX(-50%) rotate(-180deg)
+}
+
+div.cof ul li:nth-child(8) {
+  transform: rotate(210deg);
+}
+
+div.cof ul li:nth-child(8) i {
+  transform: translateX(-50%) rotate(-210deg)
+}
+
+div.cof ul li:nth-child(9) {
+  transform: rotate(240deg);
+}
+
+div.cof ul li:nth-child(9) i {
+  transform: translateX(-50%) rotate(-240deg)
+}
+
+div.cof ul li:nth-child(10) {
+  transform: rotate(270deg);
+}
+
+div.cof ul li:nth-child(10) i {
+  transform: translateX(-50%) rotate(-270deg)
+}
+
+div.cof ul li:nth-child(11) {
+  transform: rotate(300deg);
+}
+
+div.cof ul li:nth-child(11) i {
+  transform: translateX(-50%) rotate(-300deg)
+}
+
+div.cof ul li:last-child  {
+  transform: rotate(330deg);
+}
+
+div.cof ul li:last-child i {
+  transform: translateX(-50%) rotate(-330deg)
+}

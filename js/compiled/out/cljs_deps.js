@@ -57,6 +57,7 @@ goog.addDependency("../loom/graph.js", ['loom.graph'], ['cljs.core', 'loom.alg_g
 goog.addDependency("../loom/attr.js", ['loom.attr'], ['cljs.core', 'loom.graph']);
 goog.addDependency("../cljs/core/async/impl/protocols.js", ['cljs.core.async.impl.protocols'], ['cljs.core']);
 goog.addDependency("../cljs/core/async/impl/ioc_helpers.js", ['cljs.core.async.impl.ioc_helpers'], ['cljs.core', 'cljs.core.async.impl.protocols']);
+goog.addDependency("../fugue/cof.js", ['fugue.cof'], ['cljs.core']);
 goog.addDependency("../cljs/core/async/impl/buffers.js", ['cljs.core.async.impl.buffers'], ['cljs.core', 'cljs.core.async.impl.protocols']);
 goog.addDependency("../cljs/core/async/impl/dispatch.js", ['cljs.core.async.impl.dispatch'], ['cljs.core', 'cljs.core.async.impl.buffers', 'goog.async.nextTick']);
 goog.addDependency("../cljs/core/async/impl/channels.js", ['cljs.core.async.impl.channels'], ['cljs.core.async.impl.dispatch', 'cljs.core', 'cljs.core.async.impl.buffers', 'cljs.core.async.impl.protocols']);
@@ -78,7 +79,7 @@ goog.addDependency("../fugue/components.js", ['fugue.components'], ['cljs.core']
 goog.addDependency("../fugue/convolver.js", ['fugue.convolver'], ['fugue.audio', 'fugue.buffer', 'cljs.core', 'oops.core', 'fugue.synthdef', 'cljs.spec.alpha']);
 goog.addDependency("../fugue/chords.js", ['fugue.chords'], ['cljs.core']);
 goog.addDependency("../fugue/midi.js", ['fugue.midi'], ['cljs.core', 'cljs.core.async', 'fugue.chan', 'oops.core', 'fugue.synthdef', 'cljs.spec.alpha']);
-goog.addDependency("../fugue/midi_monitor.js", ['fugue.midi_monitor'], ['reagent.core', 'cljs.core', 'cljs.core.async', 'fugue.chords', 'fugue.midi']);
+goog.addDependency("../fugue/midi_monitor.js", ['fugue.midi_monitor'], ['reagent.core', 'cljs.core', 'cljs.core.async', 'fugue.chords', 'fugue.cof', 'fugue.midi']);
 goog.addDependency("../fugue/sequencer.js", ['fugue.sequencer'], ['cljs.core', 'fugue.chan', 'fugue.synthdef', 'cljs.spec.alpha']);
 goog.addDependency("../fugue/feedback.js", ['fugue.feedback'], ['fugue.audio', 'cljs.core', 'loom.graph', 'loom.attr', 'fugue.synthdef', 'cljs.spec.alpha']);
 goog.addDependency("../fugue/ctx_ctrls.js", ['fugue.ctx_ctrls'], ['fugue.audio', 'fugue.buffer', 'reagent.core', 'cljs.core', 'cljs.core.async', 'fugue.midi']);
