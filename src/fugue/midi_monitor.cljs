@@ -1,6 +1,7 @@
 (ns fugue.midi-monitor
   (:require [reagent.core :as r]
             [cljs.core.async :as async]
+            [fugue.cof :refer [cof]]
             [fugue.midi :as midi]
             [fugue.chords :as chords]))
 
@@ -25,6 +26,7 @@
 
 (defn note-monitor-view [notes]
   [:div
+   [cof notes]
    [:p (str notes)]
    [:ul
     (for [chord (chords/possible-chords notes)]
