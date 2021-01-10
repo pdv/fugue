@@ -4,10 +4,12 @@
             [fugue.bootstrap :as bootstrap]
             [fugue.api :as api]
             [fugue.ide :as ide]
+            [fugue.cantor :as m]
             [fugue.box :as box]))
 
 (defn app []
-  [ide/ide api/init-text bootstrap/eval-str])
+  [m/cantor-table 60 21])
+;  [ide/ide api/init-text bootstrap/eval-str])
 
 (defn boxes-component []
   (let [boxes (r/atom [api/init-text
