@@ -113,3 +113,10 @@ html, body, #app {
 .ide-toolbar button {
   margin-right: 8px;
 }
+
+.cell {
+  height: 50px;
+  width: 50px;
+  border: 1px solid black;
+  text-align: center;
+}
