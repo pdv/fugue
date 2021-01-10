@@ -9,37 +9,37 @@ return (function (rf){
 var v_index = cljs.core.volatile_BANG_.call(null,(-1));
 return ((function (v_index){
 return (function() {
-var G__34833 = null;
-var G__34833__0 = (function (){
+var G__34901 = null;
+var G__34901__0 = (function (){
 return rf.call(null);
 });
-var G__34833__1 = (function (result){
+var G__34901__1 = (function (result){
 return rf.call(null,result);
 });
-var G__34833__2 = (function (result,p__34830){
-var map__34831 = p__34830;
-var map__34831__$1 = (((((!((map__34831 == null))))?(((((map__34831.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__34831.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__34831):map__34831);
-var sequence = cljs.core.get.call(null,map__34831__$1,new cljs.core.Keyword("fugue.sequencer","sequence","fugue.sequencer/sequence",66776449));
-var gate = cljs.core.get.call(null,map__34831__$1,new cljs.core.Keyword("fugue.sequencer","gate","fugue.sequencer/gate",-1803738846));
+var G__34901__2 = (function (result,p__34898){
+var map__34899 = p__34898;
+var map__34899__$1 = (((((!((map__34899 == null))))?(((((map__34899.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__34899.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__34899):map__34899);
+var sequence = cljs.core.get.call(null,map__34899__$1,new cljs.core.Keyword("fugue.sequencer","sequence","fugue.sequencer/sequence",66776449));
+var gate = cljs.core.get.call(null,map__34899__$1,new cljs.core.Keyword("fugue.sequencer","gate","fugue.sequencer/gate",-1803738846));
 cljs.core._vreset_BANG_.call(null,v_index,(cljs.core._deref.call(null,v_index) + (1)));
 
 return rf.call(null,result,cljs.core.assoc.call(null,gate,new cljs.core.Keyword(null,"value","value",305978217),cljs.core.nth.call(null,sequence,cljs.core.mod.call(null,cljs.core.deref.call(null,v_index),cljs.core.count.call(null,sequence)))));
 });
-G__34833 = function(result,p__34830){
+G__34901 = function(result,p__34898){
 switch(arguments.length){
 case 0:
-return G__34833__0.call(this);
+return G__34901__0.call(this);
 case 1:
-return G__34833__1.call(this,result);
+return G__34901__1.call(this,result);
 case 2:
-return G__34833__2.call(this,result,p__34830);
+return G__34901__2.call(this,result,p__34898);
 }
 throw(new Error('Invalid arity: ' + arguments.length));
 };
-G__34833.cljs$core$IFn$_invoke$arity$0 = G__34833__0;
-G__34833.cljs$core$IFn$_invoke$arity$1 = G__34833__1;
-G__34833.cljs$core$IFn$_invoke$arity$2 = G__34833__2;
-return G__34833;
+G__34901.cljs$core$IFn$_invoke$arity$0 = G__34901__0;
+G__34901.cljs$core$IFn$_invoke$arity$1 = G__34901__1;
+G__34901.cljs$core$IFn$_invoke$arity$2 = G__34901__2;
+return G__34901;
 })()
 ;})(v_index))
 });
@@ -48,4 +48,4 @@ fugue.sequencer.sequencer = (function fugue$sequencer$sequencer(sequence,gate){
 return fugue.synthdef.synthdef.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword("fugue.synthdef","node-type","fugue.synthdef/node-type",806558205),new cljs.core.Keyword("fugue.chan","chan-node","fugue.chan/chan-node",-1139152001),new cljs.core.Keyword("fugue.chan","chan-node-type","fugue.chan/chan-node-type",447830325),new cljs.core.Keyword("fugue.chan","transducer","fugue.chan/transducer",546482313),new cljs.core.Keyword("fugue.chan","xform","fugue.chan/xform",1487931640),new cljs.core.Keyword("fugue.sequencer","sequencer","fugue.sequencer/sequencer",1466842645)], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("fugue.sequencer","gate","fugue.sequencer/gate",-1803738846),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [gate], null),new cljs.core.Keyword("fugue.sequencer","sequence","fugue.sequencer/sequence",66776449),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sequence], null)], null));
 });
 
-//# sourceMappingURL=sequencer.js.map?rel=1610221077283
+//# sourceMappingURL=sequencer.js.map?rel=1610304476742

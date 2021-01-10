@@ -78,26 +78,26 @@ fugue.api.aww = (function fugue$api$aww(){
 return fugue.api.out.call(null,fugue.api.sampler.call(null,"pumpthat.wav",fugue.api.metro.call(null,(2000)),(0)));
 });
 fugue.api.demo_forms = new cljs.core.PersistentVector(null, 12, 5, cljs.core.PersistentVector.EMPTY_NODE, ["(defonce tempo (ratom 500))","(defonce decay (ratom 0.1))","(defonce cutoff (ratom 440))","",(function (){var sb__4661__auto__ = (new goog.string.StringBuffer());
-var _STAR_print_newline_STAR__orig_val__35536_35540 = cljs.core._STAR_print_newline_STAR_;
-var _STAR_print_fn_STAR__orig_val__35537_35541 = cljs.core._STAR_print_fn_STAR_;
-var _STAR_print_newline_STAR__temp_val__35538_35542 = true;
-var _STAR_print_fn_STAR__temp_val__35539_35543 = ((function (_STAR_print_newline_STAR__orig_val__35536_35540,_STAR_print_fn_STAR__orig_val__35537_35541,_STAR_print_newline_STAR__temp_val__35538_35542,sb__4661__auto__){
+var _STAR_print_newline_STAR__orig_val__35604_35608 = cljs.core._STAR_print_newline_STAR_;
+var _STAR_print_fn_STAR__orig_val__35605_35609 = cljs.core._STAR_print_fn_STAR_;
+var _STAR_print_newline_STAR__temp_val__35606_35610 = true;
+var _STAR_print_fn_STAR__temp_val__35607_35611 = ((function (_STAR_print_newline_STAR__orig_val__35604_35608,_STAR_print_fn_STAR__orig_val__35605_35609,_STAR_print_newline_STAR__temp_val__35606_35610,sb__4661__auto__){
 return (function (x__4662__auto__){
 return sb__4661__auto__.append(x__4662__auto__);
-});})(_STAR_print_newline_STAR__orig_val__35536_35540,_STAR_print_fn_STAR__orig_val__35537_35541,_STAR_print_newline_STAR__temp_val__35538_35542,sb__4661__auto__))
+});})(_STAR_print_newline_STAR__orig_val__35604_35608,_STAR_print_fn_STAR__orig_val__35605_35609,_STAR_print_newline_STAR__temp_val__35606_35610,sb__4661__auto__))
 ;
-cljs.core._STAR_print_newline_STAR_ = _STAR_print_newline_STAR__temp_val__35538_35542;
+cljs.core._STAR_print_newline_STAR_ = _STAR_print_newline_STAR__temp_val__35606_35610;
 
-cljs.core._STAR_print_fn_STAR_ = _STAR_print_fn_STAR__temp_val__35539_35543;
+cljs.core._STAR_print_fn_STAR_ = _STAR_print_fn_STAR__temp_val__35607_35611;
 
 try{cljs.core.println.call(null,"(defn mary-had-a-little-synth [tempo decay cutoff]\n  (let [m (metro tempo)\n        freq-gate (hz (sequencer [64 62 60 62 64 64 64 64] m))\n        freq-env (env-gen (slide 0.01) freq-gate)\n        gain-gate (sequencer [1 1 1 1 1 1 1 0] m)\n        gain-env (env-gen (perc 0.1 decay) gain-gate 0.5)]\n    (-> (saw freq-env)\n        (gain gain-env)\n        (lpf cutoff 2)\n        (panner 0)\n        (out))))");
-}finally {cljs.core._STAR_print_fn_STAR_ = _STAR_print_fn_STAR__orig_val__35537_35541;
+}finally {cljs.core._STAR_print_fn_STAR_ = _STAR_print_fn_STAR__orig_val__35605_35609;
 
-cljs.core._STAR_print_newline_STAR_ = _STAR_print_newline_STAR__orig_val__35536_35540;
+cljs.core._STAR_print_newline_STAR_ = _STAR_print_newline_STAR__orig_val__35604_35608;
 }
 return cljs.core.str.cljs$core$IFn$_invoke$arity$1(sb__4661__auto__);
 })(),"[:div","  [slider tempo 100 1000]","  [slider decay 0.01 0.8]","  [slider cutoff 30 20000 :log]","  [:button","   {:on-click #(render (aww))}","   \"run\"]]"], null);
 fugue.api.demo_text_old = clojure.string.join.call(null,"\n",fugue.api.demo_forms);
 fugue.api.demo_text = "[:div [monitor midi-ctx]]";
 
-//# sourceMappingURL=api.js.map?rel=1610221077886
+//# sourceMappingURL=api.js.map?rel=1610304477202
