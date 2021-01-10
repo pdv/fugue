@@ -4,6 +4,7 @@
             [goog.string.format]
             [cljs.core.async :as async]
             [fugue.cof :refer [cof]]
+            [fugue.cantor :as cantor]
             [fugue.midi :as midi]
             [fugue.chords :as chords]))
 
@@ -36,31 +37,10 @@
     (for [x freqs y freqs]
       (- y x))))
 
-(defn relatives [root limit]
-  (for [den (range 1 limit)]
-    (for [num (range 1 limit)]
-      (->> (/ (* num (midi/note->hz root))
-              (* den 440))
-           (.log2 js/Math)
-           (* 12)
-           (+ 69)))))
-
-(defn relative-table [root]
-  [:table
-   [:thead
-    (for [i (range 12)] [:th.cell i])
-    (for [[i row] (map-indexed vector (relatives root 12))]
-     [:tr
-      [:th.cell i]
-      (for [col row]
-        [:td.cell (str (int (- col root))
-                       "\n"
-                       (format "%.2f" col))])])]])
-
 (defn note-monitor-view [notes]
   [:div
    [cof notes]
-   [relative-table (or (first notes) 69)]
+   [cantor/cantor-table (or (first notes) 69)]
    [:p (str (sort (into #{} notes)))]
    [:p (str (sort (into #{} (map #(mod % 12) notes))))]
    [:p (str (sort (map (comp int midi/note->hz) notes)))]
