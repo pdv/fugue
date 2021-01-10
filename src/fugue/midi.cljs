@@ -18,6 +18,9 @@
 (defn note->hz [note]
   (* 440.0 (js/Math.pow 2.0 (/ (- note 69.0) 12.0))))
 
+(defn hz->note [hz]
+  ())
+
 (defn midi-x-note
   "Returns a stateful transducer that maps midi events to midi notes based on
   priority-fn, which selects from a list of notes currently down."

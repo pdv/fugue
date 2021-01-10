@@ -5,6 +5,7 @@
             [cljs.core.async :as async]
             [fugue.cof :refer [cof]]
             [fugue.cantor :as cantor]
+            [fugue.components :refer [slider]]
             [fugue.midi :as midi]
             [fugue.chords :as chords]))
 
@@ -40,7 +41,7 @@
 (defn note-monitor-view [notes]
   [:div
    [cof notes]
-   [cantor/cantor-table (or (first notes) 69) 7]
+   [cantor/cantor-table (or (first notes) 69) 14]
    [:p (str (sort (into #{} notes)))]
    [:p (str (sort (into #{} (map #(mod % 12) notes))))]
    [:p (str (sort (map (comp int midi/note->hz) notes)))]
