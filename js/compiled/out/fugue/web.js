@@ -79,4 +79,4 @@ return fugue.web._main.call(null);
 });
 fugue.web._main.call(null);
 
-//# sourceMappingURL=web.js.map?rel=1610319300992
+//# sourceMappingURL=web.js.map?rel=1610319359301

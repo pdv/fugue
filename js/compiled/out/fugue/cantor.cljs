@@ -20,7 +20,6 @@
 
 (defn cantor-table [root harmonics]
   (let [root-hz (midi->hz root)]
-    (print root-hz)
     [:table:cantor
      [:thead
       (for [i (range harmonics)] [:th.cell (if (not= 0 i) i)])
@@ -33,12 +32,10 @@
                      closest (.round js/Math note)
                      name (nth note-names (mod closest 12))
                      octave (int (/ closest 12))]]
-           (do
-           (print closest)
            [:td.cantor
             {:style {:backgroundColor (colors/color-by-note note)}}
             (str name octave)
             [:br]
             (format "%.2f" (- note root))
             [:br]
-            (format "%.2f" freq)]))])]]))
+            (format "%.2f" freq)])])]]))

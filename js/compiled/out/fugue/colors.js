@@ -26,4 +26,4 @@ var tone = cljs.core.mod.call(null,Math.round(value),(12));
 return cljs.core.first.call(null,cljs.core.drop.call(null,tone,fugue.colors.note_colors));
 });
 
-//# sourceMappingURL=colors.js.map?rel=1610319293674
+//# sourceMappingURL=colors.js.map?rel=1610319352000
