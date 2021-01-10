@@ -1,5 +1,7 @@
 (ns fugue.midi-monitor
   (:require [reagent.core :as r]
+            [goog.string :refer [format]]
+            [goog.string.format]
             [cljs.core.async :as async]
             [fugue.cof :refer [cof]]
             [fugue.midi :as midi]
@@ -27,11 +29,28 @@
 (defn sanitize [notes]
   (sort (into #{} (map #(mod % 12) notes))))
 
+(defn ratios [notes]
+  (let [freqs (map midi/note->hz (sort notes))]
+    (for [x freqs y freqs]
+      (/ x y))))
+
+(defn other-thing [notes]
+  (let [freqs (map midi/note->hz (sort notes))]
+    (for [x freqs y freqs]
+      (- y x))))
+
 (defn note-monitor-view [notes]
   [:div
    [cof notes]
    [:p (str (sanitize notes))]
    [:p (str (sort (map (comp int midi/note->hz) notes)))]
+   [:ul
+    (for [ratio (into #{} (ratios notes))]
+      [:li (format "%.2f" ratio)])]
+   [:ul
+    (for [ratio (into #{} (other-thing notes))]
+      [:li (format "%.2f" ratio)])]
+   [:hr]
    [:ul
     (for [chord (chords/possible-chords notes)]
       [:li (str chord)])]
