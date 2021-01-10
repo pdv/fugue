@@ -15,6 +15,7 @@
             [fugue.convolver :as convolver]
             [fugue.ctx-ctrls :as ctrls]
             [fugue.midi-monitor :as monitor]
+            [fugue.cantor :as cantor]
             [fugue.components :as components]))
 
 (def ratom r/atom)
@@ -55,6 +56,7 @@
 (def midi-ctx-ctrls ctrls/midi-ctx-ctrls)
 (def buffer-ctrl ctrls/buffer-ctrl)
 (def slider components/slider)
+(def cantor cantor/cantor-table)
 
 (defn make-renderer [actx-atom mctx-atom buffer-cache-atom]
   (fn [synthdef]
@@ -66,6 +68,20 @@
    [:h3 "nice work clicking those buttons"]])
 
 (def init-forms
+  ["(defonce root (ratom 60))"
+   "(defonce harmonics (ratom 13))"
+   ""
+   "(defn component []"
+   "  [:div"
+   "    \"Root\""
+   "    [slider root 0 127]"
+   "    \"Harmonics\""
+   "    [slider harmonics 0 20]"
+   "    [cantor @root @harmonics]])"
+   ""
+   "[component]"])
+
+(def init-forms-234
   [
    "(defonce audio-ctx (ratom nil))"
    "(defonce midi-ctx (ratom nil))"
