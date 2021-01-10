@@ -1,0 +1,12 @@
+
+table.cantor {
+    border-collapse: collapse;
+}
+
+td.cantor {
+    height: 58px;
+    width: 58px;
+    margin: 0;
+    border: 1px solid black;
+    text-align: center;
+}
