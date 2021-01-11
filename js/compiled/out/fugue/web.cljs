@@ -2,12 +2,12 @@
   (:require [reagent.core :as r]
             [reagent.dom :as rdom]
             [fugue.bootstrap :as bootstrap]
-            [fugue.api :as api]
-            [fugue.ide :as ide]
-            [fugue.box :as box]))
+            [fugue.ide :as ide]))
 
-(defn app []
+(defn ide []
   [ide/ide bootstrap/eval-str])
+
+(defn app [] [ide])
 
 (defn -main []
   (enable-console-print!)

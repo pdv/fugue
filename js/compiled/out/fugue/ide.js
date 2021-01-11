@@ -2,17 +2,24 @@
 goog.provide('fugue.ide');
 goog.require('cljs.core');
 goog.require('reagent.core');
-goog.require('fugue.api');
+goog.require('clojure.string');
 goog.require('fugue.components');
+goog.require('fugue.demo.demo_loader');
 goog.require('fugue.editor');
-fugue.ide.demos = new cljs.core.PersistentArrayMap(null, 2, ["cantor harmonies table",fugue.api.cantor_demo,"circle of fifths midi monitor",fugue.api.midi_monitor_demo], null);
+/**
+ * Drops everything before the first comment (the ns clause)
+ */
+fugue.ide.prepare_demo = (function fugue$ide$prepare_demo(text){
+return clojure.string.join.call(null,"",cljs.core.drop_while.call(null,cljs.core.partial.call(null,cljs.core.not_EQ_,";"),text));
+});
+fugue.ide.demos = new cljs.core.PersistentArrayMap(null, 3, ["harmonic cantor table",fugue.demo.demo_loader.cantor,"circle of intervals",fugue.demo.demo_loader.cof,"midi monitor",fugue.demo.demo_loader.midi_monitor], null);
 fugue.ide.welcome = (function fugue$ide$welcome(reset_input){
 var selected_demo = reagent.core.atom.call(null,cljs.core.first.call(null,cljs.core.keys.call(null,fugue.ide.demos)));
 return ((function (selected_demo){
 return (function (){
 return new cljs.core.PersistentVector(null, 6, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"h2","h2",-372662728),"welcome to fugue"], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"p","p",151049309),"click 'eval' to evaluate the buffer"], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"p","p",151049309),"then click 'render' to display the ui"], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [fugue.components.picker,selected_demo,cljs.core.keys.call(null,fugue.ide.demos)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"button","button",1456579943),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"on-click","on-click",1632826543),((function (selected_demo){
 return (function (){
-return reset_input.call(null,cljs.core.get.call(null,fugue.ide.demos,cljs.core.deref.call(null,selected_demo)));
+return reset_input.call(null,fugue.ide.prepare_demo.call(null,cljs.core.get.call(null,fugue.ide.demos,cljs.core.deref.call(null,selected_demo))));
 });})(selected_demo))
 ], null),"load demo"], null)], null);
 });
@@ -59,4 +66,4 @@ return cljs.core.swap_BANG_.call(null,vim_on,cljs.core.not);
 ;})(demo,input,selected,render_out,eval_out,vim_on))
 });
 
-//# sourceMappingURL=ide.js.map?rel=1610339738838
+//# sourceMappingURL=ide.js.map?rel=1610381659519

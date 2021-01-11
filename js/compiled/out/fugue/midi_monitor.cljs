@@ -3,8 +3,6 @@
             [goog.string :refer [format]]
             [goog.string.format]
             [cljs.core.async :as async]
-            [fugue.cof :refer [cof]]
-            [fugue.cantor :as cantor]
             [fugue.components :refer [slider picker]]
             [fugue.midi :as midi]
             [fugue.keyboard :as kb]

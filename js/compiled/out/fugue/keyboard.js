@@ -13,8 +13,8 @@ fugue.keyboard.key__GT_offset = cljs.core.zipmap.call(null,new cljs.core.Persist
  *   (z) lowers one octave, (x) raises one octave
  */
 fugue.keyboard.keypress_x_midi = (function fugue$keyboard$keypress_x_midi(var_args){
-var G__34756 = arguments.length;
-switch (G__34756) {
+var G__34745 = arguments.length;
+switch (G__34745) {
 case 0:
 return fugue.keyboard.keypress_x_midi.cljs$core$IFn$_invoke$arity$0();
 
@@ -38,14 +38,14 @@ return (function (rf){
 var voctave = cljs.core.volatile_BANG_.call(null,(octave - (4)));
 return ((function (voctave){
 return (function() {
-var G__34760 = null;
-var G__34760__0 = (function (){
+var G__34749 = null;
+var G__34749__0 = (function (){
 return rf.call(null);
 });
-var G__34760__1 = (function (result){
+var G__34749__1 = (function (result){
 return rf.call(null,result);
 });
-var G__34760__2 = (function (result,keypress){
+var G__34749__2 = (function (result,keypress){
 var type = keypress.type;
 var key = keypress.key;
 var repeat = keypress.repeat;
@@ -57,8 +57,8 @@ return or__4131__auto__;
 return repeat;
 }
 })())){
-return rf.call(null,result,cljs.core.into.call(null,new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("fugue.midi","note","fugue.midi/note",343363945),(((60) + offset) + ((12) * cljs.core.deref.call(null,voctave)))], null),(function (){var G__34757 = keypress.type;
-switch (G__34757) {
+return rf.call(null,result,cljs.core.into.call(null,new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("fugue.midi","note","fugue.midi/note",343363945),(((60) + offset) + ((12) * cljs.core.deref.call(null,voctave)))], null),(function (){var G__34746 = keypress.type;
+switch (G__34746) {
 case "keydown":
 return new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("fugue.midi","type","fugue.midi/type",2122361827),new cljs.core.Keyword("fugue.midi","note-on","fugue.midi/note-on",1265446966),new cljs.core.Keyword("fugue.midi","velocity","fugue.midi/velocity",382164680),(127)], null);
 
@@ -68,14 +68,14 @@ return new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("fugue.m
 
 break;
 default:
-throw (new Error(["No matching clause: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(G__34757)].join('')));
+throw (new Error(["No matching clause: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(G__34746)].join('')));
 
 }
 })()));
 } else {
 if(cljs.core._EQ_.call(null,"keydown",type)){
-cljs.core._vreset_BANG_.call(null,voctave,(function (){var G__34758 = key;
-switch (G__34758) {
+cljs.core._vreset_BANG_.call(null,voctave,(function (){var G__34747 = key;
+switch (G__34747) {
 case "z":
 return cljs.core.dec;
 
@@ -96,21 +96,21 @@ return null;
 }
 }
 });
-G__34760 = function(result,keypress){
+G__34749 = function(result,keypress){
 switch(arguments.length){
 case 0:
-return G__34760__0.call(this);
+return G__34749__0.call(this);
 case 1:
-return G__34760__1.call(this,result);
+return G__34749__1.call(this,result);
 case 2:
-return G__34760__2.call(this,result,keypress);
+return G__34749__2.call(this,result,keypress);
 }
 throw(new Error('Invalid arity: ' + arguments.length));
 };
-G__34760.cljs$core$IFn$_invoke$arity$0 = G__34760__0;
-G__34760.cljs$core$IFn$_invoke$arity$1 = G__34760__1;
-G__34760.cljs$core$IFn$_invoke$arity$2 = G__34760__2;
-return G__34760;
+G__34749.cljs$core$IFn$_invoke$arity$0 = G__34749__0;
+G__34749.cljs$core$IFn$_invoke$arity$1 = G__34749__1;
+G__34749.cljs$core$IFn$_invoke$arity$2 = G__34749__2;
+return G__34749;
 })()
 ;})(voctave))
 });
@@ -119,8 +119,8 @@ return G__34760;
 fugue.keyboard.keypress_x_midi.cljs$lang$maxFixedArity = 1;
 
 fugue.keyboard.kb_midi_chan = (function fugue$keyboard$kb_midi_chan(var_args){
-var G__34764 = arguments.length;
-switch (G__34764) {
+var G__34753 = arguments.length;
+switch (G__34753) {
 case 0:
 return fugue.keyboard.kb_midi_chan.cljs$core$IFn$_invoke$arity$0();
 
@@ -141,53 +141,53 @@ return fugue.keyboard.kb_midi_chan.call(null,(3));
 
 fugue.keyboard.kb_midi_chan.cljs$core$IFn$_invoke$arity$1 = (function (octave){
 var c = cljs.core.async.chan.call(null,(1),fugue.keyboard.keypress_x_midi.call(null,octave));
-var seq__34765_34770 = cljs.core.seq.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["keydown","keyup"], null));
-var chunk__34766_34771 = null;
-var count__34767_34772 = (0);
-var i__34768_34773 = (0);
+var seq__34754_34759 = cljs.core.seq.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["keydown","keyup"], null));
+var chunk__34755_34760 = null;
+var count__34756_34761 = (0);
+var i__34757_34762 = (0);
 while(true){
-if((i__34768_34773 < count__34767_34772)){
-var type_34774 = cljs.core._nth.call(null,chunk__34766_34771,i__34768_34773);
-document.addEventListener(type_34774,cljs.core.partial.call(null,cljs.core.async.put_BANG_,c));
+if((i__34757_34762 < count__34756_34761)){
+var type_34763 = cljs.core._nth.call(null,chunk__34755_34760,i__34757_34762);
+document.addEventListener(type_34763,cljs.core.partial.call(null,cljs.core.async.put_BANG_,c));
 
 
-var G__34775 = seq__34765_34770;
-var G__34776 = chunk__34766_34771;
-var G__34777 = count__34767_34772;
-var G__34778 = (i__34768_34773 + (1));
-seq__34765_34770 = G__34775;
-chunk__34766_34771 = G__34776;
-count__34767_34772 = G__34777;
-i__34768_34773 = G__34778;
+var G__34764 = seq__34754_34759;
+var G__34765 = chunk__34755_34760;
+var G__34766 = count__34756_34761;
+var G__34767 = (i__34757_34762 + (1));
+seq__34754_34759 = G__34764;
+chunk__34755_34760 = G__34765;
+count__34756_34761 = G__34766;
+i__34757_34762 = G__34767;
 continue;
 } else {
-var temp__5720__auto___34779 = cljs.core.seq.call(null,seq__34765_34770);
-if(temp__5720__auto___34779){
-var seq__34765_34780__$1 = temp__5720__auto___34779;
-if(cljs.core.chunked_seq_QMARK_.call(null,seq__34765_34780__$1)){
-var c__4550__auto___34781 = cljs.core.chunk_first.call(null,seq__34765_34780__$1);
-var G__34782 = cljs.core.chunk_rest.call(null,seq__34765_34780__$1);
-var G__34783 = c__4550__auto___34781;
-var G__34784 = cljs.core.count.call(null,c__4550__auto___34781);
-var G__34785 = (0);
-seq__34765_34770 = G__34782;
-chunk__34766_34771 = G__34783;
-count__34767_34772 = G__34784;
-i__34768_34773 = G__34785;
+var temp__5720__auto___34768 = cljs.core.seq.call(null,seq__34754_34759);
+if(temp__5720__auto___34768){
+var seq__34754_34769__$1 = temp__5720__auto___34768;
+if(cljs.core.chunked_seq_QMARK_.call(null,seq__34754_34769__$1)){
+var c__4550__auto___34770 = cljs.core.chunk_first.call(null,seq__34754_34769__$1);
+var G__34771 = cljs.core.chunk_rest.call(null,seq__34754_34769__$1);
+var G__34772 = c__4550__auto___34770;
+var G__34773 = cljs.core.count.call(null,c__4550__auto___34770);
+var G__34774 = (0);
+seq__34754_34759 = G__34771;
+chunk__34755_34760 = G__34772;
+count__34756_34761 = G__34773;
+i__34757_34762 = G__34774;
 continue;
 } else {
-var type_34786 = cljs.core.first.call(null,seq__34765_34780__$1);
-document.addEventListener(type_34786,cljs.core.partial.call(null,cljs.core.async.put_BANG_,c));
+var type_34775 = cljs.core.first.call(null,seq__34754_34769__$1);
+document.addEventListener(type_34775,cljs.core.partial.call(null,cljs.core.async.put_BANG_,c));
 
 
-var G__34787 = cljs.core.next.call(null,seq__34765_34780__$1);
-var G__34788 = null;
-var G__34789 = (0);
-var G__34790 = (0);
-seq__34765_34770 = G__34787;
-chunk__34766_34771 = G__34788;
-count__34767_34772 = G__34789;
-i__34768_34773 = G__34790;
+var G__34776 = cljs.core.next.call(null,seq__34754_34769__$1);
+var G__34777 = null;
+var G__34778 = (0);
+var G__34779 = (0);
+seq__34754_34759 = G__34776;
+chunk__34755_34760 = G__34777;
+count__34756_34761 = G__34778;
+i__34757_34762 = G__34779;
 continue;
 }
 } else {
@@ -202,10 +202,10 @@ return c;
 fugue.keyboard.kb_midi_chan.cljs$lang$maxFixedArity = 1;
 
 cljs.core._add_method.call(null,fugue.chan.chan_node_spec,new cljs.core.Keyword("fugue.keyboard","keyboard","fugue.keyboard/keyboard",313094678),(function (_){
-return cljs.spec.alpha.map_spec_impl.call(null,cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"req-un","req-un",1074571008),new cljs.core.Keyword(null,"opt-un","opt-un",883442496),new cljs.core.Keyword(null,"gfn","gfn",791517474),new cljs.core.Keyword(null,"pred-exprs","pred-exprs",1792271395),new cljs.core.Keyword(null,"keys-pred","keys-pred",858984739),new cljs.core.Keyword(null,"opt-keys","opt-keys",1262688261),new cljs.core.Keyword(null,"req-specs","req-specs",553962313),new cljs.core.Keyword(null,"req","req",-326448303),new cljs.core.Keyword(null,"req-keys","req-keys",514319221),new cljs.core.Keyword(null,"opt-specs","opt-specs",-384905450),new cljs.core.Keyword(null,"pred-forms","pred-forms",172611832),new cljs.core.Keyword(null,"opt","opt",-794706369)],[null,null,null,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [(function (G__34791){
-return cljs.core.map_QMARK_.call(null,G__34791);
-})], null),(function (G__34791){
-return cljs.core.map_QMARK_.call(null,G__34791);
+return cljs.spec.alpha.map_spec_impl.call(null,cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"req-un","req-un",1074571008),new cljs.core.Keyword(null,"opt-un","opt-un",883442496),new cljs.core.Keyword(null,"gfn","gfn",791517474),new cljs.core.Keyword(null,"pred-exprs","pred-exprs",1792271395),new cljs.core.Keyword(null,"keys-pred","keys-pred",858984739),new cljs.core.Keyword(null,"opt-keys","opt-keys",1262688261),new cljs.core.Keyword(null,"req-specs","req-specs",553962313),new cljs.core.Keyword(null,"req","req",-326448303),new cljs.core.Keyword(null,"req-keys","req-keys",514319221),new cljs.core.Keyword(null,"opt-specs","opt-specs",-384905450),new cljs.core.Keyword(null,"pred-forms","pred-forms",172611832),new cljs.core.Keyword(null,"opt","opt",-794706369)],[null,null,null,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [(function (G__34780){
+return cljs.core.map_QMARK_.call(null,G__34780);
+})], null),(function (G__34780){
+return cljs.core.map_QMARK_.call(null,G__34780);
 }),cljs.core.PersistentVector.EMPTY,cljs.core.PersistentVector.EMPTY,cljs.core.PersistentVector.EMPTY,cljs.core.PersistentVector.EMPTY,cljs.core.PersistentVector.EMPTY,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.list(new cljs.core.Symbol("cljs.core","fn","cljs.core/fn",-1065745098,null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Symbol(null,"%","%",-950237169,null)], null),cljs.core.list(new cljs.core.Symbol("cljs.core","map?","cljs.core/map?",-1390345523,null),new cljs.core.Symbol(null,"%","%",-950237169,null)))], null),null]));
 }));
 cljs.core._add_method.call(null,fugue.chan.make_chan_node,new cljs.core.Keyword("fugue.keyboard","keyboard","fugue.keyboard/keyboard",313094678),(function (_,___$1){
@@ -215,4 +215,4 @@ fugue.keyboard.kb = (function fugue$keyboard$kb(){
 return fugue.synthdef.synthdef.call(null,new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("fugue.synthdef","node-type","fugue.synthdef/node-type",806558205),new cljs.core.Keyword("fugue.chan","chan-node","fugue.chan/chan-node",-1139152001),new cljs.core.Keyword("fugue.chan","chan-node-type","fugue.chan/chan-node-type",447830325),new cljs.core.Keyword("fugue.keyboard","keyboard","fugue.keyboard/keyboard",313094678)], null),cljs.core.PersistentArrayMap.EMPTY);
 });
 
-//# sourceMappingURL=keyboard.js.map?rel=1610339734321
+//# sourceMappingURL=keyboard.js.map?rel=1610381656048

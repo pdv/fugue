@@ -4,8 +4,8 @@ goog.require('cljs.core');
 goog.require('reagent.core');
 goog.require('fugue.editor');
 fugue.box.name_input = (function fugue$box$name_input(value){
-return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"type","type",1174270348),"text",new cljs.core.Keyword(null,"value","value",305978217),cljs.core.deref.call(null,value),new cljs.core.Keyword(null,"on-change","on-change",-732046149),(function (p1__38383_SHARP_){
-return cljs.core.reset_BANG_.call(null,value,p1__38383_SHARP_.target.value);
+return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"type","type",1174270348),"text",new cljs.core.Keyword(null,"value","value",305978217),cljs.core.deref.call(null,value),new cljs.core.Keyword(null,"on-change","on-change",-732046149),(function (p1__38387_SHARP_){
+return cljs.core.reset_BANG_.call(null,value,p1__38387_SHARP_.target.value);
 })], null)], null);
 });
 fugue.box.box = (function fugue$box$box(init,eval_fn){
@@ -23,4 +23,4 @@ return eval_fn.call(null,cljs.core.deref.call(null,input),cljs.core.partial.call
 ;})(name,input,output))
 });
 
-//# sourceMappingURL=box.js.map?rel=1610339738822
+//# sourceMappingURL=box.js.map?rel=1610381659463
