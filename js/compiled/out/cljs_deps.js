@@ -78,9 +78,9 @@ goog.addDependency("../cljs/source_map/base64_vlq.js", ['cljs.source_map.base64_
 goog.addDependency("../fugue/components.js", ['fugue.components'], ['cljs.core']);
 goog.addDependency("../fugue/convolver.js", ['fugue.convolver'], ['fugue.audio', 'fugue.buffer', 'cljs.core', 'oops.core', 'fugue.synthdef', 'cljs.spec.alpha']);
 goog.addDependency("../fugue/colors.js", ['fugue.colors'], ['cljs.core']);
-goog.addDependency("../fugue/cantor.js", ['fugue.cantor'], ['goog.string', 'cljs.core', 'fugue.colors']);
-goog.addDependency("../fugue/chords.js", ['fugue.chords'], ['cljs.core']);
 goog.addDependency("../fugue/midi.js", ['fugue.midi'], ['cljs.core', 'cljs.core.async', 'fugue.chan', 'oops.core', 'fugue.synthdef', 'cljs.spec.alpha']);
+goog.addDependency("../fugue/cantor.js", ['fugue.cantor'], ['goog.string', 'cljs.core', 'fugue.colors', 'fugue.midi']);
+goog.addDependency("../fugue/chords.js", ['fugue.chords'], ['cljs.core']);
 goog.addDependency("../fugue/midi_monitor.js", ['fugue.midi_monitor'], ['fugue.components', 'goog.string', 'reagent.core', 'cljs.core', 'cljs.core.async', 'fugue.cantor', 'goog.string.format', 'fugue.chords', 'fugue.cof', 'fugue.midi']);
 goog.addDependency("../fugue/sequencer.js", ['fugue.sequencer'], ['cljs.core', 'fugue.chan', 'fugue.synthdef', 'cljs.spec.alpha']);
 goog.addDependency("../fugue/feedback.js", ['fugue.feedback'], ['fugue.audio', 'cljs.core', 'loom.graph', 'loom.attr', 'fugue.synthdef', 'cljs.spec.alpha']);
@@ -88,7 +88,7 @@ goog.addDependency("../fugue/ctx_ctrls.js", ['fugue.ctx_ctrls'], ['fugue.audio',
 goog.addDependency("../fugue/keyboard.js", ['fugue.keyboard'], ['cljs.core', 'cljs.core.async', 'fugue.chan', 'fugue.synthdef', 'fugue.midi', 'cljs.spec.alpha']);
 goog.addDependency("../fugue/metronome.js", ['fugue.metronome'], ['fugue.audio', 'cljs.core', 'cljs.core.async', 'fugue.chan', 'oops.core', 'fugue.synthdef', 'cljs.spec.alpha']);
 goog.addDependency("../fugue/envelope.js", ['fugue.envelope'], ['fugue.audio', 'fugue.ramp', 'cljs.core', 'fugue.chan', 'oops.core', 'fugue.synthdef', 'cljs.spec.alpha']);
-goog.addDependency("../fugue/api.js", ['fugue.api'], ['fugue.audio', 'fugue.buffer', 'fugue.components', 'fugue.convolver', 'fugue.midi_monitor', 'reagent.core', 'fugue.sequencer', 'cljs.core', 'fugue.feedback', 'fugue.cantor', 'fugue.ctx_ctrls', 'fugue.synthdef', 'fugue.keyboard', 'fugue.sampler', 'fugue.metronome', 'fugue.midi', 'cljs.repl', 'clojure.string', 'fugue.envelope']);
+goog.addDependency("../fugue/api.js", ['fugue.api'], ['fugue.audio', 'fugue.buffer', 'fugue.components', 'fugue.convolver', 'goog.string', 'fugue.midi_monitor', 'reagent.core', 'fugue.sequencer', 'cljs.core', 'fugue.feedback', 'fugue.cantor', 'fugue.ctx_ctrls', 'fugue.synthdef', 'fugue.keyboard', 'fugue.sampler', 'fugue.metronome', 'fugue.colors', 'fugue.midi', 'cljs.repl', 'clojure.string', 'fugue.envelope']);
 goog.addDependency("../cljs/tools/reader/impl/commons.js", ['cljs.tools.reader.impl.commons'], ['cljs.tools.reader.impl.errors', 'cljs.core', 'cljs.tools.reader.reader_types', 'cljs.tools.reader.impl.utils']);
 goog.addDependency("../cljs/tools/reader.js", ['cljs.tools.reader'], ['cljs.tools.reader.impl.commons', 'goog.string', 'cljs.tools.reader.impl.errors', 'cljs.core', 'cljs.tools.reader.reader_types', 'goog.string.StringBuffer', 'cljs.tools.reader.impl.utils', 'goog.array']);
 goog.addDependency("../cljs/env.js", ['cljs.env'], ['cljs.core']);

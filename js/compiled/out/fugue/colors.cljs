@@ -11,7 +11,7 @@
         g (- 255 b r)]
     [r g b]))
 
-(defn- color-by-cents [value]
+(defn color-by-cents [value]
   (let [diff (- value (.round js/Math value))
         abs (* 255 5 (.abs js/Math diff))
         [r g b] (cond
