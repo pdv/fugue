@@ -85,18 +85,22 @@
 
 (defn cantor [root harmonics color-fn]
   (let [root-hz (note->hz root)]
-    [:table.square
+    [:table
+     {:style {:border-collapse \"collapse\"}}
      [:thead
-      (for [i (range harmonics)] [:th.square (if (not= 0 i) i)])
+      (for [i (range harmonics)] [:th (if (not= 0 i) i)])
       (for [denominator (range 1 harmonics)]
         [:tr
-         [:th.square denominator]
+         [:th denominator]
          (for [numerator (range 1 harmonics)
                :let [freq (/ (* root-hz numerator) denominator)
                      note (hz->note freq)
                      closest (.round js/Math note)]]
-           [:td.square
-            {:style {:backgroundColor (color-fn note)}}
+           [:td
+            {:style {:backgroundColor (color-fn note)
+                     :height \"60px\" :width \"60px\"
+                     :border \"1px solid black\"
+                     :text-align \"center\"}}
             (str (nth note-names (mod closest 12)) (int (/ closest 12)))
             [:br]
             (format \"%.2f\" (- note root))
