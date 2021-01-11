@@ -29,8 +29,14 @@
          (js/setTimeout #(on-change init) 5)))
      :component-did-update
      (fn [this old-argv]
-       (doseq [[key value] (last (r/argv this))]
-         (.setOption @codemirror (clj->js key) value)))})))
+       (let [argv (r/argv this)
+             old-init-text (second old-argv)
+             new-init-text (second argv)
+             new-options (last argv)]
+         (if (not= old-init-text new-init-text)
+           (.setValue @codemirror new-init-text))
+         (doseq [[key value] new-options]
+           (.setOption @codemirror (clj->js key) value))))})))
 
 (defn repl-out [text]
   [:textarea.repl-out {:read-only true :value text}])

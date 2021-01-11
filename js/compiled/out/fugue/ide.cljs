@@ -1,15 +1,26 @@
 (ns fugue.ide
   (:require [reagent.core :as r]
+            [fugue.api :refer [cantor-demo]]
+            [fugue.components :refer [picker]]
             [fugue.editor :refer [editor output-box]]))
 
-(defn welcome []
-  [:div
-   [:h2 "welcome to fugue"]
-   [:p "click 'eval' to evaluate the buffer"]
-   [:p "then click 'render' to display the ui"]])
+(def demos
+  {"cantor harmonies" cantor-demo})
 
-(defn ide [init eval-fn]
-  (let [input (r/atom init)
+(defn welcome [reset-input]
+  (let [selected-demo (r/atom (first (keys demos)))]
+    (fn []
+      [:div
+       [:h2 "welcome to fugue"]
+       [:p "click 'eval' to evaluate the buffer"]
+       [:p "then click 'render' to display the ui"]
+       [picker selected-demo (keys demos)]
+       [:button {:on-click #(reset-input (get demos @selected-demo))}
+        "load demo"]])))
+
+(defn ide [eval-fn]
+  (let [demo (r/atom "")
+        input (r/atom "")
         selected (r/atom "")
         render-out (r/atom nil)
         eval-out (r/atom nil)
@@ -19,9 +30,9 @@
        [:div.ide-left
         (if-let [component (:value @render-out)]
           component
-          [welcome])]
+          [welcome (partial reset! demo)])]
        [:div.ide-right
-        [editor init
+        [editor @demo
          (partial reset! input)
          (partial reset! selected)
          #(eval-fn @selected (partial reset! eval-out))

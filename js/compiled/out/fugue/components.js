@@ -83,7 +83,7 @@ return cljs.core.reset_BANG_.call(null,value,from_midi.call(null,parseInt(p1__30
 fugue.components.slider.cljs$lang$maxFixedArity = 4;
 
 fugue.components.picker = (function fugue$components$picker(value,options){
-return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"select","select",1147833503),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"display","display",242065432),"block"], null),new cljs.core.Keyword(null,"on-change","on-change",-732046149),(function (p1__30762_SHARP_){
+return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"select","select",1147833503),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"on-change","on-change",-732046149),(function (p1__30762_SHARP_){
 return cljs.core.reset_BANG_.call(null,value,p1__30762_SHARP_.target.value);
 }),new cljs.core.Keyword(null,"value","value",305978217),cljs.core.deref.call(null,value)], null),(function (){var iter__4523__auto__ = (function fugue$components$picker_$_iter__30763(s__30764){
 return (new cljs.core.LazySeq(null,(function (){
@@ -130,4 +130,4 @@ return iter__4523__auto__.call(null,options);
 })()], null);
 });
 
-//# sourceMappingURL=components.js.map?rel=1610329044573
+//# sourceMappingURL=components.js.map?rel=1610330672749

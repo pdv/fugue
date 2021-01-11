@@ -61,7 +61,16 @@ return on_change.call(null,init);
 });})(codemirror))
 ,new cljs.core.Keyword(null,"component-did-update","component-did-update",-1468549173),((function (codemirror){
 return (function (this$,old_argv){
-var seq__38370 = cljs.core.seq.call(null,cljs.core.last.call(null,reagent.core.argv.call(null,this$)));
+var argv = reagent.core.argv.call(null,this$);
+var old_init_text = cljs.core.second.call(null,old_argv);
+var new_init_text = cljs.core.second.call(null,argv);
+var new_options = cljs.core.last.call(null,argv);
+if(cljs.core.not_EQ_.call(null,old_init_text,new_init_text)){
+cljs.core.deref.call(null,codemirror).setValue(new_init_text);
+} else {
+}
+
+var seq__38370 = cljs.core.seq.call(null,new_options);
 var chunk__38371 = null;
 var count__38372 = (0);
 var i__38373 = (0);
@@ -153,4 +162,4 @@ return cljs.core.str.cljs$core$IFn$_invoke$arity$1(sb__4661__auto__);
 })()));
 });
 
-//# sourceMappingURL=editor.js.map?rel=1610329051881
+//# sourceMappingURL=editor.js.map?rel=1610330680660

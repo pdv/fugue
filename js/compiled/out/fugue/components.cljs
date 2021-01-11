@@ -38,8 +38,7 @@
 
 (defn picker [value options]
   [:select
-   {:style {:display "block"}
-    :on-change #(reset! value (.. % -target -value))
+   {:on-change #(reset! value (.. % -target -value))
     :value @value}
    (for [option options]
      [:option {:value option} option])])
