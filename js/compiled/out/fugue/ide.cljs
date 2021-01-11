@@ -1,11 +1,12 @@
 (ns fugue.ide
   (:require [reagent.core :as r]
-            [fugue.api :refer [cantor-demo]]
+            [fugue.api :refer [cantor-demo midi-monitor-demo]]
             [fugue.components :refer [picker]]
             [fugue.editor :refer [editor output-box]]))
 
 (def demos
-  {"cantor harmonies" cantor-demo})
+  {"cantor harmonies table" cantor-demo
+   "circle of fifths midi monitor" midi-monitor-demo})
 
 (defn welcome [reset-input]
   (let [selected-demo (r/atom (first (keys demos)))]

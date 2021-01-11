@@ -5,7 +5,7 @@ goog.require('reagent.core');
 goog.require('fugue.api');
 goog.require('fugue.components');
 goog.require('fugue.editor');
-fugue.ide.demos = new cljs.core.PersistentArrayMap(null, 1, ["cantor harmonies",fugue.api.cantor_demo], null);
+fugue.ide.demos = new cljs.core.PersistentArrayMap(null, 2, ["cantor harmonies table",fugue.api.cantor_demo,"circle of fifths midi monitor",fugue.api.midi_monitor_demo], null);
 fugue.ide.welcome = (function fugue$ide$welcome(reset_input){
 var selected_demo = reagent.core.atom.call(null,cljs.core.first.call(null,cljs.core.keys.call(null,fugue.ide.demos)));
 return ((function (selected_demo){
@@ -59,4 +59,4 @@ return cljs.core.swap_BANG_.call(null,vim_on,cljs.core.not);
 ;})(demo,input,selected,render_out,eval_out,vim_on))
 });
 
-//# sourceMappingURL=ide.js.map?rel=1610330680692
+//# sourceMappingURL=ide.js.map?rel=1610334755412

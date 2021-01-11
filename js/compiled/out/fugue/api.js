@@ -53,9 +53,10 @@ fugue.api.metro = fugue.metronome.metro;
 fugue.api.sequencer = fugue.sequencer.sequencer;
 fugue.api.sampler = fugue.sampler.sampler;
 fugue.api.conv = fugue.convolver.convolver;
-fugue.api.monitor = fugue.midi_monitor.monitor;
+fugue.api.make_midi_ctx = fugue.midi.make_ctx;
+fugue.api.midi_context_manager = fugue.ctx_ctrls.midi_ctx_ctrls;
+fugue.api.midi_input_monitor = fugue.midi_monitor.input_monitor;
 fugue.api.audio_ctx_ctrls = fugue.ctx_ctrls.audio_ctx_ctrls;
-fugue.api.midi_ctx_ctrls = fugue.ctx_ctrls.midi_ctx_ctrls;
 fugue.api.buffer_ctrl = fugue.ctx_ctrls.buffer_ctrl;
 fugue.api.slider = fugue.components.slider;
 fugue.api.picker = fugue.components.picker;
@@ -66,7 +67,8 @@ var ctx = cljs.core.merge.call(null,cljs.core.deref.call(null,actx_atom),cljs.co
 return fugue.api.make_synth.call(null,ctx,synthdef);
 });
 });
-fugue.api.cantor_demo = "(defn note->hz [note]\n  (as-> note v\n    (- v 69.0)\n    (/ v 12)\n    (js/Math.pow 2.0 v)\n    (* v 440.0)))\n\n(defn hz->note [freq]\n  (as-> freq v\n    (/ v 440)\n    (.log2 js/Math v)\n    (* v 12)\n    (+ v 69)))\n\n(def note-names [\"C\" \"Db\" \"D\" \"Eb\" \"E\" \"F\" \"F#\" \"G\" \"Ab\" \"A\" \"Bb\" \"B\"])\n\n(defn cantor [root harmonics color-fn]\n  (let [root-hz (note->hz root)]\n    [:table.square\n     [:thead\n      (for [i (range harmonics)] [:th.square (if (not= 0 i) i)])\n      (for [denominator (range 1 harmonics)]\n        [:tr\n         [:th.square denominator]\n         (for [numerator (range 1 harmonics)\n               :let [freq (/ (* root-hz numerator) denominator)\n                     note (hz->note freq)\n                     closest (.round js/Math note)]]\n           [:td.square\n            {:style {:backgroundColor (color-fn note)}}\n            (str (nth note-names (mod closest 12)) (int (/ closest 12)))\n            [:br]\n            (format \"%.2f\" (- note root))\n            [:br]\n            (format \"%.2f\" freq)])])]]))\n\n(def color-fns\n  {\"none\" (constantly \"#fff\")\n   \"cents\" colors/color-by-cents\n   \"note\" colors/color-by-note})\n\n(defn component []\n  (let [root (ratom 60)\n        harmonics (ratom 8)\n        colors (ratom \"none\")]\n    (fn []\n      [:div\n        \"Root\"\n        [slider root 0 120]\n        \"Harmonics\"\n        [slider harmonics 1 30]\n        \"Colors\"\n        [picker colors (keys color-fns)]\n        [cantor @root @harmonics (get color-fns @colors)]])))\n\n[component]\n";
+fugue.api.cantor_demo = "(defn note->hz [note]\n  (as-> note v\n    (- v 69.0)\n    (/ v 12)\n    (js/Math.pow 2.0 v)\n    (* v 440.0)))\n\n(defn hz->note [freq]\n  (as-> freq v\n    (/ v 440)\n    (.log2 js/Math v)\n    (* v 12)\n    (+ v 69)))\n\n(def note-names [\"C\" \"Db\" \"D\" \"Eb\" \"E\" \"F\" \"F#\" \"G\" \"Ab\" \"A\" \"Bb\" \"B\"])\n\n(defn cantor [root harmonics color-fn]\n  (let [root-hz (note->hz root)]\n    [:table\n     {:style {:border-collapse \"collapse\"}}\n     [:thead\n      (for [i (range harmonics)] [:th (if (not= 0 i) i)])\n      (for [denominator (range 1 harmonics)]\n        [:tr\n         [:th denominator]\n         (for [numerator (range 1 harmonics)\n               :let [freq (/ (* root-hz numerator) denominator)\n                     note (hz->note freq)\n                     closest (.round js/Math note)]]\n           [:td\n            {:style {:backgroundColor (color-fn note)\n                     :height \"60px\" :width \"60px\"\n                     :border \"1px solid black\"\n                     :text-align \"center\"}}\n            (str (nth note-names (mod closest 12)) (int (/ closest 12)))\n            [:br]\n            (format \"%.2f\" (- note root))\n            [:br]\n            (format \"%.2f\" freq)])])]]))\n\n(def color-fns\n  {\"none\" (constantly \"#fff\")\n   \"cents\" colors/color-by-cents\n   \"note\" colors/color-by-note})\n\n(defn component []\n  (let [root (ratom 60)\n        harmonics (ratom 8)\n        colors (ratom \"none\")]\n    (fn []\n      [:div\n        \"Root\"\n        [slider root 0 120]\n        \"Harmonics\"\n        [slider harmonics 1 30]\n        \"Colors\"\n        [picker colors (keys color-fns)]\n        [cantor @root @harmonics (get color-fns @colors)]])))\n\n[component]\n";
+fugue.api.midi_monitor_demo = "\n(def names\n  [[\"C\" 0] [\"G\" 7] [\"D\" 2] [\"A\" 9] [\"E\" 4] [\"B\" 11]\n   [\"F#\" 6] [\"Db\" 1] [\"Ab\" 8] [\"Eb\" 3] [\"Bb\" 10] [\"F\" 5]])\n\n(defn cof [midi-notes]\n  (let [intervals (into #{} (map #(mod % 12) midi-notes))]\n    [:div.cof-container>div.cof>ul\n    (for [[name interval] names]\n      [:li>i\n       {:class (if (contains? intervals interval) \"active\" \"inactive\")}\n       name])]))\n\n(defn component []\n  (let [midi-ctx (ratom nil)\n        notes (ratom #{})]\n    (fn []\n      [:div\n        (if-let [mctx @midi-ctx]\n          [midi-input-monitor @midi-ctx (partial reset! notes)]\n          [:button {:on-click #(midi/make-ctx (partial reset! midi-ctx))}\n            (str (if @midi-ctx \"reset\" \"create\") \" midi context\")])\n        [cof @notes]])))\n\n[component]\n";
 fugue.api.mary_had_a_little_synth = (function fugue$api$mary_had_a_little_synth(tempo,decay,cutoff){
 var m = fugue.api.metro.call(null,tempo);
 var freq_gate = fugue.api.hz.call(null,fugue.api.sequencer.call(null,new cljs.core.PersistentVector(null, 8, 5, cljs.core.PersistentVector.EMPTY_NODE, [(64),(62),(60),(62),(64),(64),(64),(64)], null),m));
@@ -80,4 +82,4 @@ return fugue.api.out.call(null,fugue.api.sampler.call(null,"pumpthat.wav",fugue.
 });
 fugue.api.demo_text = "hello";
 
-//# sourceMappingURL=api.js.map?rel=1610330676469
+//# sourceMappingURL=api.js.map?rel=1610334750958
