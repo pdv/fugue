@@ -17,7 +17,7 @@
     (fn []
       [:div
        [:p (str (count (::midi/ins midi-ctx)) " ins")]
-       (for [[in-name {::midi/keys [type note velocity]}] @inputs]
+       (for [[in-name {:keys [type note velocity]}] @inputs]
          [:p (str in-name
                   " type: " type
                   " note: " note

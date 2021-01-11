@@ -18,29 +18,29 @@ return ["translateX(-50%) rotate(",cljs.core.str.cljs$core$IFn$_invoke$arity$1((
 fugue.demo.cof.circle = (function fugue$demo$cof$circle(children){
 var slice_angle = (360.0 / cljs.core.count.call(null,children));
 return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),fugue.demo.cof.container_style], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),cljs.core.assoc.call(null,fugue.demo.cof.container_style,new cljs.core.Keyword(null,"position","position",-2011731912),"absolute")], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"ul","ul",-1349521403),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),fugue.demo.cof.ul_style], null),(function (){var iter__4523__auto__ = ((function (slice_angle){
-return (function fugue$demo$cof$circle_$_iter__38867(s__38868){
+return (function fugue$demo$cof$circle_$_iter__38830(s__38831){
 return (new cljs.core.LazySeq(null,((function (slice_angle){
 return (function (){
-var s__38868__$1 = s__38868;
+var s__38831__$1 = s__38831;
 while(true){
-var temp__5720__auto__ = cljs.core.seq.call(null,s__38868__$1);
+var temp__5720__auto__ = cljs.core.seq.call(null,s__38831__$1);
 if(temp__5720__auto__){
-var s__38868__$2 = temp__5720__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__38868__$2)){
-var c__4521__auto__ = cljs.core.chunk_first.call(null,s__38868__$2);
+var s__38831__$2 = temp__5720__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__38831__$2)){
+var c__4521__auto__ = cljs.core.chunk_first.call(null,s__38831__$2);
 var size__4522__auto__ = cljs.core.count.call(null,c__4521__auto__);
-var b__38870 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
-if((function (){var i__38869 = (0);
+var b__38833 = cljs.core.chunk_buffer.call(null,size__4522__auto__);
+if((function (){var i__38832 = (0);
 while(true){
-if((i__38869 < size__4522__auto__)){
-var vec__38871 = cljs.core._nth.call(null,c__4521__auto__,i__38869);
-var i = cljs.core.nth.call(null,vec__38871,(0),null);
-var child = cljs.core.nth.call(null,vec__38871,(1),null);
+if((i__38832 < size__4522__auto__)){
+var vec__38834 = cljs.core._nth.call(null,c__4521__auto__,i__38832);
+var i = cljs.core.nth.call(null,vec__38834,(0),null);
+var child = cljs.core.nth.call(null,vec__38834,(1),null);
 var angle = (i * slice_angle);
-cljs.core.chunk_append.call(null,b__38870,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"li","li",723558921),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),cljs.core.assoc.call(null,fugue.demo.cof.li_style,new cljs.core.Keyword(null,"transform","transform",1381301764),fugue.demo.cof.outer_transform.call(null,angle))], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"i","i",-1386841315),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),cljs.core.assoc.call(null,fugue.demo.cof.i_style,new cljs.core.Keyword(null,"transform","transform",1381301764),fugue.demo.cof.inner_transform.call(null,angle))], null),child], null)], null));
+cljs.core.chunk_append.call(null,b__38833,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"li","li",723558921),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),cljs.core.assoc.call(null,fugue.demo.cof.li_style,new cljs.core.Keyword(null,"transform","transform",1381301764),fugue.demo.cof.outer_transform.call(null,angle))], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"i","i",-1386841315),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),cljs.core.assoc.call(null,fugue.demo.cof.i_style,new cljs.core.Keyword(null,"transform","transform",1381301764),fugue.demo.cof.inner_transform.call(null,angle))], null),child], null)], null));
 
-var G__38877 = (i__38869 + (1));
-i__38869 = G__38877;
+var G__38840 = (i__38832 + (1));
+i__38832 = G__38840;
 continue;
 } else {
 return true;
@@ -48,16 +48,16 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__38870),fugue$demo$cof$circle_$_iter__38867.call(null,cljs.core.chunk_rest.call(null,s__38868__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__38833),fugue$demo$cof$circle_$_iter__38830.call(null,cljs.core.chunk_rest.call(null,s__38831__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__38870),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__38833),null);
 }
 } else {
-var vec__38874 = cljs.core.first.call(null,s__38868__$2);
-var i = cljs.core.nth.call(null,vec__38874,(0),null);
-var child = cljs.core.nth.call(null,vec__38874,(1),null);
+var vec__38837 = cljs.core.first.call(null,s__38831__$2);
+var i = cljs.core.nth.call(null,vec__38837,(0),null);
+var child = cljs.core.nth.call(null,vec__38837,(1),null);
 var angle = (i * slice_angle);
-return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"li","li",723558921),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),cljs.core.assoc.call(null,fugue.demo.cof.li_style,new cljs.core.Keyword(null,"transform","transform",1381301764),fugue.demo.cof.outer_transform.call(null,angle))], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"i","i",-1386841315),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),cljs.core.assoc.call(null,fugue.demo.cof.i_style,new cljs.core.Keyword(null,"transform","transform",1381301764),fugue.demo.cof.inner_transform.call(null,angle))], null),child], null)], null),fugue$demo$cof$circle_$_iter__38867.call(null,cljs.core.rest.call(null,s__38868__$2)));
+return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"li","li",723558921),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),cljs.core.assoc.call(null,fugue.demo.cof.li_style,new cljs.core.Keyword(null,"transform","transform",1381301764),fugue.demo.cof.outer_transform.call(null,angle))], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"i","i",-1386841315),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),cljs.core.assoc.call(null,fugue.demo.cof.i_style,new cljs.core.Keyword(null,"transform","transform",1381301764),fugue.demo.cof.inner_transform.call(null,angle))], null),child], null)], null),fugue$demo$cof$circle_$_iter__38830.call(null,cljs.core.rest.call(null,s__38831__$2)));
 }
 } else {
 return null;
@@ -76,10 +76,10 @@ while(true){
 if((b === (0))){
 return a;
 } else {
-var G__38878 = b;
-var G__38879 = cljs.core.mod.call(null,a,b);
-a = G__38878;
-b = G__38879;
+var G__38841 = b;
+var G__38842 = cljs.core.mod.call(null,a,b);
+a = G__38841;
+b = G__38842;
 continue;
 }
 break;
@@ -96,8 +96,8 @@ return (function (){
 return new cljs.core.PersistentVector(null, 7, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [fugue.components.int_slider,root,(0),(11)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"p","p",151049309),["root: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(cljs.core.get.call(null,fugue.demo.cof.note_names,cljs.core.deref.call(null,root)))].join('')], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [fugue.components.int_slider,interval,(1),(11)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"p","p",151049309),[cljs.core.str.cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,interval))," semitones"].join('')], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"p","p",151049309),fugue.demo.cof.interval_names.call(null,cljs.core.deref.call(null,interval))], null),(function (){var step = cljs.core.deref.call(null,interval);
 var limit = fugue.demo.cof.lcm.call(null,step,(12));
 var notes = cljs.core.map.call(null,((function (step,limit,root,interval){
-return (function (p1__38880_SHARP_){
-return cljs.core.get.call(null,fugue.demo.cof.note_names,cljs.core.mod.call(null,(cljs.core.deref.call(null,root) + p1__38880_SHARP_),(12)));
+return (function (p1__38843_SHARP_){
+return cljs.core.get.call(null,fugue.demo.cof.note_names,cljs.core.mod.call(null,(cljs.core.deref.call(null,root) + p1__38843_SHARP_),(12)));
 });})(step,limit,root,interval))
 ,cljs.core.range.call(null,(0),limit,step));
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [fugue.demo.cof.circle,notes], null);
@@ -107,4 +107,4 @@ return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMP
 });
 new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [fugue.demo.cof.interval_circle], null);
 
-//# sourceMappingURL=cof.js.map?rel=1610383908275
+//# sourceMappingURL=cof.js.map?rel=1610386485598

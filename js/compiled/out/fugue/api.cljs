@@ -16,7 +16,7 @@
             [fugue.sampler :as sampler]
             [fugue.convolver :as convolver]
             [fugue.ctx-ctrls :as ctrls]
-            [fugue.midi-monitor :as monitor]
+            [fugue.midi-input :as midi-input]
             [fugue.components :as components]))
 
 (def ratom r/atom)
@@ -54,7 +54,9 @@
 
 (def make-midi-ctx midi/make-ctx)
 (def midi-context-manager ctrls/midi-ctx-ctrls)
-(def midi-input monitor/midi-input)
+(def midi-input midi-input/midi-input)
+(def note-on? midi/note-on?)
+(def note-off? midi/note-off?)
 
 (def audio-ctx-ctrls ctrls/audio-ctx-ctrls)
 (def buffer-ctrl ctrls/buffer-ctrl)
@@ -69,13 +71,11 @@
     (let [ctx (merge @actx-atom @mctx-atom {::buffer/buffer-cache @buffer-cache-atom})]
       (make-synth ctx synthdef))))
 
-(defn monitor-held-notes [in-chan out-atom]
-  (async/go
-    (while true
-      (let [msg (async/<! in-chan)]
-        (cond
-          (midi/note-on? msg) (swap! out-atom conj (::midi/note msg))
-          (midi/note-off? msg) (swap! out-atom disj (::midi/note msg)))))))
+(defn monitor-chan [in-chan on-msg]
+  (async/go-loop []
+    (let [msg (async/<! in-chan)]
+      (on-msg msg)
+      (recur))))
 
 (defn mary-had-a-little-synth [tempo decay cutoff]
   (let [m (metro tempo)

@@ -12,7 +12,7 @@ goog.require('fugue.editor');
 fugue.ide.prepare_demo = (function fugue$ide$prepare_demo(text){
 return clojure.string.join.call(null,"",cljs.core.drop_while.call(null,cljs.core.partial.call(null,cljs.core.not_EQ_,";"),text));
 });
-fugue.ide.demos = new cljs.core.PersistentArrayMap(null, 3, ["harmonic cantor table",fugue.demo.demo_loader.cantor,"circle of intervals",fugue.demo.demo_loader.cof,"midi monitor",fugue.demo.demo_loader.midi_monitor], null);
+fugue.ide.demos = new cljs.core.PersistentArrayMap(null, 3, ["harmonic cantor table",fugue.demo.demo_loader.cantor,"circle of intervals",fugue.demo.demo_loader.cof,"midi chord detector",fugue.demo.demo_loader.midi_monitor], null);
 fugue.ide.welcome = (function fugue$ide$welcome(reset_input){
 var selected_demo = reagent.core.atom.call(null,cljs.core.first.call(null,cljs.core.keys.call(null,fugue.ide.demos)));
 return ((function (selected_demo){
@@ -66,4 +66,4 @@ return cljs.core.swap_BANG_.call(null,vim_on,cljs.core.not);
 ;})(demo,input,selected,render_out,eval_out,vim_on))
 });
 
-//# sourceMappingURL=ide.js.map?rel=1610383906635
+//# sourceMappingURL=ide.js.map?rel=1610386483552

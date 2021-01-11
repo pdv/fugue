@@ -30,13 +30,13 @@
         (+ v 69)))
 
 (defn note-on? [midi-msg]
-  (and (= ::note-on (::type midi-msg))
-       (not= 0 (::velocity midi-msg))))
+  (and (= :note-on (:type midi-msg))
+       (not= 0 (:velocity midi-msg))))
 
 (defn note-off? [midi-msg]
-  (case (::type midi-msg)
-    ::note-off true
-    ::note-on (= 0 (::velocity midi-msg))
+  (case (:type midi-msg)
+    :note-off true
+    :note-on (= 0 (:velocity midi-msg))
     false))
 
 (defn midi-x-note
@@ -49,7 +49,7 @@
         ([] (rf))
         ([result] (rf result))
         ([result midi]
-         (let [{::keys [note velocity]} midi
+         (let [{:keys [note velocity]} midi
                note-on (> velocity 0)
                op (if note-on conj #(remove #{%2} %1))
                down (op @v-down note)]
@@ -68,8 +68,8 @@
         ([] (rf))
         ([result] (rf result))
         ([result midi]
-         (let [{::keys [type velocity]} midi
-               note-on (and (= ::note-on type) (> velocity 0))
+         (let [{:keys [type velocity]} midi
+               note-on (and (= :note-on type) (> velocity 0))
                prev-down-count @v-down-count]
            (vswap! v-down-count (if note-on inc dec))
            (if (or (and note-on retrigger (> 1 prev-down-count))
@@ -97,27 +97,27 @@
 
 (defmethod chan/make-transducer ::midi-x-ctrl [_ _]
   (comp
-    (filter #(= (::note %) (::note (::chan/input %))))
-    (map #(map-to-range (::velocity (::chan/input %))
+    (filter #(= (:note %) (::note (::chan/input %))))
+    (map #(map-to-range (:velocity (::chan/input %))
                         0 127
                         (::min %) (::max %)))))
 
 ;;
 
 (def msg-type
-  {144 ::note-on
-   128 ::note-off
-   224 ::bend
-   176 ::ctrl})
+  {144 :note-on
+   128 :note-off
+   224 :bend
+   176 :ctrl})
 
 (defn event->msg
   "Converts a js MIDIMessageEvent into a midi message"
   [e]
   (let [js-arr (.from js/Array (.-data e))
         [status note velocity] (js->clj js-arr)]
-    {::type (msg-type (bit-and status 0xf0))
-     ::note note
-     ::velocity velocity}))
+    {:type (msg-type (bit-and status 0xf0))
+     :note note
+     :velocity velocity}))
 
 (def event-x-msg
   (comp
@@ -126,7 +126,7 @@
 
 (defn msg->event
   "This is probably wrong"
-  [{::keys [type note velocity]}]
+  [{:keys [type note velocity]}]
   (.from js/Array [type note velocity]))
 
 (defn midi-in-chan
@@ -205,6 +205,6 @@
       ::chan/chan-node-type ::chan/transducer
       ::chan/xform ::midi-x-ctrl}
      {::chan/input [in]
-      ::note [note]
-      ::min [min]
-      ::max [max]})))
+      ::note        [note]
+      ::min        [min]
+      ::max        [max]})))

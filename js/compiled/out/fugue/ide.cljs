@@ -13,7 +13,7 @@
 (def demos
   {"harmonic cantor table" demo-loader/cantor
    "circle of intervals" demo-loader/cof
-   "midi monitor" demo-loader/midi-monitor})
+   "midi chord detector" demo-loader/midi-monitor})
 
 (defn welcome [reset-input]
   (let [selected-demo (r/atom (first (keys demos)))]

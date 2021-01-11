@@ -26,10 +26,10 @@
                 repeat (.-repeat keypress)
                 offset (key->offset key)]
             (if-not (or (nil? offset) repeat)
-              (rf result (into {::midi/note (+ 60 offset (* 12 @voctave))}
+              (rf result (into {:note (+ 60 offset (* 12 @voctave))}
                                (case (.-type keypress)
-                                 "keydown" {::midi/type ::midi/note-on ::midi/velocity 127}
-                                 "keyup" {::midi/type ::midi/note-off ::midi/velocity 0})))
+                                 "keydown" {:type :note-on :velocity 127}
+                                 "keyup" {:type :note-off :velocity 0})))
               (when (= "keydown" type)
                 (vswap! voctave (case key "z" dec "x" inc identity))
                 result)))))))))
