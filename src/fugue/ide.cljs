@@ -10,24 +10,41 @@
   [text]
   (join "" (drop-while (partial not= ";") text)))
 
-(def demos
+(def init-files
   {"harmonic cantor table" demo-loader/cantor
    "circle of intervals" demo-loader/cof
-   "midi chord detector" demo-loader/midi-monitor})
+   "midi chord detector" demo-loader/midi-monitor
+   "user" "(ns fugue.user)\n\n"})
 
-(defn welcome [reset-input]
-  (let [selected-demo (r/atom (first (keys demos)))]
-    (fn []
-      [:div
-       [:h2 "welcome to fugue"]
-       [:p "click 'eval' to evaluate the buffer"]
-       [:p "then click 'render' to display the ui"]
-       [picker selected-demo (keys demos)]
-       [:button {:on-click #(reset-input (prepare-demo (get demos @selected-demo)))}
-        "load demo"]])))
+(defn welcome []
+  [:div
+    [:h2 "welcome to fugue"]
+    [:p "click 'eval' to evaluate the buffer"]
+    [:p "then click 'render' to display the ui"]])
+
+(defn file-browser [open-files filenames on-change]
+  [:ul.ide-file-list
+   (for [filename filenames]
+     ^{:key filename}
+     [:li
+      {:on-click #(on-change filename)
+       :style {:backgroundColor (if (contains? open-files filename) "green" "inherit")}}
+      filename])])
+
+(defn tabs [selected filenames]
+  [:ul.ide-tabs-list
+   (for [filename filenames]
+     ^{:key filename}
+     [:li
+      {:on-click #()
+       :style {:backgroundColor (if (= selected filename) "green" "inherit")}}
+      filename])])
 
 (defn ide [eval-fn]
   (let [demo (r/atom "")
+        filename (r/atom "user")
+        files (r/atom init-files)
+        open-files (r/atom [])
         input (r/atom "")
         selected (r/atom "")
         render-out (r/atom nil)
@@ -40,14 +57,20 @@
           component
           [welcome (partial reset! demo)])]
        [:div.ide-right
-        [editor @demo
-         (partial reset! input)
-         (partial reset! selected)
-         #(eval-fn @selected (partial reset! eval-out))
-         {:keyMap (if @vim-on "vim" "default")}]
+        [:div.ide-editor-container
+         [file-browser @filename (keys @files) (fn [new-filename]
+                                                 (reset! demo (get @files new-filename))
+                                                 (reset! filename new-filename))]
+         [:div.ide-tab-container
+          [tabs @filename (keys @files)]
+          [editor @demo
+           (fn [new-input] (swap! files #(assoc % @filename new-input)))
+           (partial reset! selected)
+           #(eval-fn @selected (partial reset! eval-out))
+           {:keyMap (if @vim-on "vim" "default")}]]]
         [:div.ide-toolbar
          [:button
-          {:on-click #(eval-fn @input (partial reset! eval-out))}
+          {:on-click #(eval-fn (get @files @filename) (partial reset! eval-out))}
           "eval"]
          [:button
           {:on-click #(eval-fn @selected (partial reset! eval-out))
@@ -60,4 +83,5 @@
          [:button
           {:on-click #(swap! vim-on not)}
           (str (if @vim-on "disable" "enable") " vim bindings")]]
-        [output-box @eval-out]]])))
+        [:div.ide-output-container
+          [output-box @eval-out]]]])))

@@ -53,10 +53,7 @@ html, body, #app {
 .CodeMirror {
   overflow: hidden;
   height: 100%;
-}
-
-.CodeMirror-gutters {
-  height: 100% !important;
+  flex-grow: 1;
 }
 
 .repl-out {
@@ -102,12 +99,58 @@ html, body, #app {
   width: 50%;
 }
 
+.ide-editor-container {
+  flex-grow: 3;
+  display: flex;
+  flex-flow: row;
+  overflow: hidden;
+}
+
+.ide-file-list {
+  height: 100%;
+  border-right: 1px solid black;
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.ide-file-list li {
+  font-style: normal;
+  padding: 8px 16px 8px 16px;
+  margin: 0;
+}
+
+.ide-tab-container {
+  display: flex;
+  flex-flow: column;
+  flex-grow: 1;
+}
+
+.ide-tabs-list {
+  width: 100%;
+  list-style: none;
+  border-bottom: 1px solid black;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+
+.ide-tabs-list li {
+  float: left;
+  border-right: 1px solid black;
+  padding: 8px 16px 8px 16px;
+}
+
 .ide-toolbar {
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   display: flex;
   align-items: center;
   padding: 16px;
+}
+
+.ide-output-container {
+  flex-grow: 1;
 }
 
 .ide-toolbar button {
