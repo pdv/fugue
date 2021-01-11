@@ -16,7 +16,7 @@
    "midi chord detector" demo-loader/midi-monitor
    "user" "(ns fugue.user)\n\n"})
 
-(defn welcome []
+(def welcome
   [:div
     [:h2 "welcome to fugue"]
     [:p "click 'eval' to evaluate the buffer"]
@@ -39,58 +39,74 @@
       [:a.ide-tabs-name {:on-click #(on-change name)} name]
       [:a.ide-tabs-close {:on-click #(on-close name)} "✕"]])])
 
-(defn ide [eval-fn]
-  (let [demo (r/atom "")
-        tabs (r/atom #{"user"})
-        current-tab (r/atom "user")
-        files (r/atom init-files)
-        input (r/atom "")
-        selected (r/atom "")
-        render-out (r/atom nil)
-        eval-out (r/atom nil)
-        vim-on (r/atom true)]
+(def init-state
+  {:buffer ""
+   :tabs ["user"]
+   :curr-tab "user"
+   :files init-files
+   :input ""
+   :selection ""
+   :output ""
+   :rendering welcome
+   :vim-on true})
+
+(defn load-buffer [state name]
+  (-> state
+      (assoc :buffer (get-in state [:files name]))
+      (assoc :curr-tab name)))
+
+(defn counter []
+  (let [state (r/atom 0)]
     (fn []
-      [:div.ide
-       [:div.ide-left
-        (if-let [component (:value @render-out)]
-          component
-          [welcome (partial reset! demo)])]
-       [:div.ide-right
-        [:div.ide-editor-container
-         [file-browser @tabs (keys @files) (fn [new-filename]
-                                             (swap! tabs #(if (not (contains? % new-filename))
-                                                            (conj % new-filename)
-                                                            %))
-                                             (reset! demo (get @files new-filename))
-                                             (reset! current-tab new-filename))]
-         [:div.ide-tab-container
-          (if (> (count @tabs) 0)
-            [tabs-component
-             @current-tab
-             @tabs
-             (fn [tab-name]
-               (reset! demo (get @files tab-name))
-               (reset! current-tab tab-name))
-             (partial swap! tabs disj)] [:div])
-          [editor @demo
-           (fn [new-input] (swap! files #(assoc % @current-tab new-input)))
-           (partial reset! selected)
-           #(eval-fn @selected (partial reset! eval-out))
-           {:keyMap (if @vim-on "vim" "default")}]]]
-        [:div.ide-toolbar
-         [:button
-          {:on-click #(eval-fn (get @files @current-tab) (partial reset! eval-out))}
-          "eval"]
-         [:button
-          {:on-click #(eval-fn @selected (partial reset! eval-out))
-           :disabled (empty? @selected)}
-          "eval selection (ctrl-shift-space)"]
-         [:button
-          {:on-click #(reset! render-out @eval-out)
-           :disabled (not (vector? (:value @eval-out)))}
-          "render"]
-         [:button
-          {:on-click #(swap! vim-on not)}
-          (str (if @vim-on "disable" "enable") " vim bindings")]]
-        [:div.ide-output-container
-          [output-box @eval-out]]]])))
+      [:div
+       [:button {:on-click #(swap! state inc)}
+        (str "Clicked " @state " times!")]])))
+
+(defn ide [eval-fn]
+  (let [state (r/atom init-state)]
+    (fn []
+      [counter])))
+
+      (comment
+        [:div.ide
+         [:div.ide-left
+          [counter]]
+         [:div.ide-right
+          [:div.ide-editor-container
+           [file-browser @tabs (keys @files) (fn [new-filename]
+                                               (swap! tabs #(if (not (contains? % new-filename))
+                                                              (conj % new-filename)
+                                                              %))
+                                               (reset! demo (get @files new-filename))
+                                               (reset! current-tab new-filename))]
+           [:div.ide-tab-container
+            (if (> (count @tabs) 0)
+              [tabs-component
+               @current-tab
+               @tabs
+               (fn [tab-name]
+                 (reset! demo (get @files tab-name))
+                 (reset! current-tab tab-name))
+               (partial swap! tabs disj)] [:div])
+            [editor @demo
+             (fn [new-input] (swap! files #(assoc % @current-tab new-input)))
+             (partial reset! selected)
+             #(eval-fn @selected (partial reset! eval-out))
+             {:keyMap (if @vim-on "vim" "default")}]]]
+          [:div.ide-toolbar
+           [:button
+            {:on-click #(eval-fn (get @files @current-tab) (partial reset! eval-out))}
+            "eval"]
+           [:button
+            {:on-click #(eval-fn @selected (partial reset! eval-out))
+             :disabled (empty? @selected)}
+            "eval selection (ctrl-shift-space)"]
+           [:button
+            {:on-click #(reset! render-out @eval-out)
+             :disabled (not (vector? (:value @eval-out)))}
+            "render"]
+           [:button
+            {:on-click #(swap! vim-on not)}
+            (str (if @vim-on "disable" "enable") " vim bindings")]]
+          [:div.ide-output-container
+           [output-box @eval-out]]]])
