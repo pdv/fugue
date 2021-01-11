@@ -36,6 +36,14 @@
                                             (js/parseInt)
                                             (from-midi min max)))}])))
 
+(defn int-slider [value min max]
+  [:input
+   {:type "range"
+    :style {:display "block"}
+    :value @value
+    :min min :max max
+    :on-change #(reset! value (js/parseInt (.. % -target -value)))}])
+
 (defn picker [value options]
   [:select
    {:on-change #(reset! value (.. % -target -value))

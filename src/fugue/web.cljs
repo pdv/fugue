@@ -4,10 +4,13 @@
             [fugue.bootstrap :as bootstrap]
             [fugue.api :as api]
             [fugue.ide :as ide]
+            [fugue.cof :as cof]
             [fugue.box :as box]))
 
-(defn app []
+(defn ide []
   [ide/ide bootstrap/eval-str])
+
+(defn app [] [ide])
 
 (defn -main []
   (enable-console-print!)
