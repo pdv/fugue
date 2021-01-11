@@ -67,8 +67,7 @@
     (let [ctx (merge @actx-atom @mctx-atom {::buffer/buffer-cache @buffer-cache-atom})]
       (make-synth ctx synthdef))))
 
-(def init-text "
-(defn note->hz [note]
+(def cantor-demo "(defn note->hz [note]
   (as-> note v
     (- v 69.0)
     (/ v 12)
@@ -117,7 +116,6 @@
         harmonics (ratom 8)
         colors (ratom \"none\")]
     (fn []
-      (print @colors)
       [:div
         \"Root\"
         [slider root 0 120]

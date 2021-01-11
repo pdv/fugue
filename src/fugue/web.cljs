@@ -7,17 +7,7 @@
             [fugue.box :as box]))
 
 (defn app []
-  [ide/ide api/init-text bootstrap/eval-str])
-
-(defn boxes-component []
-  (let [boxes (r/atom [api/init-text
-                       api/demo-text])
-        add-box #(swap! boxes conj "")]
-    (fn []
-      [:div#container
-       (for [box-init @boxes]
-        [box/box box-init bootstrap/eval-str])
-       [:button#add {:on-click add-box} "+"]])))
+  [ide/ide bootstrap/eval-str])
 
 (defn -main []
   (enable-console-print!)
