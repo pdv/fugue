@@ -118,6 +118,7 @@ html, body, #app {
   font-style: normal;
   padding: 8px 16px 8px 16px;
   margin: 0;
+  cursor: pointer;
 }
 
 .ide-tab-container {
@@ -126,19 +127,57 @@ html, body, #app {
   flex-grow: 1;
 }
 
-.ide-tabs-list {
+.ide-tabs {
   width: 100%;
   list-style: none;
-  border-bottom: 1px solid black;
   margin: 0;
   padding: 0;
-  display: inline-block;
+  background-color: #c2c2c2;
+  overflow-y: hidden;
+  border-bottom: 1px solid black;
 }
 
-.ide-tabs-list li {
+.ide-tabs li {
   float: left;
   border-right: 1px solid black;
-  padding: 8px 16px 8px 16px;
+  position: relative;
+}
+
+.ide-tabs li.selected {
+  background-color: white;
+}
+
+.ide-tabs li.unselected {
+}
+
+a.ide-tabs-name {
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 38px 0 8px;
+}
+
+li.unselected a.ide-tabs-name:hover {
+  height: 30px;
+  cursor: pointer;
+  background-color: #e1e1e1;
+}
+
+a.ide-tabs-close {
+  height: 30px;
+  width: 30px;
+  line-height: 30px;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+}
+
+a.ide-tabs-close:hover {
+  cursor: pointer;
+  background-color: #e1e1e1;
 }
 
 .ide-toolbar {

@@ -28,23 +28,22 @@
      ^{:key filename}
      [:li
       {:on-click #(on-change filename)
-       :style {:backgroundColor (if (contains? open-files filename) "green" "inherit")}}
+       :style {:color (if (contains? open-files filename) "#666" "inherit")}}
       filename])])
 
-(defn tabs [selected filenames]
-  [:ul.ide-tabs-list
-   (for [filename filenames]
-     ^{:key filename}
-     [:li
-      {:on-click #()
-       :style {:backgroundColor (if (= selected filename) "green" "inherit")}}
-      filename])])
+(defn tabs-component [selected tab-names on-change on-close]
+  [:ul.ide-tabs
+   (for [name tab-names]
+     ^{:key name}
+     [:li {:class-name (if (= selected name) "selected" "unselected")}
+      [:a.ide-tabs-name {:on-click #(on-change name)} name]
+      [:a.ide-tabs-close {:on-click #(on-close name)} "✕"]])])
 
 (defn ide [eval-fn]
   (let [demo (r/atom "")
-        filename (r/atom "user")
+        tabs (r/atom #{"user"})
+        current-tab (r/atom "user")
         files (r/atom init-files)
-        open-files (r/atom [])
         input (r/atom "")
         selected (r/atom "")
         render-out (r/atom nil)
@@ -58,19 +57,29 @@
           [welcome (partial reset! demo)])]
        [:div.ide-right
         [:div.ide-editor-container
-         [file-browser @filename (keys @files) (fn [new-filename]
-                                                 (reset! demo (get @files new-filename))
-                                                 (reset! filename new-filename))]
+         [file-browser @tabs (keys @files) (fn [new-filename]
+                                             (swap! tabs #(if (not (contains? % new-filename))
+                                                            (conj % new-filename)
+                                                            %))
+                                             (reset! demo (get @files new-filename))
+                                             (reset! current-tab new-filename))]
          [:div.ide-tab-container
-          [tabs @filename (keys @files)]
+          (if (> (count @tabs) 0)
+            [tabs-component
+             @current-tab
+             @tabs
+             (fn [tab-name]
+               (reset! demo (get @files tab-name))
+               (reset! current-tab tab-name))
+             (partial swap! tabs disj)] [:div])
           [editor @demo
-           (fn [new-input] (swap! files #(assoc % @filename new-input)))
+           (fn [new-input] (swap! files #(assoc % @current-tab new-input)))
            (partial reset! selected)
            #(eval-fn @selected (partial reset! eval-out))
            {:keyMap (if @vim-on "vim" "default")}]]]
         [:div.ide-toolbar
          [:button
-          {:on-click #(eval-fn (get @files @filename) (partial reset! eval-out))}
+          {:on-click #(eval-fn (get @files @current-tab) (partial reset! eval-out))}
           "eval"]
          [:button
           {:on-click #(eval-fn @selected (partial reset! eval-out))
