@@ -12,14 +12,15 @@
     (fn []
       [:div
        [:h2 "welcome to fugue"]
+       [:p "click 'eval' to evaluate the buffer"]
+       [:p "then click 'render' to display the ui"]
        [picker selected-demo (keys demos)]
        [:button {:on-click #(reset-input (get demos @selected-demo))}
-        "load demo"]
-       [:p "click 'eval' to evaluate the buffer"]
-       [:p "then click 'render' to display the ui"]])))
+        "load demo"]])))
 
 (defn ide [eval-fn]
-  (let [input (r/atom "")
+  (let [demo (r/atom "")
+        input (r/atom "")
         selected (r/atom "")
         render-out (r/atom nil)
         eval-out (r/atom nil)
@@ -29,9 +30,9 @@
        [:div.ide-left
         (if-let [component (:value @render-out)]
           component
-          [welcome (partial reset! input)])]
+          [welcome (partial reset! demo)])]
        [:div.ide-right
-        [editor @input
+        [editor @demo
          (partial reset! input)
          (partial reset! selected)
          #(eval-fn @selected (partial reset! eval-out))

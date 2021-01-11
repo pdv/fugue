@@ -94,17 +94,14 @@
          (for [numerator (range 1 harmonics)
                :let [freq (/ (* root-hz numerator) denominator)
                      note (hz->note freq)
-                     closest (.round js/Math note)
-                     name (nth note-names (mod closest 12))
-                     octave (int (/ closest 12))]]
+                     closest (.round js/Math note)]]
            [:td.square
             {:style {:backgroundColor (color-fn note)}}
-            (str name octave)
+            (str (nth note-names (mod closest 12)) (int (/ closest 12)))
             [:br]
             (format \"%.2f\" (- note root))
             [:br]
             (format \"%.2f\" freq)])])]]))
-
 
 (def color-fns
   {\"none\" (constantly \"#fff\")
