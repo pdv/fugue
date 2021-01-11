@@ -52,10 +52,12 @@
 (def sequencer sequencer/sequencer)
 (def sampler sampler/sampler)
 (def conv convolver/convolver)
-(def monitor monitor/monitor)
+
+(def make-midi-ctx midi/make-ctx)
+(def midi-context-manager ctrls/midi-ctx-ctrls)
+(def midi-input-monitor monitor/input-monitor)
 
 (def audio-ctx-ctrls ctrls/audio-ctx-ctrls)
-(def midi-ctx-ctrls ctrls/midi-ctx-ctrls)
 (def buffer-ctrl ctrls/buffer-ctrl)
 (def slider components/slider)
 (def picker components/picker)
@@ -125,6 +127,33 @@
         \"Colors\"
         [picker colors (keys color-fns)]
         [cantor @root @harmonics (get color-fns @colors)]])))
+
+[component]
+")
+
+(def midi-monitor-demo "
+(def names
+  [[\"C\" 0] [\"G\" 7] [\"D\" 2] [\"A\" 9] [\"E\" 4] [\"B\" 11]
+   [\"F#\" 6] [\"Db\" 1] [\"Ab\" 8] [\"Eb\" 3] [\"Bb\" 10] [\"F\" 5]])
+
+(defn cof [midi-notes]
+  (let [intervals (into #{} (map #(mod % 12) midi-notes))]
+    [:div.cof-container>div.cof>ul
+    (for [[name interval] names]
+      [:li>i
+       {:class (if (contains? intervals interval) \"active\" \"inactive\")}
+       name])]))
+
+(defn component []
+  (let [midi-ctx (ratom nil)
+        notes (ratom #{})]
+    (fn []
+      [:div
+        (if-let [mctx @midi-ctx]
+          [midi-input-monitor @midi-ctx (partial reset! notes)]
+          [:button {:on-click #(midi/make-ctx (partial reset! midi-ctx))}
+            (str (if @midi-ctx \"reset\" \"create\") \" midi context\")])
+        [cof @notes]])))
 
 [component]
 ")
