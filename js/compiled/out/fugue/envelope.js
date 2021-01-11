@@ -243,4 +243,4 @@ return fugue.synthdef.synthdef.call(null,new cljs.core.PersistentArrayMap(null, 
 fugue.envelope.env_gen.cljs$lang$maxFixedArity = 4;
 
 
-//# sourceMappingURL=envelope.js.map?rel=1610386479487
+//# sourceMappingURL=envelope.js.map?rel=1610405469028
