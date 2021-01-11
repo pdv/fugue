@@ -5,8 +5,7 @@
             [cljs.core.async :as async]
             [fugue.components :refer [slider picker]]
             [fugue.midi :as midi]
-            [fugue.keyboard :as kb]
-            [fugue.chords :as chords]))
+            [fugue.keyboard :as kb]))
 
 (defn midi-selector [midi-ins on-change]
   [:select {:on-change #(on-change (get midi-ins (.. % -target -value)))}
