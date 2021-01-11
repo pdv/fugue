@@ -55,11 +55,11 @@
       (assoc :buffer (get-in state [:files name]))
       (assoc :curr-tab name)))
 
-(defn counter []
+(defn counter [name]
   (let [state (r/atom 0)]
     (fn []
       [:button {:on-click #(swap! state inc)}
-       (str "Clicked " @state " times!")])))
+       (str "Clicked " @state " times by " name)])))
 
 (defn ide [eval-fn]
   (let [state (r/atom init-state)]
