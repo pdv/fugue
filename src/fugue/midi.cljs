@@ -16,10 +16,18 @@
     {::chan/mult-out (async/mult out-chan)}))
 
 (defn note->hz [note]
-  (* 440.0 (js/Math.pow 2.0 (/ (- note 69.0) 12.0))))
+  (as-> note v
+        (- v 69.0)
+        (/ v 12)
+        (js/Math.pow 2.0 v)
+        (* v 440.0)))
 
-(defn hz->note [hz]
-  ())
+(defn hz->note [freq]
+  (as-> freq v
+        (/ v 440)
+        (.log2 js/Math v)
+        (* v 12)
+        (+ v 69)))
 
 (defn midi-x-note
   "Returns a stateful transducer that maps midi events to midi notes based on

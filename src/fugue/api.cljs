@@ -1,5 +1,6 @@
 (ns fugue.api
   (:require [clojure.string :as string]
+            [goog.string :as gstring]
             [cljs.repl :as repl]
             [reagent.core :as r]
             [fugue.synthdef :as synthdef]
@@ -15,6 +16,7 @@
             [fugue.convolver :as convolver]
             [fugue.ctx-ctrls :as ctrls]
             [fugue.midi-monitor :as monitor]
+            [fugue.colors :as colors]
             [fugue.cantor :as cantor]
             [fugue.components :as components]))
 
@@ -56,57 +58,69 @@
 (def midi-ctx-ctrls ctrls/midi-ctx-ctrls)
 (def buffer-ctrl ctrls/buffer-ctrl)
 (def slider components/slider)
-(def cantor cantor/cantor-table)
+
+(def format gstring/format)
+(def color-by-note colors/color-by-note)
+(def cantor-table cantor/cantor-table)
 
 (defn make-renderer [actx-atom mctx-atom buffer-cache-atom]
   (fn [synthdef]
     (let [ctx (merge @actx-atom @mctx-atom {::buffer/buffer-cache @buffer-cache-atom})]
       (make-synth ctx synthdef))))
 
-(defn welcome []
-  [:div
-   [:h3 "nice work clicking those buttons"]])
+(def note-names ["C" "Db" "D" "Eb" "E" "F" "F#" "G" "Ab" "A" "Bb" "B"])
 
-(def init-forms
-  ["(defonce root (ratom 60))"
-   "(defonce harmonics (ratom 13))"
-   ""
-   "(defn component []"
-   "  [:div"
-   "    \"Root\""
-   "    [slider root 0 127]"
-   "    \"Harmonics\""
-   "    [slider harmonics 0 20]"
-   "    [cantor @root @harmonics]])"
-   ""
-   "[component]"])
+(def init-text "
+(defn note->hz [note]
+  (as-> note v
+    (- v 69.0)
+    (/ v 12)
+    (js/Math.pow 2.0 v)
+    (* v 440.0)))
 
-(def init-forms-234
-  [
-   "(defonce audio-ctx (ratom nil))"
-   "(defonce midi-ctx (ratom nil))"
-   "(defonce buffer-ctx (ratom nil))"
-   "(defn play! [synthdef]"
-   "  (make-synth (merge @audio-ctx @midi-ctx @buffer-ctx) synthdef))"
-   ""
-   "(defn demo []"
-   "  (-> (sin-osc 440)"
-   "      (gain (env-gen (perc 0.01 2) 1))"
-   "      out))"
-   ""
-   "[:div"
-   "  [welcome]"
-   "  [audio-ctx-ctrls audio-ctx]"
-   "  [midi-ctx-ctrls midi-ctx]"
-   "  [buffer-ctrl audio-ctx buffer-ctx]"
-   "  [:button"
-   "   {:on-click #(play! (demo))}"
-   "   \"ping\"]"
-   "  [monitor midi-ctx]]"
-   ])
+(defn hz->note [freq]
+  (as-> freq v
+    (/ v 440)
+    (.log2 js/Math v)
+    (* v 12)
+    (+ v 69)))
 
-(def init-text
-  (string/join "\n" init-forms))
+(def note-names [\"C\" \"Db\" \"D\" \"Eb\" \"E\" \"F\" \"F#\" \"G\" \"Ab\" \"A\" \"Bb\" \"B\"])
+
+(defn cantor [root harmonics]
+  (let [root-hz (note->hz root)]
+    [:table:cantor
+     [:thead
+      (for [i (range harmonics)] [:th.cell (if (not= 0 i) i)])
+      (for [denominator (range 1 harmonics)]
+        [:tr
+         [:th.cell denominator]
+         (for [numerator (range 1 harmonics)
+               :let [freq (/ (* root-hz numerator) denominator)
+                     note (hz->note freq)
+                     closest (.round js/Math note)
+                     name (nth note-names (mod closest 12))
+                     octave (int (/ closest 12))]]
+           [:td.cantor
+            {:style {:backgroundColor (colors/color-by-note note)}}
+            (str name octave)
+            [:br]
+            (format \"%.2f\" (- note root))
+            [:br]
+            (format \"%.2f\" freq)])])]]))
+
+(defn component []
+  (let [root (ratom 60)
+        harmonics (ratom 8)]
+    (fn []
+      [:div
+        [slider root 0 120]
+        [slider harmonics 1 30]
+        [cantor @root @harmonics]])))
+
+[component]
+")
+
 
 (defn mary-had-a-little-synth [tempo decay cutoff]
   (let [m (metro tempo)
@@ -123,22 +137,4 @@
 (defn aww []
   (out (sampler "pumpthat.wav" (metro 2000) 0)))
 
-(def demo-forms
-  [
-   "(defonce tempo (ratom 500))"
-   "(defonce decay (ratom 0.1))"
-   "(defonce cutoff (ratom 440))"
-   ""
-   (with-out-str (repl/source mary-had-a-little-synth))
-   "[:div"
-   "  [slider tempo 100 1000]"
-   "  [slider decay 0.01 0.8]"
-   "  [slider cutoff 30 20000 :log]"
-   "  [:button"
-   "   {:on-click #(render (aww))}"
-   "   \"run\"]]"
-   ])
-
-(def demo-text-old (string/join "\n" demo-forms))
-
-(def demo-text "[:div [monitor midi-ctx]]")
+(def demo-text "hello")
