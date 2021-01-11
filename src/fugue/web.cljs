@@ -2,10 +2,7 @@
   (:require [reagent.core :as r]
             [reagent.dom :as rdom]
             [fugue.bootstrap :as bootstrap]
-            [fugue.api :as api]
-            [fugue.ide :as ide]
-            [fugue.cof :as cof]
-            [fugue.box :as box]))
+            [fugue.ide :as ide]))
 
 (defn ide []
   [ide/ide bootstrap/eval-str])

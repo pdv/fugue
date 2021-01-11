@@ -1,6 +1,8 @@
-(ns fugue.cof
+(ns fugue.demo.cof
   (:require [fugue.components :refer [int-slider]]
             [reagent.core :as r]))
+
+;;
 
 (def note-names ["C" "Db" "D" "Eb" "E" "F" "F#" "G" "Ab" "A" "Bb" "B"])
 (def interval-names
@@ -77,7 +79,7 @@
 (defn lcm [a b]
   (/ (* a b) (gcd a b)))
 
-(defn circle-demo []
+(defn interval-circle []
   (let [root (r/atom 0)
         interval (r/atom 5)]
     (fn []
@@ -92,3 +94,5 @@
              notes (map #(get note-names (mod (+ @root %) 12))
                         (range 0 limit step))]
          [circle notes])])))
+
+[interval-circle]

@@ -1,12 +1,19 @@
 (ns fugue.ide
   (:require [reagent.core :as r]
-            [fugue.api :refer [cantor-demo midi-monitor-demo]]
+            [clojure.string :refer [join trim]]
             [fugue.components :refer [picker]]
+            [fugue.demo.demo-loader :as demo-loader]
             [fugue.editor :refer [editor output-box]]))
 
+(defn prepare-demo
+  "Drops everything before the first comment (the ns clause)"
+  [text]
+  (join "" (drop-while (partial not= ";") text)))
+
 (def demos
-  {"cantor harmonies table" cantor-demo
-   "circle of fifths midi monitor" midi-monitor-demo})
+  {"harmonic cantor table" demo-loader/cantor
+   "circle of intervals" demo-loader/cof
+   "midi monitor" demo-loader/midi-monitor})
 
 (defn welcome [reset-input]
   (let [selected-demo (r/atom (first (keys demos)))]
@@ -16,7 +23,7 @@
        [:p "click 'eval' to evaluate the buffer"]
        [:p "then click 'render' to display the ui"]
        [picker selected-demo (keys demos)]
-       [:button {:on-click #(reset-input (get demos @selected-demo))}
+       [:button {:on-click #(reset-input (prepare-demo (get demos @selected-demo)))}
         "load demo"]])))
 
 (defn ide [eval-fn]
