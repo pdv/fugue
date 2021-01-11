@@ -1,4 +1,4 @@
-(ns fugue.midi-monitor
+(ns fugue.midi-input
   (:require [reagent.core :as r]
             [goog.string :refer [format]]
             [goog.string.format]
