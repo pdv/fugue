@@ -58,17 +58,14 @@
 (def midi-ctx-ctrls ctrls/midi-ctx-ctrls)
 (def buffer-ctrl ctrls/buffer-ctrl)
 (def slider components/slider)
+(def picker components/picker)
 
 (def format gstring/format)
-(def color-by-note colors/color-by-note)
-(def cantor-table cantor/cantor-table)
 
 (defn make-renderer [actx-atom mctx-atom buffer-cache-atom]
   (fn [synthdef]
     (let [ctx (merge @actx-atom @mctx-atom {::buffer/buffer-cache @buffer-cache-atom})]
       (make-synth ctx synthdef))))
-
-(def note-names ["C" "Db" "D" "Eb" "E" "F" "F#" "G" "Ab" "A" "Bb" "B"])
 
 (def init-text "
 (defn note->hz [note]
@@ -87,40 +84,51 @@
 
 (def note-names [\"C\" \"Db\" \"D\" \"Eb\" \"E\" \"F\" \"F#\" \"G\" \"Ab\" \"A\" \"Bb\" \"B\"])
 
-(defn cantor [root harmonics]
+(defn cantor [root harmonics color-fn]
   (let [root-hz (note->hz root)]
-    [:table:cantor
+    [:table.square
      [:thead
-      (for [i (range harmonics)] [:th.cell (if (not= 0 i) i)])
+      (for [i (range harmonics)] [:th.square (if (not= 0 i) i)])
       (for [denominator (range 1 harmonics)]
         [:tr
-         [:th.cell denominator]
+         [:th.square denominator]
          (for [numerator (range 1 harmonics)
                :let [freq (/ (* root-hz numerator) denominator)
                      note (hz->note freq)
                      closest (.round js/Math note)
                      name (nth note-names (mod closest 12))
                      octave (int (/ closest 12))]]
-           [:td.cantor
-            {:style {:backgroundColor (colors/color-by-note note)}}
+           [:td.square
+            {:style {:backgroundColor (color-fn note)}}
             (str name octave)
             [:br]
             (format \"%.2f\" (- note root))
             [:br]
             (format \"%.2f\" freq)])])]]))
 
+
+(def color-fns
+  {\"none\" (constantly \"#fff\")
+   \"cents\" colors/color-by-cents
+   \"note\" colors/color-by-note})
+
 (defn component []
   (let [root (ratom 60)
-        harmonics (ratom 8)]
+        harmonics (ratom 8)
+        colors (ratom \"none\")]
     (fn []
+      (print @colors)
       [:div
+        \"Root\"
         [slider root 0 120]
+        \"Harmonics\"
         [slider harmonics 1 30]
-        [cantor @root @harmonics]])))
+        \"Colors\"
+        [picker colors (keys color-fns)]
+        [cantor @root @harmonics (get color-fns @colors)]])))
 
 [component]
 ")
-
 
 (defn mary-had-a-little-synth [tempo decay cutoff]
   (let [m (metro tempo)

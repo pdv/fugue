@@ -1,12 +1,15 @@
 
-table.cantor {
-    border-collapse: collapse;
+table.square {
+  border-collapse: collapse;
 }
 
-td.cantor {
-    height: 58px;
-    width: 58px;
-    margin: 0;
-    border: 1px solid black;
-    text-align: center;
+th.square {
+  padding: 8px;
+}
+
+td.square {
+  height: 58px;
+  width: 58px;
+  border: 1px solid black;
+  text-align: center;
 }
