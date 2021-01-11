@@ -29,6 +29,16 @@
         (* v 12)
         (+ v 69)))
 
+(defn note-on? [midi-msg]
+  (and (= ::note-on (::type midi-msg))
+       (not= 0 (::velocity midi-msg))))
+
+(defn note-off? [midi-msg]
+  (case (::type midi-msg)
+    ::note-off true
+    ::note-on (= 0 (::velocity midi-msg))
+    false))
+
 (defn midi-x-note
   "Returns a stateful transducer that maps midi events to midi notes based on
   priority-fn, which selects from a list of notes currently down."

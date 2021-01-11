@@ -2,6 +2,7 @@
   (:require [clojure.string :as string]
             [goog.string :as gstring]
             [cljs.repl :as repl]
+            [cljs.core.async :as async]
             [reagent.core :as r]
             [fugue.synthdef :as synthdef]
             [fugue.audio :as audio]
@@ -55,7 +56,7 @@
 
 (def make-midi-ctx midi/make-ctx)
 (def midi-context-manager ctrls/midi-ctx-ctrls)
-(def midi-input-monitor monitor/input-monitor)
+(def midi-input monitor/midi-input)
 
 (def audio-ctx-ctrls ctrls/audio-ctx-ctrls)
 (def buffer-ctrl ctrls/buffer-ctrl)
@@ -131,6 +132,14 @@
 [component]
 ")
 
+(defn monitor-held-notes [in-chan out-atom]
+  (async/go
+    (while true
+      (let [msg (async/<! in-chan)]
+        (cond
+          (midi/note-on? msg) (swap! out-atom conj (::midi/note msg))
+          (midi/note-off? msg) (swap! out-atom disj (::midi/note msg)))))))
+
 (def midi-monitor-demo "
 (def names
   [[\"C\" 0] [\"G\" 7] [\"D\" 2] [\"A\" 9] [\"E\" 4] [\"B\" 11]
@@ -139,21 +148,18 @@
 (defn cof [midi-notes]
   (let [intervals (into #{} (map #(mod % 12) midi-notes))]
     [:div.cof-container>div.cof>ul
-    (for [[name interval] names]
-      [:li>i
-       {:class (if (contains? intervals interval) \"active\" \"inactive\")}
-       name])]))
+    (for [[name interval] names
+          :let [active (contains? intervals interval)]]
+      [:li>i {:class (if active \"active\" \"inactive\")} name])]))
 
 (defn component []
-  (let [midi-ctx (ratom nil)
-        notes (ratom #{})]
+  (let [midi-in-chan (async/chan)
+        held-notes (ratom #{})]
+    (monitor-held-notes midi-in-chan held-notes)
     (fn []
       [:div
-        (if-let [mctx @midi-ctx]
-          [midi-input-monitor @midi-ctx (partial reset! notes)]
-          [:button {:on-click #(midi/make-ctx (partial reset! midi-ctx))}
-            (str (if @midi-ctx \"reset\" \"create\") \" midi context\")])
-        [cof @notes]])))
+        [midi-input midi-in-chan]
+        [cof @held-notes]])))
 
 [component]
 ")
