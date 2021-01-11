@@ -7,42 +7,40 @@
             [fugue.cantor :as cantor]
             [fugue.components :refer [slider picker]]
             [fugue.midi :as midi]
+            [fugue.keyboard :as kb]
             [fugue.chords :as chords]))
-
-(defn note-on? [midi-msg]
-  (and (= ::midi/note-on (::midi/type midi-msg))
-       (not= 0 (::midi/velocity midi-msg))))
-
-(defn note-off? [midi-msg]
-  (case (::midi/type midi-msg)
-    ::midi/note-off true
-    ::midi/note-on (= 0 (::midi/velocity midi-msg))
-    false))
 
 (defn midi-selector [midi-ins on-change]
   [:select {:on-change #(on-change (get midi-ins (.. % -target -value)))}
-   [:option {:value nil} "Select an input"]
+   [:option {:value nil} "choose an input"]
    (for [[in-name _] midi-ins]
      [:option {:value in-name} in-name])])
 
-(defn input-monitor [_ notes-cb]
-  (let [msgs (r/atom {})
-        in-mult (r/atom nil)
-        in-chan (async/chan)]
-    (async/go-loop []
-      (let [msg (async/<! in-chan)]
-        (cond
-          (note-on? msg) (swap! msgs assoc (::midi/note msg) msg)
-          (note-off? msg) (swap! msgs dissoc (::midi/note msg)))
-        (notes-cb (keys @msgs))
-        (recur)))
-    (fn [midi-ctx]
+(defn midi-input-selector [midi-ctx out-chan]
+  (let [in-mult (r/atom nil)]
+    (fn []
       [midi-selector
        (::midi/ins midi-ctx)
        (fn [in]
          (when-let [old-mult @in-mult]
-           (async/untap old-mult in-chan))
-         (reset! msgs {})
+           (async/untap old-mult out-chan))
          (when-let [new-mult in]
-           (async/tap new-mult in-chan))
+           (async/tap new-mult out-chan))
          (reset! in-mult in))])))
+
+(defn midi-input [out-chan]
+  (let [midi-ctx (r/atom nil)
+        using-keyboard (r/atom false)]
+    (fn []
+      (if-let [ctx @midi-ctx]
+        (midi-input-selector ctx out-chan)
+        (if @using-keyboard
+          [:p "A is C, W is A#, S is D, etc. Z down octave X up"]
+          [:div
+           [:button {:on-click #(midi/make-ctx (partial reset! midi-ctx))}
+            "midi input"]
+           [:button {:on-click (fn []
+                                 (async/pipe (kb/kb-midi-chan) out-chan)
+                                 (reset! using-keyboard true))}
+            "computer keyboard"]])))))
+
