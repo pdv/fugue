@@ -17,8 +17,6 @@
             [fugue.convolver :as convolver]
             [fugue.ctx-ctrls :as ctrls]
             [fugue.midi-monitor :as monitor]
-            [fugue.colors :as colors]
-            [fugue.cantor :as cantor]
             [fugue.components :as components]))
 
 (def ratom r/atom)
