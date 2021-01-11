@@ -58,9 +58,8 @@
 (defn counter []
   (let [state (r/atom 0)]
     (fn []
-      [:div
-       [:button {:on-click #(swap! state inc)}
-        (str "Clicked " @state " times!")]])))
+      [:button {:on-click #(swap! state inc)}
+       (str "Clicked " @state " times!")])))
 
 (defn ide [eval-fn]
   (let [state (r/atom init-state)]
