@@ -18,42 +18,8 @@ html, body, #app {
   margin: auto;
 }
 
-.box {
-  display: flex;
-  flex-flow: column;
-  border: 1px solid black;
-  margin: 16px;
-  max-width: 80vw;
-}
-
-.box-toolbar {
-  border-bottom: 1px solid black;
-  display: flex;
-  align-items: center;
-  padding: 8px;
-}
-
-#close {
-  display: flex;
-  flex-flow: column;
-  margin-left: auto;
-}
-
-.box-top {
-  border-bottom: 1px solid black;
-  padding: 16px;
-  min-height: 150px;
-}
-
-.box-bottom {
-  flex: 1 1 auto;
-  overflow: hidden;
-}
-
 .CodeMirror {
-  overflow: hidden;
   height: 100%;
-  flex-grow: 1;
 }
 
 .repl-out {
@@ -67,12 +33,6 @@ html, body, #app {
   height: 50%;
 }
 
-#add {
-  width: 40px;
-  height: 40px;
-  margin: 16px;
-}
-
 .ide {
   display: flex;
   flex-flow: row;
@@ -83,20 +43,18 @@ html, body, #app {
 }
 
 .ide-left {
-  flex: 1 1 auto;
+  width: 50%;
   overflow: hidden;
   border-right: 1px solid black;
-  flex-grow: 1;
-  width: 50%;
-  padding: 16px;
-}
-
-.ide-right {
+  padding: 0px;
   display: flex;
   flex-flow: column;
   align-items: stretch;
-  flex-grow: 1;
+}
+
+.ide-right {
   width: 50%;
+  padding: 16px;
 }
 
 .ide-editor-container {
@@ -104,22 +62,37 @@ html, body, #app {
   display: flex;
   flex-flow: row;
   overflow: hidden;
-  resize: vertical;
 }
 
 .ide-file-list {
   height: 100%;
+  width: 200px;
+  min-width: 200px;
   border-right: 1px solid black;
   list-style: none;
   padding: 0px;
   margin: 0px;
+  background-color: #f3f4f8;
 }
 
 .ide-file-list li {
+  line-height: 35px;
+  height: 35px;
   font-style: normal;
-  padding: 8px 16px 8px 16px;
+  padding: 0px 8px;
   margin: 0;
+  background-color: white;
+  border-bottom: 1px solid black;
+}
+
+.ide-file-list li.closed:hover {
+  background-color: #e1e1e1;
   cursor: pointer;
+}
+
+.ide-file-list li.open {
+  background-color: #f3f4f8;
+  color: #111;
 }
 
 .ide-tab-container {
@@ -133,7 +106,7 @@ html, body, #app {
   list-style: none;
   margin: 0;
   padding: 0;
-  background-color: #c2c2c2;
+  background-color: #f3f4f8;
   overflow-y: hidden;
   border-bottom: 1px solid black;
 }
@@ -191,7 +164,8 @@ a.ide-tabs-close:hover {
 }
 
 .ide-output-container {
-  flex-grow: 1;
+  height: 200px;
+  min-height: 200px;
 }
 
 .ide-toolbar button {

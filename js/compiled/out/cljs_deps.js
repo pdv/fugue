@@ -100,6 +100,6 @@ goog.addDependency("../cljs/js.js", ['cljs.js'], ['cljs.compiler', 'cljs.tools.r
 goog.addDependency("../fugue/bootstrap.js", ['fugue.bootstrap'], ['fugue.api', 'cljs.js', 'cljs.core']);
 goog.addDependency("../fugue/demo/cantor.js", ['fugue.demo.cantor'], ['fugue.components', 'goog.string', 'reagent.core', 'cljs.core']);
 goog.addDependency("../fugue/demo/demo_loader.js", ['fugue.demo.demo_loader'], ['cljs.core']);
-goog.addDependency("../fugue/ide.js", ['fugue.ide'], ['fugue.components', 'reagent.core', 'cljs.core', 'fugue.demo.demo_loader', 'fugue.editor', 'clojure.string']);
+goog.addDependency("../fugue/ide.js", ['fugue.ide'], ['reagent.core', 'cljs.core', 'fugue.demo.demo_loader', 'fugue.editor']);
 goog.addDependency("../fugue/web.js", ['fugue.web'], ['reagent.core', 'fugue.ide', 'cljs.core', 'fugue.bootstrap', 'reagent.dom']);
 goog.addDependency("../fugue/demo/cof.js", ['fugue.demo.cof'], ['fugue.components', 'reagent.core', 'cljs.core']);

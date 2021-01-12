@@ -1,7 +1,5 @@
 (ns fugue.ide
   (:require [reagent.core :as r]
-            [clojure.string :refer [join trim]]
-            [fugue.components :refer [picker]]
             [fugue.demo.demo-loader :as demo-loader]
             [fugue.editor :refer [editor output-box]]))
 
@@ -10,23 +8,6 @@
     [:h2 "welcome to fugue"]
     [:p "click 'eval' to evaluate the buffer"]
     [:p "then click 'render' to display the ui"]])
-
-(defn file-browser [filenames open-files on-select]
-  [:ul.ide-file-list
-   (for [filename filenames]
-     ^{:key filename}
-     [:li
-      {:on-click #(on-select filename)
-       :style {:color (if (contains? open-files filename) "#666" "inherit")}}
-      filename])])
-
-(defn tabs [tab-names selected-tab-name on-select on-close]
-  [:ul.ide-tabs
-   (for [name tab-names]
-     ^{:key name}
-     [:li {:class-name (if (= selected-tab-name name) "selected" "unselected")}
-      [:a.ide-tabs-name {:on-click #(on-select name)} name]
-      [:a.ide-tabs-close {:on-click #(on-close name)} "✕"]])])
 
 (def init-state
   {:buffer ""
@@ -53,21 +34,27 @@
     (defn eval! [text]
       (eval-fn text (partial swap! state assoc :output)))
     (fn []
-      (print "output: " (:output @state))
       [:div.ide
-       [:div.ide-left (:rendering @state)]
-       [:div.ide-right
+       [:div.ide-left
         [:div.ide-editor-container
-         [file-browser
-          (keys (:files @state))
-          (:tabs @state)
-          (partial swap! state load-buffer)]
+         [:ul.ide-file-list
+          (for [filename (keys (:files @state))]
+            ^{:key filename}
+            [:li
+             {:on-click #(swap! state load-buffer filename)
+              :class-name (if (contains? (:tabs @state) filename) "open" "closed")}
+             filename])]
          [:div.ide-tab-container
-          [tabs
-           (:tabs @state)
-           (:curr-tab @state)
-           (partial swap! state load-buffer)
-           (partial swap! state update :tabs disj)]
+          [:ul.ide-tabs
+           (for [tab-name (:tabs @state)]
+             ^{:key tab-name}
+             [:li {:class-name (if (= tab-name (:curr-tab @state)) "selected" "unselected")}
+              [:a.ide-tabs-name
+               {:on-click #(swap! state load-buffer tab-name)}
+               tab-name]
+              [:a.ide-tabs-close
+               {:on-click #(swap! state update :tabs disj tab-name)}
+               "✕"]])]
           [editor
            (:buffer @state)
            (partial swap! state assoc :input)
@@ -88,4 +75,5 @@
           {:on-click #(swap! state update :vim-on not)}
           (str (if (:vim-on @state) "disable" "enable") " vim bindings")]]
         [:div.ide-output-container
-         [output-box (:output @state)]]]])))
+         [output-box (:output @state)]]]
+       [:div.ide-right (:rendering @state)]])))

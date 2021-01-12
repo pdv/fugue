@@ -21,4 +21,4 @@ return fugue.web._main.call(null);
 });
 fugue.web._main.call(null);
 
-//# sourceMappingURL=web.js.map?rel=1610418175589
+//# sourceMappingURL=web.js.map?rel=1610422551055
