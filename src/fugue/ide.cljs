@@ -5,17 +5,6 @@
             [fugue.demo.demo-loader :as demo-loader]
             [fugue.editor :refer [editor output-box]]))
 
-(defn prepare-demo
-  "Drops everything before the first comment (the ns clause)"
-  [text]
-  (join "" (drop-while (partial not= ";") text)))
-
-(def init-files
-  {"harmonic cantor table" demo-loader/cantor
-   "circle of intervals" demo-loader/cof
-   "midi chord detector" demo-loader/midi-monitor
-   "user" "(ns fugue.user)\n\n"})
-
 (def welcome
   [:div
     [:h2 "welcome to fugue"]
@@ -43,7 +32,10 @@
   {:buffer ""
    :tabs #{"user"}
    :curr-tab "user"
-   :files {"user" ""}
+   :files {"cantor-harmonies" demo-loader/cantor
+           "circle-of-fifths" demo-loader/cof
+           "chord-detector" demo-loader/midi-monitor
+           "user" "(ns fugue.user)\n\n"}
    :input ""
    :selection ""
    :output ""
@@ -61,6 +53,7 @@
     (defn eval! [text]
       (eval-fn text (partial swap! state assoc :output)))
     (fn []
+      (print "output: " (:output @state))
       [:div.ide
        [:div.ide-left (:rendering @state)]
        [:div.ide-right
@@ -88,8 +81,8 @@
            :disabled (empty? (:selected @state))}
             "eval selection (ctrl-shift-space)"]
          [:button
-          {:on-click #(swap! state assoc :rendering (:output @state))
-           :disabled (not (vector? (:output @state)))}
+          {:on-click #(swap! state assoc :rendering (:value (:output @state)))
+           :disabled (-> @state :output :value vector? not)}
            "render"]
          [:button
           {:on-click #(swap! state update :vim-on not)}
