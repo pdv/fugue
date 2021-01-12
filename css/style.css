@@ -100,10 +100,11 @@ html, body, #app {
 }
 
 .ide-editor-container {
-  flex-grow: 3;
+  flex-grow: 2;
   display: flex;
   flex-flow: row;
   overflow: hidden;
+  resize: vertical;
 }
 
 .ide-file-list {
@@ -153,6 +154,7 @@ html, body, #app {
 a.ide-tabs-name {
   display: block;
   height: 30px;
+  min-width: 60px;
   line-height: 30px;
   padding: 0 38px 0 8px;
 }
