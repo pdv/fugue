@@ -1,6 +1,5 @@
 (ns fugue.demo.midi-monitor
-  (:require [cljs.core.async :as async]
-            [fugue.api :refer [monitor-chan midi-input ratom note-on? note-off? monitor-chan]]))
+  (:require [live.api :refer [chan monitor-chan midi-input ratom note-on? note-off? monitor-chan]]))
 
 ;;
 
@@ -35,7 +34,7 @@
   (every? #(contains? (set relative-notes) %) chord))
 
 (defn component []
-  (let [midi-in-chan (async/chan)
+  (let [midi-in-chan (chan)
         held-notes (ratom #{})]
     (monitor-chan midi-in-chan
                   (fn [msg]

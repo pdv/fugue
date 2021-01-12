@@ -13,8 +13,7 @@
 
 (def eval-settings
   {:eval cljs.js/js-eval
-   :load (fn [m cb] (.log js/console m) (cb nil))
    :context :statement})
 
-(defn eval-str [source cb]
-  (cljs.js/eval-str state source nil eval-settings cb))
+(defn eval-str [source load-fn cb]
+  (cljs.js/eval-str state source nil (assoc eval-settings :load load-fn) cb))

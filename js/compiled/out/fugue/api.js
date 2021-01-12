@@ -52,6 +52,7 @@ fugue.api.metro = fugue.metronome.metro;
 fugue.api.sequencer = fugue.sequencer.sequencer;
 fugue.api.sampler = fugue.sampler.sampler;
 fugue.api.conv = fugue.convolver.convolver;
+fugue.api.chan = cljs.core.async.chan;
 fugue.api.make_midi_ctx = fugue.midi.make_ctx;
 fugue.api.midi_context_manager = fugue.ctx_ctrls.midi_ctx_ctrls;
 fugue.api.midi_input = fugue.midi_input.midi_input;
@@ -203,4 +204,4 @@ return fugue.api.out.call(null,fugue.api.sampler.call(null,"pumpthat.wav",fugue.
 });
 fugue.api.demo_text = "hello";
 
-//# sourceMappingURL=api.js.map?rel=1610422546101
+//# sourceMappingURL=api.js.map?rel=1610481570016

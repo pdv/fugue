@@ -1,10 +1,8 @@
 (ns fugue.demo.cof
-  (:require [fugue.components :refer [int-slider]]
-            [reagent.core :as r]))
-
-;;
+  (:require [live.api :refer [ratom int-slider]]))
 
 (def note-names ["C" "Db" "D" "Eb" "E" "F" "F#" "G" "Ab" "A" "Bb" "B"])
+
 (def interval-names
   ["unison"
    "chromatic scale"
@@ -80,8 +78,8 @@
   (/ (* a b) (gcd a b)))
 
 (defn interval-circle []
-  (let [root (r/atom 0)
-        interval (r/atom 5)]
+  (let [root (ratom 0)
+        interval (ratom 5)]
     (fn []
       [:div
        [int-slider root 0 11]

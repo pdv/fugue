@@ -52,6 +52,7 @@
 (def sampler sampler/sampler)
 (def conv convolver/convolver)
 
+(def chan async/chan)
 (def make-midi-ctx midi/make-ctx)
 (def midi-context-manager ctrls/midi-ctx-ctrls)
 (def midi-input midi-input/midi-input)
