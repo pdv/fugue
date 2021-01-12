@@ -5,3 +5,4 @@
 (def cantor (inline-resource "src/fugue/demo/cantor.cljs"))
 (def midi-monitor (inline-resource "src/fugue/demo/midi_monitor.cljs"))
 (def api (inline-resource "src/fugue/demo/live/api.cljs"))
+
