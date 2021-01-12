@@ -1,11 +1,5 @@
 (ns fugue.demo.cantor
-  (:require [reagent.core :as r]
-            [goog.string :refer [format]]
-            [fugue.components :refer [slider picker]]))
-
-(def ratom r/atom)
-
-;; ~
+  (:require [fugue.api :refer [ratom format slider picker]]))
 
 (defn note->hz [note]
   (as-> note v

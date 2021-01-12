@@ -12,11 +12,11 @@
 (def init-state
   {:buffer ""
    :tabs #{"user"}
-   :curr-tab "user"
-   :files {"cantor-harmonies" demo-loader/cantor
-           "circle-of-fifths" demo-loader/cof
-           "chord-detector" demo-loader/midi-monitor
-           "user" "(ns fugue.user)\n\n"}
+   :curr-tab "fugue.user"
+   :files {"demo.cantor-harmonies" demo-loader/cantor
+           "demo.circle-of-fifths" demo-loader/cof
+           "demo.chord-detector" demo-loader/midi-monitor
+           "fugue.user" "(ns fugue.user)\n\n"}
    :input ""
    :selection ""
    :output ""
@@ -32,7 +32,14 @@
 (defn ide [eval-fn]
   (let [state (r/atom init-state)]
     (defn eval! [text]
-      (eval-fn text (partial swap! state assoc :output)))
+      (eval-fn text
+               (fn [m cb]
+                 (let [filename (str (:name m))
+                       source (if (= "fugue.api" filename)
+                                ""
+                                (get-in @state [:files filename]))]
+                   (cb (if source {:lang :clj :source source} nil))))
+               (partial swap! state assoc :output)))
     (fn []
       [:div.ide
        [:div.ide-left
