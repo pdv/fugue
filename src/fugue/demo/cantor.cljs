@@ -1,5 +1,5 @@
 (ns fugue.demo.cantor
-  (:require [fugue.api :refer [ratom format slider picker]]))
+  (:require [live.api :refer [ratom format slider picker]]))
 
 (defn note->hz [note]
   (as-> note v

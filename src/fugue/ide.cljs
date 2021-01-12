@@ -11,11 +11,12 @@
 
 (def init-state
   {:buffer ""
-   :tabs #{"user"}
+   :tabs #{"fugue.user"}
    :curr-tab "fugue.user"
    :files {"demo.cantor-harmonies" demo-loader/cantor
            "demo.circle-of-fifths" demo-loader/cof
            "demo.chord-detector" demo-loader/midi-monitor
+           "live.api" demo-loader/api
            "fugue.user" "(ns fugue.user)\n\n"}
    :input ""
    :selection ""
