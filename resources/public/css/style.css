@@ -67,23 +67,32 @@ html, body, #app {
 .ide-file-list {
   height: 100%;
   width: 200px;
+  min-width: 200px;
   border-right: 1px solid black;
   list-style: none;
   padding: 0px;
   margin: 0px;
-  background-color: #c2c2c2;
+  background-color: #f3f4f8;
 }
 
 .ide-file-list li {
+  line-height: 35px;
+  height: 35px;
   font-style: normal;
-  padding: 8px 16px 8px 16px;
+  padding: 0px 8px;
   margin: 0;
-  cursor: pointer;
   background-color: white;
+  border-bottom: 1px solid black;
 }
 
-.ide-file-list li:hover {
-  color: #e1e1e1;
+.ide-file-list li.closed:hover {
+  background-color: #e1e1e1;
+  cursor: pointer;
+}
+
+.ide-file-list li.open {
+  background-color: #f3f4f8;
+  color: #111;
 }
 
 .ide-tab-container {
@@ -97,7 +106,7 @@ html, body, #app {
   list-style: none;
   margin: 0;
   padding: 0;
-  background-color: #c2c2c2;
+  background-color: #f3f4f8;
   overflow-y: hidden;
   border-bottom: 1px solid black;
 }
@@ -156,6 +165,7 @@ a.ide-tabs-close:hover {
 
 .ide-output-container {
   height: 200px;
+  min-height: 200px;
 }
 
 .ide-toolbar button {

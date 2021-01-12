@@ -1,7 +1,5 @@
 (ns fugue.ide
   (:require [reagent.core :as r]
-            [clojure.string :refer [join trim]]
-            [fugue.components :refer [picker]]
             [fugue.demo.demo-loader :as demo-loader]
             [fugue.editor :refer [editor output-box]]))
 
@@ -55,7 +53,7 @@
                {:on-click #(swap! state load-buffer tab-name)}
                tab-name]
               [:a.ide-tabs-close
-               {:on-click #(swap! state update :tabs disj)}
+               {:on-click #(swap! state update :tabs disj tab-name)}
                "✕"]])]
           [editor
            (:buffer @state)
