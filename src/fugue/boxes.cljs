@@ -28,7 +28,7 @@
                      (zip/insert-left loc new-box))))
         (recur (zip/next loc))))))
 
-(defn map-values [boxes f]
+(defn map-values [f boxes]
   (loop [loc (zip/seq-zip boxes)]
     (if (zip/end? loc)
       (zip/root loc)
