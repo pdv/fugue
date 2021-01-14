@@ -32,22 +32,25 @@
       (update :boxes boxes/insert :below (:active state) (:next-id state))))
 
 (defn box [state on-shortcut name]
-  (let [file (get-in state [:files name])]
-    (cond
-      (vector? file) file
-      (string? file)
+  (let [init-text (get-in state [:files name])
+        buffer (r/atom init-text)]
+    (fn []
+      (let [buffer-val @buffer]
+        (cond
+          (vector? buffer-val) buffer-val
+          (string? buffer-val)
 ;      [:p file]
-      [editor/editor file #(print "on-change") #(print "on-selection-change") on-shortcut {"keyMap" "vim"}]
-      :else [:p (str file)])))
+          [editor/editor init-text (partial reset! buffer) #(print "on-selection-change") #(on-shortcut @buffer) {"keyMap" "vim"}]
+          :else [:p (str buffer-val)])))))
 
 (defn mapped-boxes [state on-shortcut]
-  (boxes/map-values (:boxes state) (partial box state on-shortcut)))
+  (boxes/map-values (:boxes state) (partial vector box state on-shortcut)))
 
 (defn app []
   (let [eval-state (cljs.js/empty-state)
         state (r/atom init-state)]
-    (defn eval! []
-      (let [[source settings] ((juxt current-buffer-text eval-settings) @state)
+    (defn eval! [source]
+      (let [settings (eval-settings @state)
             cb (partial swap! state on-eval)]
         (cljs.js/eval-str eval-state source nil settings cb)))
     (fn []
