@@ -4,8 +4,7 @@
 (defn in-row? [loc]
   (-> (zip/path loc)
       (count)
-      (mod 2)
-      (= 1)))
+      odd?))
 
 (defn insert [boxes direction box new-box]
   (loop [loc (zip/seq-zip boxes)]
@@ -38,12 +37,13 @@
 
 (defn row-or-col [box is-row]
   [:div {:style {:display "flex"
-                 :flex-grow 0
+                 :margin "4px"
+                 :border "1px solid black"
+                 :flex-grow 1
                  :flex-flow (if is-row "row" "column")}}
-   (cond
-     (seq? box) (map #(row-or-col % (not is-row)) box)
-     (vector? box) box
-     :else [:p (str box)])])
+   (if (seq? box)
+     (map #(row-or-col % (not is-row)) box)
+     box)])
 
 (defn boxes-container [boxes on-eval-click]
   [:div
