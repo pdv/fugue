@@ -20,6 +20,8 @@
              settings (clj->js (merge settings {:mode "clojure" :lineNumbers true}))
              cm (.fromTextArea js/CodeMirror node settings)]
          (.setOption cm "extraKeys", #js {"Shift-Ctrl-Space" on-shortcut})
+         (.defineAction js/CodeMirror.Vim "space" #(print "space"))
+         (.mapCommand js/CodeMirror.Vim "<Space>" "action" "space" #js {} #js {"context" "normal"})
          (.on cm "change" #(on-change (.getValue %)))
          (.on cm "cursorActivity" #(on-selection-change (.getSelection %)))
          (.on cm "inputRead" (fn [_ event]
