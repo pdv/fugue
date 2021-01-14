@@ -37,9 +37,8 @@
 
 (defn row-or-col [box is-row]
   [:div {:style {:display "flex"
-                 :margin "4px"
-                 :border "1px solid black"
-                 :flex-grow 1
+                 :flex 1
+                 :flex-basis 0
                  :flex-flow (if is-row "row" "column")}}
    (if (seq? box)
      (map #(row-or-col % (not is-row)) box)

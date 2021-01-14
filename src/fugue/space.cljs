@@ -29,32 +29,46 @@
 (defn on-eval [state result]
   (-> state
       (assoc-in [:files (:next-id state)] (:value result))
-      (update :boxes boxes/insert :below (:active state) (:next-id state))))
+      (update :boxes boxes/insert :below (:active state) (:next-id state))
+      (update :next-id inc)))
 
-(defn box [state on-shortcut name]
-  (let [init-text (get-in state [:files name])
-        buffer (r/atom init-text)]
-    (fn []
-      (let [buffer-val @buffer]
-        (cond
-          (vector? buffer-val) buffer-val
-          (string? buffer-val)
-;      [:p file]
-          [editor/editor init-text (partial reset! buffer) #(print "on-selection-change") #(on-shortcut @buffer) {"keyMap" "vim"}]
-          :else [:p (str buffer-val)])))))
+(defn box [value on-change on-shortcut]
+  [:div {:style {:border "1px solid black"
+                 :flex-basis 0
+                 :flex 1
+                 :margin "4px"}}
+   (cond
+     (vector? value) value
+     (string? value)
+     [editor/editor
+      value
+      {:on-change on-change
+       :on-selection-change #(print "on-selection-change")
+       :on-shortcut on-shortcut}
+      {"keyMap" "vim"}]
+     :else [:p (str value)])])
 
-(defn mapped-boxes [state on-shortcut]
-  (boxes/map-values (:boxes state) (partial vector box state on-shortcut)))
+(defn mapped-boxes [state on-change on-shortcut]
+  (boxes/map-values (:boxes state)
+                    (fn [id]
+                      [box (get-in state [:files id]) #(on-change id %) on-shortcut])))
 
 (defn app []
   (let [eval-state (cljs.js/empty-state)
         state (r/atom init-state)]
-    (defn eval! [source]
-      (let [settings (eval-settings @state)
+    (defn eval! []
+      (let [[source settings] ((juxt current-buffer-text eval-settings) @state)
             cb (partial swap! state on-eval)]
+        (print "evaling")
+        (.log js/console source)
         (cljs.js/eval-str eval-state source nil settings cb)))
+    (.defineAction js/CodeMirror.Vim "eval!" eval!)
+    (.mapCommand js/CodeMirror.Vim "<Space>" "action" "eval!" #js {} #js {"context" "normal"})
     (fn []
-      (let [mapped (mapped-boxes @state eval!)]
+      (let [mapped (mapped-boxes @state
+                                 (fn [id new-val]
+                                   (swap! state assoc-in [:files id] new-val))
+                                 eval!)]
         (print mapped)
         [boxes/boxes-container mapped eval!]))))
 

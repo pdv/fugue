@@ -9,39 +9,35 @@
 (.registerHelper js/CodeMirror "hintWords" "clojure"
                  #js ["midi" "audio" "buffer" "render"])
 
-(defn editor [init on-change on-selection-change on-shortcut settings]
+(defn maybe-show-hint [cm input-read-event]
+  (if (re-find #"[a-zA-Z]" (first (oget input-read-event "text")))
+    (.showHint cm #js {:completeSingle false})))
+
+(defn editor [init {:keys [on-change on-selection-change on-shortcut]} options]
   (let [codemirror (volatile! nil)]
-  (r/create-class
-    {:render
-     (fn [] [:textarea.editor {:default-value init}])
-     :component-did-mount
-     (fn [this]
-       (let [node (rdom/dom-node this)
-             settings (clj->js (merge settings {:mode "clojure" :lineNumbers true}))
-             cm (.fromTextArea js/CodeMirror node settings)]
-         (.setOption cm "extraKeys", #js {"Shift-Ctrl-Space" on-shortcut})
-         (.defineAction js/CodeMirror.Vim "space" on-shortcut)
-         (.mapCommand js/CodeMirror.Vim "<Space>" "action" "space" #js {} #js {"context" "normal"})
-         (.on cm "change" #(on-change (.getValue %)))
-         (.on cm "cursorActivity" #(on-selection-change (.getSelection %)))
-         (.on cm "inputRead" (fn [_ event]
-                               (if (re-find #"[a-zA-Z]" (first (oget event "text")))
-                                 (.showHint cm #js {:completeSingle false}))))
-         (vreset! codemirror cm)
-         (js/setTimeout #(on-change init) 5)))
-     :component-will-unmount
-     (fn []
-       (.toTextArea @codemirror))
-     :component-did-update
-     (fn [this old-argv]
-       (let [argv (r/argv this)
-             old-init-text (second old-argv)
-             new-init-text (second argv)
-             new-options (last argv)]
-         (if (not= old-init-text new-init-text)
-           (.setValue @codemirror new-init-text))
-         (doseq [[key value] new-options]
-           (.setOption @codemirror (clj->js key) value))))})))
+    (r/create-class
+      {:render
+       (fn [] [:textarea.editor {:default-value init}])
+       :component-did-mount
+       (fn [this]
+         (let [node (rdom/dom-node this)
+               settings (clj->js (merge options {:mode "clojure" :lineNumbers true}))
+               cm (.fromTextArea js/CodeMirror node settings)]
+           (vreset! codemirror cm)
+           (doto cm
+             (.on "change" #(on-change (.getValue %)))
+             (.on "cursorActivity" #(on-selection-change (.getSelection %)))
+             (.on "inputRead" maybe-show-hint)
+             (.setOption "extraKeys" #js {"Shift-Ctrl-Space" on-shortcut}))))
+       :component-will-unmount
+       (fn []
+         (if-let [cm @codemirror] (.toTextArea cm)))
+       :component-did-update
+       (fn [this old-argv]
+         (let [argv (r/argv this)
+               new-options (last argv)]
+           (doseq [[key value] new-options]
+             (.setOption @codemirror (clj->js key) value))))})))
 
 (defn repl-out [text]
   [:textarea.repl-out {:read-only true :value text}])
