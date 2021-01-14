@@ -40,9 +40,10 @@
   [:div {:style {:display "flex"
                  :flex-grow 0
                  :flex-flow (if is-row "row" "column")}}
-   (if (seq? box)
-     (map #(row-or-col % (not is-row)) box)
-     [:p (str box)])])
+   (cond
+     (seq? box) (map #(row-or-col % (not is-row)) box)
+     (vector? box) box
+     :else [:p (str box)])])
 
 (defn boxes-container [boxes on-eval-click]
   [:div

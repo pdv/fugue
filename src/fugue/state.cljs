@@ -8,7 +8,7 @@
    :active 1
    :next-id 4
    :result nil
-   :files {1 "(fugue.state/foo)" 2 "bar" 3 "biz"}})
+   :files {1 "[fugue.state/component]" 2 "bar" 3 "biz"}})
 
 (defn foo []
   "nice")
@@ -26,7 +26,7 @@
 
 (defn on-eval [state result]
   (-> state
-      (assoc-in [:files (:next-id state)] (str result))
+      (assoc-in [:files (:next-id state)] (:value result))
       (update :boxes boxes/insert :below (:active state) (:next-id state))))
 
 (defn mapped-boxes [state]
