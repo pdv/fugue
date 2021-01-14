@@ -13,6 +13,7 @@
       (if (= box (zip/node loc))
         (zip/root
           (case direction
+            :after (zip/insert-right loc new-box)
             :right (if (in-row? loc)
                      (zip/insert-right loc new-box)
                      (zip/edit loc #(list % new-box)))

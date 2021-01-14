@@ -6,11 +6,11 @@
             [fugue.editor :as editor]))
 
 (def init-state
-  {:boxes '(1 (2 3))
+  {:boxes '(1)
    :active 1
-   :next-id 4
+   :next-id 2
    :result nil
-   :files {1 "[fugue.space/app]" 2 [:h1 "this is an element"] 3 {:value 43}}})
+   :files {1 "(+ 1 23)"}})
 
 (defn foo []
   "nice")
@@ -29,13 +29,15 @@
 (defn on-eval [state result]
   (-> state
       (assoc-in [:files (:next-id state)] (:value result))
-      (update :boxes boxes/insert :below (:active state) (:next-id state))
+      (update :boxes boxes/insert :after (:active state) (:next-id state))
       (update :next-id inc)))
 
-(defn box [value on-change on-shortcut]
-  [:div {:style {:border "1px solid black"
+(defn box [id value active on-change on-shortcut]
+  [:div {:style {:border (str "1px solid " (if active "black" "gray"))
                  :flex-basis 0
                  :flex 1
+                 :display "flex"
+                 :flex-flow "column"
                  :margin "4px"}}
    (cond
      (vector? value) value
@@ -46,12 +48,22 @@
        :on-selection-change #(print "on-selection-change")
        :on-shortcut on-shortcut}
       {"keyMap" "vim"}]
-     :else [:p (str value)])])
+     :else [:p {:style {:flex 1}} (str value)])
+   [:div {:style {:height "29px" :width "100%"
+                  :border-top "1px solid black"}}
+    [:div {:style {:height "29px" :width "29px"
+                   :border-right "1px solid black"}}
+     id]]])
 
 (defn mapped-boxes [state on-change on-shortcut]
   (boxes/map-values (:boxes state)
                     (fn [id]
-                      [box (get-in state [:files id]) #(on-change id %) on-shortcut])))
+                      [box
+                       id
+                       (get-in state [:files id])
+                       (= id (:active state))
+                       #(on-change id %)
+                       on-shortcut])))
 
 (defn app []
   (let [eval-state (cljs.js/empty-state)
