@@ -57,9 +57,6 @@
              (cb {:lang :clj :source source})
              (cb nil)))})
 
-(defn eval-active [eval-state app-state cb]
-  (cljs.js/eval-str eval-state (current-buffer-text app-state) nil (eval-settings app-state) cb))
-
 (defn on-eval [state result]
   (-> state
       (assoc-in [:files (:next-id state)] (str result))
@@ -77,7 +74,11 @@
   (let [eval-state (cljs.js/empty-state load-namespace)
         app-state (r/atom init-state-m)]
     (defn eval! []
-      (eval-active eval-state @app-state (partial swap! app-state on-eval)))
+      (let [state @app-state
+            source (current-buffer-text state)
+            settings (eval-settings state)
+            cb (partial swap! app-state on-eval)]
+        (cljs.js/eval-str eval-state source nil settings cb)))
     (fn []
       [:div
        [:button {:on-click eval!}
