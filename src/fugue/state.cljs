@@ -8,7 +8,10 @@
    :active 1
    :next-id 4
    :result nil
-   :files {1 "(+ 82 34)" 2 "bar" 3 "biz"}})
+   :files {1 "(fugue.state/foo)" 2 "bar" 3 "biz"}})
+
+(defn foo []
+  "nice")
 
 (defn current-buffer-text [state]
   (get-in state [:files (:active state)]))
@@ -29,8 +32,9 @@
 (defn mapped-boxes [state]
   (boxes/map-values (:boxes state) #(get-in state [:files %])))
 
-(defn component [eval-state]
-  (let [state (r/atom init-state)]
+(defn component []
+  (let [eval-state (cljs.js/empty-state)
+        state (r/atom init-state)]
     (defn eval! []
       (let [[source settings] ((juxt current-buffer-text eval-settings) @state)
             cb (partial swap! state on-eval)]
