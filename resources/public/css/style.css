@@ -10,14 +10,55 @@ html, body, #app {
   display: flex;
 }
 
-.editor {
+.CodeMirror {
   flex: 1;
 }
 
-.CodeMirror {
-  flex: 1
+.box {
+  flex: 1;
+  flex-basis: 0;
+  display: flex;
+  flex-flow: column;
+
+  margin: 4px;
+  border: 1px solid #ddd;
+  color: #ddd;
 }
 
-.CodeMirror-gutters {
-  height: 100%;
+.box.active {
+  border: 1px solid black;
+  color: black;
+}
+
+.status-bar {
+  height: 29px;
+  width: 100%;
+  border-top: 1px solid #ddd;
+}
+
+.box.active .status-bar {
+  border-top: 1px solid black;
+}
+
+.status-bar a {
+  display: block;
+  line-height: 29px;
+  width: 29px;
+  text-align: center;
+  border-right: 1px solid #ddd;
+}
+
+.box.active .status-bar a {
+  border-right: 1px solid black;
+  background-color: black;
+  color: white;
+}
+
+.output {
+  flex: 1;
+}
+
+.value-box {
+  padding: 16px;
+  margin: 0;
 }
