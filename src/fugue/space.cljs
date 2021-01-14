@@ -10,7 +10,7 @@
    :active 1
    :next-id 4
    :result nil
-   :files {1 "[fugue.space/app]" 2 [:h1 "this is an element"] 3 "value43"}})
+   :files {1 "[fugue.space/app]" 2 [:h1 "this is an element"] 3 {:value 43}}})
 
 (defn foo []
   "nice")
@@ -36,6 +36,7 @@
     (cond
       (vector? file) file
       (string? file)
+;      [:p file]
       [editor/editor file #(print "on-change") #(print "on-selection-change") on-shortcut {"keyMap" "vim"}]
       :else [:p (str file)])))
 

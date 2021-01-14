@@ -29,6 +29,9 @@
                                  (.showHint cm #js {:completeSingle false}))))
          (vreset! codemirror cm)
          (js/setTimeout #(on-change init) 5)))
+     :component-will-unmount
+     (fn []
+       (.toTextArea @codemirror))
      :component-did-update
      (fn [this old-argv]
        (let [argv (r/argv this)

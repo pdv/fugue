@@ -45,9 +45,5 @@
      (map #(row-or-col % (not is-row)) box)
      box)])
 
-(defn boxes-container [boxes on-eval-click]
-  [:div
-   [:button {:on-click on-eval-click}
-    "Click me"]
-   [:p (str boxes)]
-   (row-or-col boxes true)])
+(defn boxes-container [boxes]
+  (row-or-col boxes true))
