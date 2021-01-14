@@ -56,9 +56,17 @@ html, body, #app {
 
 .output {
   flex: 1;
+  display: flex;
+  flex-flow: column;
 }
 
 .value-box {
   padding: 16px;
   margin: 0;
+}
+
+.flex {
+  flex-basis: 0;
+  flex: 1;
+  display: flex;
 }

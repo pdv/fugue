@@ -37,10 +37,7 @@
                          loc))))))
 
 (defn row-or-col [box is-row]
-  [:div {:style {:display "flex"
-                 :flex 1
-                 :flex-basis 0
-                 :flex-flow (if is-row "row" "column")}}
+  [:div.flex {:style {:flex-flow (if is-row "row" "column")}}
    (if (seq? box)
      (map #(row-or-col % (not is-row)) box)
      box)])
