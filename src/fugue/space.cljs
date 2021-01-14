@@ -7,7 +7,7 @@
 
 (def init-state-m
   {:boxes '(1 (2 3))
-   :active-box 1
+   :active 1
    :next-id 4
    :result nil
    :files {1 "(+ 82 34)" 2 "bar" 3 "biz"}})
@@ -43,26 +43,27 @@
         (recur (zip/next loc))))))
 
 
-(defn init-state [state]
-  (assoc-in state [:cljs.analyzer/namespaces 'cljs.user]
-            (analyzer-state 'fugue.api)))
+(defn load-namespace [eval-state]
+  (assoc-in eval-state [:cljs.analyzer/namespaces 'cljs.user] (analyzer-state 'fugue.api)))
 
-(def state (cljs.js/empty-state init-state))
+(defn current-buffer-text [state]
+  (get-in state [:files (:active state)]))
 
-(def eval-settings
+(defn eval-settings [state]
   {:eval cljs.js/js-eval
-   :context :statement})
+   :context :statement
+   :load (fn [m cb]
+           (if-let [source (get-in state [:files (str :name m)])]
+             (cb {:lang :clj :source source})
+             (cb nil)))})
 
-(defn eval-str [source load-fn cb]
-  (cljs.js/eval-str state source nil (assoc eval-settings :load load-fn) cb))
+(defn eval-active [eval-state app-state cb]
+  (cljs.js/eval-str eval-state (current-buffer-text app-state) nil (eval-settings app-state) cb))
 
-(defn do-eval [state cb]
-  (let [text (get-in state [:files (:active-box state)])
-        load-fn (fn [m cb]
-                  (if-let [source (get-in state [:files (str (:name m))])]
-                    (cb {:lang :clj :source source})
-                    (cb nil)))]
-    (eval-str text load-fn cb)))
+(defn on-eval [state result]
+  (-> state
+      (assoc-in [:files (:next-id state)] (str result))
+      (update :boxes insert :below (:active state) (:next-id state))))
 
 (defn boxes [files box is-row]
   [:div {:style {:display "flex"
@@ -73,13 +74,16 @@
      [:p (str (get files box))])])
 
 (defn app []
-  (let [state (r/atom init-state-m)]
+  (let [eval-state (cljs.js/empty-state load-namespace)
+        app-state (r/atom init-state-m)]
+    (defn eval! []
+      (eval-active eval-state @app-state (partial swap! app-state on-eval)))
     (fn []
       [:div
-       [:button {:on-click #(do-eval @state (partial swap! state update :boxes insert :below (:active-box @state)))}
+       [:button {:on-click eval!}
         "Click me"]
-       [:p (str @state)]
-       (boxes (:files @state) (:boxes @state) true)])))
+       [:p (str @app-state)]
+       (boxes (:files @app-state) (:boxes @app-state) true)])))
 
 
 
