@@ -61,7 +61,12 @@
    ["x"] ["x"]})
 
 (defn make-actions [state eval-state]
-  {["e" "b"] (partial do-eval eval-state)})
+  {["1"] (fn [_ cb]
+           (print "action")
+           (cb (fn [s]
+                 (print "swap")
+                 (activate s 1))))
+   ["e" "b"] (partial do-eval eval-state)})
 
 (defn on-key
   "actions is a map of key sequences to functions that take state and cb
@@ -75,7 +80,9 @@
       (cb show-popup)
       ; If there's an action, close the popup and perform it
       (contains? actions new-seq)
-      ((get actions new-seq) state cb)
+      (do
+        (print "here")
+        ((get actions new-seq) state cb))
       ; If we're on track for an action, show the options
       (contains? popup-options new-seq)
       (cb #(assoc % :key-seq new-seq))
