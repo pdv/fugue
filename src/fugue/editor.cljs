@@ -17,9 +17,12 @@
   (let [codemirror (volatile! nil)]
     (r/create-class
       {:render
-       (fn [] [:textarea.editor {:default-value init}])
+       (fn []
+;         (print "editor--render")
+         [:textarea.editor {:default-value init}])
        :component-did-mount
        (fn [this]
+;         (print "editor--did-mount")
          (let [node (rdom/dom-node this)
                settings (clj->js (merge options {:mode "clojure" :lineNumbers true}))
                cm (.fromTextArea js/CodeMirror node settings)]
@@ -32,13 +35,17 @@
              (.focus))))
        :component-will-unmount
        (fn []
+;         (print "editor--will-unmount")
          (if-let [cm @codemirror] (.toTextArea cm)))
        :component-did-update
        (fn [this old-argv]
+;         (print "editor--did-update")
          (let [argv (r/argv this)
+               old-options (last old-argv)
                new-options (last argv)]
            (doseq [[key value] new-options]
-             (.setOption @codemirror (clj->js key) value))))})))
+             (if (not= value (get old-options key))
+               (.setOption @codemirror (clj->js key) value)))))})))
 
 (defn repl-out [text]
   [:textarea.repl-out {:read-only true :value text}])
