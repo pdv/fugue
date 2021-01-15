@@ -4,12 +4,13 @@ goog.require('cljs.core');
 goog.require('reagent.core');
 goog.require('reagent.dom');
 goog.require('fugue.bootstrap');
+goog.require('fugue.boxes.ui');
 goog.require('fugue.ide');
 fugue.web.ide = (function fugue$web$ide(){
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [fugue.ide.ide,fugue.bootstrap.eval_str], null);
 });
 fugue.web.app = (function fugue$web$app(){
-return new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [fugue.web.ide], null);
+return new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [fugue.boxes.ui.app], null);
 });
 fugue.web._main = (function fugue$web$_main(){
 cljs.core.enable_console_print_BANG_.call(null);
@@ -21,4 +22,4 @@ return fugue.web._main.call(null);
 });
 fugue.web._main.call(null);
 
-//# sourceMappingURL=web.js.map?rel=1610481574978
+//# sourceMappingURL=web.js.map?rel=1610745459234

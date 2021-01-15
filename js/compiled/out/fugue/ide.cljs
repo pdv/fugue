@@ -1,7 +1,7 @@
 (ns fugue.ide
   (:require [reagent.core :as r]
             [fugue.demo.demo-loader :as demo-loader]
-            [fugue.editor :refer [editor output-box]]))
+            [fugue.boxes.editor :refer [editor output-box]]))
 
 (def welcome
   [:div

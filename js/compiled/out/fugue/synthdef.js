@@ -5,11 +5,11 @@ goog.require('cljs.spec.alpha');
 goog.require('loom.graph');
 goog.require('loom.attr');
 cljs.spec.alpha.def_impl.call(null,new cljs.core.Keyword("fugue.synthdef","node-id","fugue.synthdef/node-id",236882213),new cljs.core.Symbol("cljs.core","int?","cljs.core/int?",50730120,null),cljs.core.int_QMARK_);
-var next_id_26808 = cljs.core.atom.call(null,(0));
-fugue.synthdef.make_id = ((function (next_id_26808){
+var next_id_6582 = cljs.core.atom.call(null,(0));
+fugue.synthdef.make_id = ((function (next_id_6582){
 return (function fugue$synthdef$make_id(){
-return cljs.core.swap_BANG_.call(null,next_id_26808,cljs.core.inc);
-});})(next_id_26808))
+return cljs.core.swap_BANG_.call(null,next_id_6582,cljs.core.inc);
+});})(next_id_6582))
 ;
 cljs.spec.alpha.def_impl.call(null,new cljs.core.Keyword("fugue.synthdef","node-type","fugue.synthdef/node-type",806558205),new cljs.core.Symbol("cljs.core","keyword?","cljs.core/keyword?",713156450,null),cljs.core.keyword_QMARK_);
 if((typeof fugue !== 'undefined') && (typeof fugue.synthdef !== 'undefined') && (typeof fugue.synthdef.node_spec !== 'undefined')){
@@ -67,10 +67,10 @@ cljs.spec.alpha.def_impl.call(null,new cljs.core.Keyword("fugue.synthdef","synth
 cljs.spec.alpha.def_impl.call(null,new cljs.core.Keyword("fugue.synthdef","param-key","fugue.synthdef/param-key",-600069601),cljs.core.list(new cljs.core.Symbol("cljs.core","constantly","cljs.core/constantly",119002258,null),true),cljs.core.constantly.call(null,true));
 cljs.spec.alpha.def_impl.call(null,new cljs.core.Keyword("fugue.synthdef","param-val","fugue.synthdef/param-val",-1900246294),cljs.core.list(new cljs.core.Symbol("cljs.spec.alpha","or","cljs.spec.alpha/or",-831679639,null),new cljs.core.Keyword("fugue.synthdef","synthdef","fugue.synthdef/synthdef",291677976),new cljs.core.Keyword("fugue.synthdef","synthdef","fugue.synthdef/synthdef",291677976),new cljs.core.Keyword("fugue.synthdef","value","fugue.synthdef/value",-1961482790),cljs.core.list(new cljs.core.Symbol("cljs.core","constantly","cljs.core/constantly",119002258,null),true)),cljs.spec.alpha.or_spec_impl.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("fugue.synthdef","synthdef","fugue.synthdef/synthdef",291677976),new cljs.core.Keyword("fugue.synthdef","value","fugue.synthdef/value",-1961482790)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("fugue.synthdef","synthdef","fugue.synthdef/synthdef",291677976),cljs.core.list(new cljs.core.Symbol("cljs.core","constantly","cljs.core/constantly",119002258,null),true)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("fugue.synthdef","synthdef","fugue.synthdef/synthdef",291677976),cljs.core.constantly.call(null,true)], null),null));
 cljs.spec.alpha.def_impl.call(null,new cljs.core.Keyword("fugue.synthdef","param-vals","fugue.synthdef/param-vals",-343009540),cljs.core.list(new cljs.core.Symbol("cljs.spec.alpha","*","cljs.spec.alpha/*",-1238084288,null),new cljs.core.Keyword("fugue.synthdef","param-val","fugue.synthdef/param-val",-1900246294)),cljs.spec.alpha.rep_impl.call(null,new cljs.core.Keyword("fugue.synthdef","param-val","fugue.synthdef/param-val",-1900246294),new cljs.core.Keyword("fugue.synthdef","param-val","fugue.synthdef/param-val",-1900246294)));
-cljs.spec.alpha.def_impl.call(null,new cljs.core.Keyword("fugue.synthdef","param-map","fugue.synthdef/param-map",1501018328),cljs.core.list(new cljs.core.Symbol("cljs.spec.alpha","map-of","cljs.spec.alpha/map-of",153715093,null),new cljs.core.Keyword("fugue.synthdef","param-key","fugue.synthdef/param-key",-600069601),new cljs.core.Keyword("fugue.synthdef","param-vals","fugue.synthdef/param-vals",-343009540)),cljs.spec.alpha.every_impl.call(null,cljs.core.list(new cljs.core.Symbol("cljs.spec.alpha","tuple","cljs.spec.alpha/tuple",-415901908,null),new cljs.core.Keyword("fugue.synthdef","param-key","fugue.synthdef/param-key",-600069601),new cljs.core.Keyword("fugue.synthdef","param-vals","fugue.synthdef/param-vals",-343009540)),cljs.spec.alpha.tuple_impl.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("fugue.synthdef","param-key","fugue.synthdef/param-key",-600069601),new cljs.core.Keyword("fugue.synthdef","param-vals","fugue.synthdef/param-vals",-343009540)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("fugue.synthdef","param-key","fugue.synthdef/param-key",-600069601),new cljs.core.Keyword("fugue.synthdef","param-vals","fugue.synthdef/param-vals",-343009540)], null)),new cljs.core.PersistentArrayMap(null, 7, [new cljs.core.Keyword(null,"into","into",-150836029),cljs.core.PersistentArrayMap.EMPTY,new cljs.core.Keyword("cljs.spec.alpha","kind-form","cljs.spec.alpha/kind-form",-1047104697),new cljs.core.Symbol("cljs.core","map?","cljs.core/map?",-1390345523,null),new cljs.core.Keyword("cljs.spec.alpha","cpred","cljs.spec.alpha/cpred",-693471218),(function (G__26809){
-return cljs.core.map_QMARK_.call(null,G__26809);
-}),new cljs.core.Keyword(null,"kind","kind",-717265803),cljs.core.map_QMARK_,new cljs.core.Keyword("cljs.spec.alpha","kfn","cljs.spec.alpha/kfn",672643897),(function (i__23122__auto__,v__23123__auto__){
-return cljs.core.nth.call(null,v__23123__auto__,(0));
+cljs.spec.alpha.def_impl.call(null,new cljs.core.Keyword("fugue.synthdef","param-map","fugue.synthdef/param-map",1501018328),cljs.core.list(new cljs.core.Symbol("cljs.spec.alpha","map-of","cljs.spec.alpha/map-of",153715093,null),new cljs.core.Keyword("fugue.synthdef","param-key","fugue.synthdef/param-key",-600069601),new cljs.core.Keyword("fugue.synthdef","param-vals","fugue.synthdef/param-vals",-343009540)),cljs.spec.alpha.every_impl.call(null,cljs.core.list(new cljs.core.Symbol("cljs.spec.alpha","tuple","cljs.spec.alpha/tuple",-415901908,null),new cljs.core.Keyword("fugue.synthdef","param-key","fugue.synthdef/param-key",-600069601),new cljs.core.Keyword("fugue.synthdef","param-vals","fugue.synthdef/param-vals",-343009540)),cljs.spec.alpha.tuple_impl.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("fugue.synthdef","param-key","fugue.synthdef/param-key",-600069601),new cljs.core.Keyword("fugue.synthdef","param-vals","fugue.synthdef/param-vals",-343009540)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("fugue.synthdef","param-key","fugue.synthdef/param-key",-600069601),new cljs.core.Keyword("fugue.synthdef","param-vals","fugue.synthdef/param-vals",-343009540)], null)),new cljs.core.PersistentArrayMap(null, 7, [new cljs.core.Keyword(null,"into","into",-150836029),cljs.core.PersistentArrayMap.EMPTY,new cljs.core.Keyword("cljs.spec.alpha","kind-form","cljs.spec.alpha/kind-form",-1047104697),new cljs.core.Symbol("cljs.core","map?","cljs.core/map?",-1390345523,null),new cljs.core.Keyword("cljs.spec.alpha","cpred","cljs.spec.alpha/cpred",-693471218),(function (G__6583){
+return cljs.core.map_QMARK_.call(null,G__6583);
+}),new cljs.core.Keyword(null,"kind","kind",-717265803),cljs.core.map_QMARK_,new cljs.core.Keyword("cljs.spec.alpha","kfn","cljs.spec.alpha/kfn",672643897),(function (i__2896__auto__,v__2897__auto__){
+return cljs.core.nth.call(null,v__2897__auto__,(0));
 }),new cljs.core.Keyword("cljs.spec.alpha","conform-all","cljs.spec.alpha/conform-all",45201917),true,new cljs.core.Keyword("cljs.spec.alpha","describe","cljs.spec.alpha/describe",1883026911),cljs.core.list(new cljs.core.Symbol("cljs.spec.alpha","map-of","cljs.spec.alpha/map-of",153715093,null),new cljs.core.Keyword("fugue.synthdef","param-key","fugue.synthdef/param-key",-600069601),new cljs.core.Keyword("fugue.synthdef","param-vals","fugue.synthdef/param-vals",-343009540))], null),null));
 fugue.synthdef.add_attrs_kv = (function fugue$synthdef$add_attrs_kv(graph,node_or_edge,attrs_map){
 return cljs.core.reduce_kv.call(null,(function (g,k,v){
@@ -87,8 +87,8 @@ var _PERCENT_ = cljs.core.filter.call(null,(function (node){
 return ((cljs.core.empty_QMARK_.call(null,loom.graph.successors.call(null,synthdef,node))) && (cljs.core.not_EQ_.call(null,new cljs.core.Keyword("fugue.synthdef","output","fugue.synthdef/output",366914176),new cljs.core.Keyword("fugue.synthdef","node-type","fugue.synthdef/node-type",806558205).cljs$core$IFn$_invoke$arity$1(loom.attr.attr.call(null,synthdef,node,new cljs.core.Keyword("fugue.synthdef","nodedef","fugue.synthdef/nodedef",-67860791))))));
 }),loom.graph.nodes.call(null,synthdef));
 if(cljs.spec.alpha.valid_QMARK_.call(null,cljs.spec.alpha.every_impl.call(null,new cljs.core.Keyword("fugue.synthdef","node-id","fugue.synthdef/node-id",236882213),new cljs.core.Keyword("fugue.synthdef","node-id","fugue.synthdef/node-id",236882213),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword("cljs.spec.alpha","kind-form","cljs.spec.alpha/kind-form",-1047104697),null,new cljs.core.Keyword("cljs.spec.alpha","cpred","cljs.spec.alpha/cpred",-693471218),((function (_PERCENT_){
-return (function (G__26810){
-return cljs.core.coll_QMARK_.call(null,G__26810);
+return (function (G__6584){
+return cljs.core.coll_QMARK_.call(null,G__6584);
 });})(_PERCENT_))
 ,new cljs.core.Keyword("cljs.spec.alpha","conform-all","cljs.spec.alpha/conform-all",45201917),true,new cljs.core.Keyword("cljs.spec.alpha","describe","cljs.spec.alpha/describe",1883026911),cljs.core.list(new cljs.core.Symbol("cljs.spec.alpha","coll-of","cljs.spec.alpha/coll-of",1019430407,null),new cljs.core.Keyword("fugue.synthdef","node-id","fugue.synthdef/node-id",236882213))], null),null),_PERCENT_)){
 } else {
@@ -125,8 +125,8 @@ var new_sparams = cljs.core.assoc.call(null,old_sparams,param_name,param_val);
 return loom.attr.add_attr.call(null,graph,node,new cljs.core.Keyword("fugue.synthdef","static-params","fugue.synthdef/static-params",-2134943037),new_sparams);
 }));
 cljs.core._add_method.call(null,fugue.synthdef.add_param,new cljs.core.Keyword("fugue.synthdef","synthdef","fugue.synthdef/synthdef",291677976),(function (graph,node,param_key,param_val){
-var new_edges = cljs.core.map.call(null,(function (p1__26811_SHARP_){
-return (new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[p1__26811_SHARP_,node],null));
+var new_edges = cljs.core.map.call(null,(function (p1__6585_SHARP_){
+return (new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[p1__6585_SHARP_,node],null));
 }),fugue.synthdef.outputs.call(null,param_val));
 return loom.attr.add_attr_to_edges.call(null,cljs.core.apply.call(null,loom.graph.add_edges,fugue.synthdef.merge_graphs.call(null,graph,param_val),new_edges),new cljs.core.Keyword("fugue.synthdef","param-name","fugue.synthdef/param-name",-1639242252),param_key,new_edges);
 }));
@@ -180,71 +180,71 @@ throw (new Error("Assert failed: (s/valid? :fugue.synthdef/synthdef synthdef)"))
 }
 
 var nodes_by_id = fugue.synthdef.mapped_to.call(null,fugue.synthdef.node_builder.call(null,ctx,synthdef),loom.graph.nodes.call(null,synthdef));
-var seq__26813_26831 = cljs.core.seq.call(null,loom.graph.edges.call(null,synthdef));
-var chunk__26815_26832 = null;
-var count__26816_26833 = (0);
-var i__26817_26834 = (0);
+var seq__6587_6605 = cljs.core.seq.call(null,loom.graph.edges.call(null,synthdef));
+var chunk__6589_6606 = null;
+var count__6590_6607 = (0);
+var i__6591_6608 = (0);
 while(true){
-if((i__26817_26834 < count__26816_26833)){
-var edge_26835 = cljs.core._nth.call(null,chunk__26815_26832,i__26817_26834);
-var edge_type_26836 = cljs.core.map.call(null,((function (seq__26813_26831,chunk__26815_26832,count__26816_26833,i__26817_26834,edge_26835,nodes_by_id){
-return (function (p1__26812_SHARP_){
-return loom.attr.attr.call(null,synthdef,p1__26812_SHARP_,new cljs.core.Keyword("fugue.synthdef","node-type","fugue.synthdef/node-type",806558205));
-});})(seq__26813_26831,chunk__26815_26832,count__26816_26833,i__26817_26834,edge_26835,nodes_by_id))
-,edge_26835);
-var vec__26825_26837 = cljs.core.map.call(null,nodes_by_id,edge_26835);
-var src_26838 = cljs.core.nth.call(null,vec__26825_26837,(0),null);
-var dest_26839 = cljs.core.nth.call(null,vec__26825_26837,(1),null);
-var edge_attrs_26840 = loom.attr.attrs.call(null,synthdef,edge_26835);
-fugue.synthdef.make_edge.call(null,edge_type_26836,src_26838,dest_26839,edge_attrs_26840);
+if((i__6591_6608 < count__6590_6607)){
+var edge_6609 = cljs.core._nth.call(null,chunk__6589_6606,i__6591_6608);
+var edge_type_6610 = cljs.core.map.call(null,((function (seq__6587_6605,chunk__6589_6606,count__6590_6607,i__6591_6608,edge_6609,nodes_by_id){
+return (function (p1__6586_SHARP_){
+return loom.attr.attr.call(null,synthdef,p1__6586_SHARP_,new cljs.core.Keyword("fugue.synthdef","node-type","fugue.synthdef/node-type",806558205));
+});})(seq__6587_6605,chunk__6589_6606,count__6590_6607,i__6591_6608,edge_6609,nodes_by_id))
+,edge_6609);
+var vec__6599_6611 = cljs.core.map.call(null,nodes_by_id,edge_6609);
+var src_6612 = cljs.core.nth.call(null,vec__6599_6611,(0),null);
+var dest_6613 = cljs.core.nth.call(null,vec__6599_6611,(1),null);
+var edge_attrs_6614 = loom.attr.attrs.call(null,synthdef,edge_6609);
+fugue.synthdef.make_edge.call(null,edge_type_6610,src_6612,dest_6613,edge_attrs_6614);
 
 
-var G__26841 = seq__26813_26831;
-var G__26842 = chunk__26815_26832;
-var G__26843 = count__26816_26833;
-var G__26844 = (i__26817_26834 + (1));
-seq__26813_26831 = G__26841;
-chunk__26815_26832 = G__26842;
-count__26816_26833 = G__26843;
-i__26817_26834 = G__26844;
+var G__6615 = seq__6587_6605;
+var G__6616 = chunk__6589_6606;
+var G__6617 = count__6590_6607;
+var G__6618 = (i__6591_6608 + (1));
+seq__6587_6605 = G__6615;
+chunk__6589_6606 = G__6616;
+count__6590_6607 = G__6617;
+i__6591_6608 = G__6618;
 continue;
 } else {
-var temp__5720__auto___26845 = cljs.core.seq.call(null,seq__26813_26831);
-if(temp__5720__auto___26845){
-var seq__26813_26846__$1 = temp__5720__auto___26845;
-if(cljs.core.chunked_seq_QMARK_.call(null,seq__26813_26846__$1)){
-var c__4550__auto___26847 = cljs.core.chunk_first.call(null,seq__26813_26846__$1);
-var G__26848 = cljs.core.chunk_rest.call(null,seq__26813_26846__$1);
-var G__26849 = c__4550__auto___26847;
-var G__26850 = cljs.core.count.call(null,c__4550__auto___26847);
-var G__26851 = (0);
-seq__26813_26831 = G__26848;
-chunk__26815_26832 = G__26849;
-count__26816_26833 = G__26850;
-i__26817_26834 = G__26851;
+var temp__5720__auto___6619 = cljs.core.seq.call(null,seq__6587_6605);
+if(temp__5720__auto___6619){
+var seq__6587_6620__$1 = temp__5720__auto___6619;
+if(cljs.core.chunked_seq_QMARK_.call(null,seq__6587_6620__$1)){
+var c__4550__auto___6621 = cljs.core.chunk_first.call(null,seq__6587_6620__$1);
+var G__6622 = cljs.core.chunk_rest.call(null,seq__6587_6620__$1);
+var G__6623 = c__4550__auto___6621;
+var G__6624 = cljs.core.count.call(null,c__4550__auto___6621);
+var G__6625 = (0);
+seq__6587_6605 = G__6622;
+chunk__6589_6606 = G__6623;
+count__6590_6607 = G__6624;
+i__6591_6608 = G__6625;
 continue;
 } else {
-var edge_26852 = cljs.core.first.call(null,seq__26813_26846__$1);
-var edge_type_26853 = cljs.core.map.call(null,((function (seq__26813_26831,chunk__26815_26832,count__26816_26833,i__26817_26834,edge_26852,seq__26813_26846__$1,temp__5720__auto___26845,nodes_by_id){
-return (function (p1__26812_SHARP_){
-return loom.attr.attr.call(null,synthdef,p1__26812_SHARP_,new cljs.core.Keyword("fugue.synthdef","node-type","fugue.synthdef/node-type",806558205));
-});})(seq__26813_26831,chunk__26815_26832,count__26816_26833,i__26817_26834,edge_26852,seq__26813_26846__$1,temp__5720__auto___26845,nodes_by_id))
-,edge_26852);
-var vec__26828_26854 = cljs.core.map.call(null,nodes_by_id,edge_26852);
-var src_26855 = cljs.core.nth.call(null,vec__26828_26854,(0),null);
-var dest_26856 = cljs.core.nth.call(null,vec__26828_26854,(1),null);
-var edge_attrs_26857 = loom.attr.attrs.call(null,synthdef,edge_26852);
-fugue.synthdef.make_edge.call(null,edge_type_26853,src_26855,dest_26856,edge_attrs_26857);
+var edge_6626 = cljs.core.first.call(null,seq__6587_6620__$1);
+var edge_type_6627 = cljs.core.map.call(null,((function (seq__6587_6605,chunk__6589_6606,count__6590_6607,i__6591_6608,edge_6626,seq__6587_6620__$1,temp__5720__auto___6619,nodes_by_id){
+return (function (p1__6586_SHARP_){
+return loom.attr.attr.call(null,synthdef,p1__6586_SHARP_,new cljs.core.Keyword("fugue.synthdef","node-type","fugue.synthdef/node-type",806558205));
+});})(seq__6587_6605,chunk__6589_6606,count__6590_6607,i__6591_6608,edge_6626,seq__6587_6620__$1,temp__5720__auto___6619,nodes_by_id))
+,edge_6626);
+var vec__6602_6628 = cljs.core.map.call(null,nodes_by_id,edge_6626);
+var src_6629 = cljs.core.nth.call(null,vec__6602_6628,(0),null);
+var dest_6630 = cljs.core.nth.call(null,vec__6602_6628,(1),null);
+var edge_attrs_6631 = loom.attr.attrs.call(null,synthdef,edge_6626);
+fugue.synthdef.make_edge.call(null,edge_type_6627,src_6629,dest_6630,edge_attrs_6631);
 
 
-var G__26858 = cljs.core.next.call(null,seq__26813_26846__$1);
-var G__26859 = null;
-var G__26860 = (0);
-var G__26861 = (0);
-seq__26813_26831 = G__26858;
-chunk__26815_26832 = G__26859;
-count__26816_26833 = G__26860;
-i__26817_26834 = G__26861;
+var G__6632 = cljs.core.next.call(null,seq__6587_6620__$1);
+var G__6633 = null;
+var G__6634 = (0);
+var G__6635 = (0);
+seq__6587_6605 = G__6632;
+chunk__6589_6606 = G__6633;
+count__6590_6607 = G__6634;
+i__6591_6608 = G__6635;
 continue;
 }
 } else {
@@ -256,4 +256,4 @@ break;
 return nodes_by_id;
 });
 
-//# sourceMappingURL=synthdef.js.map?rel=1610481564571
+//# sourceMappingURL=synthdef.js.map?rel=1610745448742
