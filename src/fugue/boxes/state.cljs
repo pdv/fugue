@@ -60,17 +60,27 @@
    ["w"] ["s - split"]
    ["x"] ["x"]})
 
-(defn make-actions [state eval-state]
-  {["1"] (fn [_ cb]
-           (print "action")
-           (cb (fn [s]
-                 (print "swap")
-                 (activate s 1))))
-   ["e" "b"] (partial do-eval eval-state)})
+(defn jump-action [id]
+  (fn [s] (activate s id)))
+
+(defn jump-actions [state]
+  (into {} (map #(vector [(str %)]
+                         (fn [_ cb] (cb (jump-action %))))
+                (range (:next-id state)))))
+
+(defn eval-actions [state eval-state]
+  {["e" "b"] (partial do-eval eval-state)})
+
+(defn make-actions
+  "actions take the current state and a callback, and call the callback with a function on state"
+  [state eval-state]
+  (merge
+    (jump-actions state)
+    (eval-actions state eval-state)))
 
 (defn on-key
-  "actions is a map of key sequences to functions that take state and cb
-   cb is a function that takes fns on state"
+  "actions is a map of key sequences to actions (see make-actions)
+   cb takes functions on state"
   [state actions key cb]
   (let [old-seq (:key-seq state)
         new-seq (conj old-seq key)]
