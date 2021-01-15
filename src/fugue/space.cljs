@@ -53,6 +53,22 @@
         [:div.status-bar>a id]])
      (:boxes state))])
 
+
+(def popup-options
+  {[] ["e - eval"
+       "f - files"
+       "w - windows"
+       "x - x"]
+   ["e"] ["b - eval current buffer"]
+   ["f"] ["o - open" "u - upload" "d - download"]
+   ["w"] ["s - split"]
+   ["x"] ["x"]})
+
+(defn popup-content [key-seq]
+  [:div.popup>ul
+   (for [option (popup-options key-seq)]
+     [:li option])])
+
 (defn app []
   (let [eval-state (cljs.js/empty-state)
         state (r/atom init-state)
@@ -93,5 +109,5 @@
          :on-text-change (fn [id new-text] (swap! state assoc-in [:files id] new-text))
          :on-shortcut show-popup!}]
        (if-let [keys @popup]
-         [:div.popup>p (str keys)])])))
+         [popup-content (drop 1 keys)])])))
 
