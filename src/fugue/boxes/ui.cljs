@@ -41,7 +41,7 @@
             key (.-key e)]
         (when (or in-popup (not in-textbox))
           (.preventDefault e)
-          (b/on-key @state (b/make-actions eval-state) key (partial reset! state)))))
+          (b/on-key @state (b/make-actions @state eval-state) key (partial swap! state)))))
     (.addEventListener js/document "keydown" on-keydown)
     (.defineAction js/CodeMirror.Vim "space!" #(swap! state b/show-popup))
     (.mapCommand js/CodeMirror.Vim "<Space>" "action" "space!" #js {} #js {"context" "normal"})

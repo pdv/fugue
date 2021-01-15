@@ -45,7 +45,9 @@
 
 (defn do-eval [eval-state state state-cb]
   (let [[source settings] ((juxt current-buffer-text eval-settings) state)
-        eval-cb #(state-cb (on-eval state %))]
+        eval-cb (fn [result]
+                  (state-cb (fn [state]
+                              (on-eval state result))))]
     (cljs.js/eval-str eval-state source nil settings eval-cb)))
 
 (def popup-options
@@ -58,21 +60,24 @@
    ["w"] ["s - split"]
    ["x"] ["x"]})
 
-(defn make-actions [eval-state]
+(defn make-actions [state eval-state]
   {["e" "b"] (partial do-eval eval-state)})
 
-(defn on-key [state actions key cb]
+(defn on-key
+  "actions is a map of key sequences to functions that take state and cb
+   cb is a function that takes fns on state"
+  [state actions key cb]
   (let [old-seq (:key-seq state)
         new-seq (conj old-seq key)]
     (cond
       ; Space opens the popup
       (and (empty? old-seq) (= " " key))
-      (cb (show-popup state))
+      (cb show-popup)
       ; If there's an action, close the popup and perform it
       (contains? actions new-seq)
-      ((get actions new-seq) (hide-popup state) cb)
+      ((get actions new-seq) state cb)
       ; If we're on track for an action, show the options
       (contains? popup-options new-seq)
-      (cb (assoc state :key-seq new-seq))
+      (cb #(assoc % :key-seq new-seq))
       :else
-      (cb (hide-popup state)))))
+      (cb hide-popup))))
