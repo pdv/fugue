@@ -11,10 +11,8 @@
    :active 1
    :next-id 2
    :result nil
-   :files {1 "(+ 1 23)"}})
-
-(defn foo []
-  "nice")
+   :files {1 "(+ 1 23)"}
+   :key-seq nil})
 
 (defn current-buffer-text [state]
   (get-in state [:files (:active state)]))
@@ -26,12 +24,6 @@
            (if-let [source (get-in state [:files (str :name m)])]
              (cb {:lang :clj :source source})
              (cb nil)))})
-
-(defn on-eval [state result]
-  (-> state
-      (assoc-in [:files (:next-id state)] (:value result))
-      (update :boxes b/insert :after (:active state) (:next-id state))
-      (update :next-id inc)))
 
 (defn boxes [state {:keys [on-box-click on-text-change on-shortcut]}]
   [b/boxes-container
@@ -66,48 +58,65 @@
 
 (defn popup-content [key-seq]
   [:div.popup>ul
+   [:p (str key-seq)]
    (for [option (popup-options key-seq)]
      [:li option])])
 
+(defn show-popup [state]
+  (assoc state :key-seq []))
+
+(defn hide-popup [state]
+  (assoc state :key-seq nil))
+
+(defn activate [state id]
+  (-> state
+      (assoc :active id)
+      (hide-popup)))
+
+(defn on-eval [state result]
+  (-> state
+      (hide-popup)
+      (assoc-in [:files (:next-id state)] (:value result))
+      (update :boxes b/insert :after (:active state) (:next-id state))
+      (activate (:next-id state))
+      (update :next-id inc)))
+
+(defn on-key [state actions key]
+  (cond
+    (and (empty (:key-seq state)) (= " " key))
+    (show-popup state)
+    (and (not-empty (:key-seq state)) (= "Escape" key))
+    (hide-popup state)
+    :else
+    (let [new-seq (conj (:key-seq state) key)]
+      (if-let [action (get actions new-seq)]
+        (action (assoc state :key-seq nil))
+        (assoc state :key-seq new-seq)))))
+
 (defn app []
   (let [eval-state (cljs.js/empty-state)
-        state (r/atom init-state)
-        popup (r/atom nil)]
+        state (r/atom init-state)]
     (defn eval! []
       (let [[source settings] ((juxt current-buffer-text eval-settings) @state)
             cb (partial swap! state on-eval)]
-        (print "evaling")
-        (.log js/console source)
         (cljs.js/eval-str eval-state source nil settings cb)))
-    (defn show-popup! []
-      (reset! popup []))
-    (defn hide-popup! []
-      (reset! popup nil))
     (defn on-keydown [e]
-      (let [key (.-key e)]
-        (cond
-          (and (not @popup)
-               (= " " key)
-               (not= "textarea" (s/lower-case (.-tagName (.-activeElement js/document)))))
-          (do
-            (print (.-tagName (.-activeElement js/document)))
-            (show-popup!))
-          (not (nil? @popup))
-          (do
-            (.preventDefault e)
-            (case key
-              "Escape" (hide-popup!)
-              (swap! popup conj key))))))
-    (.defineAction js/CodeMirror.Vim "space!" show-popup!)
+      (let [in-popup (some? (:key-seq @state))
+            in-textbox (= "TEXTAREA" (.. js/document -activeElement -tagName))
+            key (.-key e)]
+        (when (or in-popup (not in-textbox))
+          (.preventDefault e)
+          (swap! state on-key {} key))))
+    (.defineAction js/CodeMirror.Vim "space!" #(swap! state show-popup))
     (.mapCommand js/CodeMirror.Vim "<Space>" "action" "space!" #js {} #js {"context" "normal"})
     (.addEventListener js/document "keydown" on-keydown)
     (fn []
       [:div.boxes
        [boxes
         @state
-        {:on-box-click (partial swap! state assoc :active)
-         :on-text-change (fn [id new-text] (swap! state assoc-in [:files id] new-text))
-         :on-shortcut show-popup!}]
-       (if-let [keys @popup]
-         [popup-content (drop 1 keys)])])))
-
+        {:on-box-click #(swap! state activate %)
+         :on-text-change (fn [id new-text]
+                           (swap! state assoc-in [:files id] new-text))
+         :on-shortcut #(swap! state show-popup)}]
+       (if-let [keys (:key-seq @state)]
+         [popup-content keys])])))
