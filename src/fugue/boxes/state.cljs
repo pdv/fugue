@@ -68,7 +68,7 @@
                          (fn [_ cb] (cb (jump-action %))))
                 (range (:next-id state)))))
 
-(defn eval-actions [state eval-state]
+(defn eval-actions [eval-state]
   {["e" "b"] (partial do-eval eval-state)})
 
 (defn make-actions
@@ -76,7 +76,7 @@
   [state eval-state]
   (merge
     (jump-actions state)
-    (eval-actions state eval-state)))
+    (eval-actions eval-state)))
 
 (defn on-key
   "actions is a map of key sequences to actions (see make-actions)
@@ -90,9 +90,7 @@
       (cb show-popup)
       ; If there's an action, close the popup and perform it
       (contains? actions new-seq)
-      (do
-        (print "here")
-        ((get actions new-seq) state cb))
+      ((get actions new-seq) state cb)
       ; If we're on track for an action, show the options
       (contains? popup-options new-seq)
       (cb #(assoc % :key-seq new-seq))

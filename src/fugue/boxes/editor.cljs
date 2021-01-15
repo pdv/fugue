@@ -42,13 +42,11 @@
                old-cm-options (last old-argv)
                new-cm-options (last argv)]
            (when (and was-focused (not is-focused))
-             (print "blurring")
              (.blur (.. @codemirror -display -input)))
            (when (and (not was-focused) is-focused)
-             (print "focusing")
              (.focus @codemirror))
            (doseq [[key value] new-cm-options]
-             (if (not= value (get old-cm-options key))
+             (when (not= value (get old-cm-options key))
                (.setOption @codemirror (clj->js key) value)))))})))
 
 (defn repl-out [text]
