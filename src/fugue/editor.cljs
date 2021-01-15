@@ -28,7 +28,8 @@
              (.on "change" #(on-change (.getValue %)))
              (.on "cursorActivity" #(on-selection-change (.getSelection %)))
              (.on "inputRead" maybe-show-hint)
-             (.setOption "extraKeys" #js {"Shift-Ctrl-Space" on-shortcut}))))
+             (.setOption "extraKeys" #js {"Shift-Ctrl-Space" on-shortcut})
+             (.focus))))
        :component-will-unmount
        (fn []
          (if-let [cm @codemirror] (.toTextArea cm)))
