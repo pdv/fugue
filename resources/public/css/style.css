@@ -1,14 +1,29 @@
 
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-color: #f8f8f8;
+    --fg-color: #4f5b66;
+    --mid-color: #666;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #2b303b;
+    --fg-color: #c0c5ce;
+    --mid-color: #666;
+  }
+}
+
 html, body, #app { 
   width: 100%; 
   height: 100%; 
   margin: 0;
   font-family: "Input Mono Narrow", "Consolas", "Liberation Mono", "Menlo", "Courier", monospace;
+  background-color: var(--bg-color);
+  color: var(--fg-color);
 }
 
-.CodeMirror {
-  flex: 1;
-}
 
 .boxes {
   display: flex;
@@ -23,23 +38,23 @@ html, body, #app {
   flex-flow: column;
 
   margin: 4px;
-  border: 1px solid #ddd;
-  color: #ddd;
+  border: 1px solid var(--mid-color);
+  color: var(--mid-color);
 }
 
 .box.active {
-  border: 1px solid black;
-  color: black;
+  border: 1px solid var(--fg-color);
+  color: var(--fg-color);
 }
 
 .status-bar {
   height: 29px;
   width: 100%;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid var(--mid-color);
 }
 
 .box.active .status-bar {
-  border-top: 1px solid black;
+  border-top: 1px solid var(--fg-color);
 }
 
 .status-bar a {
@@ -47,13 +62,36 @@ html, body, #app {
   line-height: 29px;
   width: 29px;
   text-align: center;
-  border-right: 1px solid #ddd;
+  border-right: 1px solid var(--mid-color);
 }
 
 .box.active .status-bar a {
-  border-right: 1px solid black;
-  background-color: black;
-  color: white;
+  border-right: 1px solid var(--fg-color);
+  background-color: var(--fg-color);
+  color: var(--bg-color);
+}
+
+.CodeMirror {
+  flex: 1;
+  background-color: var(--bg-color);
+  color: var(--mid-color);
+}
+
+.box.active .CodeMirror {
+  color: var(--fg-color);
+}
+
+.CodeMirror-gutters {
+  background-color: var(--bg-color);
+  border-right: 1px solid var(--mid-color);
+}
+
+.CodeMirror-linenumber {
+  color: var(--mid-color) !important;
+}
+
+.box.active .CodeMirror-linenumber {
+  color: var(--fg-color) !important;
 }
 
 .output {
@@ -80,8 +118,8 @@ html, body, #app {
   margin-right: -50%;
   transform: translate(-50%, -50%);
 
-  background-color: white;
-  border: 1px solid black;
+  background-color: var(--bg-color);
+  border: 1px solid var(--fg-color);
   padding: 16px;
 }
 

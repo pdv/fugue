@@ -1,4 +1,4 @@
-(ns fugue.boxes
+(ns fugue.boxes.layout
   (:require [clojure.zip :as zip]))
 
 (defn in-row? [loc]
