@@ -64,11 +64,9 @@
 (defn on-key [state actions key cb]
   (let [old-seq (:key-seq state)
         new-seq (conj old-seq key)]
-    (print new-seq)
-    (print (get popup-options new-seq))
     (cond
       ; Space opens the popup
-      (and (empty old-seq) (= " " key))
+      (and (empty? old-seq) (= " " key))
       (cb (show-popup state))
       ; If there's an action, close the popup and perform it
       (contains? actions new-seq)
