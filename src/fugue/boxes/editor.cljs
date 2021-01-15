@@ -13,18 +13,16 @@
   (if (re-find #"[a-zA-Z]" (first (oget input-read-event "text")))
     (.showHint cm #js {:completeSingle false})))
 
-(defn editor [init {:keys [on-change on-selection-change on-shortcut]} options]
+(defn editor [init focused {:keys [on-change on-selection-change on-shortcut]} cm-options]
   (let [codemirror (volatile! nil)]
     (r/create-class
       {:render
        (fn []
-;         (print "editor--render")
          [:textarea.editor {:default-value init}])
        :component-did-mount
        (fn [this]
-;         (print "editor--did-mount")
          (let [node (rdom/dom-node this)
-               settings (clj->js (merge options {:mode "clojure" :lineNumbers true}))
+               settings (clj->js (merge cm-options {:mode "clojure" :lineNumbers true}))
                cm (.fromTextArea js/CodeMirror node settings)]
            (vreset! codemirror cm)
            (doto cm
@@ -35,16 +33,22 @@
              (.focus))))
        :component-will-unmount
        (fn []
-;         (print "editor--will-unmount")
          (if-let [cm @codemirror] (.toTextArea cm)))
        :component-did-update
        (fn [this old-argv]
-;         (print "editor--did-update")
          (let [argv (r/argv this)
-               old-options (last old-argv)
-               new-options (last argv)]
-           (doseq [[key value] new-options]
-             (if (not= value (get old-options key))
+               was-focused (last (drop-last 2 old-argv))
+               is-focused (last (drop-last 2 argv))
+               old-cm-options (last old-argv)
+               new-cm-options (last argv)]
+           (when (and was-focused (not is-focused))
+             (print "blurring")
+             (.blur (.. @codemirror -display -input)))
+           (when (and (not was-focused) is-focused)
+             (print "focusing")
+             (.focus @codemirror))
+           (doseq [[key value] new-cm-options]
+             (if (not= value (get old-cm-options key))
                (.setOption @codemirror (clj->js key) value)))))})))
 
 (defn repl-out [text]

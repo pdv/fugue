@@ -42,7 +42,7 @@ html, body, #app {
   color: var(--mid-color);
 }
 
-.box.active {
+.box.focused {
   border: 1px solid var(--fg-color);
   color: var(--fg-color);
 }
@@ -53,7 +53,7 @@ html, body, #app {
   border-top: 1px solid var(--mid-color);
 }
 
-.box.active .status-bar {
+.box.focused .status-bar {
   border-top: 1px solid var(--fg-color);
 }
 
@@ -65,7 +65,7 @@ html, body, #app {
   border-right: 1px solid var(--mid-color);
 }
 
-.box.active .status-bar a {
+.box.focused .status-bar a {
   border-right: 1px solid var(--fg-color);
   background-color: var(--fg-color);
   color: var(--bg-color);
@@ -77,7 +77,7 @@ html, body, #app {
   color: var(--mid-color);
 }
 
-.box.active .CodeMirror {
+.box.focused .CodeMirror {
   color: var(--fg-color);
 }
 
@@ -90,7 +90,7 @@ html, body, #app {
   color: var(--mid-color) !important;
 }
 
-.box.active .CodeMirror-linenumber {
+.box.focused .CodeMirror-linenumber {
   color: var(--fg-color) !important;
 }
 

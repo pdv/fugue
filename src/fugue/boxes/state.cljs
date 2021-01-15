@@ -2,11 +2,12 @@
   (:require [fugue.boxes.layout :as b]))
 
 (def init-state
-  {:boxes '(1)
-   :active 1
+  {:boxes   '(1)
+   :active  1
+   :focused 1
    :next-id 2
-   :result nil
-   :files {1 "(+ 1 23)"}
+   :result  nil
+   :files   {1 "(+ 1 23)"}
    :key-seq nil})
 
 (defn current-buffer-text [state]
@@ -21,10 +22,14 @@
              (cb nil)))})
 
 (defn show-popup [state]
-  (assoc state :key-seq []))
+  (-> state
+      (assoc :focused nil)
+      (assoc :key-seq [])))
 
 (defn hide-popup [state]
-  (assoc state :key-seq nil))
+  (-> state
+      (assoc :focused (:active state))
+      (assoc :key-seq nil)))
 
 (defn activate [state id]
   (-> state
@@ -43,17 +48,33 @@
         eval-cb #(state-cb (on-eval state %))]
     (cljs.js/eval-str eval-state source nil settings eval-cb)))
 
-(defn on-key [state actions key cb]
-  (cond
-    (and (empty (:key-seq state)) (= " " key))
-    (cb (show-popup state))
-    (and (not-empty (:key-seq state)) (= "Escape" key))
-    (cb (hide-popup state))
-    :else
-    (let [new-seq (conj (:key-seq state) key)]
-      (if-let [action (get actions new-seq)]
-        (action (assoc state :key-seq nil) cb)
-        (cb (assoc state :key-seq new-seq))))))
+(def popup-options
+  {[] ["e - eval"
+       "f - files"
+       "w - windows"
+       "x - x"]
+   ["e"] ["b - eval current buffer"]
+   ["f"] ["o - open" "u - upload" "d - download"]
+   ["w"] ["s - split"]
+   ["x"] ["x"]})
 
-(defn actions [eval-state]
+(defn make-actions [eval-state]
   {["e" "b"] (partial do-eval eval-state)})
+
+(defn on-key [state actions key cb]
+  (let [old-seq (:key-seq state)
+        new-seq (conj old-seq key)]
+    (print new-seq)
+    (print (get popup-options new-seq))
+    (cond
+      ; Space opens the popup
+      (and (empty old-seq) (= " " key))
+      (cb (show-popup state))
+      ; If there's an action, close the popup and perform it
+      (contains? actions new-seq)
+      ((get actions new-seq) (hide-popup state) cb)
+      ; If we're on track for an action, show the options
+      (contains? popup-options new-seq)
+      (cb (assoc state :key-seq new-seq))
+      :else
+      (cb (hide-popup state)))))
