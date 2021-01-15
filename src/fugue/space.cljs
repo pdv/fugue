@@ -1,6 +1,7 @@
 (ns fugue.space
   (:require-macros [fugue.env :refer [analyzer-state]])
   (:require [cljs.js]
+            [clojure.string :as s]
             [reagent.core :as r]
             [fugue.boxes :as b]
             [fugue.editor :as editor]))
@@ -69,8 +70,12 @@
     (defn on-keydown [e]
       (let [key (.-key e)]
         (cond
-          (and (not @popup) (= " " key))
-          (show-popup!)
+          (and (not @popup)
+               (= " " key)
+               (not= "textarea" (s/lower-case (.-tagName (.-activeElement js/document)))))
+          (do
+            (print (.-tagName (.-activeElement js/document)))
+            (show-popup!))
           (not (nil? @popup))
           (do
             (.preventDefault e)
