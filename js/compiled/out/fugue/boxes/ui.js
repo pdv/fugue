@@ -113,8 +113,6 @@ CodeMirror.Vim.mapCommand("<Space>","action","space!",({}),({"context": "normal"
 
 return ((function (eval_state,state){
 return (function (){
-fugue.boxes.util.log.call(null,cljs.core.deref.call(null,state));
-
 return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.boxes","div.boxes",590620451),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [fugue.boxes.ui.boxes,cljs.core.deref.call(null,state),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"on-box-click","on-box-click",177704013),((function (eval_state,state){
 return (function (p1__19017_SHARP_){
 return cljs.core.swap_BANG_.call(null,state,fugue.boxes.state.activate,p1__19017_SHARP_);
@@ -139,4 +137,4 @@ return null;
 ;})(eval_state,state))
 });
 
-//# sourceMappingURL=ui.js.map?rel=1610837655677
+//# sourceMappingURL=ui.js.map?rel=1610838686493

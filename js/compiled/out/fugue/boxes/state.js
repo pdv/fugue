@@ -53,10 +53,15 @@ return fugue.boxes.state.on_eval.call(null,p1__17676_SHARP_,result);
 return cljs.js.eval_str.call(null,eval_state,source,null,settings,on_result);
 });
 });
+fugue.boxes.state.number_jumps = cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,cljs.core.map.call(null,(function (i){
+return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [" ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(i)], null),(function (_,cb){
+return cb.call(null,fugue.boxes.state.activate,i);
+})], null);
+}),cljs.core.range.call(null,(10))));
 fugue.boxes.state.default_keymap = (function fugue$boxes$state$default_keymap(eval_state){
-return cljs.core.PersistentArrayMap.createAsIfByAssoc([new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [" ","w","x"], null),(function (_,cb){
+return cljs.core.merge.call(null,fugue.boxes.state.number_jumps,cljs.core.PersistentArrayMap.createAsIfByAssoc([new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [" ","w","x"], null),(function (_,cb){
 return cb.call(null,fugue.boxes.state.kill_active_window);
-}),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [" ","e","b"], null),fugue.boxes.state.eval_action.call(null,eval_state)]);
+}),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [" ","e","b"], null),fugue.boxes.state.eval_action.call(null,eval_state)]));
 });
 
-//# sourceMappingURL=state.js.map?rel=1610837653968
+//# sourceMappingURL=state.js.map?rel=1610838684927
