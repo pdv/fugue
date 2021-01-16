@@ -5,7 +5,6 @@
   {:boxes   '(1)
    :active  1
    :next-id 2
-   :result  nil
    :files   {1 "(+ 1 23)"}
    :key-seq nil})
 
@@ -41,22 +40,10 @@
 (defn kill-window [state id]
   (-> state
       (update :boxes b/remove id)
-      (activate (dec (:active state)))))
+      (activate (dec id))))
 
 (defn kill-active-window [state]
   (kill-window state (:active state)))
-
-(defn eval-action [eval-state]
-  (fn [state dispatch]
-    (print "doing eval")
-    (let [[source settings] ((juxt current-buffer-text eval-settings) state)]
-      (cljs.js/eval-str eval-state source nil settings #(dispatch :on-eval %))
-      (assoc state :result nil))))
-
-(defn default-actions [eval-state]
-  {:kill-active-window kill-active-window
-   :eval-current-buffer (eval-action eval-state)
-   :on-eval on-eval})
 
 (def popup-options
   {[" "] {"1-9" "jump to buffer"
@@ -65,16 +52,21 @@
    [" " "e"] ["b" "eval current buffer"]
    [" " "w"] ["x" "kill buffer and window"]})
 
-(def default-keys
-  {[" " "w" "x"] :kill-active-window
-   [" " "e" "b"] :eval-current-buffer})
+(defn eval-action [eval-state]
+  (fn [state cb]
+    (let [[source settings] ((juxt current-buffer-text eval-settings) state)
+          on-result (fn [result] (cb #(on-eval % result)))]
+      (cljs.js/eval-str eval-state source nil settings on-result))))
+
+(defn default-keymap [eval-state]
+  {[" " "w" "x"] (fn [_ cb]
+                   (cb kill-active-window))
+   [" " "e" "b"] (eval-action eval-state)})
 
 (defn on-key
-  "actions is a map of key sequences to actions (see make-actions)
-   cb takes functions on state"
-  [state key keymap actions cb]
+  [state key keymap cb]
   (let [new-seq (conj (:key-seq state) key)]
-    (if-let [action (get actions (get keymap new-seq))]
-      (cb (action state cb))
+    (if-let [action (get keymap new-seq)]
+      (action state cb)
       (if (contains? popup-options new-seq)
         (cb #(assoc % :key-seq new-seq))))))

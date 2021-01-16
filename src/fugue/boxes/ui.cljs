@@ -43,11 +43,12 @@
             key (.-key e)]
         (when (or in-popup (not in-textbox))
           (.preventDefault e)
-          (b/on-key @state key b/default-keys (b/default-actions eval-state) (partial swap! state)))))
+          (b/on-key @state key (b/default-keymap eval-state) (partial swap! state)))))
     (.addEventListener js/document "keydown" on-keydown)
     (.defineAction js/CodeMirror.Vim "space!" #(swap! state assoc :key-seq [" "]))
     (.mapCommand js/CodeMirror.Vim "<Space>" "action" "space!" #js {} #js {"context" "normal"})
     (fn []
+      (log @state)
       [:div.boxes
        [boxes
         @state
