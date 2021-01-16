@@ -58,8 +58,12 @@
           on-result (fn [result] (cb #(on-eval % result)))]
       (cljs.js/eval-str eval-state source nil settings on-result))))
 
+(def number-jumps
+  (into {} (map (fn [i] [[" " (str i)] (fn [_ cb] (cb activate i))]) (range 10))))
+
 (defn default-keymap [eval-state]
-  {[" " "w" "x"] (fn [_ cb]
-                   (cb kill-active-window))
-   [" " "e" "b"] (eval-action eval-state)})
+  (merge number-jumps
+         {[" " "w" "x"] (fn [_ cb]
+                          (cb kill-active-window))
+          [" " "e" "b"] (eval-action eval-state)}))
 

@@ -53,7 +53,6 @@
     (.defineAction js/CodeMirror.Vim "space!" #(swap! state assoc :key-seq [" "]))
     (.mapCommand js/CodeMirror.Vim "<Space>" "action" "space!" #js {} #js {"context" "normal"})
     (fn []
-      (log @state)
       [:div.boxes
        [boxes
         @state
