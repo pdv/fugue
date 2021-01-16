@@ -1,58 +1,66 @@
 (ns fugue.boxes.ui
   (:require [reagent.core :as r]
             [cljs.js]
+            [fugue.boxes.util :refer [log]]
             [fugue.boxes.layout :as layout]
             [fugue.boxes.editor :as editor]
             [fugue.boxes.state :as b]))
 
-(defn popup-content [key-seq]
+(defn popup-content [actions]
   [:div.popup>ul
-   [:p (str key-seq)]
-   (for [option (b/popup-options key-seq)]
-     [:li option])])
+   (for [[key name] actions]
+     [:li (str key " - " name)])])
 
 (defn boxes [state {:keys [on-box-click on-text-change on-shortcut]}]
   [layout/boxes-container
    (layout/map-values
      (fn [id]
-       [:div {:class-name (if (= id (:focused state)) "box focused" "box")
-              :on-click   #(on-box-click id)}
-        (let [value (get-in state [:files id])]
+       (let [value (get-in state [:files id])
+             focused (and (= id (:active state))
+                          (empty? (:key-seq state)))]
+         [:div {:class-name (if focused "box focused" "box")
+                :on-click #(on-box-click id)}
           (cond
             (vector? value) [:div.output value]
             (string? value)
             [editor/editor
              value
-             (= id (:focused state))
-             {:on-change #(on-text-change id %)
-              :on-selection-change #(print "on-selection-change")
+             focused
+             {:on-change (partial on-text-change id)
               :on-shortcut on-shortcut}
              {"keyMap" "vim" "theme" "base16-ocean"}]
-            :else [:div.output>p.value-box (str value)]))
-        [:div.status-bar>a id]])
+            :else [:div.output>p.value-box (str value)])
+          [:div.status-bar>a id]]))
      (:boxes state))])
 
 (defn app []
   (let [eval-state (cljs.js/empty-state)
         state (r/atom b/init-state)]
     (defn on-keydown [e]
-      (let [in-popup (some? (:key-seq @state))
-            in-textbox (= "TEXTAREA" (.. js/document -activeElement -tagName))
-            key (.-key e)]
-        (when (or in-popup (not in-textbox))
-          (.preventDefault e)
-          (b/on-key @state (b/make-actions @state eval-state) key (partial swap! state)))))
+      (when-not (= "TEXTAREA" (.. js/document -activeElement -tagName))
+        (.preventDefault e)
+        (let [new-seq (conj (:key-seq @state) (.-key e))
+              keymap (b/default-keymap eval-state)]
+          (cond
+            (contains? keymap new-seq)
+            ((get keymap new-seq) @state (partial swap! state))
+            ;elseif
+            (contains? b/popup-options new-seq)
+            (swap! state assoc :key-seq new-seq)
+            :else
+            (swap! state assoc :key-seq [])))))
     (.addEventListener js/document "keydown" on-keydown)
-    (.defineAction js/CodeMirror.Vim "space!" #(swap! state b/show-popup))
+    (.defineAction js/CodeMirror.Vim "space!" #(swap! state assoc :key-seq [" "]))
     (.mapCommand js/CodeMirror.Vim "<Space>" "action" "space!" #js {} #js {"context" "normal"})
     (fn []
+      (log @state)
       [:div.boxes
        [boxes
         @state
         {:on-box-click #(swap! state b/activate %)
          :on-text-change (fn [id new-text]
                            (swap! state assoc-in [:files id] new-text))
-         :on-shortcut #(swap! state b/show-popup)}]
-       (if-let [keys (:key-seq @state)]
-         [popup-content keys])])))
+         :on-shortcut #(swap! state assoc :key-seq [" "])}]
+       (if-let [options (get b/popup-options (:key-seq @state))]
+         [popup-content options])])))
 

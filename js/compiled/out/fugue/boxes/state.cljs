@@ -4,14 +4,17 @@
 (def init-state
   {:boxes   '(1)
    :active  1
-   :focused 1
    :next-id 2
-   :result  nil
    :files   {1 "(+ 1 23)"}
    :key-seq nil})
 
 (defn current-buffer-text [state]
   (get-in state [:files (:active state)]))
+
+(defn activate [state id]
+  (-> state
+      (assoc :active id)
+      (assoc :key-seq [])))
 
 (defn eval-settings [state]
   {:eval cljs.js/js-eval
@@ -21,21 +24,6 @@
              (cb {:lang :clj :source source})
              (cb nil)))})
 
-(defn show-popup [state]
-  (-> state
-      (assoc :focused nil)
-      (assoc :key-seq [])))
-
-(defn hide-popup [state]
-  (-> state
-      (assoc :focused (:active state))
-      (assoc :key-seq nil)))
-
-(defn activate [state id]
-  (-> state
-      (assoc :active id)
-      (hide-popup)))
-
 (defn on-eval [state result]
   (-> state
       (assoc-in [:files (:next-id state)] (:value result))
@@ -43,56 +31,35 @@
       (activate (:next-id state))
       (update :next-id inc)))
 
-(defn do-eval [eval-state state state-cb]
-  (let [[source settings] ((juxt current-buffer-text eval-settings) state)
-        eval-cb (fn [result]
-                  (state-cb (fn [state]
-                              (on-eval state result))))]
-    (cljs.js/eval-str eval-state source nil settings eval-cb)))
+(defn window-count [state]
+  (- (:next-id state) 1))
+
+(defn multiple-windows? [state]
+  (< 1 (window-count state)))
+
+(defn kill-window [state id]
+  (-> state
+      (update :boxes b/remove id)
+      (activate (dec id))))
+
+(defn kill-active-window [state]
+  (kill-window state (:active state)))
 
 (def popup-options
-  {[] ["e - eval"
-       "f - files"
-       "w - windows"
-       "x - x"]
-   ["e"] ["b - eval current buffer"]
-   ["f"] ["o - open" "u - upload" "d - download"]
-   ["w"] ["s - split"]
-   ["x"] ["x"]})
+  {[" "] {"1-9" "jump to buffer"
+          "e" "eval"
+          "w" "window"}
+   [" " "e"] {"b" "eval current buffer"}
+   [" " "w"] {"x" "kill buffer and window"}})
 
-(defn jump-action [id]
-  (fn [s] (activate s id)))
+(defn eval-action [eval-state]
+  (fn [state cb]
+    (let [[source settings] ((juxt current-buffer-text eval-settings) state)
+          on-result (fn [result] (cb #(on-eval % result)))]
+      (cljs.js/eval-str eval-state source nil settings on-result))))
 
-(defn jump-actions [state]
-  (into {} (map #(vector [(str %)]
-                         (fn [_ cb] (cb (jump-action %))))
-                (range (:next-id state)))))
+(defn default-keymap [eval-state]
+  {[" " "w" "x"] (fn [_ cb]
+                   (cb kill-active-window))
+   [" " "e" "b"] (eval-action eval-state)})
 
-(defn eval-actions [eval-state]
-  {["e" "b"] (partial do-eval eval-state)})
-
-(defn make-actions
-  "actions take the current state and a callback, and call the callback with a function on state"
-  [state eval-state]
-  (merge
-    (jump-actions state)
-    (eval-actions eval-state)))
-
-(defn on-key
-  "actions is a map of key sequences to actions (see make-actions)
-   cb takes functions on state"
-  [state actions key cb]
-  (let [old-seq (:key-seq state)
-        new-seq (conj old-seq key)]
-    (cond
-      ; Space opens the popup
-      (and (empty? old-seq) (= " " key))
-      (cb show-popup)
-      ; If there's an action, close the popup and perform it
-      (contains? actions new-seq)
-      ((get actions new-seq) state cb)
-      ; If we're on track for an action, show the options
-      (contains? popup-options new-seq)
-      (cb #(assoc % :key-seq new-seq))
-      :else
-      (cb hide-popup))))

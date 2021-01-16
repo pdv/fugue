@@ -28,6 +28,14 @@
                      (zip/insert-left loc new-box))))
         (recur (zip/next loc))))))
 
+(defn remove [boxes box]
+  (loop [loc (zip/seq-zip boxes)]
+    (if (zip/end? loc)
+      (zip/root loc)
+      (if (= box (zip/node loc))
+        (zip/root (zip/remove loc))
+        (recur (zip/next loc))))))
+
 (defn map-values [f boxes]
   (loop [loc (zip/seq-zip boxes)]
     (if (zip/end? loc)
