@@ -8,7 +8,6 @@
 
 (defn popup-content [actions]
   [:div.popup>ul
-   [:p (str actions)]
    (for [[key name] actions]
      [:li (str key " - " name)])])
 
@@ -38,12 +37,18 @@
   (let [eval-state (cljs.js/empty-state)
         state (r/atom b/init-state)]
     (defn on-keydown [e]
-      (let [in-popup (some? (:key-seq @state))
-            in-textbox (= "TEXTAREA" (.. js/document -activeElement -tagName))
-            key (.-key e)]
-        (when (or in-popup (not in-textbox))
-          (.preventDefault e)
-          (b/on-key @state key (b/default-keymap eval-state) (partial swap! state)))))
+      (when-not (= "TEXTAREA" (.. js/document -activeElement -tagName))
+        (.preventDefault e)
+        (let [new-seq (conj (:key-seq @state) (.-key e))
+              keymap (b/default-keymap eval-state)]
+          (cond
+            (contains? keymap new-seq)
+            ((get keymap new-seq) @state (partial swap! state))
+            ;elseif
+            (contains? b/popup-options new-seq)
+            (swap! state assoc :key-seq new-seq)
+            :else
+            (swap! state assoc :key-seq [])))))
     (.addEventListener js/document "keydown" on-keydown)
     (.defineAction js/CodeMirror.Vim "space!" #(swap! state assoc :key-seq [" "]))
     (.mapCommand js/CodeMirror.Vim "<Space>" "action" "space!" #js {} #js {"context" "normal"})

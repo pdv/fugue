@@ -49,8 +49,8 @@
   {[" "] {"1-9" "jump to buffer"
           "e" "eval"
           "w" "window"}
-   [" " "e"] ["b" "eval current buffer"]
-   [" " "w"] ["x" "kill buffer and window"]})
+   [" " "e"] {"b" "eval current buffer"}
+   [" " "w"] {"x" "kill buffer and window"}})
 
 (defn eval-action [eval-state]
   (fn [state cb]
@@ -63,10 +63,3 @@
                    (cb kill-active-window))
    [" " "e" "b"] (eval-action eval-state)})
 
-(defn on-key
-  [state key keymap cb]
-  (let [new-seq (conj (:key-seq state) key)]
-    (if-let [action (get keymap new-seq)]
-      (action state cb)
-      (if (contains? popup-options new-seq)
-        (cb #(assoc % :key-seq new-seq))))))
