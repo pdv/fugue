@@ -11,9 +11,12 @@
 (defn current-buffer-text [state]
   (get-in state [:files (:active state)]))
 
+(defn valid-buffer? [state id]
+  (some (partial = id) (flatten (:boxes state))))
+
 (defn activate [state id]
   (-> state
-      (assoc :active id)
+      (assoc :active (if (valid-buffer? state id) id (:active state)))
       (assoc :key-seq [])))
 
 (defn eval-settings [state]
