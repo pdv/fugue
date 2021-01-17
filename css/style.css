@@ -1,5 +1,5 @@
 :root {
-  --gap-width: 4px;
+  --gap-width: 24px;
 }
 
 @media (prefers-color-scheme: light) {
@@ -27,11 +27,18 @@ html, body, #app {
   color: var(--fg-color);
 }
 
-
 .boxes {
-  display: flex;
+  position: absolute;
   height: 100%;
-  margin: var(--gap-width) 0 0 var(--gap-width);
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--gap-width);
+}
+
+.flex {
+  height: 100%;
+  width: 100%;
+  gap: var(--gap-width);
 }
 
 .box {
@@ -40,7 +47,6 @@ html, body, #app {
   display: flex;
   flex-flow: column;
 
-  margin: 0 var(--gap-width) var(--gap-width) 0;
   border: 1px solid var(--mid-color);
   color: var(--mid-color);
 }

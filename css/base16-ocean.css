@@ -14,11 +14,11 @@
 .cm-s-base16-ocean .CodeMirror-matchingbracket {color: #a3be8c}
 .cm-s-base16-ocean .CodeMirror-nonmatchingbracket {color: #bf616a}
 
-.cm-s-base16-ocean span.cm-comment {color: #65737e; font-family: Input Sans Narrow;}
+.cm-s-base16-ocean span.cm-comment {color: #65737e;}
 .cm-s-base16-ocean span.cm-atom {color: #d08770;}
 .cm-s-base16-ocean span.cm-number {color: #d08770;}
 
 .cm-s-base16-ocean span.cm-builtin {color: #8fa1b3;}
 .cm-s-base16-ocean span.cm-keyword {color: #b48ead;}
 
-.cm-s-base16-ocean span.cm-string {color: #a3be8c; font-family: Input Sans Narrow;}
+.cm-s-base16-ocean span.cm-string {color: #a3be8c;}

@@ -120,4 +120,4 @@ fugue.boxes.layout.boxes_container = (function fugue$boxes$layout$boxes_containe
 return fugue.boxes.layout.row_or_col.call(null,boxes,true);
 });
 
-//# sourceMappingURL=layout.js.map?rel=1610846312716
+//# sourceMappingURL=layout.js.map?rel=1610894170854

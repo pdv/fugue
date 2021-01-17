@@ -663,4 +663,4 @@ return reagent.impl.component.as_class.call(null,comp);
 }
 });
 
-//# sourceMappingURL=component.js.map?rel=1610846306052
+//# sourceMappingURL=component.js.map?rel=1610894163957
