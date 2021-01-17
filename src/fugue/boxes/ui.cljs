@@ -19,10 +19,11 @@
     (string? value)
     [editor/editor value focused editor-callbacks cm-settings]
     (map? value)
-    [:div.output>p.value-box (str (or (:value value)
-                                      (if-let [error (:error value)]
-                                        (.. error -cause -message))
-                                      value))]
+    [:div.output>p.value-box
+     (str (or (:value value)
+              (if-let [error (:error value)]
+                (.. error -cause -message))
+              value))]
     :else
     [:div.output>p.value-box (str value)]))
 
@@ -39,6 +40,7 @@
                 :on-mouse-down #(on-box-click id)}
           [box value focused {:on-change #(if focused (on-text-change id %))
                               :on-shortcut on-shortcut}]
+          [:input.focus-stealer {:type "text" :autoFocus true :style {:display "none"}}]
           [:div.status-bar>a id]]))
      (:boxes state))])
 

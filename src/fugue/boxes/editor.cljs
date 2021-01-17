@@ -37,17 +37,16 @@
        :component-did-update
        (fn [this old-argv]
          (let [argv (r/argv this)
-               new-text (last (drop-last 3 old-argv))
+               new-text (last (drop-last 3 argv))
                was-focused (last (drop-last 2 old-argv))
                is-focused (last (drop-last 2 argv))
                old-cm-options (last old-argv)
                new-cm-options (last argv)]
-           (when (and was-focused (not is-focused))
+           (when (not is-focused)
+             (.setValue @codemirror new-text)
              (.blur (.. @codemirror -display -input)))
            (when (and (not was-focused) is-focused)
              (.focus @codemirror))
-           (when (not is-focused)
-             (.setValue @codemirror new-text))
            (doseq [[key value] new-cm-options]
              (when (not= value (get old-cm-options key))
                (.setOption @codemirror (clj->js key) value)))))})))
