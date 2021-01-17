@@ -28,15 +28,26 @@
 (def number-jumps
   (into {} (map (fn [i] [[" " (str i)] (fn [_ cb] (cb s/activate i))]) (range 10))))
 
+(defn kill-active-buffer [state cb]
+  (cb s/kill-buffer (:active state)))
+
+(defn split-right [state cb]
+  (cb s/open-file (s/active-buffer-name state) :right))
+
+(defn split-down [state cb]
+  (cb s/open-file (s/active-buffer-name state) :below))
+
+(defn open-minibuffer [state cb]
+  (cb s/open-minibuffer state))
+
 (defn default-keymap [eval-state]
   (merge number-jumps
-         {[" " " "] (fn [s cb]
-                      (cb s/open-minibuffer s))
-          [" " "w" "x"] (fn [s cb]
-                          (cb s/kill-buffer (:active s)))
-          [" " "w" "/"] (fn [s cb]
-                          (cb s/open-file (s/active-buffer-name s) :right))
-          [" " "w" "-"] (fn [s cb]
-                          (cb s/open-file (s/active-buffer-name s) :below))
+         {[" " " "] open-minibuffer
+          [" " "w" "x"] kill-active-buffer
+          [" " "w" "/"] split-right
+          [" " "w" "-"] split-down
           [" " "e" "b"] (eval-action eval-state)}))
 
+(defn default-actions [eval-state]
+  {"eval-active-buffer" (eval-action eval-state)
+   "kill-active-buffer" kill-active-buffer})

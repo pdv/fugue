@@ -1,6 +1,7 @@
 (ns fugue.ide.popup
   (:require [reagent.core :as r]
-            [clojure.string :as s]
+            [clojure.string :as string]
+            [fugue.ide.state :as s]
             [fugue.ide.editor :refer [editor]]))
 
 (defn keyboard [actions]
@@ -17,7 +18,7 @@
         ""
         true
         (fn [text]
-          (reset! filtered (filter #(s/includes? % text) options)))
+          (reset! filtered (filter #(string/includes? % text) options)))
         #()
         {:theme "base16-ocean"
          :lineNumbers false
@@ -46,12 +47,11 @@
               "-" "split top-bottom"
               "x" "kill buffer and window"}})
 
-(def function-names
-  ["eval-active-buffer"
-   "kill-active-buffer"])
-
-(defn popup [state on-esc]
+(defn popup [state on-esc actions cb]
   (if-let [options (get popup-options (:key-seq state))]
     [keyboard options]
     (if (:minibuffer state)
-      [mini-buffer function-names on-esc])))
+      [mini-buffer
+       (keys actions)
+       on-esc
+       #((get actions %) (s/close-minibuffer state) cb)])))

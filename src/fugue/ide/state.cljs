@@ -2,19 +2,32 @@
   (:require [fugue.ide.layout :as layout]))
 
 (def init-state
-  {:layout     '(1)
-   :active     1
-   :buffers    {1 :default-text}
+  {:layout '(1)
+   :active 1
+   :buffers {1 :default-text}
    :minibuffer false
-   :files      {:default-text "(+ 1 2)"}
-   :key-seq    nil})
+   :files {:default-text "(+ 1 2)"}
+   :key-seq nil})
 
 (defn next-buffer-id [state]
   (first (filter #(not (contains? (:buffers state) %)) (range 1 10))))
 
+(defn in-popup? [state]
+  (or (not-empty (:key-seq state))
+      (:minibuffer state)))
+
+(defn open-minibuffer [state]
+  (-> state
+      (assoc :key-seq [])
+      (assoc :minibuffer true)))
+
+(defn close-minibuffer [state]
+  (assoc state :minibuffer nil))
+
 (defn activate [state id]
   (-> state
       (assoc :active (if (contains? (:buffers state) id) id (:active state)))
+      (close-minibuffer)
       (assoc :key-seq [])))
 
 (defn active-buffer-name [state]
@@ -47,15 +60,3 @@
       (update :layout layout/remove-node id)
       (update :buffers dissoc id)
       (activate (dec id))))
-
-(defn in-popup? [state]
-  (or (not-empty (:key-seq state))
-      (:minibuffer state)))
-
-(defn open-minibuffer [state]
-  (-> state
-      (assoc :key-seq [])
-      (assoc :minibuffer true)))
-
-(defn close-minibuffer [state]
-  (assoc state :minibuffer nil))
