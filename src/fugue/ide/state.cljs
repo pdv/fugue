@@ -1,14 +1,14 @@
-(ns fugue.boxes.state
+(ns fugue.ide.state
   (:require [clojure.string :as string]
-            [fugue.boxes.layout :as b]))
+            [fugue.ide.layout :as layout]))
 
 (def init-state
-  {:boxes   '(1)
-   :active  1
-   :buffers {1 :default-text}
+  {:layout     '(1)
+   :active     1
+   :buffers    {1 :default-text}
    :minibuffer nil
-   :files   {:default-text "(+ 1 2)"}
-   :key-seq nil})
+   :files      {:default-text "(+ 1 2)"}
+   :key-seq    nil})
 
 (defn next-buffer-id [state]
   (first (filter #(not (contains? (:buffers state) %)) (range 1 10))))
@@ -37,7 +37,7 @@
   (let [id (next-buffer-id state)]
     (-> state
         (assoc-in [:buffers id] name)
-        (update :boxes b/insert direction (:active state) id)
+        (update :layout layout/insert-node direction (:active state) id)
         (activate id))))
 
 (defn write-file [state name value]
@@ -51,7 +51,7 @@
 
 (defn kill-buffer [state id]
   (-> state
-      (update :boxes b/remove id)
+      (update :layout layout/remove-node id)
       (update :buffers dissoc id)
       (activate (dec id))))
 

@@ -1,4 +1,4 @@
-(ns fugue.boxes.editor
+(ns fugue.ide.editor
   (:require [reagent.core :as r]
             [reagent.dom :as rdom]
             [oops.core :refer [oget]]

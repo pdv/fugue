@@ -1,10 +1,10 @@
-(ns fugue.boxes.ui
+(ns fugue.ide.ui
   (:require [reagent.core :as r]
             [cljs.js]
-            [fugue.boxes.util :refer [log]]
-            [fugue.boxes.boxes :refer [boxes]]
-            [fugue.boxes.editor :as editor]
-            [fugue.boxes.state :as b]))
+            [fugue.ide.util :refer [log]]
+            [fugue.ide.windows :refer [windows-layout]]
+            [fugue.ide.editor :as editor]
+            [fugue.ide.state :as b]))
 
 (defn popup-content [actions]
   [:div.popup>ul
@@ -40,8 +40,8 @@
     (.mapCommand js/CodeMirror.Vim "<Space>" "action" "space!" #js {} #js {"context" "normal"})
     (fn []
       (log @state)
-      [:div.boxes
-       [boxes
+      [:div.ide
+       [windows-layout
         @state
         {:on-box-click #(swap! state b/activate %)
          :on-text-change (fn [id new-text]
