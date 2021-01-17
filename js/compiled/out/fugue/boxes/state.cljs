@@ -11,9 +11,12 @@
 (defn current-buffer-text [state]
   (get-in state [:files (:active state)]))
 
+(defn valid-buffer? [state id]
+  (some (partial = id) (flatten (:boxes state))))
+
 (defn activate [state id]
   (-> state
-      (assoc :active id)
+      (assoc :active (if (valid-buffer? state id) id (:active state)))
       (assoc :key-seq [])))
 
 (defn eval-settings [state]
@@ -24,10 +27,10 @@
              (cb {:lang :clj :source source})
              (cb nil)))})
 
-(defn on-eval [state result]
+(defn insert [state value direction]
   (-> state
-      (assoc-in [:files (:next-id state)] (:value result))
-      (update :boxes b/insert :after (:active state) (:next-id state))
+      (assoc-in [:files (:next-id state)] value)
+      (update :boxes b/insert direction (:active state) (:next-id state))
       (activate (:next-id state))
       (update :next-id inc)))
 
@@ -42,20 +45,19 @@
       (update :boxes b/remove id)
       (activate (dec id))))
 
-(defn kill-active-window [state]
-  (kill-window state (:active state)))
-
 (def popup-options
   {[" "] {"1-9" "jump to buffer"
           "e" "eval"
           "w" "window"}
    [" " "e"] {"b" "eval current buffer"}
-   [" " "w"] {"x" "kill buffer and window"}})
+   [" " "w"] {"/" "split left-right"
+              "-" "split top-bottom"
+              "x" "kill buffer and window"}})
 
 (defn eval-action [eval-state]
   (fn [state cb]
     (let [[source settings] ((juxt current-buffer-text eval-settings) state)
-          on-result (fn [result] (cb #(on-eval % result)))]
+          on-result #(cb insert % :after)]
       (cljs.js/eval-str eval-state source nil settings on-result))))
 
 (def number-jumps
@@ -63,7 +65,8 @@
 
 (defn default-keymap [eval-state]
   (merge number-jumps
-         {[" " "w" "x"] (fn [_ cb]
-                          (cb kill-active-window))
+         {[" " "w" "x"] (fn [s cb] (cb kill-window (:active s)))
+          [" " "w" "/"] (fn [_ cb] (cb insert "" :right))
+          [" " "w" "-"] (fn [_ cb] (cb insert "" :below))
           [" " "e" "b"] (eval-action eval-state)}))
 

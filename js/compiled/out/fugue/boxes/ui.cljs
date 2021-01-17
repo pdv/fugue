@@ -11,6 +11,20 @@
    (for [[key name] actions]
      [:li (str key " - " name)])])
 
+(def cm-settings {"keyMap" "vim" "theme" "base16-ocean"})
+
+(defn box [value focused editor-callbacks]
+  (cond
+    (vector? value) [:div.output value]
+    (string? value)
+    [editor/editor value focused editor-callbacks cm-settings]
+    (map? value)
+    [:div.output>p.value-box (str (or (:value value)
+                                      (.. (:error value) -cause -message)))]
+    :else
+    [:div.output>p.value-box (str value)]))
+
+
 (defn boxes [state {:keys [on-box-click on-text-change on-shortcut]}]
   [layout/boxes-container
    (layout/map-values
@@ -19,17 +33,9 @@
              focused (and (= id (:active state))
                           (empty? (:key-seq state)))]
          [:div {:class-name (if focused "box focused" "box")
-                :on-click #(on-box-click id)}
-          (cond
-            (vector? value) [:div.output value]
-            (string? value)
-            [editor/editor
-             value
-             focused
-             {:on-change (partial on-text-change id)
-              :on-shortcut on-shortcut}
-             {"keyMap" "vim" "theme" "base16-ocean"}]
-            :else [:div.output>p.value-box (str value)])
+                :on-mouse-down #(on-box-click id)}
+          [box value focused {:on-change (partial on-text-change id)
+                              :on-shortcut on-shortcut}]
           [:div.status-bar>a id]]))
      (:boxes state))])
 

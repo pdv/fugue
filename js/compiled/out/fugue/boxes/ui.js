@@ -56,6 +56,29 @@ break;
 return iter__4523__auto__.call(null,actions);
 })()], null);
 });
+fugue.boxes.ui.cm_settings = new cljs.core.PersistentArrayMap(null, 2, ["keyMap","vim","theme","base16-ocean"], null);
+fugue.boxes.ui.box = (function fugue$boxes$ui$box(value,focused,editor_callbacks){
+if(cljs.core.vector_QMARK_.call(null,value)){
+return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.output","div.output",1460347316),value], null);
+} else {
+if(typeof value === 'string'){
+return new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [fugue.boxes.editor.editor,value,focused,editor_callbacks,fugue.boxes.ui.cm_settings], null);
+} else {
+if(cljs.core.map_QMARK_.call(null,value)){
+return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.output>p.value-box","div.output>p.value-box",-264848635),cljs.core.str.cljs$core$IFn$_invoke$arity$1((function (){var or__4131__auto__ = new cljs.core.Keyword(null,"value","value",305978217).cljs$core$IFn$_invoke$arity$1(value);
+if(cljs.core.truth_(or__4131__auto__)){
+return or__4131__auto__;
+} else {
+return new cljs.core.Keyword(null,"error","error",-978969032).cljs$core$IFn$_invoke$arity$1(value).cause.message;
+}
+})())], null);
+} else {
+return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.output>p.value-box","div.output>p.value-box",-264848635),cljs.core.str.cljs$core$IFn$_invoke$arity$1(value)], null);
+
+}
+}
+}
+});
 fugue.boxes.ui.boxes = (function fugue$boxes$ui$boxes(state,p__19014){
 var map__19015 = p__19014;
 var map__19015__$1 = (((((!((map__19015 == null))))?(((((map__19015.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__19015.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__19015):map__19015);
@@ -66,12 +89,11 @@ return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMP
 return (function (id){
 var value = cljs.core.get_in.call(null,state,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"files","files",-472457450),id], null));
 var focused = ((cljs.core._EQ_.call(null,id,new cljs.core.Keyword(null,"active","active",1895962068).cljs$core$IFn$_invoke$arity$1(state))) && (cljs.core.empty_QMARK_.call(null,new cljs.core.Keyword(null,"key-seq","key-seq",-1961389919).cljs$core$IFn$_invoke$arity$1(state))));
-return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"class-name","class-name",945142584),((focused)?"box focused":"box"),new cljs.core.Keyword(null,"on-click","on-click",1632826543),((function (value,focused,map__19015,map__19015__$1,on_box_click,on_text_change,on_shortcut){
+return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"class-name","class-name",945142584),((focused)?"box focused":"box"),new cljs.core.Keyword(null,"on-mouse-down","on-mouse-down",1147755470),((function (value,focused,map__19015,map__19015__$1,on_box_click,on_text_change,on_shortcut){
 return (function (){
 return on_box_click.call(null,id);
 });})(value,focused,map__19015,map__19015__$1,on_box_click,on_text_change,on_shortcut))
-], null),((cljs.core.vector_QMARK_.call(null,value))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.output","div.output",1460347316),value], null):((typeof value === 'string')?new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [fugue.boxes.editor.editor,value,focused,new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"on-change","on-change",-732046149),cljs.core.partial.call(null,on_text_change,id),new cljs.core.Keyword(null,"on-shortcut","on-shortcut",-393863730),on_shortcut], null),new cljs.core.PersistentArrayMap(null, 2, ["keyMap","vim","theme","base16-ocean"], null)], null):new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.output>p.value-box","div.output>p.value-box",-264848635),cljs.core.str.cljs$core$IFn$_invoke$arity$1(value)], null)
-)),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.status-bar>a","div.status-bar>a",-1268331913),id], null)], null);
+], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [fugue.boxes.ui.box,value,focused,new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"on-change","on-change",-732046149),cljs.core.partial.call(null,on_text_change,id),new cljs.core.Keyword(null,"on-shortcut","on-shortcut",-393863730),on_shortcut], null)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.status-bar>a","div.status-bar>a",-1268331913),id], null)], null);
 });})(map__19015,map__19015__$1,on_box_click,on_text_change,on_shortcut))
 ,new cljs.core.Keyword(null,"boxes","boxes",-420813822).cljs$core$IFn$_invoke$arity$1(state))], null);
 });
@@ -137,4 +159,4 @@ return null;
 ;})(eval_state,state))
 });
 
-//# sourceMappingURL=ui.js.map?rel=1610838686493
+//# sourceMappingURL=ui.js.map?rel=1610846314080
