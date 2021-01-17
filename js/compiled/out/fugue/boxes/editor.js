@@ -9,14 +9,14 @@ goog.require('cljs.pprint');
 goog.require('cljs.repl');
 CodeMirror.registerHelper("hintWords","clojure",["midi","audio","buffer","render"]);
 fugue.boxes.editor.maybe_show_hint = (function fugue$boxes$editor$maybe_show_hint(cm,input_read_event){
-if(cljs.core.truth_(cljs.core.re_find.call(null,/[a-zA-Z]/,cljs.core.first.call(null,(function (){var target_obj_18949 = input_read_event;
-var _STAR_runtime_state_STAR__orig_val__18951 = oops.state._STAR_runtime_state_STAR_;
-var _STAR_runtime_state_STAR__temp_val__18952 = oops.state.prepare_state.call(null,target_obj_18949,(new Error()),function(){arguments[0].apply(console,Array.prototype.slice.call(arguments,1))});
-oops.state._STAR_runtime_state_STAR_ = _STAR_runtime_state_STAR__temp_val__18952;
+if(cljs.core.truth_(cljs.core.re_find.call(null,/[a-zA-Z]/,cljs.core.first.call(null,(function (){var target_obj_18950 = input_read_event;
+var _STAR_runtime_state_STAR__orig_val__18952 = oops.state._STAR_runtime_state_STAR_;
+var _STAR_runtime_state_STAR__temp_val__18953 = oops.state.prepare_state.call(null,target_obj_18950,(new Error()),function(){arguments[0].apply(console,Array.prototype.slice.call(arguments,1))});
+oops.state._STAR_runtime_state_STAR_ = _STAR_runtime_state_STAR__temp_val__18953;
 
-try{var next_obj_18950 = ((oops.core.validate_object_access_dynamically.call(null,target_obj_18949,(0),"text",true,true,false))?(target_obj_18949["text"]):null);
-return next_obj_18950;
-}finally {oops.state._STAR_runtime_state_STAR_ = _STAR_runtime_state_STAR__orig_val__18951;
+try{var next_obj_18951 = ((oops.core.validate_object_access_dynamically.call(null,target_obj_18950,(0),"text",true,true,false))?(target_obj_18950["text"]):null);
+return next_obj_18951;
+}finally {oops.state._STAR_runtime_state_STAR_ = _STAR_runtime_state_STAR__orig_val__18952;
 }})())))){
 return cm.showHint(({"completeSingle": false}));
 } else {
@@ -41,24 +41,27 @@ var settings = cljs.core.clj__GT_js.call(null,cljs.core.merge.call(null,cm_optio
 var cm = CodeMirror.fromTextArea(node,settings);
 cljs.core.vreset_BANG_.call(null,codemirror,cm);
 
+if(cljs.core.truth_((function (){var and__4120__auto__ = focused;
+if(cljs.core.truth_(and__4120__auto__)){
+return cljs.core.not.call(null,cljs.core.deref.call(null,codemirror).hasFocus());
+} else {
+return and__4120__auto__;
+}
+})())){
+cljs.core.deref.call(null,codemirror).focus();
+} else {
+}
+
 var G__18958 = cm;
 G__18958.on("change",((function (G__18958,node,settings,cm,codemirror,map__18956,map__18956__$1,on_change,on_selection_change,on_shortcut){
-return (function (p1__18953_SHARP_){
-return on_change.call(null,p1__18953_SHARP_.getValue());
-});})(G__18958,node,settings,cm,codemirror,map__18956,map__18956__$1,on_change,on_selection_change,on_shortcut))
-);
-
-G__18958.on("cursorActivity",((function (G__18958,node,settings,cm,codemirror,map__18956,map__18956__$1,on_change,on_selection_change,on_shortcut){
 return (function (p1__18954_SHARP_){
-return on_selection_change.call(null,p1__18954_SHARP_.getSelection());
+return on_change.call(null,p1__18954_SHARP_.getValue());
 });})(G__18958,node,settings,cm,codemirror,map__18956,map__18956__$1,on_change,on_selection_change,on_shortcut))
 );
 
 G__18958.on("inputRead",fugue.boxes.editor.maybe_show_hint);
 
 G__18958.setOption("extraKeys",({"Shift-Ctrl-Space": on_shortcut}));
-
-G__18958.focus();
 
 return G__18958;
 });})(codemirror,map__18956,map__18956__$1,on_change,on_selection_change,on_shortcut))
@@ -75,24 +78,20 @@ return null;
 ,new cljs.core.Keyword(null,"component-did-update","component-did-update",-1468549173),((function (codemirror,map__18956,map__18956__$1,on_change,on_selection_change,on_shortcut){
 return (function (this$,old_argv){
 var argv = reagent.core.argv.call(null,this$);
-var was_focused = cljs.core.last.call(null,cljs.core.drop_last.call(null,(2),old_argv));
+var new_text = cljs.core.last.call(null,cljs.core.drop_last.call(null,(3),argv));
 var is_focused = cljs.core.last.call(null,cljs.core.drop_last.call(null,(2),argv));
 var old_cm_options = cljs.core.last.call(null,old_argv);
 var new_cm_options = cljs.core.last.call(null,argv);
-if(cljs.core.truth_((function (){var and__4120__auto__ = was_focused;
-if(cljs.core.truth_(and__4120__auto__)){
-return cljs.core.not.call(null,is_focused);
-} else {
-return and__4120__auto__;
-}
-})())){
+if(cljs.core.not.call(null,is_focused)){
+cljs.core.deref.call(null,codemirror).setValue(new_text);
+
 cljs.core.deref.call(null,codemirror).display.input.blur();
 } else {
 }
 
-if(cljs.core.truth_((function (){var and__4120__auto__ = cljs.core.not.call(null,was_focused);
-if(and__4120__auto__){
-return is_focused;
+if(cljs.core.truth_((function (){var and__4120__auto__ = is_focused;
+if(cljs.core.truth_(and__4120__auto__)){
+return cljs.core.not.call(null,cljs.core.deref.call(null,codemirror).hasFocus());
 } else {
 return and__4120__auto__;
 }
@@ -199,4 +198,4 @@ return cljs.core.str.cljs$core$IFn$_invoke$arity$1(sb__4661__auto__);
 })()));
 });
 
-//# sourceMappingURL=editor.js.map?rel=1610894172302
+//# sourceMappingURL=editor.js.map?rel=1610907678430

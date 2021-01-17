@@ -4,19 +4,20 @@
 (def init-state
   {:boxes   '(1)
    :active  1
-   :next-id 2
-   :files   {1 "#(fugue.boxes.state/insert % \"nice\" :left)"}
+   :buffers {1 :default-text}
+   :files   {:default-text "(+ 1 2)"}
    :key-seq nil})
 
-(defn current-buffer-text [state]
-  (get-in state [:files (:active state)]))
+(defn next-buffer-id [state]
+  (first (filter #(not (contains? (:buffers state) %)) (range 1 10))))
 
-(defn valid-buffer? [state id]
-  (some (partial = id) (flatten (:boxes state))))
+(defn current-buffer-text [state]
+  (let [filename (get-in state [:buffers (:active state)])]
+    (get-in state [:files filename])))
 
 (defn activate [state id]
   (-> state
-      (assoc :active (if (valid-buffer? state id) id (:active state)))
+      (assoc :active (if (contains? (:buffers state) id) id (:active state)))
       (assoc :key-seq [])))
 
 (defn eval-settings [state]
@@ -27,12 +28,18 @@
              (cb {:lang :clj :source source})
              (cb nil)))})
 
-(defn insert [state value direction]
-  (-> state
-      (assoc-in [:files (:next-id state)] value)
-      (update :boxes b/insert direction (:active state) (:next-id state))
-      (activate (:next-id state))
-      (update :next-id inc)))
+(defn active-filename [state]
+  (get-in state [:buffers (:active state)]))
+
+(defn open-file [state name direction]
+  (let [id (next-buffer-id state)]
+    (-> state
+        (assoc-in [:buffers id] name)
+        (update :boxes b/insert direction (:active state) id)
+        (activate id))))
+
+(defn write-file [state name value]
+  (assoc-in state [:files name] value))
 
 (defn window-count [state]
   (- (:next-id state) 1))
@@ -43,6 +50,7 @@
 (defn kill-window [state id]
   (-> state
       (update :boxes b/remove id)
+      (update :buffers dissoc id)
       (activate (dec id))))
 
 (def popup-options
@@ -54,13 +62,19 @@
               "-" "split top-bottom"
               "x" "kill buffer and window"}})
 
+(defn on-eval [state result]
+  (let [filename (gensym "result")]
+    (-> state
+        (write-file filename result)
+        (open-file filename :after))))
+
 (defn eval-action [eval-state]
   (fn [state cb]
     (let [[source settings] ((juxt current-buffer-text eval-settings) state)
           on-result (fn [result]
                       (if (fn? (:value result))
                         (cb (:value result))
-                        (cb insert result :after)))]
+                        (cb on-eval result)))]
       (cljs.js/eval-str eval-state source nil settings on-result))))
 
 (def number-jumps
@@ -68,8 +82,11 @@
 
 (defn default-keymap [eval-state]
   (merge number-jumps
-         {[" " "w" "x"] (fn [s cb] (cb kill-window (:active s)))
-          [" " "w" "/"] (fn [_ cb] (cb insert "" :right))
-          [" " "w" "-"] (fn [_ cb] (cb insert "" :below))
+         {[" " "w" "x"] (fn [s cb]
+                          (cb kill-window (:active s)))
+          [" " "w" "/"] (fn [s cb]
+                          (cb open-file (active-filename s) :right))
+          [" " "w" "-"] (fn [s cb]
+                          (cb open-file (active-filename s) :below))
           [" " "e" "b"] (eval-action eval-state)}))
 

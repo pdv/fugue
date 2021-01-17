@@ -103,7 +103,7 @@ goog.addDependency("../fugue/boxes/editor.js", ['fugue.boxes.editor'], ['reagent
 goog.addDependency("../fugue/demo/demo_loader.js", ['fugue.demo.demo_loader'], ['cljs.core']);
 goog.addDependency("../fugue/boxes/layout.js", ['fugue.boxes.layout'], ['clojure.zip', 'cljs.core']);
 goog.addDependency("../fugue/ide.js", ['fugue.ide'], ['reagent.core', 'cljs.core', 'fugue.boxes.editor', 'fugue.demo.demo_loader']);
-goog.addDependency("../fugue/boxes/util.js", ['fugue.boxes.util'], ['cljs.core']);
+goog.addDependency("../fugue/boxes/util.js", ['fugue.boxes.util'], ['cljs.core', 'cljs.pprint']);
 goog.addDependency("../fugue/boxes/state.js", ['fugue.boxes.state'], ['cljs.core', 'fugue.boxes.layout']);
 goog.addDependency("../fugue/boxes/ui.js", ['fugue.boxes.ui'], ['reagent.core', 'cljs.js', 'fugue.boxes.state', 'cljs.core', 'fugue.boxes.layout', 'fugue.boxes.editor', 'fugue.boxes.util']);
 goog.addDependency("../fugue/web.js", ['fugue.web'], ['fugue.boxes.ui', 'reagent.core', 'fugue.ide', 'cljs.core', 'fugue.bootstrap', 'reagent.dom']);

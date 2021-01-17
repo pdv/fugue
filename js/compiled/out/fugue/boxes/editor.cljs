@@ -25,25 +25,27 @@
                settings (clj->js (merge cm-options {:mode "clojure" :lineNumbers true}))
                cm (.fromTextArea js/CodeMirror node settings)]
            (vreset! codemirror cm)
+           (when (and focused (not (.hasFocus @codemirror)))
+             (.focus @codemirror))
            (doto cm
              (.on "change" #(on-change (.getValue %)))
-             (.on "cursorActivity" #(on-selection-change (.getSelection %)))
+             ; (.on "cursorActivity" #(on-selection-change (.getSelection %)))
              (.on "inputRead" maybe-show-hint)
-             (.setOption "extraKeys" #js {"Shift-Ctrl-Space" on-shortcut})
-             (.focus))))
+             (.setOption "extraKeys" #js {"Shift-Ctrl-Space" on-shortcut}))))
        :component-will-unmount
        (fn []
          (if-let [cm @codemirror] (.toTextArea cm)))
        :component-did-update
        (fn [this old-argv]
          (let [argv (r/argv this)
-               was-focused (last (drop-last 2 old-argv))
+               new-text (last (drop-last 3 argv))
                is-focused (last (drop-last 2 argv))
                old-cm-options (last old-argv)
                new-cm-options (last argv)]
-           (when (and was-focused (not is-focused))
+           (when (not is-focused)
+             (.setValue @codemirror new-text)
              (.blur (.. @codemirror -display -input)))
-           (when (and (not was-focused) is-focused)
+           (when (and is-focused (not (.hasFocus @codemirror)))
              (.focus @codemirror))
            (doseq [[key value] new-cm-options]
              (when (not= value (get old-cm-options key))
