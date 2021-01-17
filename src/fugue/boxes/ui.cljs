@@ -20,7 +20,9 @@
     [editor/editor value focused editor-callbacks cm-settings]
     (map? value)
     [:div.output>p.value-box (str (or (:value value)
-                                      (.. (:error value) -cause -message)))]
+                                      (if-let [error (:error value)]
+                                        (.. error -cause -message))
+                                      value))]
     :else
     [:div.output>p.value-box (str value)]))
 

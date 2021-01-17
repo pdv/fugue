@@ -5,7 +5,7 @@
   {:boxes   '(1)
    :active  1
    :next-id 2
-   :files   {1 "(+ 1 23)"}
+   :files   {1 "#(fugue.boxes.state/insert % \"nice\" :left)"}
    :key-seq nil})
 
 (defn current-buffer-text [state]
@@ -57,7 +57,10 @@
 (defn eval-action [eval-state]
   (fn [state cb]
     (let [[source settings] ((juxt current-buffer-text eval-settings) state)
-          on-result #(cb insert % :after)]
+          on-result (fn [result]
+                      (if (fn? (:value result))
+                        (cb (:value result))
+                        (cb insert result :after)))]
       (cljs.js/eval-str eval-state source nil settings on-result))))
 
 (def number-jumps
