@@ -45,15 +45,13 @@
       (update :boxes b/remove id)
       (activate (dec id))))
 
-(defn kill-active-window [state]
-  (kill-window state (:active state)))
-
 (def popup-options
   {[" "] {"1-9" "jump to buffer"
           "e" "eval"
           "w" "window"}
    [" " "e"] {"b" "eval current buffer"}
    [" " "w"] {"/" "split left-right"
+              "-" "split top-bottom"
               "x" "kill buffer and window"}})
 
 (defn eval-action [eval-state]
@@ -67,7 +65,8 @@
 
 (defn default-keymap [eval-state]
   (merge number-jumps
-         {[" " "w" "x"] (fn [_ cb] (cb kill-active-window))
+         {[" " "w" "x"] (fn [s cb] (cb kill-window (:active s)))
           [" " "w" "/"] (fn [_ cb] (cb insert "" :right))
+          [" " "w" "-"] (fn [_ cb] (cb insert "" :below))
           [" " "e" "b"] (eval-action eval-state)}))
 
