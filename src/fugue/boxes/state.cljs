@@ -27,10 +27,10 @@
              (cb {:lang :clj :source source})
              (cb nil)))})
 
-(defn on-eval [state result]
+(defn insert [state value direction]
   (-> state
-      (assoc-in [:files (:next-id state)] (:value result))
-      (update :boxes b/insert :after (:active state) (:next-id state))
+      (assoc-in [:files (:next-id state)] value)
+      (update :boxes b/insert direction (:active state) (:next-id state))
       (activate (:next-id state))
       (update :next-id inc)))
 
@@ -53,12 +53,13 @@
           "e" "eval"
           "w" "window"}
    [" " "e"] {"b" "eval current buffer"}
-   [" " "w"] {"x" "kill buffer and window"}})
+   [" " "w"] {"/" "split left-right"
+              "x" "kill buffer and window"}})
 
 (defn eval-action [eval-state]
   (fn [state cb]
     (let [[source settings] ((juxt current-buffer-text eval-settings) state)
-          on-result (fn [result] (cb #(on-eval % result)))]
+          on-result #(cb insert % :after)]
       (cljs.js/eval-str eval-state source nil settings on-result))))
 
 (def number-jumps
@@ -66,7 +67,7 @@
 
 (defn default-keymap [eval-state]
   (merge number-jumps
-         {[" " "w" "x"] (fn [_ cb]
-                          (cb kill-active-window))
+         {[" " "w" "x"] (fn [_ cb] (cb kill-active-window))
+          [" " "w" "/"] (fn [_ cb] (cb insert "" :right))
           [" " "e" "b"] (eval-action eval-state)}))
 

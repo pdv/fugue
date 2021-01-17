@@ -19,7 +19,7 @@
              focused (and (= id (:active state))
                           (empty? (:key-seq state)))]
          [:div {:class-name (if focused "box focused" "box")
-                :on-click #(on-box-click id)}
+                :on-mouse-down #(on-box-click id)}
           (cond
             (vector? value) [:div.output value]
             (string? value)
