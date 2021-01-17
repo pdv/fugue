@@ -87,7 +87,7 @@ html, body, #app {
   color: var(--mid-color);
 }
 
-.box.focused .CodeMirror {
+.focused .CodeMirror {
   color: var(--fg-color);
 }
 
@@ -100,7 +100,7 @@ html, body, #app {
   color: var(--mid-color) !important;
 }
 
-.box.focused .CodeMirror-linenumber {
+.focused .CodeMirror-linenumber {
   color: var(--fg-color) !important;
 }
 

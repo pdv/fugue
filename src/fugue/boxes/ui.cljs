@@ -17,7 +17,9 @@
   (cond
     (vector? value) [:div.output value]
     (string? value)
-    [editor/editor value focused editor-callbacks cm-settings]
+    [editor/editor value focused editor-callbacks {:keyMap "vim"
+                                                   :theme "base16-ocean"
+                                                   :lineNumbers true}]
     (map? value)
     [:div.output>p.value-box
      (str (or (:value value)
@@ -35,7 +37,7 @@
        (let [filename (get-in state [:buffers id])
              value (get-in state [:files filename])
              focused (and (= id (:active state))
-                          (empty? (:key-seq state)))]
+                          (not (b/in-popup? state)))]
          [:div {:class-name (if focused "box focused" "box")
                 :on-mouse-down #(on-box-click id)}
           [box value focused {:on-change #(if focused (on-text-change id %))
@@ -43,6 +45,14 @@
           [:input.focus-stealer {:type "text" :autoFocus true :style {:display "none"}}]
           [:div.status-bar>a id]]))
      (:boxes state))])
+
+(defn minibuffer [text on-change]
+  [:div.popup.focused
+   [editor/editor text true {:on-change on-change} {:theme "base16-ocean"
+                                                    :lineNumbers false}]
+   [:ul
+    (for [option (b/minibuffer-options text)]
+      [:li option])]])
 
 (defn app []
   (let [eval-state (cljs.js/empty-state)
@@ -73,6 +83,8 @@
                            (let [filename (get-in @state [:buffers id])]
                              (swap! state assoc-in [:files filename] new-text)))
          :on-shortcut #(swap! state assoc :key-seq [" "])}]
+       (if-let [text (:minibuffer @state)]
+         [minibuffer text (partial swap! state assoc :minibuffer)])
        (if-let [options (get b/popup-options (:key-seq @state))]
          [popup-content options])])))
 

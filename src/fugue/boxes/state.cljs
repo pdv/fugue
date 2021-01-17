@@ -1,10 +1,12 @@
 (ns fugue.boxes.state
-  (:require [fugue.boxes.layout :as b]))
+  (:require [clojure.string :as string]
+            [fugue.boxes.layout :as b]))
 
 (def init-state
   {:boxes   '(1)
    :active  1
    :buffers {1 :default-text}
+   :minibuffer nil
    :files   {:default-text "(+ 1 2)"}
    :key-seq nil})
 
@@ -47,11 +49,32 @@
 (defn multiple-windows? [state]
   (< 1 (window-count state)))
 
-(defn kill-window [state id]
+(defn kill-buffer [state id]
   (-> state
       (update :boxes b/remove id)
       (update :buffers dissoc id)
       (activate (dec id))))
+
+(defn in-popup? [state]
+  (or (not-empty (:key-seq state))
+      (:minibuffer state)))
+
+(defn open-minibuffer [state]
+  (-> state
+      (assoc :key-seq [])
+      (assoc :minibuffer "")))
+
+(defn close-minibuffer [state]
+  (assoc state :minibuffer nil))
+
+(def function-names
+  {"open-file" ["name" "direction"]
+   "kill-buffer" ["id"]})
+
+(defn minibuffer-options [text]
+  (->> function-names
+       (map first)
+       (filter #(string/starts-with? % text))))
 
 (def popup-options
   {[" "] {"1-9" "jump to buffer"
@@ -82,8 +105,10 @@
 
 (defn default-keymap [eval-state]
   (merge number-jumps
-         {[" " "w" "x"] (fn [s cb]
-                          (cb kill-window (:active s)))
+         {[" " " "] (fn [s cb]
+                      (cb open-minibuffer s))
+          [" " "w" "x"] (fn [s cb]
+                          (cb kill-buffer (:active s)))
           [" " "w" "/"] (fn [s cb]
                           (cb open-file (active-filename s) :right))
           [" " "w" "-"] (fn [s cb]

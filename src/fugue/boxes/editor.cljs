@@ -22,7 +22,7 @@
        :component-did-mount
        (fn [this]
          (let [node (rdom/dom-node this)
-               settings (clj->js (merge cm-options {:mode "clojure" :lineNumbers true}))
+               settings (clj->js (merge cm-options {:mode "clojure" }))
                cm (.fromTextArea js/CodeMirror node settings)]
            (vreset! codemirror cm)
            (when (and focused (not (.hasFocus @codemirror)))
