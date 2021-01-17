@@ -139,3 +139,7 @@ html, body, #app {
   padding: 0;
   margin: 0;
 }
+
+.minibuffer-selected {
+  background-color: #8fa1b3;
+}

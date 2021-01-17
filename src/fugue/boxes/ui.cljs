@@ -2,7 +2,7 @@
   (:require [reagent.core :as r]
             [cljs.js]
             [fugue.boxes.util :refer [log]]
-            [fugue.boxes.layout :as layout]
+            [fugue.boxes.boxes :refer [boxes]]
             [fugue.boxes.editor :as editor]
             [fugue.boxes.state :as b]))
 
@@ -11,48 +11,13 @@
    (for [[key name] actions]
      [:li (str key " - " name)])])
 
-(def cm-settings {"keyMap" "vim" "theme" "base16-ocean"})
-
-(defn box [value focused editor-callbacks]
-  (cond
-    (vector? value) [:div.output value]
-    (string? value)
-    [editor/editor value focused editor-callbacks {:keyMap "vim"
-                                                   :theme "base16-ocean"
-                                                   :lineNumbers true}]
-    (map? value)
-    [:div.output>p.value-box
-     (str (or (:value value)
-              (if-let [error (:error value)]
-                (.. error -cause -message))
-              value))]
-    :else
-    [:div.output>p.value-box (str value)]))
-
-
-(defn boxes [state {:keys [on-box-click on-text-change on-shortcut]}]
-  [layout/boxes-container
-   (layout/map-values
-     (fn [id]
-       (let [filename (get-in state [:buffers id])
-             value (get-in state [:files filename])
-             focused (and (= id (:active state))
-                          (not (b/in-popup? state)))]
-         [:div {:class-name (if focused "box focused" "box")
-                :on-mouse-down #(on-box-click id)}
-          [box value focused {:on-change #(if focused (on-text-change id %))
-                              :on-shortcut on-shortcut}]
-          [:input.focus-stealer {:type "text" :autoFocus true :style {:display "none"}}]
-          [:div.status-bar>a id]]))
-     (:boxes state))])
-
-(defn minibuffer [text on-change]
+(defn minibuffer [{:keys [text selected-index]} on-change]
   [:div.popup.focused
    [editor/editor text true {:on-change on-change} {:theme "base16-ocean"
                                                     :lineNumbers false}]
    [:ul
-    (for [option (b/minibuffer-options text)]
-      [:li option])]])
+    (for [[i option] (map-indexed vector (b/minibuffer-options text))]
+      [:li {:class-name (if (= i selected-index) "minibuffer-selected" "foobar")} option])]])
 
 (defn app []
   (let [eval-state (cljs.js/empty-state)
@@ -84,7 +49,7 @@
                              (swap! state assoc-in [:files filename] new-text)))
          :on-shortcut #(swap! state assoc :key-seq [" "])}]
        (if-let [text (:minibuffer @state)]
-         [minibuffer text (partial swap! state assoc :minibuffer)])
+         [minibuffer text (partial swap! state assoc-in [:minibuffer :text])])
        (if-let [options (get b/popup-options (:key-seq @state))]
          [popup-content options])])))
 

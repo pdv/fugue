@@ -62,7 +62,7 @@
 (defn open-minibuffer [state]
   (-> state
       (assoc :key-seq [])
-      (assoc :minibuffer "")))
+      (assoc :minibuffer {:text "" :selected-index 0})))
 
 (defn close-minibuffer [state]
   (assoc state :minibuffer nil))
