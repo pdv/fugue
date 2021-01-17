@@ -37,12 +37,16 @@
 (defn split-down [state cb]
   (cb s/open-file (s/active-buffer-name state) :below))
 
-(defn open-minibuffer [state cb]
-  (cb s/open-minibuffer state))
+(defn open-minibuffer [_ cb]
+  (cb s/open-minibuffer))
+
+(defn go-back [_ cb]
+  (cb s/go-back))
 
 (defn default-keymap [eval-state]
   (merge number-jumps
          {[" " " "] open-minibuffer
+          [" " "Tab"] go-back
           [" " "w" "x"] kill-active-buffer
           [" " "w" "/"] split-right
           [" " "w" "-"] split-down

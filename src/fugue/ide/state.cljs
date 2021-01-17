@@ -4,6 +4,7 @@
 (def init-state
   {:layout '(1)
    :active 1
+   :prev nil
    :buffers {1 :default-text}
    :minibuffer false
    :files {:default-text "(+ 1 2)"}
@@ -26,9 +27,13 @@
 
 (defn activate [state id]
   (-> state
+      (assoc :prev (:active state))
       (assoc :active (if (contains? (:buffers state) id) id (:active state)))
       (close-minibuffer)
       (assoc :key-seq [])))
+
+(defn go-back [state]
+  (activate state (:prev state)))
 
 (defn active-buffer-name [state]
   (get-in state [:buffers (:active state)]))
@@ -59,4 +64,4 @@
   (-> state
       (update :layout layout/remove-node id)
       (update :buffers dissoc id)
-      (activate (dec id))))
+      (activate (:prev state))))
