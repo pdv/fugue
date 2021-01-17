@@ -6,7 +6,7 @@
   {:layout     '(1)
    :active     1
    :buffers    {1 :default-text}
-   :minibuffer nil
+   :minibuffer false
    :files      {:default-text "(+ 1 2)"}
    :key-seq    nil})
 
@@ -62,28 +62,10 @@
 (defn open-minibuffer [state]
   (-> state
       (assoc :key-seq [])
-      (assoc :minibuffer {:text "" :selected-index 0})))
+      (assoc :minibuffer true)))
 
 (defn close-minibuffer [state]
   (assoc state :minibuffer nil))
-
-(def function-names
-  {"open-file" ["name" "direction"]
-   "kill-buffer" ["id"]})
-
-(defn minibuffer-options [text]
-  (->> function-names
-       (map first)
-       (filter #(string/starts-with? % text))))
-
-(def popup-options
-  {[" "] {"1-9" "jump to buffer"
-          "e" "eval"
-          "w" "window"}
-   [" " "e"] {"b" "eval current buffer"}
-   [" " "w"] {"/" "split left-right"
-              "-" "split top-bottom"
-              "x" "kill buffer and window"}})
 
 (defn on-eval [state result]
   (let [filename (gensym "result")]
