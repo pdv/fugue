@@ -9,26 +9,33 @@
      [:li (str key " - " name)])])
 
 (defn mini-buffer [options on-esc on-submit]
-  (let [input (r/atom "")
+  (let [filtered (r/atom options)
         highlighted (r/atom 0)]
     (fn []
-      (let [filtered-options (filter #(s/starts-with? % @input) options)]
-        [:div.popup.focused
-         [editor
-          @input
-          true
-          (partial reset! input)
-          #()
-          {:theme "base16-ocean"
-           :lineNumbers false
-           :extraKeys #js {"Esc" on-esc
-                           "Tab" (fn [cm]
-                                   (.setValue cm (nth filtered-options @highlighted))
-                                   (.setCursor cm (.lineCount cm) 0))
-                           "Enter" #(on-submit @input)}}]
-         [:ul
-          (for [[i option] (map-indexed vector filtered-options)]
-            [:li {:class-name (if (= i @highlighted) "minibuffer-selected" "foobar")} option])]]))))
+      [:div.popup.focused
+       [editor
+        ""
+        true
+        (fn [text]
+          (reset! filtered (filter #(s/includes? % text) options)))
+        #()
+        {:theme "base16-ocean"
+         :lineNumbers false
+         :extraKeys #js {"Esc" on-esc
+                         "Up" (fn []
+                                (swap! highlighted #(max 0 (dec %))))
+                         "Down" (fn []
+                                  (swap! highlighted #(min (dec (count @filtered))
+                                                           (inc %))))
+                         "Tab" (fn [cm]
+                                 (.setValue cm (nth @filtered @highlighted))
+                                 (.setCursor cm (.lineCount cm) 0))
+                         "Enter" #(on-submit (nth @filtered @highlighted))}}]
+       (if (not-empty @filtered)
+         [:ul {:foo @highlighted}
+          (for [[i option] (map-indexed vector @filtered)]
+            [:li {:class-name (if (= i @highlighted) "minibuffer-selected" "")} option])]
+         [:ul>li "no results"])])))
 
 (def popup-options
   {[" "] {"1-9" "jump to buffer"
@@ -40,11 +47,11 @@
               "x" "kill buffer and window"}})
 
 (def function-names
-  {"open-file" ["name" "direction"]
-   "kill-buffer" ["id"]})
+  ["eval-active-buffer"
+   "kill-active-buffer"])
 
 (defn popup [state on-esc]
   (if-let [options (get popup-options (:key-seq state))]
     [keyboard options]
     (if (:minibuffer state)
-      [mini-buffer (keys function-names) on-esc])))
+      [mini-buffer function-names on-esc])))

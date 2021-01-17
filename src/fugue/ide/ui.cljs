@@ -4,6 +4,7 @@
             [fugue.ide.util :refer [log]]
             [fugue.ide.windows :refer [windows-layout]]
             [fugue.ide.popup :as popup]
+            [fugue.ide.actions :as actions]
             [fugue.ide.state :as b]))
 
 (defn app []
@@ -13,7 +14,7 @@
       (when-not (= "TEXTAREA" (.. js/document -activeElement -tagName))
         (.preventDefault e)
         (let [new-seq (conj (:key-seq @state) (.-key e))
-              keymap (b/default-keymap eval-state)]
+              keymap (actions/default-keymap eval-state)]
           (cond
             (contains? keymap new-seq)
             ((get keymap new-seq) @state (partial swap! state))
