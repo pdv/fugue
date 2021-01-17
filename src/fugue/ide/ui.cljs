@@ -35,5 +35,5 @@
                            (let [filename (get-in @state [:buffers id])]
                              (swap! state assoc-in [:files filename] new-text)))
          :on-shortcut #(swap! state assoc :key-seq [" "])}]
-       [popup/popup @state]])))
+       [popup/popup @state #(swap! state assoc :minibuffer false)]])))
 
