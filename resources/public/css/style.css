@@ -82,6 +82,7 @@ html, body, #app {
 
 .CodeMirror {
   flex: 1;
+  height: auto;
   background-color: var(--bg-color);
   color: var(--mid-color);
 }

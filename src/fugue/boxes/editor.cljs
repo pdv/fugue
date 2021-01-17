@@ -27,7 +27,7 @@
            (vreset! codemirror cm)
            (doto cm
              (.on "change" #(on-change (.getValue %)))
-             (.on "cursorActivity" #(on-selection-change (.getSelection %)))
+             ; (.on "cursorActivity" #(on-selection-change (.getSelection %)))
              (.on "inputRead" maybe-show-hint)
              (.setOption "extraKeys" #js {"Shift-Ctrl-Space" on-shortcut})
              (.focus))))
@@ -37,6 +37,7 @@
        :component-did-update
        (fn [this old-argv]
          (let [argv (r/argv this)
+               new-text (last (drop-last 3 old-argv))
                was-focused (last (drop-last 2 old-argv))
                is-focused (last (drop-last 2 argv))
                old-cm-options (last old-argv)
@@ -45,6 +46,8 @@
              (.blur (.. @codemirror -display -input)))
            (when (and (not was-focused) is-focused)
              (.focus @codemirror))
+           (when (not is-focused)
+             (.setValue @codemirror new-text))
            (doseq [[key value] new-cm-options]
              (when (not= value (get old-cm-options key))
                (.setOption @codemirror (clj->js key) value)))))})))

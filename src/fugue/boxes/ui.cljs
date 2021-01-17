@@ -31,12 +31,13 @@
   [layout/boxes-container
    (layout/map-values
      (fn [id]
-       (let [value (get-in state [:files id])
+       (let [filename (get-in state [:buffers id])
+             value (get-in state [:files filename])
              focused (and (= id (:active state))
                           (empty? (:key-seq state)))]
          [:div {:class-name (if focused "box focused" "box")
                 :on-mouse-down #(on-box-click id)}
-          [box value focused {:on-change (partial on-text-change id)
+          [box value focused {:on-change #(if focused (on-text-change id %))
                               :on-shortcut on-shortcut}]
           [:div.status-bar>a id]]))
      (:boxes state))])
@@ -61,12 +62,14 @@
     (.defineAction js/CodeMirror.Vim "space!" #(swap! state assoc :key-seq [" "]))
     (.mapCommand js/CodeMirror.Vim "<Space>" "action" "space!" #js {} #js {"context" "normal"})
     (fn []
+      (log @state)
       [:div.boxes
        [boxes
         @state
         {:on-box-click #(swap! state b/activate %)
          :on-text-change (fn [id new-text]
-                           (swap! state assoc-in [:files id] new-text))
+                           (let [filename (get-in @state [:buffers id])]
+                             (swap! state assoc-in [:files filename] new-text)))
          :on-shortcut #(swap! state assoc :key-seq [" "])}]
        (if-let [options (get b/popup-options (:key-seq @state))]
          [popup-content options])])))
