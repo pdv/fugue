@@ -7,11 +7,9 @@
    ::prev nil
    ::windows {1 :default-text}
    ::key-seq nil
-   ::shortcuts
-   {"e" {:name "eval"
-         "w" :eval-active-window}
-    "w" {:name "window"
-         "x" :kill-active-window}}
+   ::shortcuts {}
+   ::actions {}
+   ::minibuffer false
    ::files {:default-text "(+ 1 2)"}})
 
 (defn next-window-id [state]
@@ -20,11 +18,16 @@
 (defn in-popup? [state]
   (::key-seq state))
 
+(defn in-minibuffer? [state]
+  (::minibuffer state))
+
 (defn open-popup [state]
   (assoc state ::key-seq []))
 
 (defn close-popup [state]
-  (assoc state ::key-seq nil))
+  (-> state
+      (assoc ::key-seq nil)
+      (assoc ::minibuffer false)))
 
 (defn activate [state id]
   (-> state
@@ -81,14 +84,22 @@
 (defn add-action [state action-name action]
   (assoc-in state [::actions action-name] action))
 
+(defn action-names [state]
+  (keys (::actions state)))
+
+(defn perform-action [state name]
+  ((get-in state [::actions (keyword name)])))
+
 (defn on-key [state key cb]
   (let [new-seq (conj (::key-seq state) key)
         shortcut (get-in (::shortcuts state) new-seq)]
-    (print new-seq shortcut)
     (cond
       ;; open popup
-      (= [" "] new-seq)
+      (and (= [" "] new-seq) (not (in-popup? state)))
       (cb open-popup)
+      ;; open minibuffer
+      (and (= [" "] new-seq) (in-popup? state))
+      (cb assoc ::minibuffer true)
       ;; another menu
       (map? shortcut)
       (cb update-in [::key-seq] conj key)
