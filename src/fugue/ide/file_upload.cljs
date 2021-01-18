@@ -21,6 +21,5 @@
        (let [argv (r/argv this)
              was-click (second old-argv)
              is-click (second argv)]
-         (print was-click is-click)
          (if (and (not was-click) is-click)
            (.click (rdom/dom-node this)))))}))

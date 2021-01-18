@@ -123,7 +123,7 @@
              value (get-in state [::files filename])
              active (and (= id (::active state))
                          (not (in-popup? state)))]
-         (window-fn id value active)))
+         (window-fn id filename value active)))
      (::layout state))])
 
 ;;

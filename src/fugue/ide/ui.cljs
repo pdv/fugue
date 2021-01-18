@@ -13,14 +13,16 @@
 
 (defn windows-layout [state {:keys [on-box-click on-text-change on-shortcut]}]
   (s/layout state
-            (fn [id value active]
+            (fn [id name value active]
               [:div {:class-name (if active "window focused" "window")
                      :on-mouse-down #(on-box-click id)}
                [window-content value active
                 {:on-change #(if active (on-text-change id %))
                  :on-selection #()
                  :on-shortcut on-shortcut}]
-               [:div.status-bar>a id]])))
+               [:div.status-bar
+                [:a id]
+                [:span name]]])))
 
 (defn add-jumps [state swap-cb]
   (reduce (fn [acc i]
