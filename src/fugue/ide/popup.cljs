@@ -2,6 +2,7 @@
   (:require [reagent.core :as r]
             [clojure.string :as string]
             [fugue.ide.state :as s]
+            [fugue.ide.actions :as a]
             [fugue.ide.editor :refer [editor]]))
 
 (defn keyboard [actions]
@@ -38,17 +39,8 @@
             [:li {:class-name (if (= i @highlighted) "minibuffer-selected" "")} option])]
          [:ul>li "no results"])])))
 
-(def popup-options
-  {[" "] {"1-9" "jump to buffer"
-          "e" "eval"
-          "w" "window"}
-   [" " "e"] {"b" "eval current buffer"}
-   [" " "w"] {"/" "split left-right"
-              "-" "split top-bottom"
-              "x" "kill buffer and window"}})
-
 (defn popup [state on-esc actions cb]
-  (if-let [options (get popup-options (:key-seq state))]
+  (if-let [options (get a/popup-options (:key-seq state))]
     [keyboard options]
     (if (:minibuffer state)
       [mini-buffer

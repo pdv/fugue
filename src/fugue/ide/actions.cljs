@@ -52,6 +52,15 @@
           [" " "w" "-"] split-down
           [" " "e" "b"] (eval-action eval-state)}))
 
+(def popup-options
+  {[" "] {"1-9" "jump to buffer"
+          "e" "eval"
+          "w" "window"}
+   [" " "e"] {"b" "eval current buffer"}
+   [" " "w"] {"/" "split left-right"
+              "-" "split top-bottom"
+              "x" "kill buffer and window"}})
+
 (defn default-actions [eval-state]
   {"eval-active-buffer" (eval-action eval-state)
    "kill-active-buffer" kill-active-buffer})

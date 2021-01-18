@@ -4,22 +4,22 @@
             [fugue.ide.util :refer [log]]
             [fugue.ide.windows :refer [windows-layout]]
             [fugue.ide.popup :as popup]
-            [fugue.ide.actions :as actions]
-            [fugue.ide.state :as b]))
+            [fugue.ide.actions :as a]
+            [fugue.ide.state :as s]))
 
 (defn app []
   (let [eval-state (cljs.js/empty-state)
-        state (r/atom b/init-state)]
+        state (r/atom s/init-state)]
     (defn on-keydown [e]
       (when-not (= "TEXTAREA" (.. js/document -activeElement -tagName))
         (.preventDefault e)
         (let [new-seq (conj (:key-seq @state) (.-key e))
-              keymap (actions/default-keymap eval-state)]
+              keymap (a/default-keymap eval-state)]
           (cond
             (contains? keymap new-seq)
             ((get keymap new-seq) @state (partial swap! state))
             ;elseif
-            (contains? popup/popup-options new-seq)
+            (contains? a/popup-options new-seq)
             (swap! state assoc :key-seq new-seq)
             :else
             (swap! state assoc :key-seq [])))))
@@ -31,7 +31,7 @@
       [:div.ide
        [windows-layout
         @state
-        {:on-box-click #(swap! state b/activate %)
+        {:on-box-click #(swap! state s/activate %)
          :on-text-change (fn [id new-text]
                            (let [filename (get-in @state [:buffers id])]
                              (swap! state assoc-in [:files filename] new-text)))
@@ -39,7 +39,7 @@
        [popup/popup
         @state
         #(swap! state assoc :minibuffer false)
-        (actions/default-actions eval-state)
+        (a/default-actions eval-state)
         (partial swap! state)]])))
 
 
