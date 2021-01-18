@@ -21,23 +21,43 @@
                  :on-shortcut on-shortcut}]
                [:div.status-bar>a id]])))
 
+
+(defn popup-options [shortcuts key-seq]
+  (->> (get-in shortcuts key-seq)
+       (filter (comp string? first))
+       (map #(vector (first %) (:name (second %))))))
+
+(defn default-shortcut-map []
+  {"e" {:name "eval"
+        "w" {:name "eval-active-window"
+             :action :eval-active-window}}
+   "w" {:name "window"
+        "x" {:name "kill-active-window"
+             :action :kill-active-window}}})
+
+(defn default-actions [state-atom eval-state]
+  {:eval-active-window #(a/eval-action @state-atom eval-state (partial swap! state-atom))
+   :kill-active-window #(swap! state-atom s/kill-active-window)})
+
 (defn app []
   (let [eval-state (cljs.js/empty-state)
         state (r/atom s/init-state)
-        key-seq (r/atom [])]
+        key-seq (r/atom [])
+        shortcuts (r/atom (default-shortcut-map))
+        actions (r/atom (default-actions state eval-state))]
     (defn on-key-down [e]
       (when-not (in-text-area?)
         (.preventDefault e)
         (let [popup (s/in-popup? @state)
               key (.-key e)
-              actions (get-in (a/available-actions state) @key-seq)
-              action (:action (get actions key))]
+              menu (get-in @shortcuts @key-seq)
+              action (:action (get menu key))]
           (cond
             (and (not popup) (= " " key))
             (swap! state s/open-popup)
             (and popup action)
-            (a/do-action @state eval-state (partial swap! state) action)
-            (and popup (contains? actions key))
+            ((get @actions action))
+            (and popup (contains? menu key))
             (swap! key-seq conj key)
             :else
             (swap! state s/close-popup)))))
@@ -55,4 +75,4 @@
          :on-shortcut #(swap! state s/open-popup)}]
        (if (s/in-popup? @state)
          [popup/popup-content
-          (a/popup-options @state @key-seq)])])))
+          (popup-options @shortcuts @key-seq)])])))

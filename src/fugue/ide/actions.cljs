@@ -35,21 +35,3 @@
 
 (defn go-back [_ cb]
   (cb s/go-back))
-
-(defn available-actions [state]
-  {"e" {:name "eval"
-        "w" {:name "eval-active-window"
-             :action :eval-active-window}}
-   "w" {:name "window"
-        "x" {:name "kill-active-window"
-             :action :kill-active-window}}})
-
-(defn do-action [state eval-state swap-cb action-name]
-  (case action-name
-    :eval-active-window (eval-action state eval-state swap-cb)
-    :kill-active-window (swap-cb s/kill-active-window)))
-
-(defn popup-options [state key-seq]
-  (->> (get-in (available-actions state) key-seq)
-       (filter (comp string? first))
-       (map #(vector (first %) (:name (second %))))))
