@@ -6,20 +6,25 @@
    ::active 1
    ::prev nil
    ::windows {1 :default-text}
-   ::popup false
+   ::key-seq nil
+   ::shortcuts
+   {"e" {:name "eval"
+         "w" :eval-active-window}
+    "w" {:name "window"
+         "x" :kill-active-window}}
    ::files {:default-text "(+ 1 2)"}})
 
 (defn next-window-id [state]
   (first (filter #(not (contains? (::windows state) %)) (range 1 10))))
 
 (defn in-popup? [state]
-  (::popup state))
+  (::key-seq state))
 
 (defn open-popup [state]
-  (assoc state ::popup true))
+  (assoc state ::key-seq []))
 
 (defn close-popup [state]
-  (assoc state ::popup false))
+  (assoc state ::key-seq nil))
 
 (defn activate [state id]
   (-> state
@@ -61,6 +66,30 @@
       (kill-window (::active state))
       (activate (::prev state))))
 
+(defn popup-menu [state]
+  (->> (get-in (::shortcuts state) (::key-seq state))
+       (filter (comp string? first))
+       (map #(vector (first %) (or (:name (second %))
+                                   (clj->js (second %)))))))
+
+(defn on-key [state key cb actions]
+  (let [new-seq (conj (::key-seq state) key)
+        shortcut (get-in (::shortcuts state) new-seq)]
+    (print new-seq shortcut)
+    (cond
+      ;; open popup
+      (= [" "] new-seq)
+      (cb open-popup)
+      ;; another menu
+      (map? shortcut)
+      (cb update-in [::key-seq] conj key)
+      ;; no action, close popup
+      (nil? shortcut)
+      (cb close-popup)
+      :else
+      ((get actions shortcut)))))
+
+
 (defn layout [state window-fn]
   [layout/container
    (layout/map-values
@@ -68,6 +97,6 @@
        (let [filename (get-in state [::windows id])
              value (get-in state [::files filename])
              active (and (= id (::active state))
-                         (not (::popup state)))]
+                         (not (in-popup? state)))]
          (window-fn id value active)))
      (::layout state))])
