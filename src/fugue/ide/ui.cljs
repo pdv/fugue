@@ -2,9 +2,9 @@
   (:require [reagent.core :as r]
             [cljs.js]
             [fugue.ide.util :refer [log]]
-            [fugue.ide.windows :refer [window-content]]
             [fugue.ide.popup :as popup]
             [fugue.ide.actions :as a]
+            [fugue.ide.editor :as editor]
             [fugue.ide.file-upload :refer [file-upload]]
             [fugue.ide.state :as s]))
 
@@ -12,17 +12,32 @@
   (= "TEXTAREA" (.. js/document -activeElement -tagName)))
 
 (defn windows-layout [state {:keys [on-box-click on-text-change on-shortcut]}]
-  (s/layout state
-            (fn [id name value active]
-              [:div {:class-name (if active "window focused" "window")
-                     :on-mouse-down #(on-box-click id)}
-               [window-content value active
-                {:on-change #(if active (on-text-change id %))
-                 :on-selection #()
-                 :on-shortcut on-shortcut}]
-               [:div.status-bar
-                [:a id]
-                [:span name]]])))
+  (s/layout
+    state
+    (fn [id name value active]
+      (print (::s/toggles state))
+      [:div {:class-name (if active "window focused" "window")
+             :on-mouse-down #(on-box-click id)}
+       (cond
+         (vector? value) [:div.output value]
+         ;;
+         (string? value)
+         [editor/editor value active (partial on-text-change id) #()
+          {:keyMap (if (s/get-toggle state :vim) "vim" "default")
+           :theme "base16-ocean"
+           :lineNumbers (s/get-toggle state :line-numbers)
+           :extraKeys #js {"Shift-Ctrl-Space" on-shortcut}}]
+         ;;
+         (map? value)
+         [:div.output>p.value-box
+          (str (or (:value value)
+                   (if-let [error (:error value)]
+                     (.. error -cause -message))))]
+         :else
+         [:div.output>p.value-box (str value)])
+       [:div.status-bar
+        [:a id]
+        [:span name]]])))
 
 (defn add-jumps [state swap-cb]
   (reduce (fn [acc i]
@@ -33,6 +48,10 @@
 (defn setup-actions [state eval-state is-file-upload]
   (-> @state
       (add-jumps (partial swap! state))
+      (s/add-shortcut-group ["t"] "toggle")
+      (s/add-shortcut ["t" "v"] [:flip-toggle :vim])
+      (s/add-shortcut ["t" "l"] [:flip-toggle :line-numbers])
+      (s/add-action :flip-toggle (partial swap! state s/flip-toggle))
       (s/add-shortcut-group ["w"] "window")
       (s/add-shortcut ["w" "x"] :kill-active-window)
       (s/add-action :kill-active-window

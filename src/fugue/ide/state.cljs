@@ -10,6 +10,8 @@
    ::shortcuts {}
    ::actions {}
    ::minibuffer false
+   ::toggles {:vim true
+              :line-numbers false}
    ::files {:default-text "(+ 1 2)"}})
 
 (defn next-window-id [state]
@@ -31,6 +33,14 @@
   (-> state
       (assoc ::key-seq nil)
       (assoc ::minibuffer false)))
+
+(defn get-toggle [state name]
+  (get-in state [::toggles name]))
+
+(defn flip-toggle [state name]
+  (-> state
+      (close-popup)
+      (update-in [::toggles name] not)))
 
 (defn activate [state id]
   (-> state
@@ -125,8 +135,6 @@
                          (not (in-popup? state)))]
          (window-fn id filename value active)))
      (::layout state))])
-
-;;
 
 (defn on-upload [state name file]
   (-> state
