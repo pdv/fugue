@@ -21,22 +21,28 @@
                  :on-shortcut on-shortcut}]
                [:div.status-bar>a id]])))
 
-
-(defn default-actions [state-atom eval-state]
-  {:eval-active-window #(a/eval-action @state-atom eval-state (partial swap! state-atom))
-   :kill-active-window #(swap! state-atom s/kill-active-window)})
+(defn setup-actions [state eval-state]
+  (-> @state
+      (s/add-shortcut-group ["w"] "window")
+      (s/add-shortcut ["w" "x"] :kill-active-window)
+      (s/add-action :kill-active-window
+                    #(swap! state s/kill-active-window))
+      (s/add-shortcut-group ["e"] "eval")
+      (s/add-shortcut ["e" "w"] :eval-active-window)
+      (s/add-action :eval-active-window
+                    #(a/eval-action @state eval-state (partial swap! state)))))
 
 (defn app []
   (let [eval-state (cljs.js/empty-state)
-        state (r/atom s/init-state)
-        actions (default-actions state eval-state)]
+        state (r/atom s/init-state)]
     (defn on-key-down [e]
       (when-not (in-text-area?)
         (.preventDefault e)
-        (s/on-key @state (.-key e) (partial swap! state) actions)))
+        (s/on-key @state (.-key e) (partial swap! state))))
     (.addEventListener js/document "keydown" on-key-down)
     (.defineAction js/CodeMirror.Vim "space!" #(swap! state s/open-popup))
     (.mapCommand js/CodeMirror.Vim "<Space>" "action" "space!" #js {} #js {"context" "normal"})
+    (reset! state (setup-actions state eval-state))
     (fn []
       (log @state)
       [:div.ide

@@ -69,10 +69,19 @@
 (defn popup-menu [state]
   (->> (get-in (::shortcuts state) (::key-seq state))
        (filter (comp string? first))
-       (map #(vector (first %) (or (:name (second %))
+       (map #(vector (first %) (or (::group-name (second %))
                                    (clj->js (second %)))))))
 
-(defn on-key [state key cb actions]
+(defn add-shortcut-group [state path name]
+  (assoc-in state (cons ::shortcuts (conj path ::group-name)) name))
+
+(defn add-shortcut [state path action-name]
+  (assoc-in state (cons ::shortcuts path) action-name))
+
+(defn add-action [state action-name action]
+  (assoc-in state [::actions action-name] action))
+
+(defn on-key [state key cb]
   (let [new-seq (conj (::key-seq state) key)
         shortcut (get-in (::shortcuts state) new-seq)]
     (print new-seq shortcut)
@@ -87,8 +96,7 @@
       (nil? shortcut)
       (cb close-popup)
       :else
-      ((get actions shortcut)))))
-
+      ((get (::actions state) shortcut)))))
 
 (defn layout [state window-fn]
   [layout/container
