@@ -5,6 +5,7 @@
             [fugue.ide.windows :refer [window-content]]
             [fugue.ide.popup :as popup]
             [fugue.ide.actions :as a]
+            [fugue.ide.file-upload :refer [file-upload]]
             [fugue.ide.state :as s]))
 
 (defn in-text-area? []
@@ -27,7 +28,7 @@
           (s/add-action state :jump-to-window (partial swap-cb s/activate))
           (range 1 10)))
 
-(defn setup-actions [state eval-state]
+(defn setup-actions [state eval-state is-file-upload]
   (-> @state
       (add-jumps (partial swap! state))
       (s/add-shortcut-group ["w"] "window")
@@ -37,11 +38,18 @@
       (s/add-shortcut-group ["e"] "eval")
       (s/add-shortcut ["e" "w"] :eval-active-window)
       (s/add-action :eval-active-window
-                    #(a/eval-action @state eval-state (partial swap! state)))))
+                    #(a/eval-action @state eval-state (partial swap! state)))
+      (s/add-shortcut-group ["f"] "file")
+      (s/add-shortcut ["f" "u"] :file-upload)
+      (s/add-action :file-upload
+                    (fn []
+                      (print "here")
+                      (reset! is-file-upload true)))))
 
 (defn app []
   (let [eval-state (cljs.js/empty-state)
-        state (r/atom s/init-state)]
+        state (r/atom s/init-state)
+        is-file-upload (r/atom false)]
     (defn on-key-down [e]
       (when-not (in-text-area?)
         (.preventDefault e)
@@ -49,9 +57,12 @@
     (.addEventListener js/document "keydown" on-key-down)
     (.defineAction js/CodeMirror.Vim "space!" #(swap! state s/open-popup))
     (.mapCommand js/CodeMirror.Vim "<Space>" "action" "space!" #js {} #js {"context" "normal"})
-    (reset! state (setup-actions state eval-state))
+    (reset! state (setup-actions state eval-state is-file-upload))
     (fn []
       [:div.ide
+       [file-upload @is-file-upload (fn [name file]
+                                      (reset! is-file-upload false)
+                                      (swap! state s/on-upload name file))]
        [windows-layout
         @state
         {:on-box-click #(swap! state s/activate %)
@@ -63,5 +74,5 @@
          [popup/mini-buffer
           (s/action-names @state)
           #(swap! state s/close-popup)
-          #(s/perform-action @state %)])])))
+          (partial s/perform-action @state)])])))
 

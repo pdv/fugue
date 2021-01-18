@@ -125,3 +125,10 @@
                          (not (in-popup? state)))]
          (window-fn id value active)))
      (::layout state))])
+
+;;
+
+(defn on-upload [state name file]
+  (-> state
+      (write-file name file)
+      (open-file name :after)))
