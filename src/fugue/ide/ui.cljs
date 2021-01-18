@@ -21,8 +21,15 @@
                  :on-shortcut on-shortcut}]
                [:div.status-bar>a id]])))
 
+(defn add-jumps [state swap-cb]
+  (reduce (fn [acc i]
+            (s/add-shortcut acc [(str i)] [:jump-to-window i]))
+          (s/add-action state :jump-to-window (partial swap-cb s/activate))
+          (range 1 10)))
+
 (defn setup-actions [state eval-state]
   (-> @state
+      (add-jumps (partial swap! state))
       (s/add-shortcut-group ["w"] "window")
       (s/add-shortcut ["w" "x"] :kill-active-window)
       (s/add-action :kill-active-window

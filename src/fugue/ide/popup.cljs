@@ -34,5 +34,5 @@
 
 (defn popup-content [options]
   [:div.popup.focused>ul
-   (for [[key name] options]
+   (for [[key name] (sort-by first options)]
      [:li {:key key} (str key " - " name)])])

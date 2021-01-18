@@ -87,8 +87,8 @@
 (defn action-names [state]
   (map clj->js (keys (::actions state))))
 
-(defn perform-action [state name]
-  ((get-in state [::actions (keyword name)])))
+(defn perform-action [state name & args]
+  (apply (get-in state [::actions (keyword name)]) args))
 
 (defn on-key [state key cb]
   (let [new-seq (conj (::key-seq state) key)
@@ -106,8 +106,11 @@
       ;; no action, close popup
       (nil? shortcut)
       (cb close-popup)
-      :else
-      ((get (::actions state) shortcut)))))
+      ;; action with args
+      (vector? shortcut)
+      (apply perform-action state (first shortcut) (rest shortcut))
+      :else ;; action without args
+      (perform-action state shortcut))))
 
 (defn layout [state window-fn]
   [layout/container
