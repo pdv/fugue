@@ -85,7 +85,7 @@
   (assoc-in state [::actions action-name] action))
 
 (defn action-names [state]
-  (keys (::actions state)))
+  (map clj->js (keys (::actions state))))
 
 (defn perform-action [state name]
   ((get-in state [::actions (keyword name)])))

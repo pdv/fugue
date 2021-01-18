@@ -44,7 +44,6 @@
     (.mapCommand js/CodeMirror.Vim "<Space>" "action" "space!" #js {} #js {"context" "normal"})
     (reset! state (setup-actions state eval-state))
     (fn []
-      (log @state)
       [:div.ide
        [windows-layout
         @state

@@ -29,10 +29,10 @@
        (if (not-empty @filtered)
          [:ul {:foo @highlighted}
           (for [[i option] (map-indexed vector @filtered)]
-            [:li {:class-name (if (= i @highlighted) "minibuffer-selected" "")} option])]
+            [:li {:key i :class-name (if (= i @highlighted) "minibuffer-selected" "")} option])]
          [:ul>li "no results"])])))
 
 (defn popup-content [options]
   [:div.popup.focused>ul
    (for [[key name] options]
-     [:li (str key " - " name)])])
+     [:li {:key key} (str key " - " name)])])
