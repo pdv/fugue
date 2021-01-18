@@ -57,8 +57,8 @@
         {:on-box-click #(swap! state s/activate %)
          :on-text-change (partial swap! state s/write-file)
          :on-shortcut #(swap! state s/open-popup)}]
-       (if (s/in-popup? @state)
-         [popup/popup-content (s/popup-menu @state)])
+       (if (s/in-shortcuts? @state)
+         [popup/shortcuts-popup (s/popup-menu @state)])
        (if (s/in-minibuffer? @state)
          [popup/mini-buffer
           (s/action-names @state)

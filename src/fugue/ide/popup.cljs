@@ -32,7 +32,7 @@
             [:li {:key i :class-name (if (= i @highlighted) "minibuffer-selected" "")} option])]
          [:ul>li "no results"])])))
 
-(defn popup-content [options]
+(defn shortcuts-popup [options]
   [:div.popup.focused>ul
    (for [[key name] (sort-by first options)]
      [:li {:key key} (str key " - " name)])])

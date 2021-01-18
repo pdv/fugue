@@ -21,6 +21,9 @@
 (defn in-minibuffer? [state]
   (::minibuffer state))
 
+(defn in-shortcuts? [state]
+  (and (in-popup? state) (not (in-minibuffer? state))))
+
 (defn open-popup [state]
   (assoc state ::key-seq []))
 
