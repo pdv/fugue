@@ -16,51 +16,40 @@
         (s/write-file filename result)
         (s/open-file filename :after))))
 
-(defn eval-action [eval-state]
-  (fn [state cb]
-    (let [[source settings] ((juxt s/active-buffer-file eval-settings) state)
-          on-result (fn [result]
-                      (if (fn? (:value result))
-                        (cb (:value result))
-                        (cb on-eval result)))]
-      (cljs.js/eval-str eval-state source nil settings on-result))))
+(defn eval-action [state eval-state swap-cb]
+  (let [[source settings] ((juxt s/active-window-file-contents eval-settings) state)
+        on-result (fn [result]
+                    (if (fn? (:value result))
+                      (swap-cb (:value result))
+                      (swap-cb on-eval result)))]
+    (cljs.js/eval-str eval-state source nil settings on-result)))
 
 (def number-jumps
   (into {} (map (fn [i] [[" " (str i)] (fn [_ cb] (cb s/activate i))]) (range 10))))
 
-(defn kill-active-buffer [state cb]
-  (cb s/kill-buffer (:active state)))
-
 (defn split-right [state cb]
-  (cb s/open-file (s/active-buffer-name state) :right))
+  (cb s/open-file (s/active-window-name state) :right))
 
 (defn split-down [state cb]
-  (cb s/open-file (s/active-buffer-name state) :below))
-
-(defn open-minibuffer [_ cb]
-  (cb s/open-minibuffer))
+  (cb s/open-file (s/active-window-name state) :below))
 
 (defn go-back [_ cb]
   (cb s/go-back))
 
-(defn default-keymap [eval-state]
-  (merge number-jumps
-         {[" " " "] open-minibuffer
-          [" " "Tab"] go-back
-          [" " "w" "x"] kill-active-buffer
-          [" " "w" "/"] split-right
-          [" " "w" "-"] split-down
-          [" " "e" "b"] (eval-action eval-state)}))
+(defn available-actions [state]
+  {"e" {:name "eval"
+        "w" {:name "eval-active-window"
+             :action :eval-active-window}}
+   "w" {:name "window"
+        "x" {:name "kill-active-window"
+             :action :kill-active-window}}})
 
-(def popup-options
-  {[" "] {"1-9" "jump to buffer"
-          "e" "eval"
-          "w" "window"}
-   [" " "e"] {"b" "eval current buffer"}
-   [" " "w"] {"/" "split left-right"
-              "-" "split top-bottom"
-              "x" "kill buffer and window"}})
+(defn do-action [state eval-state swap-cb action-name]
+  (case action-name
+    :eval-active-window (eval-action state eval-state swap-cb)
+    :kill-active-window (swap-cb s/kill-active-window)))
 
-(defn default-actions [eval-state]
-  {"eval-active-buffer" (eval-action eval-state)
-   "kill-active-buffer" kill-active-buffer})
+(defn popup-options [state key-seq]
+  (->> (get-in (available-actions state) key-seq)
+       (filter (comp string? first))
+       (map #(vector (first %) (:name (second %))))))

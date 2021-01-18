@@ -7,20 +7,6 @@
             [fugue.ide.actions :as a]
             [fugue.ide.state :as s]))
 
-(defn popup-options [actions key-seq]
-  (->> (get-in actions key-seq)
-       (filter (comp string? first))
-       (map #(vector (first %) (:name (second %))))))
-
-(defn available-actions [state]
-  {"w" {:name "window"
-        "x" {:name "kill-active-window"
-             :action :kill-active-window}}})
-
-(defn do-action [state eval-state swap-cb action-name]
-  (case action-name
-    :kill-active-window (swap-cb s/kill-active-window)))
-
 (defn in-text-area? []
   (= "TEXTAREA" (.. js/document -activeElement -tagName)))
 
@@ -44,13 +30,13 @@
         (.preventDefault e)
         (let [popup (s/in-popup? @state)
               key (.-key e)
-              actions (get-in (available-actions state) @key-seq)
+              actions (get-in (a/available-actions state) @key-seq)
               action (:action (get actions key))]
           (cond
             (and (not popup) (= " " key))
             (swap! state s/open-popup)
             (and popup action)
-            (do-action @state eval-state (partial swap! state) action)
+            (a/do-action @state eval-state (partial swap! state) action)
             (and popup (contains? actions key))
             (swap! key-seq conj key)
             :else
@@ -69,4 +55,4 @@
          :on-shortcut #(swap! state s/open-popup)}]
        (if (s/in-popup? @state)
          [popup/popup-content
-          (popup-options (available-actions @state) @key-seq)])])))
+          (a/popup-options @state @key-seq)])])))
