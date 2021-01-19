@@ -45,7 +45,7 @@
           (s/add-action state :jump-to-window (partial swap-cb s/activate))
           (range 1 10)))
 
-(defn setup-actions [state eval-state is-file-upload]
+(defn setup-actions [state eval-state]
   (-> @state
       (add-jumps (partial swap! state))
       (s/add-shortcut-group ["t"] "toggle")
@@ -66,14 +66,11 @@
                     #(apply file/download ((juxt s/active-window-name s/active-window-file-contents) @state)))
       (s/add-shortcut ["f" "u"] :file-upload)
       (s/add-action :file-upload
-                    (fn []
-                      (print "here")
-                      (reset! is-file-upload true)))))
+                    #(file/upload (partial swap! state s/on-upload)))))
 
 (defn app []
   (let [eval-state (cljs.js/empty-state)
-        state (r/atom s/init-state)
-        is-file-upload (r/atom false)]
+        state (r/atom s/init-state)]
     (defn on-key-down [e]
       (when-not (in-text-area?)
         (.preventDefault e)
@@ -81,12 +78,9 @@
     (.addEventListener js/document "keydown" on-key-down)
     (.defineAction js/CodeMirror.Vim "space!" #(swap! state s/open-popup))
     (.mapCommand js/CodeMirror.Vim "<Space>" "action" "space!" #js {} #js {"context" "normal"})
-    (reset! state (setup-actions state eval-state is-file-upload))
+    (reset! state (setup-actions state eval-state))
     (fn []
       [:div.ide
-       [file/file-upload @is-file-upload (fn [name file]
-                                           (reset! is-file-upload false)
-                                           (swap! state s/on-upload name file))]
        [windows-layout
         @state
         {:on-box-click #(swap! state s/activate %)
