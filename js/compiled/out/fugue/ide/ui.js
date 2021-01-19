@@ -86,9 +86,10 @@ return cljs.core.apply.call(null,fugue.ide.file.download,cljs.core.juxt.call(nul
 return fugue.ide.file.upload.call(null,cljs.core.partial.call(null,cljs.core.swap_BANG_,state,fugue.ide.state.on_upload));
 }));
 });
+fugue.ide.ui.init_files = new cljs.core.PersistentArrayMap(null, 2, ["fugue.demo.cantor",fugue.demo.demo_loader.cantor,"fugue.demo.cof",fugue.demo.demo_loader.cof], null);
 fugue.ide.ui.app = (function fugue$ide$ui$app(){
 var eval_state = cljs.js.empty_state.call(null);
-var state = reagent.core.atom.call(null,fugue.ide.state.init_state);
+var state = reagent.core.atom.call(null,fugue.ide.state.init_state.call(null,fugue.ide.ui.init_files));
 fugue.ide.ui.on_key_down = ((function (eval_state,state){
 return (function fugue$ide$ui$app_$_on_key_down(e){
 if(fugue.ide.ui.in_text_area_QMARK_.call(null)){
@@ -132,4 +133,4 @@ return cljs.core.swap_BANG_.call(null,state,fugue.ide.state.close_popup);
 ;})(eval_state,state))
 });
 
-//# sourceMappingURL=ui.js.map?rel=1611088690872
+//# sourceMappingURL=ui.js.map?rel=1611089351302

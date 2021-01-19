@@ -254,4 +254,4 @@ return new cljs.core.PersistentVector(null, 8, 5, cljs.core.PersistentVector.EMP
 });
 new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [fugue.demo.cantor.component], null);
 
-//# sourceMappingURL=cantor.js.map?rel=1611088689146
+//# sourceMappingURL=cantor.js.map?rel=1611089349617

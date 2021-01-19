@@ -2,7 +2,7 @@
   (:require [fugue.ide.layout :as layout]
             [clojure.set :refer [rename-keys]]))
 
-(def init-state
+(defn init-state [init-files]
   {::layout '(1)
    ::active 1
    ::prev nil
@@ -13,7 +13,7 @@
    ::minibuffer nil
    ::toggles {:vim true
               :line-numbers false}
-   ::files {"fugue.user" "(ns fugue.user)\n\n(+ 1 2)"}})
+   ::files (merge init-files {"fugue.user" "(ns fugue.user)\n\n(+ 1 2)"})})
 
 (defn next-window-id [state]
   (first (filter #(not (contains? (::windows state) %)) (range 1 10))))
