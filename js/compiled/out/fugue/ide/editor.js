@@ -78,28 +78,26 @@ return null;
 return (function (this$,old_argv){
 var vec__18476 = old_argv;
 var _ = cljs.core.nth.call(null,vec__18476,(0),null);
-var ___$1 = cljs.core.nth.call(null,vec__18476,(1),null);
+var old_text = cljs.core.nth.call(null,vec__18476,(1),null);
 var old_name = cljs.core.nth.call(null,vec__18476,(2),null);
 var was_focused = cljs.core.nth.call(null,vec__18476,(3),null);
-var ___$2 = cljs.core.nth.call(null,vec__18476,(4),null);
-var ___$3 = cljs.core.nth.call(null,vec__18476,(5),null);
+var ___$1 = cljs.core.nth.call(null,vec__18476,(4),null);
+var ___$2 = cljs.core.nth.call(null,vec__18476,(5),null);
 var old_cm_options = cljs.core.nth.call(null,vec__18476,(6),null);
 var vec__18479 = reagent.core.argv.call(null,this$);
-var ___$4 = cljs.core.nth.call(null,vec__18479,(0),null);
+var ___$3 = cljs.core.nth.call(null,vec__18479,(0),null);
 var new_text = cljs.core.nth.call(null,vec__18479,(1),null);
 var new_name = cljs.core.nth.call(null,vec__18479,(2),null);
 var is_focused = cljs.core.nth.call(null,vec__18479,(3),null);
-var ___$5 = cljs.core.nth.call(null,vec__18479,(4),null);
-var ___$6 = cljs.core.nth.call(null,vec__18479,(5),null);
+var ___$4 = cljs.core.nth.call(null,vec__18479,(4),null);
+var ___$5 = cljs.core.nth.call(null,vec__18479,(5),null);
 var new_cm_options = cljs.core.nth.call(null,vec__18479,(6),null);
-if(cljs.core.not.call(null,is_focused)){
-cljs.core.deref.call(null,codemirror).setValue(new_text);
-
-cljs.core.deref.call(null,codemirror).display.input.blur();
+if(cljs.core.truth_(is_focused)){
 } else {
+cljs.core.deref.call(null,codemirror).display.input.blur();
 }
 
-if(cljs.core.not_EQ_.call(null,old_name,new_name)){
+if(((cljs.core.not_EQ_.call(null,old_name,new_name)) || (((cljs.core.not.call(null,is_focused)) && (cljs.core.not_EQ_.call(null,old_text,new_text)))))){
 cljs.core.deref.call(null,codemirror).setValue(new_text);
 } else {
 }
@@ -213,4 +211,4 @@ return cljs.core.str.cljs$core$IFn$_invoke$arity$1(sb__4661__auto__);
 })()));
 });
 
-//# sourceMappingURL=editor.js.map?rel=1611088196942
+//# sourceMappingURL=editor.js.map?rel=1611088689061

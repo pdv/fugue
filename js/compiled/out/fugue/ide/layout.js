@@ -120,4 +120,4 @@ fugue.ide.layout.container = (function fugue$ide$layout$container(root){
 return fugue.ide.layout.row_or_col.call(null,root,true);
 });
 
-//# sourceMappingURL=layout.js.map?rel=1611088191594
+//# sourceMappingURL=layout.js.map?rel=1611088685925
