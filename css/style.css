@@ -27,7 +27,7 @@ html, body, #app {
   color: var(--fg-color);
 }
 
-.boxes {
+.ide {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -36,22 +36,25 @@ html, body, #app {
 }
 
 .flex {
+  flex: 1;
   height: 100%;
-  width: 100%;
   gap: var(--gap-width);
+  display: flex;
+  min-width: 0;
 }
 
-.box {
+.window {
   flex: 1;
   flex-basis: 0;
   display: flex;
   flex-flow: column;
+  overflow: hidden;
 
   border: 1px solid var(--mid-color);
   color: var(--mid-color);
 }
 
-.box.focused {
+.window.focused {
   border: 1px solid var(--fg-color);
   color: var(--fg-color);
 }
@@ -62,22 +65,26 @@ html, body, #app {
   border-top: 1px solid var(--mid-color);
 }
 
-.box.focused .status-bar {
+.window.focused .status-bar {
   border-top: 1px solid var(--fg-color);
 }
 
 .status-bar a {
-  display: block;
+  display: inline-block;
   line-height: 29px;
   width: 29px;
   text-align: center;
   border-right: 1px solid var(--mid-color);
 }
 
-.box.focused .status-bar a {
+.window.focused .status-bar a {
   border-right: 1px solid var(--fg-color);
   background-color: var(--fg-color);
   color: var(--bg-color);
+}
+
+.status-bar span {
+  padding-left: 8px;
 }
 
 .CodeMirror {
@@ -87,7 +94,7 @@ html, body, #app {
   color: var(--mid-color);
 }
 
-.box.focused .CodeMirror {
+.focused .CodeMirror {
   color: var(--fg-color);
 }
 
@@ -100,10 +107,6 @@ html, body, #app {
   color: var(--mid-color) !important;
 }
 
-.box.focused .CodeMirror-linenumber {
-  color: var(--fg-color) !important;
-}
-
 .output {
   flex: 1;
   display: flex;
@@ -113,12 +116,6 @@ html, body, #app {
 .value-box {
   padding: 8px;
   margin: 0;
-}
-
-.flex {
-  flex: 1;
-  flex-basis: 0;
-  display: flex;
 }
 
 .popup {
@@ -138,4 +135,8 @@ html, body, #app {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+.minibuffer-selected {
+  background-color: #8fa1b3;
 }

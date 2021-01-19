@@ -1,4 +1,4 @@
-(ns fugue.boxes.util
+(ns fugue.ide.util
   (:require [cljs.pprint :as pprint]))
 
 (defn log [x]

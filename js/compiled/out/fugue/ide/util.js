@@ -1,9 +1,9 @@
 // Compiled by ClojureScript 1.10.520 {}
-goog.provide('fugue.boxes.util');
+goog.provide('fugue.ide.util');
 goog.require('cljs.core');
 goog.require('cljs.pprint');
-fugue.boxes.util.log = (function fugue$boxes$util$log(x){
+fugue.ide.util.log = (function fugue$ide$util$log(x){
 return cljs.core.print.call(null,"boxes~~ ",x);
 });
 
-//# sourceMappingURL=util.js.map?rel=1610907678438
+//# sourceMappingURL=util.js.map?rel=1611069724783

@@ -1,4 +1,4 @@
-(ns fugue.boxes.editor
+(ns fugue.ide.editor
   (:require [reagent.core :as r]
             [reagent.dom :as rdom]
             [oops.core :refer [oget]]
@@ -13,7 +13,7 @@
   (if (re-find #"[a-zA-Z]" (first (oget input-read-event "text")))
     (.showHint cm #js {:completeSingle false})))
 
-(defn editor [init focused {:keys [on-change on-selection-change on-shortcut]} cm-options]
+(defn editor [init focused on-change on-selection cm-options]
   (let [codemirror (volatile! nil)]
     (r/create-class
       {:render
@@ -22,24 +22,23 @@
        :component-did-mount
        (fn [this]
          (let [node (rdom/dom-node this)
-               settings (clj->js (merge cm-options {:mode "clojure" :lineNumbers true}))
+               settings (clj->js (merge cm-options {:mode "clojure"}))
                cm (.fromTextArea js/CodeMirror node settings)]
            (vreset! codemirror cm)
            (when (and focused (not (.hasFocus @codemirror)))
              (.focus @codemirror))
            (doto cm
              (.on "change" #(on-change (.getValue %)))
-             ; (.on "cursorActivity" #(on-selection-change (.getSelection %)))
-             (.on "inputRead" maybe-show-hint)
-             (.setOption "extraKeys" #js {"Shift-Ctrl-Space" on-shortcut}))))
+             (.on "cursorActivity" #(on-selection (.getSelection %)))
+             (.on "inputRead" maybe-show-hint))))
        :component-will-unmount
        (fn []
          (if-let [cm @codemirror] (.toTextArea cm)))
        :component-did-update
        (fn [this old-argv]
          (let [argv (r/argv this)
-               new-text (last (drop-last 3 argv))
-               is-focused (last (drop-last 2 argv))
+               new-text (last (drop-last 4 argv))
+               is-focused (last (drop-last 3 argv))
                old-cm-options (last old-argv)
                new-cm-options (last argv)]
            (when (not is-focused)
