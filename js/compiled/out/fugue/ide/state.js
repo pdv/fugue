@@ -53,6 +53,9 @@ fugue.ide.state.open_file = (function fugue$ide$state$open_file(state,name,direc
 var id = fugue.ide.state.next_window_id.call(null,state);
 return fugue.ide.state.activate.call(null,cljs.core.update.call(null,cljs.core.assoc_in.call(null,state,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("fugue.ide.state","windows","fugue.ide.state/windows",-1118495986),id], null),name),new cljs.core.Keyword("fugue.ide.state","layout","fugue.ide.state/layout",-1014388064),fugue.ide.layout.insert_node,direction,new cljs.core.Keyword("fugue.ide.state","active","fugue.ide.state/active",787267053).cljs$core$IFn$_invoke$arity$1(state),id),id);
 });
+fugue.ide.state.split = (function fugue$ide$state$split(state,direction){
+return fugue.ide.state.open_file.call(null,state,fugue.ide.state.active_window_name.call(null,state),direction);
+});
 fugue.ide.state.write_file = (function fugue$ide$state$write_file(state,name,value){
 return cljs.core.assoc_in.call(null,state,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("fugue.ide.state","files","fugue.ide.state/files",970131199),name], null),value);
 });
@@ -165,4 +168,4 @@ fugue.ide.state.on_upload = (function fugue$ide$state$on_upload(state,name,file)
 return fugue.ide.state.open_file.call(null,fugue.ide.state.write_file.call(null,state,name,file),name,new cljs.core.Keyword(null,"after","after",594996914));
 });
 
-//# sourceMappingURL=state.js.map?rel=1611075054645
+//# sourceMappingURL=state.js.map?rel=1611075293471

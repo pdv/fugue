@@ -53,9 +53,11 @@
       (s/add-shortcut ["t" "l"] [:flip-toggle :line-numbers])
       (s/add-action :flip-toggle (partial swap! state s/flip-toggle))
       (s/add-shortcut-group ["w"] "window")
+      (s/add-action :split-window (partial swap! state s/split))
+      (s/add-shortcut ["w" "/"] [:split-window :right])
+      (s/add-shortcut ["w" "-"] [:split-window :below])
       (s/add-shortcut ["w" "x"] :kill-active-window)
-      (s/add-action :kill-active-window
-                    #(swap! state s/kill-active-window))
+      (s/add-action :kill-active-window (partial swap! state s/kill-active-window))
       (s/add-shortcut-group ["e"] "eval")
       (s/add-shortcut ["e" "w"] :eval-active-window)
       (s/add-action :eval-active-window
