@@ -116,7 +116,7 @@
 (defn minibuffer-options [state]
   (let [{::keys [action-name args]} (::minibuffer state)
         arg-types (get-in state [::actions action-name ::arg-types])
-        arg-type (drop (count args) arg-types)]
+        arg-type (first (drop (count args) arg-types))]
     (case arg-type
       :action (map clj->js (keys (::actions state)))
       :file (keys (::files state))
