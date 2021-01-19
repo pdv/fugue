@@ -1,6 +1,7 @@
 (ns fugue.ide.ui
   (:require [reagent.core :as r]
             [cljs.js]
+            [fugue.demo.demo-loader :as demo-loader]
             [fugue.ide.util :refer [log]]
             [fugue.ide.popup :as popup]
             [fugue.ide.editor :as editor]
@@ -14,7 +15,6 @@
   (s/layout
     state
     (fn [id name value active]
-      (print (::s/toggles state))
       [:div {:class-name (if active "window focused" "window")
              :on-mouse-down #(on-box-click id)}
        (cond
@@ -51,8 +51,9 @@
   {:eval cljs.js/js-eval
    :context :statement
    :load (fn [m cb]
-           (if-let [source (get-in state [:files (str :name m)])]
-             (cb {:lang :clj :source source})
+           (print m)
+           (if (= "live.api" (str (:name m)))
+             (cb {:lang :clj :source demo-loader/api})
              (cb nil)))})
 
 (defn on-eval [state result]
