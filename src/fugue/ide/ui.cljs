@@ -21,7 +21,7 @@
          (vector? value) [:div.output value]
          ;;
          (string? value)
-         [editor/editor value active (partial on-text-change name) #()
+         [editor/editor value name active (partial on-text-change name) #()
           {:keyMap (if (s/get-toggle state :vim) "vim" "default")
            :theme "base16-ocean"
            :lineNumbers (s/get-toggle state :line-numbers)
