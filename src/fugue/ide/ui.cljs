@@ -51,10 +51,15 @@
   {:eval cljs.js/js-eval
    :context :statement
    :load (fn [m cb]
-           (print m)
-           (if (= "live.api" (str (:name m)))
-             (cb {:lang :clj :source demo-loader/api})
-             (cb nil)))})
+           (let [name (str (:name m))
+                 source (s/file-contents state name)]
+             (cond
+               (= "live.api" name)
+               (cb {:lang :clj :source demo-loader/api})
+               source
+               (cb {:lang :clj :source source})
+               :else
+               (cb nil))))})
 
 (defn on-eval [state result]
   (let [filename (gensym "result")]
@@ -63,7 +68,7 @@
         (s/open-file filename :after))))
 
 (defn eval-action [state eval-state swap-cb]
-  (let [[source settings] ((juxt s/active-window-file-contents eval-settings) state)
+  (let [[source settings] ((juxt s/active-file eval-settings) state)
         on-result (fn [result]
                     (if (fn? (:value result))
                       (swap-cb (:value result))
@@ -94,7 +99,7 @@
       (s/add-shortcut-group ["f"] "file")
       (s/add-shortcut ["f" "d"] :file-download)
       (s/add-action :file-download
-                    #(apply file/download ((juxt s/active-window-name s/active-window-file-contents) @state)))
+                    #(apply file/download ((juxt s/active-file-name s/active-file) @state)))
       (s/add-shortcut ["f" "u"] :file-upload)
       (s/add-action :file-upload
                     #(file/upload (partial swap! state s/on-upload)))))

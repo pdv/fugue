@@ -5,14 +5,14 @@
   {::layout '(1)
    ::active 1
    ::prev nil
-   ::windows {1 :default-text}
+   ::windows {1 "fugue.user"}
    ::key-seq nil
    ::shortcuts {}
    ::actions {}
    ::minibuffer false
    ::toggles {:vim true
               :line-numbers false}
-   ::files {:default-text "(+ 1 2)"}})
+   ::files {"fugue.user" "(ns fugue.user)\n\n"}})
 
 (defn next-window-id [state]
   (first (filter #(not (contains? (::windows state) %)) (range 1 10))))
@@ -53,14 +53,14 @@
 (defn go-back [state]
   (activate state (::prev state)))
 
-(defn active-window-name [state]
+(defn active-file-name [state]
   (get-in state [::windows (::active state)]))
 
 (defn file-contents [state name]
   (get-in state [::files name]))
 
-(defn active-window-file-contents [state]
-  (file-contents state (active-window-name state)))
+(defn active-file [state]
+  (file-contents state (active-file-name state)))
 
 (defn open-file [state name direction]
   (let [id (next-window-id state)]
@@ -70,7 +70,7 @@
         (activate id))))
 
 (defn split [state direction]
-  (open-file state (active-window-name state) direction))
+  (open-file state (active-file-name state) direction))
 
 (defn write-file [state name value]
   (assoc-in state [::files name] value))
