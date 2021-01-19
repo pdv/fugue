@@ -36,12 +36,12 @@
          (if-let [cm @codemirror] (.toTextArea cm)))
        :component-did-update
        (fn [this old-argv]
-         (let [[_ _ old-name was-focused _ _ old-cm-options] old-argv
+         (let [[_ old-text old-name was-focused _ _ old-cm-options] old-argv
                [_ new-text new-name is-focused _ _ new-cm-options] (r/argv this)]
-           (when (not is-focused)
-             (.setValue @codemirror new-text)
+           (when-not is-focused
              (.blur (.. @codemirror -display -input)))
-           (when (not= old-name new-name)
+           (when (or (not= old-name new-name)
+                     (and (not is-focused) (not= old-text new-text)))
              (.setValue @codemirror new-text))
            (when (and is-focused (not (.hasFocus @codemirror)))
              (.focus @codemirror))
