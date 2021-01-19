@@ -99,13 +99,14 @@
   (->> (get-in (::shortcuts state) (::key-seq state))
        (filter (comp string? first))
        (map #(vector (first %) (or (::group-name (second %))
-                                   (clj->js (second %)))))))
+                                   (clj->js (::action-name (second %))))))))
 
 (defn add-shortcut-group [state path name]
   (assoc-in state (cons ::shortcuts (conj path ::group-name)) name))
 
-(defn add-shortcut [state path action-name]
-  (assoc-in state (cons ::shortcuts path) action-name))
+(defn add-shortcut [state path action-name & args]
+  (assoc-in state (cons ::shortcuts path) {::action-name action-name
+                                           ::args args}))
 
 (defn add-action [state action-name action]
   (assoc-in state [::actions action-name] action))
@@ -127,16 +128,14 @@
       (and (= [" "] new-seq) (in-popup? state))
       (cb assoc ::minibuffer true)
       ;; another menu
-      (map? shortcut)
+      (::group-name shortcut)
       (cb update-in [::key-seq] conj key)
       ;; no action, close popup
       (nil? shortcut)
       (cb close-popup)
-      ;; action with args
-      (vector? shortcut)
-      (apply perform-action state (first shortcut) (rest shortcut))
-      :else ;; action without args
-      (perform-action state shortcut))))
+      :else
+      (let [{::keys [action-name args]} shortcut]
+        (apply perform-action state action-name args)))))
 
 (defn layout [state window-fn]
   [layout/container
