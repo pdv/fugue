@@ -117,39 +117,38 @@
   (let [{::keys [action-name args]} (::minibuffer state)
         arg-types (get-in state [::actions action-name ::arg-types])
         arg-type (first (drop (count args) arg-types))]
-    (case arg-type
-      :action (map clj->js (keys (::actions state)))
-      :file (keys (::files state))
-      [])))
+    (cond
+      (= arg-type :action) (map clj->js (keys (::actions state)))
+      (= arg-type :file) (keys (::files state))
+      (set? arg-type) arg-type
+      :else [])))
 
-(defn on-minibuffer-submit [state value cb perform-action]
-  (let [{::keys [action-name args]} (::minibuffer state)
-        arg-types (get-in state [::actions action-name ::arg-types])
-        all-args (conj args value)]
-    (if (= (count all-args) (count arg-types))
-      (apply perform-action action-name all-args)
-      (cb update-in [::minibuffer ::args] conj value))))
+(defn interactive [state action-name args swap-cb action-cb]
+  (let [arg-types (get-in state [::actions action-name ::arg-types])]
+    (if (= (count args) (count arg-types))
+      (apply action-cb action-name args)
+      (swap-cb assoc ::minibuffer {::action-name action-name ::args args}))))
 
-(defn on-key [state key cb perform-action]
+(defn on-minibuffer-submit [state swap-cb action-cb value]
+  (let [{::keys [action-name args]} (::minibuffer state)]
+    (interactive state action-name (conj args value) swap-cb action-cb)))
+
+(defn on-key [state key swap-cb action-cb]
   (let [new-seq (conj (::key-seq state) key)
         shortcut (get-in (::shortcuts state) new-seq)]
     (cond
       ;; open popup
       (and (= [" "] new-seq) (not (in-popup? state)))
-      (cb open-popup)
+      (swap-cb open-popup)
       ;; another menu
       (::group-name shortcut)
-      (cb update-in [::key-seq] conj key)
+      (swap-cb update-in [::key-seq] conj key)
       ;; no action, close popup
       (nil? shortcut)
-      (cb close-popup)
+      (swap-cb close-popup)
       :else
-      (let [{::keys [action-name args]} shortcut
-            action (get-in state [::actions action-name])
-            arg-types (::arg-types action)]
-        (if (= (count args) (count arg-types))
-          (apply perform-action action-name args)
-          (cb assoc ::minibuffer shortcut))))))
+      (let [{::keys [action-name args]} shortcut]
+        (interactive state action-name args swap-cb action-cb)))))
 
 (defn layout [state window-fn]
   [layout/container
