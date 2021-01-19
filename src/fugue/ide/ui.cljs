@@ -3,7 +3,6 @@
             [cljs.js]
             [fugue.ide.util :refer [log]]
             [fugue.ide.popup :as popup]
-            [fugue.ide.actions :as a]
             [fugue.ide.editor :as editor]
             [fugue.ide.file :as file]
             [fugue.ide.state :as s]))
@@ -45,6 +44,28 @@
           (s/add-action state :jump-to-window (partial swap-cb s/activate))
           (range 1 10)))
 
+(defn eval-settings [state]
+  {:eval cljs.js/js-eval
+   :context :statement
+   :load (fn [m cb]
+           (if-let [source (get-in state [:files (str :name m)])]
+             (cb {:lang :clj :source source})
+             (cb nil)))})
+
+(defn on-eval [state result]
+  (let [filename (gensym "result")]
+    (-> state
+        (s/write-file filename result)
+        (s/open-file filename :after))))
+
+(defn eval-action [state eval-state swap-cb]
+  (let [[source settings] ((juxt s/active-window-file-contents eval-settings) state)
+        on-result (fn [result]
+                    (if (fn? (:value result))
+                      (swap-cb (:value result))
+                      (swap-cb on-eval result)))]
+    (cljs.js/eval-str eval-state source nil settings on-result)))
+
 (defn setup-actions [state eval-state]
   (-> @state
       (add-jumps (partial swap! state))
@@ -61,7 +82,7 @@
       (s/add-shortcut-group ["e"] "eval")
       (s/add-shortcut ["e" "w"] :eval-active-window)
       (s/add-action :eval-active-window
-                    #(a/eval-action @state eval-state (partial swap! state)))
+                    #(eval-action @state eval-state (partial swap! state)))
       (s/add-shortcut-group ["f"] "file")
       (s/add-shortcut ["f" "d"] :file-download)
       (s/add-action :file-download
