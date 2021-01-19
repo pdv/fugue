@@ -8,8 +8,8 @@ goog.require('devtools.protocols');
 devtools.formatters.helpers.pref = (function devtools$formatters$helpers$pref(v){
 while(true){
 if((v instanceof cljs.core.Keyword)){
-var G__19916 = devtools.prefs.pref.call(null,v);
-v = G__19916;
+var G__19921 = devtools.prefs.pref.call(null,v);
+v = G__19921;
 continue;
 } else {
 return v;
@@ -56,7 +56,7 @@ return false;
 } else {
 return cljs.core.native_satisfies_QMARK_.call(null,cljs.core.IPrintWithWriter,value);
 }
-}catch (e19919){var _e__19180__auto__ = e19919;
+}catch (e19924){var _e__19185__auto__ = e19924;
 return false;
 }})();
 if(cljs.core.truth_(or__4131__auto__)){
@@ -75,7 +75,7 @@ return false;
 } else {
 return cljs.core.native_satisfies_QMARK_.call(null,devtools.format.IDevtoolsFormat,value);
 }
-}catch (e19923){var _e__19180__auto__ = e19923;
+}catch (e19928){var _e__19185__auto__ = e19928;
 return false;
 }})();
 if(cljs.core.truth_(or__4131__auto____$1)){
@@ -94,7 +94,7 @@ return false;
 } else {
 return cljs.core.native_satisfies_QMARK_.call(null,devtools.protocols.IFormat,value);
 }
-}catch (e19925){var _e__19180__auto__ = e19925;
+}catch (e19930){var _e__19185__auto__ = e19930;
 return false;
 }}
 }
@@ -148,9 +148,9 @@ return ((value === true) || (value === false));
 devtools.formatters.helpers.instance_of_a_well_known_type_QMARK_ = (function devtools$formatters$helpers$instance_of_a_well_known_type_QMARK_(value){
 var well_known_types = devtools.formatters.helpers.pref.call(null,new cljs.core.Keyword(null,"well-known-types","well-known-types",70638649));
 var constructor_fn = devtools.formatters.helpers.get_constructor.call(null,value);
-var vec__19927 = devtools.munging.parse_constructor_info.call(null,constructor_fn);
-var ns = cljs.core.nth.call(null,vec__19927,(0),null);
-var name = cljs.core.nth.call(null,vec__19927,(1),null);
+var vec__19932 = devtools.munging.parse_constructor_info.call(null,constructor_fn);
+var ns = cljs.core.nth.call(null,vec__19932,(0),null);
+var name = cljs.core.nth.call(null,vec__19932,(1),null);
 var fully_qualified_type_name = [cljs.core.str.cljs$core$IFn$_invoke$arity$1(ns),"/",cljs.core.str.cljs$core$IFn$_invoke$arity$1(name)].join('');
 return cljs.core.contains_QMARK_.call(null,well_known_types,fully_qualified_type_name);
 });
@@ -166,8 +166,8 @@ devtools.formatters.helpers.directly_printable_QMARK_ = (function devtools$forma
 return ((typeof value === 'string') || (typeof value === 'number') || (devtools.formatters.helpers.bool_QMARK_.call(null,value)));
 });
 devtools.formatters.helpers.abbreviated_QMARK_ = (function devtools$formatters$helpers$abbreviated_QMARK_(template){
-return cljs.core.some.call(null,(function (p1__19930_SHARP_){
-return cljs.core._EQ_.call(null,devtools.formatters.helpers.pref.call(null,new cljs.core.Keyword(null,"more-marker","more-marker",-14717935)),p1__19930_SHARP_);
+return cljs.core.some.call(null,(function (p1__19935_SHARP_){
+return cljs.core._EQ_.call(null,devtools.formatters.helpers.pref.call(null,new cljs.core.Keyword(null,"more-marker","more-marker",-14717935)),p1__19935_SHARP_);
 }),template);
 });
 devtools.formatters.helpers.abbreviate_long_string = (function devtools$formatters$helpers$abbreviate_long_string(string,marker,prefix_limit,postfix_limit){
@@ -225,4 +225,4 @@ return null;
 }
 });
 
-//# sourceMappingURL=helpers.js.map?rel=1611089351940
+//# sourceMappingURL=helpers.js.map?rel=1611099822625
