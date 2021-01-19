@@ -1,9 +1,9 @@
 (ns fugue.ide.ui
   (:require [reagent.core :as r]
             [cljs.js]
+            [fugue.demo.demo-loader :as demo-loader]
             [fugue.ide.util :refer [log]]
             [fugue.ide.popup :as popup]
-            [fugue.ide.actions :as a]
             [fugue.ide.editor :as editor]
             [fugue.ide.file :as file]
             [fugue.ide.state :as s]))
@@ -15,7 +15,6 @@
   (s/layout
     state
     (fn [id name value active]
-      (print (::s/toggles state))
       [:div {:class-name (if active "window focused" "window")
              :on-mouse-down #(on-box-click id)}
        (cond
@@ -29,10 +28,13 @@
            :extraKeys #js {"Shift-Ctrl-Space" on-shortcut}}]
          ;;
          (map? value)
-         [:div.output>p.value-box
-          (str (or (:value value)
-                   (if-let [error (:error value)]
-                     (.. error -cause -message))))]
+         (let [result (:value value)
+               error (:error value)]
+           [:div.output
+            (cond
+              (vector? result) result
+              error [:span (.. error -cause -message)]
+              :else [:span result])])
          :else
          [:div.output>p.value-box (str value)])
        [:div.status-bar
@@ -45,27 +47,63 @@
           (s/add-action state :jump-to-window (partial swap-cb s/activate))
           (range 1 10)))
 
+(defn eval-settings [state]
+  {:eval cljs.js/js-eval
+   :context :statement
+   :load (fn [m cb]
+           (let [name (str (:name m))
+                 source (s/file-contents state name)]
+             (cond
+               (= "live.api" name)
+               (cb {:lang :clj :source demo-loader/api})
+               source
+               (cb {:lang :clj :source source})
+               :else
+               (cb nil))))})
+
+(defn on-eval [state result]
+  (let [filename (gensym "result")]
+    (-> state
+        (s/write-file filename result)
+        (s/open-file filename :after))))
+
+(defn eval-action [state eval-state swap-cb]
+  (let [[source settings] ((juxt s/active-file eval-settings) state)
+        on-result (fn [result]
+                    (if (fn? (:value result))
+                      (swap-cb (:value result))
+                      (swap-cb on-eval result)))]
+    (cljs.js/eval-str eval-state source nil settings on-result)))
+
 (defn setup-actions [state eval-state]
   (-> @state
       (add-jumps (partial swap! state))
+      ;;
+      (s/add-action :go-back (partial swap! state s/go-back))
+      (s/add-shortcut ["Tab"] :go-back)
+      ;;
       (s/add-shortcut-group ["t"] "toggle")
       (s/add-shortcut ["t" "v"] [:flip-toggle :vim])
       (s/add-shortcut ["t" "l"] [:flip-toggle :line-numbers])
       (s/add-action :flip-toggle (partial swap! state s/flip-toggle))
+      ;;
       (s/add-shortcut-group ["w"] "window")
       (s/add-action :split-window (partial swap! state s/split))
       (s/add-shortcut ["w" "/"] [:split-window :right])
       (s/add-shortcut ["w" "-"] [:split-window :below])
       (s/add-shortcut ["w" "x"] :kill-active-window)
       (s/add-action :kill-active-window (partial swap! state s/kill-active-window))
+      ;;
       (s/add-shortcut-group ["e"] "eval")
       (s/add-shortcut ["e" "w"] :eval-active-window)
       (s/add-action :eval-active-window
-                    #(a/eval-action @state eval-state (partial swap! state)))
+                    #(eval-action @state eval-state (partial swap! state)))
+      ;;
       (s/add-shortcut-group ["f"] "file")
+      (s/add-action :open-file (partial swap! state s/open-file-in-active-window))
       (s/add-shortcut ["f" "d"] :file-download)
       (s/add-action :file-download
-                    #(apply file/download ((juxt s/active-window-name s/active-window-file-contents) @state)))
+                    #(apply file/download ((juxt s/active-file-name s/active-file) @state)))
       (s/add-shortcut ["f" "u"] :file-upload)
       (s/add-action :file-upload
                     #(file/upload (partial swap! state s/on-upload)))))
