@@ -69,6 +69,9 @@
         (update ::layout layout/insert-node direction (::active state) id)
         (activate id))))
 
+(defn split [state direction]
+  (open-file state (active-window-name state) direction))
+
 (defn write-file [state name value]
   (assoc-in state [::files name] value))
 
