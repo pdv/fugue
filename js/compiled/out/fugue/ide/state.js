@@ -165,4 +165,4 @@ fugue.ide.state.on_upload = (function fugue$ide$state$on_upload(state,name,file)
 return fugue.ide.state.open_file.call(null,fugue.ide.state.write_file.call(null,state,name,file),name,new cljs.core.Keyword(null,"after","after",594996914));
 });
 
-//# sourceMappingURL=state.js.map?rel=1611069718975
+//# sourceMappingURL=state.js.map?rel=1611070469858

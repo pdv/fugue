@@ -197,4 +197,4 @@ return cljs.core.str.cljs$core$IFn$_invoke$arity$1(sb__4661__auto__);
 })()));
 });
 
-//# sourceMappingURL=editor.js.map?rel=1611069722701
+//# sourceMappingURL=editor.js.map?rel=1611070473553

@@ -3,4 +3,4 @@ goog.provide('fugue.ide.windows');
 goog.require('cljs.core');
 goog.require('fugue.ide.editor');
 
-//# sourceMappingURL=windows.js.map?rel=1611069724879
+//# sourceMappingURL=windows.js.map?rel=1611070475785

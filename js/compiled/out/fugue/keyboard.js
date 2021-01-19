@@ -215,4 +215,4 @@ fugue.keyboard.kb = (function fugue$keyboard$kb(){
 return fugue.synthdef.synthdef.call(null,new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword("fugue.synthdef","node-type","fugue.synthdef/node-type",806558205),new cljs.core.Keyword("fugue.chan","chan-node","fugue.chan/chan-node",-1139152001),new cljs.core.Keyword("fugue.chan","chan-node-type","fugue.chan/chan-node-type",447830325),new cljs.core.Keyword("fugue.keyboard","keyboard","fugue.keyboard/keyboard",313094678)], null),cljs.core.PersistentArrayMap.EMPTY);
 });
 
-//# sourceMappingURL=keyboard.js.map?rel=1611069718271
+//# sourceMappingURL=keyboard.js.map?rel=1611070469113

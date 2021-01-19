@@ -6,4 +6,4 @@ fugue.ide.util.log = (function fugue$ide$util$log(x){
 return cljs.core.print.call(null,"boxes~~ ",x);
 });
 
-//# sourceMappingURL=util.js.map?rel=1611069724783
+//# sourceMappingURL=util.js.map?rel=1611070475689
