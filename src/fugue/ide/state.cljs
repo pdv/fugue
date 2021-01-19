@@ -102,6 +102,10 @@
        (map #(vector (first %) (or (::group-name (second %))
                                    (clj->js (::action-name (second %))))))))
 
+(defn add-action [state name & arg-types]
+  (assoc-in state [::actions (keyword name)] {::action-name name
+                                              ::arg-types arg-types}))
+
 (defn add-shortcut-group [state path name]
   (assoc-in state (cons ::shortcuts (conj path ::group-name)) name))
 
@@ -109,27 +113,24 @@
   (assoc-in state (cons ::shortcuts path) {::action-name action-name
                                            ::args args}))
 
-(defn add-interactive-shortcut [state path action-name arg-type]
-  (assoc-in state (cons ::shortcuts path) {::action-name action-name
-                                           ::interactive-arg-type arg-type}))
-
-(defn add-action [state action-name action]
-  (assoc-in state [::actions action-name] action))
-
-(defn perform-action [state name & args]
-  (apply (get-in state [::actions (keyword name)]) args))
-
 (defn minibuffer-options [state]
-  (case (get-in state [::minibuffer ::interactive-arg-type])
-    :action (map clj->js (keys (::actions state)))
-    :file (keys (::files state))
-    []))
+  (let [{::keys [action-name args]} (::minibuffer state)
+        arg-types (get-in state [::actions action-name ::arg-types])
+        arg-type (drop (count args) arg-types)]
+    (case arg-type
+      :action (map clj->js (keys (::actions state)))
+      :file (keys (::files state))
+      [])))
 
-(defn on-minibuffer-submit [state value]
-  (let [action-name (get-in state [::minibuffer ::action-name])]
-    (perform-action state action-name value)))
+(defn on-minibuffer-submit [state value cb perform-action]
+  (let [{::keys [action-name args]} (::minibuffer state)
+        arg-types (get-in state [::actions action-name ::arg-types])
+        all-args (conj args value)]
+    (if (= (count all-args) (count arg-types))
+      (apply perform-action action-name all-args)
+      (cb update-in [::minibuffer ::args] conj value))))
 
-(defn on-key [state key cb]
+(defn on-key [state key cb perform-action]
   (let [new-seq (conj (::key-seq state) key)
         shortcut (get-in (::shortcuts state) new-seq)]
     (cond
@@ -142,12 +143,13 @@
       ;; no action, close popup
       (nil? shortcut)
       (cb close-popup)
-      ;;
-      (::interactive-arg-type shortcut)
-      (cb assoc ::minibuffer shortcut)
       :else
-      (let [{::keys [action-name args]} shortcut]
-        (apply perform-action state action-name args)))))
+      (let [{::keys [action-name args]} shortcut
+            action (get-in state [::actions action-name])
+            arg-types (::arg-types action)]
+        (if (= (count args) (count arg-types))
+          (apply perform-action action-name args)
+          (cb assoc ::minibuffer shortcut))))))
 
 (defn layout [state window-fn]
   [layout/container

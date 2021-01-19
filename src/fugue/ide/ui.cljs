@@ -41,12 +41,6 @@
         [:a id]
         [:span name]]])))
 
-(defn add-jumps [state swap-cb]
-  (reduce (fn [acc i]
-            (s/add-shortcut acc [(str i)] :jump-to-window i))
-          (s/add-action state :jump-to-window (partial swap-cb s/activate))
-          (range 1 10)))
-
 (defn eval-settings [state]
   {:eval cljs.js/js-eval
    :context :statement
@@ -75,42 +69,54 @@
                       (swap-cb on-eval result)))]
     (cljs.js/eval-str eval-state source nil settings on-result)))
 
-(defn setup-actions [state eval-state]
-  (-> @state
-      (add-jumps (partial swap! state))
+(defn add-jumps [state]
+  (reduce (fn [acc i]
+            (s/add-shortcut acc [(str i)] :jump-to-window i))
+          state
+          (range 1 10)))
+
+(defn setup-actions [state]
+  (-> state
+      (s/add-action :jump-to-window :int)
+      (add-jumps)
       ;;
-      (s/add-action :perform-action (partial s/perform-action state))
-      (s/add-interactive-shortcut [" "] :perform-action :action)
-      ;;
-      (s/add-action :go-back (partial swap! state s/go-back))
+      (s/add-action :go-back)
       (s/add-shortcut ["Tab"] :go-back)
       ;;
       (s/add-shortcut-group ["t"] "toggle")
+      (s/add-action :flip-toggle #{:vim :line-numbers})
       (s/add-shortcut ["t" "v"] :flip-toggle :vim)
       (s/add-shortcut ["t" "l"] :flip-toggle :line-numbers)
-      (s/add-action :flip-toggle (partial swap! state s/flip-toggle))
       ;;
       (s/add-shortcut-group ["w"] "window")
-      (s/add-action :split-window (partial swap! state s/split))
+      (s/add-action :split-window #{:right :below :above :left})
       (s/add-shortcut ["w" "/"] :split-window :right)
       (s/add-shortcut ["w" "-"] :split-window :below)
+      (s/add-action :kill-active-window)
       (s/add-shortcut ["w" "x"] :kill-active-window)
-      (s/add-action :kill-active-window (partial swap! state s/kill-active-window))
       ;;
       (s/add-shortcut-group ["e"] "eval")
+      (s/add-action :eval-active-window)
       (s/add-shortcut ["e" "w"] :eval-active-window)
-      (s/add-action :eval-active-window
-                    #(eval-action @state eval-state (partial swap! state)))
       ;;
       (s/add-shortcut-group ["f"] "file")
-      (s/add-action :open-file (partial swap! state s/open-file-in-active-window))
-      (s/add-interactive-shortcut ["f" "o"] :open-file :file)
+      (s/add-action :open-file :file)
+      (s/add-shortcut ["f" "o"] :open-file)
+      (s/add-action :file-download)
       (s/add-shortcut ["f" "d"] :file-download)
-      (s/add-action :file-download
-                    #(apply file/download ((juxt s/active-file-name s/active-file) @state)))
-      (s/add-shortcut ["f" "u"] :file-upload)
-      (s/add-action :file-upload
-                    #(file/upload (partial swap! state s/on-upload)))))
+      (s/add-action :file-upload)
+      (s/add-shortcut ["f" "u"] :file-upload)))
+
+(defn make-actions [state-atom eval-state]
+  {:jump-to-window (partial swap! state-atom s/activate)
+   :go-back (partial swap! state-atom s/go-back)
+   :flip-toggle (partial swap! state-atom s/flip-toggle)
+   :split-window (partial swap! state-atom s/split)
+   :kill-active-window (partial swap! state-atom s/kill-active-window)
+   :eval-active-window #(eval-action @state-atom eval-state (partial swap! state-atom))
+   :open-file (partial swap! state-atom s/open-file-in-active-window)
+   :file-download #(apply file/download ((juxt s/active-file-name s/active-file) @state-atom))
+   :file-upload #(file/upload (partial swap! state-atom s/on-upload))})
 
 (def init-files
   {"fugue.demo.cantor" demo-loader/cantor
@@ -118,15 +124,19 @@
 
 (defn app []
   (let [eval-state (cljs.js/empty-state)
-        state (r/atom (s/init-state init-files))]
+        state (r/atom (setup-actions (s/init-state init-files)))
+        actions (make-actions state eval-state)
+        swap-cb (partial swap! state)
+        perform-action (fn [name & args]
+                         (print name args)
+                         (apply (get actions name) args))]
     (defn on-key-down [e]
       (when-not (in-text-area?)
         (.preventDefault e)
-        (s/on-key @state (.-key e) (partial swap! state))))
+        (s/on-key @state (.-key e) swap-cb perform-action)))
     (.addEventListener js/document "keydown" on-key-down)
     (.defineAction js/CodeMirror.Vim "space!" #(swap! state s/open-popup))
     (.mapCommand js/CodeMirror.Vim "<Space>" "action" "space!" #js {} #js {"context" "normal"})
-    (reset! state (setup-actions state eval-state))
     (fn []
       [:div.ide
        [windows-layout
@@ -140,5 +150,5 @@
          [popup/mini-buffer
           (s/minibuffer-options @state)
           #(swap! state s/close-popup)
-          (partial s/on-minibuffer-submit @state)])])))
+          #(s/on-minibuffer-submit @state % swap-cb perform-action)])])))
 
