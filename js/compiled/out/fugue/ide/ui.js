@@ -26,7 +26,7 @@ return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMP
 return (function (){
 return on_box_click.call(null,id);
 });})(map__11986,map__11986__$1,on_box_click,on_text_change,on_shortcut))
-], null),((cljs.core.vector_QMARK_.call(null,value))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.output","div.output",1460347316),value], null):((typeof value === 'string')?new cljs.core.PersistentVector(null, 6, 5, cljs.core.PersistentVector.EMPTY_NODE, [fugue.ide.editor.editor,value,active,cljs.core.partial.call(null,on_text_change,id),((function (map__11986,map__11986__$1,on_box_click,on_text_change,on_shortcut){
+], null),((cljs.core.vector_QMARK_.call(null,value))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.output","div.output",1460347316),value], null):((typeof value === 'string')?new cljs.core.PersistentVector(null, 6, 5, cljs.core.PersistentVector.EMPTY_NODE, [fugue.ide.editor.editor,value,active,cljs.core.partial.call(null,on_text_change,name),((function (map__11986,map__11986__$1,on_box_click,on_text_change,on_shortcut){
 return (function (){
 return cljs.core.List.EMPTY;
 });})(map__11986,map__11986__$1,on_box_click,on_text_change,on_shortcut))
@@ -107,4 +107,4 @@ return cljs.core.swap_BANG_.call(null,state,fugue.ide.state.close_popup);
 ;})(eval_state,state))
 });
 
-//# sourceMappingURL=ui.js.map?rel=1611075304349
+//# sourceMappingURL=ui.js.map?rel=1611075877212
