@@ -118,15 +118,19 @@
         arg-types (get-in state [::actions action-name ::arg-types])
         arg-type (first (drop (count args) arg-types))]
     (cond
-      (= arg-type :action) (map clj->js (keys (::actions state)))
+      (= action-name :execute) (map clj->js (keys (::actions state)))
       (= arg-type :file) (keys (::files state))
       (set? arg-type) arg-type
       :else [])))
 
 (defn interactive [state action-name args swap-cb action-cb]
   (let [arg-types (get-in state [::actions action-name ::arg-types])]
-    (if (= (count args) (count arg-types))
+    (cond
+      (= :execute action-name)
+      (swap-cb assoc ::minibuffer {::action-name (keyword (first args)) ::args nil})
+      (= (count args) (count arg-types))
       (apply action-cb action-name args)
+      :else
       (swap-cb assoc ::minibuffer {::action-name action-name ::args args}))))
 
 (defn on-minibuffer-submit [state swap-cb action-cb value]
@@ -140,6 +144,9 @@
       ;; open popup
       (and (= [" "] new-seq) (not (in-popup? state)))
       (swap-cb open-popup)
+      ;; list commands
+      (and (= [" "] new-seq) (in-popup? state))
+      (swap-cb assoc ::minibuffer {::action-name :execute ::args []})
       ;; another menu
       (::group-name shortcut)
       (swap-cb update-in [::key-seq] conj key)

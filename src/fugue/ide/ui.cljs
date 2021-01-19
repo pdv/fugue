@@ -80,9 +80,6 @@
       (s/add-action :jump-to-window :int)
       (add-jumps)
       ;;
-      (s/add-action :perform-action :action)
-      (s/add-shortcut [" "] :perform-action)
-      ;;
       (s/add-action :go-back)
       (s/add-shortcut ["Tab"] :go-back)
       ;;
@@ -130,8 +127,8 @@
         state (r/atom (setup-actions (s/init-state init-files)))
         actions (make-actions state eval-state)
         swap-cb (partial swap! state)
-        action-cb (fn do-action [name & args]
-                    (print name args)
+        action-cb (fn [name & args]
+                    (print "callback" name args)
                     (apply (get actions name) args))]
     (defn on-key-down [e]
       (when-not (in-text-area?)
@@ -149,7 +146,7 @@
          :on-shortcut #(swap! state s/open-popup)}]
        (if (s/in-shortcuts? @state)
          [popup/shortcuts-popup (s/popup-menu @state)])
-       (if (s/in-minibuffer? @state)
+       (when (s/in-minibuffer? @state)
          [popup/mini-buffer
           (s/minibuffer-options @state)
           (partial swap! state s/close-popup)
