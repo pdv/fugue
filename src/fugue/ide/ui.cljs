@@ -79,6 +79,9 @@
   (-> @state
       (add-jumps (partial swap! state))
       ;;
+      (s/add-action :perform-action (partial s/perform-action state))
+      (s/add-interactive-shortcut [" "] :perform-action :action)
+      ;;
       (s/add-action :go-back (partial swap! state s/go-back))
       (s/add-shortcut ["Tab"] :go-back)
       ;;
@@ -101,6 +104,7 @@
       ;;
       (s/add-shortcut-group ["f"] "file")
       (s/add-action :open-file (partial swap! state s/open-file-in-active-window))
+      (s/add-interactive-shortcut ["f" "o"] :open-file :file)
       (s/add-shortcut ["f" "d"] :file-download)
       (s/add-action :file-download
                     #(apply file/download ((juxt s/active-file-name s/active-file) @state)))
@@ -130,7 +134,7 @@
          [popup/shortcuts-popup (s/popup-menu @state)])
        (if (s/in-minibuffer? @state)
          [popup/mini-buffer
-          (s/action-names @state)
+          (s/minibuffer-options @state)
           #(swap! state s/close-popup)
-          (partial s/perform-action @state)])])))
+          (partial s/on-minibuffer-submit @state)])])))
 
