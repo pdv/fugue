@@ -28,10 +28,13 @@
            :extraKeys #js {"Shift-Ctrl-Space" on-shortcut}}]
          ;;
          (map? value)
-         [:div.output>p.value-box
-          (str (or (:value value)
-                   (if-let [error (:error value)]
-                     (.. error -cause -message))))]
+         (let [result (:value value)
+               error (:error value)]
+           [:div.output
+            (cond
+              (vector? result) result
+              error [:span (.. error -cause -message)]
+              :else [:span result])])
          :else
          [:div.output>p.value-box (str value)])
        [:div.status-bar
@@ -69,20 +72,24 @@
 (defn setup-actions [state eval-state]
   (-> @state
       (add-jumps (partial swap! state))
+      ;;
       (s/add-shortcut-group ["t"] "toggle")
       (s/add-shortcut ["t" "v"] [:flip-toggle :vim])
       (s/add-shortcut ["t" "l"] [:flip-toggle :line-numbers])
       (s/add-action :flip-toggle (partial swap! state s/flip-toggle))
+      ;;
       (s/add-shortcut-group ["w"] "window")
       (s/add-action :split-window (partial swap! state s/split))
       (s/add-shortcut ["w" "/"] [:split-window :right])
       (s/add-shortcut ["w" "-"] [:split-window :below])
       (s/add-shortcut ["w" "x"] :kill-active-window)
       (s/add-action :kill-active-window (partial swap! state s/kill-active-window))
+      ;;
       (s/add-shortcut-group ["e"] "eval")
       (s/add-shortcut ["e" "w"] :eval-active-window)
       (s/add-action :eval-active-window
                     #(eval-action @state eval-state (partial swap! state)))
+      ;;
       (s/add-shortcut-group ["f"] "file")
       (s/add-shortcut ["f" "d"] :file-download)
       (s/add-action :file-download
