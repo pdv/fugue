@@ -27,20 +27,20 @@ return shifted;
 cljs.source_map.base64_vlq.encode_val = (function cljs$source_map$base64_vlq$encode_val(n){
 var sb = (new goog.string.StringBuffer());
 var vlq = cljs.source_map.base64_vlq.to_vlq_signed.call(null,n);
-var digit_8135 = (vlq & cljs.source_map.base64_vlq.vlq_base_mask);
-var vlq_8136__$1 = (vlq >>> (5));
+var digit_9107 = (vlq & cljs.source_map.base64_vlq.vlq_base_mask);
+var vlq_9108__$1 = (vlq >>> (5));
 while(true){
-if((vlq_8136__$1 > (0))){
-var digit_8137__$1 = (digit_8135 | cljs.source_map.base64_vlq.vlq_continuation_bit);
-sb.append(cljs.source_map.base64.encode.call(null,digit_8137__$1));
+if((vlq_9108__$1 > (0))){
+var digit_9109__$1 = (digit_9107 | cljs.source_map.base64_vlq.vlq_continuation_bit);
+sb.append(cljs.source_map.base64.encode.call(null,digit_9109__$1));
 
-var G__8138 = (vlq_8136__$1 & cljs.source_map.base64_vlq.vlq_base_mask);
-var G__8139 = (vlq_8136__$1 >>> (5));
-digit_8135 = G__8138;
-vlq_8136__$1 = G__8139;
+var G__9110 = (vlq_9108__$1 & cljs.source_map.base64_vlq.vlq_base_mask);
+var G__9111 = (vlq_9108__$1 >>> (5));
+digit_9107 = G__9110;
+vlq_9108__$1 = G__9111;
 continue;
 } else {
-sb.append(cljs.source_map.base64.encode.call(null,digit_8135));
+sb.append(cljs.source_map.base64.encode.call(null,digit_9107));
 }
 break;
 }
@@ -68,12 +68,12 @@ var digit__$1 = (digit & cljs.source_map.base64_vlq.vlq_base_mask);
 var result__$1 = (result + (digit__$1 << shift));
 var shift__$1 = (shift + (5));
 if(continuation_QMARK_){
-var G__8140 = i__$1;
-var G__8141 = result__$1;
-var G__8142 = shift__$1;
-i = G__8140;
-result = G__8141;
-shift = G__8142;
+var G__9112 = i__$1;
+var G__9113 = result__$1;
+var G__9114 = shift__$1;
+i = G__9112;
+result = G__9113;
+shift = G__9114;
 continue;
 } else {
 return (new cljs.core.LazySeq(null,((function (i,result,shift,i__$1,continuation_QMARK_,digit__$1,result__$1,shift__$1,digit,l){
@@ -92,4 +92,4 @@ break;
 }
 });
 
-//# sourceMappingURL=base64_vlq.js.map?rel=1611070465210
+//# sourceMappingURL=base64_vlq.js.map?rel=1611075061648

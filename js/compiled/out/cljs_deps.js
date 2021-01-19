@@ -102,12 +102,12 @@ goog.addDependency("../cljs/core$macros.js", ['cljs.core$macros'], ['cljs.compil
 goog.addDependency("../cljs/js.js", ['cljs.js'], ['cljs.compiler', 'cljs.tools.reader', 'cljs.core', 'goog.crypt.base64', 'cljs.tools.reader.reader_types', 'cljs.env', 'goog.string.StringBuffer', 'cljs.tagged_literals', 'cljs.analyzer', 'cljs.source_map', 'clojure.string', 'cljs.spec.alpha', 'clojure.walk', 'cljs.core$macros']);
 goog.addDependency("../fugue/bootstrap.js", ['fugue.bootstrap'], ['fugue.api', 'cljs.js', 'cljs.core']);
 goog.addDependency("../fugue/demo/cantor.js", ['fugue.demo.cantor'], ['cljs.core', 'live.api']);
-goog.addDependency("../fugue/ide/file_upload.js", ['fugue.ide.file_upload'], ['reagent.core', 'cljs.core', 'reagent.dom']);
 goog.addDependency("../fugue/demo/demo_loader.js", ['fugue.demo.demo_loader'], ['cljs.core']);
 goog.addDependency("../fugue/ide/actions.js", ['fugue.ide.actions'], ['fugue.ide.state', 'cljs.js', 'cljs.core']);
 goog.addDependency("../fugue/notes.js", ['fugue.notes'], ['cljs.core']);
 goog.addDependency("../fugue/ide/popup.js", ['fugue.ide.popup'], ['reagent.core', 'cljs.core', 'fugue.ide.editor', 'clojure.string']);
 goog.addDependency("../fugue/ide/util.js", ['fugue.ide.util'], ['cljs.core', 'cljs.pprint']);
-goog.addDependency("../fugue/ide/ui.js", ['fugue.ide.ui'], ['fugue.ide.state', 'fugue.ide.popup', 'reagent.core', 'cljs.js', 'cljs.core', 'fugue.ide.file_upload', 'fugue.ide.editor', 'fugue.ide.util', 'fugue.ide.actions']);
+goog.addDependency("../fugue/ide/file.js", ['fugue.ide.file'], ['cljs.core', 'oops.core', 'goog.fs']);
+goog.addDependency("../fugue/ide/ui.js", ['fugue.ide.ui'], ['fugue.ide.state', 'fugue.ide.popup', 'reagent.core', 'cljs.js', 'cljs.core', 'fugue.ide.editor', 'fugue.ide.util', 'fugue.ide.file', 'fugue.ide.actions']);
 goog.addDependency("../fugue/web.js", ['fugue.web'], ['reagent.core', 'cljs.core', 'fugue.ide.ui', 'fugue.bootstrap', 'reagent.dom']);
 goog.addDependency("../fugue/demo/cof.js", ['fugue.demo.cof'], ['cljs.core', 'live.api']);

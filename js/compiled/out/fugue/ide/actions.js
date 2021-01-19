@@ -19,17 +19,17 @@ var filename = cljs.core.gensym.call(null,"result");
 return fugue.ide.state.open_file.call(null,fugue.ide.state.write_file.call(null,state,filename,result),filename,new cljs.core.Keyword(null,"after","after",594996914));
 });
 fugue.ide.actions.eval_action = (function fugue$ide$actions$eval_action(state,eval_state,swap_cb){
-var vec__19076 = cljs.core.juxt.call(null,fugue.ide.state.active_window_file_contents,fugue.ide.actions.eval_settings).call(null,state);
-var source = cljs.core.nth.call(null,vec__19076,(0),null);
-var settings = cljs.core.nth.call(null,vec__19076,(1),null);
-var on_result = ((function (vec__19076,source,settings){
+var vec__11980 = cljs.core.juxt.call(null,fugue.ide.state.active_window_file_contents,fugue.ide.actions.eval_settings).call(null,state);
+var source = cljs.core.nth.call(null,vec__11980,(0),null);
+var settings = cljs.core.nth.call(null,vec__11980,(1),null);
+var on_result = ((function (vec__11980,source,settings){
 return (function (result){
 if(cljs.core.fn_QMARK_.call(null,new cljs.core.Keyword(null,"value","value",305978217).cljs$core$IFn$_invoke$arity$1(result))){
 return swap_cb.call(null,new cljs.core.Keyword(null,"value","value",305978217).cljs$core$IFn$_invoke$arity$1(result));
 } else {
 return swap_cb.call(null,fugue.ide.actions.on_eval,result);
 }
-});})(vec__19076,source,settings))
+});})(vec__11980,source,settings))
 ;
 return cljs.js.eval_str.call(null,eval_state,source,null,settings,on_result);
 });
@@ -48,4 +48,4 @@ fugue.ide.actions.go_back = (function fugue$ide$actions$go_back(_,cb){
 return cb.call(null,fugue.ide.state.go_back);
 });
 
-//# sourceMappingURL=actions.js.map?rel=1611070475701
+//# sourceMappingURL=actions.js.map?rel=1611075064621

@@ -12,8 +12,8 @@ loom.attr.AttrGraph = function(){};
  * Add an attribute to node or edge
  */
 loom.attr.add_attr = (function loom$attr$add_attr(var_args){
-var G__6548 = arguments.length;
-switch (G__6548) {
+var G__12863 = arguments.length;
+switch (G__12863) {
 case 4:
 return loom.attr.add_attr.cljs$core$IFn$_invoke$arity$4((arguments[(0)]),(arguments[(1)]),(arguments[(2)]),(arguments[(3)]));
 
@@ -73,8 +73,8 @@ loom.attr.add_attr.cljs$lang$maxFixedArity = 5;
  * Remove an attribute from a node or edge
  */
 loom.attr.remove_attr = (function loom$attr$remove_attr(var_args){
-var G__6550 = arguments.length;
-switch (G__6550) {
+var G__12865 = arguments.length;
+switch (G__12865) {
 case 3:
 return loom.attr.remove_attr.cljs$core$IFn$_invoke$arity$3((arguments[(0)]),(arguments[(1)]),(arguments[(2)]));
 
@@ -134,8 +134,8 @@ loom.attr.remove_attr.cljs$lang$maxFixedArity = 4;
  * Return the attribute on a node or edge
  */
 loom.attr.attr = (function loom$attr$attr(var_args){
-var G__6552 = arguments.length;
-switch (G__6552) {
+var G__12867 = arguments.length;
+switch (G__12867) {
 case 3:
 return loom.attr.attr.cljs$core$IFn$_invoke$arity$3((arguments[(0)]),(arguments[(1)]),(arguments[(2)]));
 
@@ -195,8 +195,8 @@ loom.attr.attr.cljs$lang$maxFixedArity = 4;
  * Return all attributes on a node or edge
  */
 loom.attr.attrs = (function loom$attr$attrs(var_args){
-var G__6554 = arguments.length;
-switch (G__6554) {
+var G__12869 = arguments.length;
+switch (G__12869) {
 case 2:
 return loom.attr.attrs.cljs$core$IFn$_invoke$arity$2((arguments[(0)]),(arguments[(1)]));
 
@@ -794,10 +794,10 @@ return loom.attr.add_attr.call(null,g__$1,n,k,v);
  * Adds an attribute to the given edges
  */
 loom.attr.add_attr_to_edges = (function loom$attr$add_attr_to_edges(g,k,v,edges){
-return cljs.core.reduce.call(null,(function (g__$1,p__6560){
-var vec__6561 = p__6560;
-var n1 = cljs.core.nth.call(null,vec__6561,(0),null);
-var n2 = cljs.core.nth.call(null,vec__6561,(1),null);
+return cljs.core.reduce.call(null,(function (g__$1,p__12875){
+var vec__12876 = p__12875;
+var n1 = cljs.core.nth.call(null,vec__12876,(0),null);
+var n2 = cljs.core.nth.call(null,vec__12876,(1),null);
 return loom.attr.add_attr.call(null,g__$1,n1,n2,k,v);
 }),g,edges);
 });
@@ -812,14 +812,14 @@ return loom.attr.add_attr_to_edges.call(null,loom.attr.add_attr_to_nodes.call(nu
  */
 loom.attr.add_attrs_to_all = (function loom$attr$add_attrs_to_all(var_args){
 var args__4736__auto__ = [];
-var len__4730__auto___6570 = arguments.length;
-var i__4731__auto___6571 = (0);
+var len__4730__auto___12885 = arguments.length;
+var i__4731__auto___12886 = (0);
 while(true){
-if((i__4731__auto___6571 < len__4730__auto___6570)){
-args__4736__auto__.push((arguments[i__4731__auto___6571]));
+if((i__4731__auto___12886 < len__4730__auto___12885)){
+args__4736__auto__.push((arguments[i__4731__auto___12886]));
 
-var G__6572 = (i__4731__auto___6571 + (1));
-i__4731__auto___6571 = G__6572;
+var G__12887 = (i__4731__auto___12886 + (1));
+i__4731__auto___12886 = G__12887;
 continue;
 } else {
 }
@@ -831,10 +831,10 @@ return loom.attr.add_attrs_to_all.cljs$core$IFn$_invoke$arity$variadic((argument
 });
 
 loom.attr.add_attrs_to_all.cljs$core$IFn$_invoke$arity$variadic = (function (g,kvs){
-return cljs.core.reduce.call(null,(function (g__$1,p__6566){
-var vec__6567 = p__6566;
-var k = cljs.core.nth.call(null,vec__6567,(0),null);
-var v = cljs.core.nth.call(null,vec__6567,(1),null);
+return cljs.core.reduce.call(null,(function (g__$1,p__12881){
+var vec__12882 = p__12881;
+var k = cljs.core.nth.call(null,vec__12882,(0),null);
+var v = cljs.core.nth.call(null,vec__12882,(1),null);
 return loom.attr.add_attr_to_edges.call(null,loom.attr.add_attr_to_nodes.call(null,g__$1,k,v,loom.graph.nodes.call(null,g__$1)),k,v,loom.graph.edges.call(null,g__$1));
 }),g,cljs.core.partition.call(null,(2),(1),kvs));
 });
@@ -842,19 +842,19 @@ return loom.attr.add_attr_to_edges.call(null,loom.attr.add_attr_to_nodes.call(nu
 loom.attr.add_attrs_to_all.cljs$lang$maxFixedArity = (1);
 
 /** @this {Function} */
-loom.attr.add_attrs_to_all.cljs$lang$applyTo = (function (seq6564){
-var G__6565 = cljs.core.first.call(null,seq6564);
-var seq6564__$1 = cljs.core.next.call(null,seq6564);
+loom.attr.add_attrs_to_all.cljs$lang$applyTo = (function (seq12879){
+var G__12880 = cljs.core.first.call(null,seq12879);
+var seq12879__$1 = cljs.core.next.call(null,seq12879);
 var self__4717__auto__ = this;
-return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__6565,seq6564__$1);
+return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__12880,seq12879__$1);
 });
 
 /**
  * Adds a red :color attribute to a node or edge
  */
 loom.attr.hilite = (function loom$attr$hilite(var_args){
-var G__6574 = arguments.length;
-switch (G__6574) {
+var G__12889 = arguments.length;
+switch (G__12889) {
 case 2:
 return loom.attr.hilite.cljs$core$IFn$_invoke$arity$2((arguments[(0)]),(arguments[(1)]));
 
@@ -883,12 +883,12 @@ loom.attr.hilite.cljs$lang$maxFixedArity = 3;
  * Hilites nodes and edges along a path
  */
 loom.attr.hilite_path = (function loom$attr$hilite_path(g,path){
-return cljs.core.reduce.call(null,(function (g__$1,p__6576){
-var vec__6577 = p__6576;
-var n1 = cljs.core.nth.call(null,vec__6577,(0),null);
-var n2 = cljs.core.nth.call(null,vec__6577,(1),null);
+return cljs.core.reduce.call(null,(function (g__$1,p__12891){
+var vec__12892 = p__12891;
+var n1 = cljs.core.nth.call(null,vec__12892,(0),null);
+var n2 = cljs.core.nth.call(null,vec__12892,(1),null);
 return loom.attr.hilite.call(null,loom.attr.hilite.call(null,loom.attr.hilite.call(null,g__$1,n1),n2),n1,n2);
 }),g,cljs.core.partition.call(null,(2),(1),path));
 });
 
-//# sourceMappingURL=attr.js.map?rel=1611070463167
+//# sourceMappingURL=attr.js.map?rel=1611075065726
