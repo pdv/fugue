@@ -1,6 +1,8 @@
-(ns fugue.ide.file-upload
+(ns fugue.ide.file
   (:require [reagent.core :as r]
-            [reagent.dom :as rdom]))
+            [reagent.dom :as rdom]
+            [goog.fs :as fs]
+            [oops.core :refer [oset!]]))
 
 (defn file-upload [click on-upload]
   (r/create-class
@@ -23,3 +25,11 @@
              is-click (second argv)]
          (if (and (not was-click) is-click)
            (.click (rdom/dom-node this)))))}))
+
+(defn download [name text]
+  (let [elem (.createElement js/document "a")
+        blob (js/Blob. (js/Array. text) {:type "text/plain"})]
+    (oset! elem "href" (fs/createObjectUrl blob))
+    (oset! elem "download" name)
+    (.click elem)
+    (.removeChild (.-body js/document) elem)))

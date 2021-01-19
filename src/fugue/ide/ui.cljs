@@ -5,7 +5,7 @@
             [fugue.ide.popup :as popup]
             [fugue.ide.actions :as a]
             [fugue.ide.editor :as editor]
-            [fugue.ide.file-upload :refer [file-upload]]
+            [fugue.ide.file :as file]
             [fugue.ide.state :as s]))
 
 (defn in-text-area? []
@@ -61,6 +61,9 @@
       (s/add-action :eval-active-window
                     #(a/eval-action @state eval-state (partial swap! state)))
       (s/add-shortcut-group ["f"] "file")
+      (s/add-shortcut ["f" "d"] :file-download)
+      (s/add-action :file-download
+                    #(apply file/download ((juxt s/active-window-name s/active-window-file-contents) @state)))
       (s/add-shortcut ["f" "u"] :file-upload)
       (s/add-action :file-upload
                     (fn []
@@ -81,9 +84,9 @@
     (reset! state (setup-actions state eval-state is-file-upload))
     (fn []
       [:div.ide
-       [file-upload @is-file-upload (fn [name file]
-                                      (reset! is-file-upload false)
-                                      (swap! state s/on-upload name file))]
+       [file/file-upload @is-file-upload (fn [name file]
+                                           (reset! is-file-upload false)
+                                           (swap! state s/on-upload name file))]
        [windows-layout
         @state
         {:on-box-click #(swap! state s/activate %)
