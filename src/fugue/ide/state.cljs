@@ -1,5 +1,6 @@
 (ns fugue.ide.state
-  (:require [fugue.ide.layout :as layout]))
+  (:require [fugue.ide.layout :as layout]
+            [clojure.set :refer [rename-keys]]))
 
 (def init-state
   {::layout '(1)
@@ -12,7 +13,7 @@
    ::minibuffer false
    ::toggles {:vim true
               :line-numbers false}
-   ::files {"fugue.user" "(ns fugue.user)\n\n"}})
+   ::files {"fugue.user" "(ns fugue.user)\n\n(+ 1 2)"}})
 
 (defn next-window-id [state]
   (first (filter #(not (contains? (::windows state) %)) (range 1 10))))
@@ -56,11 +57,20 @@
 (defn active-file-name [state]
   (get-in state [::windows (::active state)]))
 
+(defn rename-active-file [state new-name]
+  (-> state
+      (assoc-in [::windows (::active state)] new-name)
+      (update ::files rename-keys {(active-file-name state) new-name})))
+
 (defn file-contents [state name]
   (get-in state [::files name]))
 
 (defn active-file [state]
   (file-contents state (active-file-name state)))
+
+(defn open-file-in-active-window [state name]
+  (-> state
+      (assoc-in [::windows (::active state)] name)))
 
 (defn open-file [state name direction]
   (let [id (next-window-id state)]

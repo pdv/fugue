@@ -79,6 +79,9 @@
   (-> @state
       (add-jumps (partial swap! state))
       ;;
+      (s/add-action :go-back (partial swap! state s/go-back))
+      (s/add-shortcut ["Tab"] :go-back)
+      ;;
       (s/add-shortcut-group ["t"] "toggle")
       (s/add-shortcut ["t" "v"] [:flip-toggle :vim])
       (s/add-shortcut ["t" "l"] [:flip-toggle :line-numbers])
@@ -97,6 +100,7 @@
                     #(eval-action @state eval-state (partial swap! state)))
       ;;
       (s/add-shortcut-group ["f"] "file")
+      (s/add-action :open-file (partial swap! state s/open-file-in-active-window))
       (s/add-shortcut ["f" "d"] :file-download)
       (s/add-action :file-download
                     #(apply file/download ((juxt s/active-file-name s/active-file) @state)))
