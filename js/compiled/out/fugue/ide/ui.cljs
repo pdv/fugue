@@ -21,7 +21,7 @@
          (vector? value) [:div.output value]
          ;;
          (string? value)
-         [editor/editor value active (partial on-text-change name) #()
+         [editor/editor value name active (partial on-text-change name) #()
           {:keyMap (if (s/get-toggle state :vim) "vim" "default")
            :theme "base16-ocean"
            :lineNumbers (s/get-toggle state :line-numbers)
@@ -43,7 +43,7 @@
 
 (defn add-jumps [state swap-cb]
   (reduce (fn [acc i]
-            (s/add-shortcut acc [(str i)] [:jump-to-window i]))
+            (s/add-shortcut acc [(str i)] :jump-to-window i))
           (s/add-action state :jump-to-window (partial swap-cb s/activate))
           (range 1 10)))
 
@@ -79,18 +79,21 @@
   (-> @state
       (add-jumps (partial swap! state))
       ;;
+      (s/add-action :perform-action (partial s/perform-action state))
+      (s/add-interactive-shortcut [" "] :perform-action :action)
+      ;;
       (s/add-action :go-back (partial swap! state s/go-back))
       (s/add-shortcut ["Tab"] :go-back)
       ;;
       (s/add-shortcut-group ["t"] "toggle")
-      (s/add-shortcut ["t" "v"] [:flip-toggle :vim])
-      (s/add-shortcut ["t" "l"] [:flip-toggle :line-numbers])
+      (s/add-shortcut ["t" "v"] :flip-toggle :vim)
+      (s/add-shortcut ["t" "l"] :flip-toggle :line-numbers)
       (s/add-action :flip-toggle (partial swap! state s/flip-toggle))
       ;;
       (s/add-shortcut-group ["w"] "window")
       (s/add-action :split-window (partial swap! state s/split))
-      (s/add-shortcut ["w" "/"] [:split-window :right])
-      (s/add-shortcut ["w" "-"] [:split-window :below])
+      (s/add-shortcut ["w" "/"] :split-window :right)
+      (s/add-shortcut ["w" "-"] :split-window :below)
       (s/add-shortcut ["w" "x"] :kill-active-window)
       (s/add-action :kill-active-window (partial swap! state s/kill-active-window))
       ;;
@@ -101,6 +104,7 @@
       ;;
       (s/add-shortcut-group ["f"] "file")
       (s/add-action :open-file (partial swap! state s/open-file-in-active-window))
+      (s/add-interactive-shortcut ["f" "o"] :open-file :file)
       (s/add-shortcut ["f" "d"] :file-download)
       (s/add-action :file-download
                     #(apply file/download ((juxt s/active-file-name s/active-file) @state)))
@@ -130,7 +134,7 @@
          [popup/shortcuts-popup (s/popup-menu @state)])
        (if (s/in-minibuffer? @state)
          [popup/mini-buffer
-          (s/action-names @state)
+          (s/minibuffer-options @state)
           #(swap! state s/close-popup)
-          (partial s/perform-action @state)])])))
+          (partial s/on-minibuffer-submit @state)])])))
 

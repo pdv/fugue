@@ -10,7 +10,7 @@
    ::key-seq nil
    ::shortcuts {}
    ::actions {}
-   ::minibuffer false
+   ::minibuffer nil
    ::toggles {:vim true
               :line-numbers false}
    ::files {"fugue.user" "(ns fugue.user)\n\n(+ 1 2)"}})
@@ -33,7 +33,7 @@
 (defn close-popup [state]
   (-> state
       (assoc ::key-seq nil)
-      (assoc ::minibuffer false)))
+      (assoc ::minibuffer nil)))
 
 (defn get-toggle [state name]
   (get-in state [::toggles name]))
@@ -70,7 +70,8 @@
 
 (defn open-file-in-active-window [state name]
   (-> state
-      (assoc-in [::windows (::active state)] name)))
+      (assoc-in [::windows (::active state)] name)
+      (close-popup)))
 
 (defn open-file [state name direction]
   (let [id (next-window-id state)]
@@ -99,22 +100,34 @@
   (->> (get-in (::shortcuts state) (::key-seq state))
        (filter (comp string? first))
        (map #(vector (first %) (or (::group-name (second %))
-                                   (clj->js (second %)))))))
+                                   (clj->js (::action-name (second %))))))))
 
 (defn add-shortcut-group [state path name]
   (assoc-in state (cons ::shortcuts (conj path ::group-name)) name))
 
-(defn add-shortcut [state path action-name]
-  (assoc-in state (cons ::shortcuts path) action-name))
+(defn add-shortcut [state path action-name & args]
+  (assoc-in state (cons ::shortcuts path) {::action-name action-name
+                                           ::args args}))
+
+(defn add-interactive-shortcut [state path action-name arg-type]
+  (assoc-in state (cons ::shortcuts path) {::action-name action-name
+                                           ::interactive-arg-type arg-type}))
 
 (defn add-action [state action-name action]
   (assoc-in state [::actions action-name] action))
 
-(defn action-names [state]
-  (map clj->js (keys (::actions state))))
-
 (defn perform-action [state name & args]
   (apply (get-in state [::actions (keyword name)]) args))
+
+(defn minibuffer-options [state]
+  (case (get-in state [::minibuffer ::interactive-arg-type])
+    :action (map clj->js (keys (::actions state)))
+    :file (keys (::files state))
+    []))
+
+(defn on-minibuffer-submit [state value]
+  (let [action-name (get-in state [::minibuffer ::action-name])]
+    (perform-action state action-name value)))
 
 (defn on-key [state key cb]
   (let [new-seq (conj (::key-seq state) key)
@@ -123,20 +136,18 @@
       ;; open popup
       (and (= [" "] new-seq) (not (in-popup? state)))
       (cb open-popup)
-      ;; open minibuffer
-      (and (= [" "] new-seq) (in-popup? state))
-      (cb assoc ::minibuffer true)
       ;; another menu
-      (map? shortcut)
+      (::group-name shortcut)
       (cb update-in [::key-seq] conj key)
       ;; no action, close popup
       (nil? shortcut)
       (cb close-popup)
-      ;; action with args
-      (vector? shortcut)
-      (apply perform-action state (first shortcut) (rest shortcut))
-      :else ;; action without args
-      (perform-action state shortcut))))
+      ;;
+      (::interactive-arg-type shortcut)
+      (cb assoc ::minibuffer shortcut)
+      :else
+      (let [{::keys [action-name args]} shortcut]
+        (apply perform-action state action-name args)))))
 
 (defn layout [state window-fn]
   [layout/container

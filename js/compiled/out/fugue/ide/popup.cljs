@@ -10,6 +10,7 @@
       [:div.popup.focused
        [editor
         ""
+        ""
         true
         (fn [text]
           (reset! filtered (filter #(string/includes? % text) options)))

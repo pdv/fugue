@@ -204,4 +204,4 @@ return fugue.api.out.call(null,fugue.api.sampler.call(null,"pumpthat.wav",fugue.
 });
 fugue.api.demo_text = "hello";
 
-//# sourceMappingURL=api.js.map?rel=1611084578472
+//# sourceMappingURL=api.js.map?rel=1611088191425

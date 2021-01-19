@@ -13,7 +13,7 @@
   (if (re-find #"[a-zA-Z]" (first (oget input-read-event "text")))
     (.showHint cm #js {:completeSingle false})))
 
-(defn editor [init focused on-change on-selection cm-options]
+(defn editor [init name focused on-change on-selection cm-options]
   (let [codemirror (volatile! nil)]
     (r/create-class
       {:render
@@ -36,14 +36,13 @@
          (if-let [cm @codemirror] (.toTextArea cm)))
        :component-did-update
        (fn [this old-argv]
-         (let [argv (r/argv this)
-               new-text (last (drop-last 4 argv))
-               is-focused (last (drop-last 3 argv))
-               old-cm-options (last old-argv)
-               new-cm-options (last argv)]
+         (let [[_ _ old-name was-focused _ _ old-cm-options] old-argv
+               [_ new-text new-name is-focused _ _ new-cm-options] (r/argv this)]
            (when (not is-focused)
              (.setValue @codemirror new-text)
              (.blur (.. @codemirror -display -input)))
+           (when (not= old-name new-name)
+             (.setValue @codemirror new-text))
            (when (and is-focused (not (.hasFocus @codemirror)))
              (.focus @codemirror))
            (doseq [[key value] new-cm-options]
