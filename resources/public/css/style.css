@@ -87,13 +87,12 @@ html, body, #app {
 
 .CodeMirror {
   flex: 1;
-  height: auto;
   background-color: var(--bg-color);
-  color: var(--mid-color);
+  color: var(--fg-color);
 }
 
-.focused .CodeMirror {
-  color: var(--fg-color);
+.popup .CodeMirror {
+  height: 40px;
 }
 
 .CodeMirror-gutters {
