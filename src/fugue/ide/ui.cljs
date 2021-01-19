@@ -112,9 +112,13 @@
       (s/add-action :file-upload
                     #(file/upload (partial swap! state s/on-upload)))))
 
+(def init-files
+  {"fugue.demo.cantor" demo-loader/cantor
+   "fugue.demo.cof" demo-loader/cof})
+
 (defn app []
   (let [eval-state (cljs.js/empty-state)
-        state (r/atom s/init-state)]
+        state (r/atom (s/init-state init-files))]
     (defn on-key-down [e]
       (when-not (in-text-area?)
         (.preventDefault e)
