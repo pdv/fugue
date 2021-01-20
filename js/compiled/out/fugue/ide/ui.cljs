@@ -89,7 +89,7 @@
       (s/add-shortcut ["t" "l"] :flip-toggle :line-numbers)
       ;;
       (s/add-shortcut-group ["w"] "window")
-      (s/add-action :split-window #{:right :below :above :left})
+      (s/add-action :split-window s/directions)
       (s/add-shortcut ["w" "/"] :split-window :right)
       (s/add-shortcut ["w" "-"] :split-window :below)
       (s/add-action :kill-active-window)
@@ -100,7 +100,7 @@
       (s/add-shortcut ["e" "w"] :eval-active-window)
       ;;
       (s/add-shortcut-group ["f"] "file")
-      (s/add-action :open-file :file)
+      (s/add-action :open-file :file s/directions)
       (s/add-shortcut ["f" "o"] :open-file)
       (s/add-action :file-download)
       (s/add-shortcut ["f" "d"] :file-download)
@@ -114,7 +114,7 @@
    :split-window (partial swap! state-atom s/split)
    :kill-active-window (partial swap! state-atom s/kill-active-window)
    :eval-active-window #(eval-action @state-atom eval-state (partial swap! state-atom))
-   :open-file (partial swap! state-atom s/open-file-in-active-window)
+   :open-file (partial swap! state-atom s/open-file)
    :file-download #(apply file/download ((juxt s/active-file-name s/active-file) @state-atom))
    :file-upload #(file/upload (partial swap! state-atom s/on-upload))})
 
@@ -128,7 +128,6 @@
         actions (make-actions state eval-state)
         swap-cb (partial swap! state)
         action-cb (fn [name & args]
-                    (print "callback" name args)
                     (apply (get actions name) args))]
     (defn on-key-down [e]
       (when-not (in-text-area?)

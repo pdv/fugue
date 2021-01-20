@@ -6,6 +6,7 @@ goog.require('clojure.set');
 fugue.ide.state.init_state = (function fugue$ide$state$init_state(init_files){
 return cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword("fugue.ide.state","layout","fugue.ide.state/layout",-1014388064),new cljs.core.Keyword("fugue.ide.state","shortcuts","fugue.ide.state/shortcuts",677225579),new cljs.core.Keyword("fugue.ide.state","actions","fugue.ide.state/actions",-1920139477),new cljs.core.Keyword("fugue.ide.state","active","fugue.ide.state/active",787267053),new cljs.core.Keyword("fugue.ide.state","minibuffer","fugue.ide.state/minibuffer",-653667763),new cljs.core.Keyword("fugue.ide.state","windows","fugue.ide.state/windows",-1118495986),new cljs.core.Keyword("fugue.ide.state","toggles","fugue.ide.state/toggles",2117803982),new cljs.core.Keyword("fugue.ide.state","key-seq","fugue.ide.state/key-seq",1092364346),new cljs.core.Keyword("fugue.ide.state","prev","fugue.ide.state/prev",1590915229),new cljs.core.Keyword("fugue.ide.state","files","fugue.ide.state/files",970131199)],[cljs.core.list((1)),cljs.core.PersistentArrayMap.EMPTY,cljs.core.PersistentArrayMap.EMPTY,(1),null,new cljs.core.PersistentArrayMap(null, 1, [(1),"fugue.user"], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"vim","vim",764723904),true,new cljs.core.Keyword(null,"line-numbers","line-numbers",220179237),false], null),null,null,cljs.core.merge.call(null,init_files,new cljs.core.PersistentArrayMap(null, 1, ["fugue.user","(ns fugue.user)\n\n(+ 1 2)"], null))]);
 });
+fugue.ide.state.directions = new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 6, [new cljs.core.Keyword(null,"after","after",594996914),null,new cljs.core.Keyword(null,"right","right",-452581833),null,new cljs.core.Keyword(null,"above","above",-1286866470),null,new cljs.core.Keyword(null,"before","before",-1633692388),null,new cljs.core.Keyword(null,"below","below",-926774883),null,new cljs.core.Keyword(null,"left","left",-399115937),null], null), null);
 fugue.ide.state.next_window_id = (function fugue$ide$state$next_window_id(state){
 return cljs.core.first.call(null,cljs.core.filter.call(null,(function (p1__15682_SHARP_){
 return (!(cljs.core.contains_QMARK_.call(null,new cljs.core.Keyword("fugue.ide.state","windows","fugue.ide.state/windows",-1118495986).cljs$core$IFn$_invoke$arity$1(state),p1__15682_SHARP_)));
@@ -54,9 +55,6 @@ return cljs.core.get_in.call(null,state,new cljs.core.PersistentVector(null, 2, 
 });
 fugue.ide.state.active_file = (function fugue$ide$state$active_file(state){
 return fugue.ide.state.file_contents.call(null,state,fugue.ide.state.active_file_name.call(null,state));
-});
-fugue.ide.state.open_file_in_active_window = (function fugue$ide$state$open_file_in_active_window(state,name){
-return fugue.ide.state.close_popup.call(null,cljs.core.assoc_in.call(null,state,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("fugue.ide.state","windows","fugue.ide.state/windows",-1118495986),new cljs.core.Keyword("fugue.ide.state","active","fugue.ide.state/active",787267053).cljs$core$IFn$_invoke$arity$1(state)], null),name));
 });
 fugue.ide.state.open_file = (function fugue$ide$state$open_file(state,name,direction){
 var id = fugue.ide.state.next_window_id.call(null,state);
@@ -202,7 +200,7 @@ var map__15699 = new cljs.core.Keyword("fugue.ide.state","minibuffer","fugue.ide
 var map__15699__$1 = (((((!((map__15699 == null))))?(((((map__15699.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__15699.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__15699):map__15699);
 var action_name = cljs.core.get.call(null,map__15699__$1,new cljs.core.Keyword("fugue.ide.state","action-name","fugue.ide.state/action-name",-580654294));
 var args = cljs.core.get.call(null,map__15699__$1,new cljs.core.Keyword("fugue.ide.state","args","fugue.ide.state/args",275674359));
-return fugue.ide.state.interactive.call(null,state,action_name,cljs.core.conj.call(null,args,value),swap_cb,action_cb);
+return fugue.ide.state.interactive.call(null,state,action_name,cljs.core.concat.call(null,args,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [value], null)),swap_cb,action_cb);
 });
 fugue.ide.state.on_key = (function fugue$ide$state$on_key(state,key,swap_cb,action_cb){
 var new_seq = cljs.core.conj.call(null,new cljs.core.Keyword("fugue.ide.state","key-seq","fugue.ide.state/key-seq",1092364346).cljs$core$IFn$_invoke$arity$1(state),key);
@@ -248,4 +246,4 @@ fugue.ide.state.on_upload = (function fugue$ide$state$on_upload(state,name,file)
 return fugue.ide.state.open_file.call(null,fugue.ide.state.write_file.call(null,state,name,file),name,new cljs.core.Keyword(null,"after","after",594996914));
 });
 
-//# sourceMappingURL=state.js.map?rel=1611099815850
+//# sourceMappingURL=state.js.map?rel=1611101806931

@@ -12,4 +12,4 @@ live.api.note_on_QMARK_ = fugue.api.note_on_QMARK_;
 live.api.note_off_QMARK_ = fugue.api.note_off_QMARK_;
 live.api.int_slider = fugue.api.int_slider;
 
-//# sourceMappingURL=api.js.map?rel=1611099819701
+//# sourceMappingURL=api.js.map?rel=1611101810621
