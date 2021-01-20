@@ -15,6 +15,8 @@
               :line-numbers false}
    ::files (merge init-files {"fugue.user" "(ns fugue.user)\n\n(+ 1 2)"})})
 
+(def directions #{:right :below :left :above :after :before})
+
 (defn next-window-id [state]
   (first (filter #(not (contains? (::windows state) %)) (range 1 10))))
 
@@ -67,11 +69,6 @@
 
 (defn active-file [state]
   (file-contents state (active-file-name state)))
-
-(defn open-file-in-active-window [state name]
-  (-> state
-      (assoc-in [::windows (::active state)] name)
-      (close-popup)))
 
 (defn open-file [state name direction]
   (let [id (next-window-id state)]
@@ -135,7 +132,7 @@
 
 (defn on-minibuffer-submit [state swap-cb action-cb value]
   (let [{::keys [action-name args]} (::minibuffer state)]
-    (interactive state action-name (conj args value) swap-cb action-cb)))
+    (interactive state action-name (concat args [value]) swap-cb action-cb)))
 
 (defn on-key [state key swap-cb action-cb]
   (let [new-seq (conj (::key-seq state) key)
