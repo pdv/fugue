@@ -80,8 +80,8 @@
       (s/add-action :jump-to-window :int)
       (add-jumps)
       ;;
-      (s/add-action :go-back)
-      (s/add-shortcut ["Tab"] :go-back)
+      (s/add-action :previous-window)
+      (s/add-shortcut ["Tab"] :previous-window)
       ;;
       (s/add-shortcut-group ["t"] "toggle")
       (s/add-action :flip-toggle #{:vim :line-numbers})
@@ -109,7 +109,7 @@
 
 (defn make-actions [state-atom eval-state]
   {:jump-to-window (partial swap! state-atom s/activate)
-   :go-back (partial swap! state-atom s/go-back)
+   :previous-window (partial swap! state-atom s/go-back)
    :flip-toggle (partial swap! state-atom s/flip-toggle)
    :split-window (partial swap! state-atom s/split)
    :kill-active-window (partial swap! state-atom s/kill-active-window)

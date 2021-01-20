@@ -12,4 +12,4 @@ fugue.bootstrap.eval_str = (function fugue$bootstrap$eval_str(source,load_fn,cb)
 return cljs.js.eval_str.call(null,fugue.bootstrap.state,source,null,cljs.core.assoc.call(null,fugue.bootstrap.eval_settings,new cljs.core.Keyword(null,"load","load",-1318641184),load_fn),cb);
 });
 
-//# sourceMappingURL=bootstrap.js.map?rel=1611101812767
+//# sourceMappingURL=bootstrap.js.map?rel=1611104225501

@@ -32,7 +32,7 @@ goog.addDependency("../devtools/preload.js", ['devtools.preload'], ['cljs.core',
 goog.addDependency("../fugue/notes.js", ['fugue.notes'], ['cljs.core']);
 goog.addDependency("../clojure/zip.js", ['clojure.zip'], ['cljs.core']);
 goog.addDependency("../fugue/ide/layout.js", ['fugue.ide.layout'], ['clojure.zip', 'cljs.core']);
-goog.addDependency("../fugue/ide/state.js", ['fugue.ide.state'], ['cljs.core', 'fugue.ide.layout', 'clojure.set']);
+goog.addDependency("../fugue/ide/state.js", ['fugue.ide.state'], ['cljs.core', 'fugue.ide.layout', 'clojure.set', 'clojure.string']);
 goog.addDependency("../loom/alg_generic.js", ['loom.alg_generic'], ['cljs.core']);
 goog.addDependency("../loom/graph.js", ['loom.graph'], ['cljs.core', 'loom.alg_generic']);
 goog.addDependency("../loom/attr.js", ['loom.attr'], ['cljs.core', 'loom.graph']);
