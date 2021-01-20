@@ -1,6 +1,7 @@
 (ns fugue.ide.state
   (:require [fugue.ide.layout :as layout]
-            [clojure.set :refer [rename-keys]]))
+            [clojure.set :refer [rename-keys]]
+            [clojure.string :as string]))
 
 (defn init-state [init-files]
   {::layout '(1)
@@ -97,7 +98,9 @@
   (->> (get-in (::shortcuts state) (::key-seq state))
        (filter (comp string? first))
        (map #(vector (first %) (or (::group-name (second %))
-                                   (clj->js (::action-name (second %))))))))
+                                   (let [name (clj->js (::action-name (second %)))
+                                         args (string/join " " (::args (second %)))]
+                                     (str name " " args)))))))
 
 (defn add-action [state name & arg-types]
   (assoc-in state [::actions (keyword name)] {::action-name name
